@@ -1,20 +1,14 @@
 import React, { useState } from 'react';
 import {
   Home,
-  CreditCard,
-  ListOrdered,
-  ArrowLeftRight,
-  Users,
+  ShieldAlert,
+  Network,
+  Search,
+  MapPin,
   BarChart2,
+  Sliders,
   ChevronDown,
   ChevronUp,
-  Clock,
-  Lock,
-  FileCheck2,
-  Send,
-  HelpCircle,
-  Settings,
-  Menu,
   X
 } from 'lucide-react';
 
@@ -35,25 +29,47 @@ export const Sidebar: React.FC<SidebarProps> = ({
   mobileOpen = false,
   onCloseMobile,
 }) => {
-  const [paymentsExpanded, setPaymentsExpanded] = useState<boolean>(true);
+  const [investigationExpanded, setInvestigationExpanded] = useState<boolean>(true);
 
-  const navItems = [
-    { id: 'overview', label: 'Home', icon: Home },
-    { id: 'fund-cards', label: 'Cards', icon: CreditCard },
-    { id: 'flagged-projects', label: 'Transactions', icon: ListOrdered, badge: flaggedCount },
+  // Top Nav Items strictly matching user specification:
+  // - Home -> Overview (same home icon)
+  // - Cards -> Flagged Projects (shield-alert icon with black rounded badge)
+  // - Transactions -> Entity Analytics (network icon, no badge)
+  const topNavItems = [
+    { id: 'overview', label: 'Overview', icon: Home },
+    {
+      id: 'flagged-projects',
+      label: 'Flagged Projects',
+      icon: ShieldAlert,
+      badge: flaggedCount,
+    },
+    {
+      id: 'entity-analytics',
+      label: 'Entity Analytics',
+      icon: Network,
+    },
   ];
 
-  const subPaymentsItems = [
-    { id: 'scheduled-audits', label: 'Scheduled', icon: Clock },
-    { id: 'disbursal-freezes', label: 'Direct Debits', icon: Lock },
-    { id: 'recurring-audits', label: 'Recurring card payments', icon: Clock },
-    { id: 'payment-requests', label: 'Payment requests', icon: FileCheck2 },
-    { id: 'bill-splits', label: 'Bill splits', icon: ArrowLeftRight },
+  // Investigation Sub-items:
+  // - Case Briefs
+  // - Early Warnings
+  // - Risk Fingerprint
+  // - SHAP Explainability
+  const investigationSubItems = [
+    { id: 'case-briefs', label: 'Case Briefs' },
+    { id: 'early-warnings', label: 'Early Warnings' },
+    { id: 'risk-fingerprint', label: 'Risk Fingerprint' },
+    { id: 'shap-explainability', label: 'SHAP Explainability' },
   ];
 
+  // Bottom Nav Items:
+  // - Recipients -> Constituency Map (map-pin icon)
+  // - Insights -> Leaderboard (bar-chart icon)
+  // - Simulation Sandbox (sliders icon)
   const bottomNavItems = [
-    { id: 'recipients', label: 'Recipients', icon: Users },
-    { id: 'insights', label: 'Insights', icon: BarChart2 },
+    { id: 'constituency-map', label: 'Constituency Map', icon: MapPin },
+    { id: 'leaderboard', label: 'Leaderboard', icon: BarChart2 },
+    { id: 'simulation-sandbox', label: 'Simulation Sandbox', icon: Sliders },
   ];
 
   const handleNavClick = (id: string) => {
@@ -62,6 +78,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
       onCloseMobile();
     }
   };
+
+  const isInvestigationActive = investigationSubItems.some(
+    (item) => item.id === currentView
+  );
 
   return (
     <>
@@ -75,19 +95,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       <aside
         id="sidebar-wise"
-        className={`fixed lg:static top-0 left-0 bottom-0 z-50 w-64 bg-white flex flex-col justify-between py-6 px-4 transition-transform duration-200 border-r border-[#F1F0EC] lg:border-none ${
+        className={`fixed lg:static top-0 left-0 bottom-0 z-50 w-64 bg-white flex flex-col justify-between py-6 px-4 transition-transform duration-200 border-r border-[#F1F0EC] lg:border-none select-none ${
           mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
       >
         {/* Top Section */}
         <div className="space-y-6">
-          {/* Wise-Style Wordmark Logo */}
+          {/* Logo / Header */}
           <div className="flex items-center justify-between px-2 pt-1 pb-2">
             <button
               onClick={() => handleNavClick('overview')}
               className="flex items-center gap-2 text-left group cursor-pointer focus:outline-none"
             >
-              {/* Geometric Flag/Lightning Symbol */}
+              {/* Geometric Wise-style Flag/Lightning Symbol */}
               <div className="w-8 h-8 flex items-center justify-center text-[#0E0E0E]">
                 <svg
                   viewBox="0 0 24 24"
@@ -111,16 +131,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
             {onCloseMobile && (
               <button
                 onClick={onCloseMobile}
-                className="p-1 rounded-full text-[#6B6B6B] hover:text-[#0E0E0E] hover:bg-[#F1F0EC] lg:hidden"
+                className="p-1 rounded-full text-[#6B6B6B] hover:text-[#0E0E0E] hover:bg-[#F1F0EC] lg:hidden cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             )}
           </div>
 
-          {/* Navigation Items (Exact Wise Spacing & Rounded Pill Active States) */}
+          {/* Navigation Items (Exact Wise Spacing, Typography & Pill Active States) */}
           <nav className="space-y-1">
-            {navItems.map((item) => {
+            {/* 1. Top Level Items: Overview, Flagged Projects (badge), Entity Analytics */}
+            {topNavItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentView === item.id;
               return (
@@ -133,13 +154,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       : 'text-[#0E0E0E] hover:bg-[#F1F0EC] hover:text-[#0E0E0E]'
                   }`}
                 >
-                  <div className="flex items-center gap-3.5">
-                    <Icon className="w-5 h-5 stroke-[1.75]" />
-                    <span>{item.label}</span>
+                  <div className="flex items-center gap-3.5 min-w-0">
+                    <Icon className="w-5 h-5 stroke-[1.75] shrink-0" />
+                    <span className="truncate">{item.label}</span>
                   </div>
 
-                  {item.badge && item.badge > 0 && (
-                    <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-[#0E0E0E] text-white">
+                  {item.badge !== undefined && item.badge > 0 && (
+                    <span className="min-w-[24px] h-6 px-1.5 rounded-full bg-[#0E0E0E] text-white text-xs font-bold flex items-center justify-center shrink-0">
                       {item.badge}
                     </span>
                   )}
@@ -147,27 +168,31 @@ export const Sidebar: React.FC<SidebarProps> = ({
               );
             })}
 
-            {/* Expandable Group: Payments (Matching Wise reference) */}
-            <div className="pt-1">
+            {/* 2. Expandable Group: Investigation */}
+            <div className="pt-0.5">
               <button
-                onClick={() => setPaymentsExpanded(!paymentsExpanded)}
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-full text-sm font-medium transition-all text-left cursor-pointer text-[#0E0E0E] hover:bg-[#F1F0EC]`}
+                onClick={() => setInvestigationExpanded(!investigationExpanded)}
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-full text-sm font-medium transition-all text-left cursor-pointer ${
+                  isInvestigationActive && !investigationExpanded
+                    ? 'bg-[#EAE8E2] text-[#0E0E0E] font-semibold'
+                    : 'text-[#0E0E0E] hover:bg-[#F1F0EC]'
+                }`}
               >
                 <div className="flex items-center gap-3.5">
-                  <ArrowLeftRight className="w-5 h-5 stroke-[1.75]" />
-                  <span>Payments</span>
+                  <Search className="w-5 h-5 stroke-[1.75]" />
+                  <span>Investigation</span>
                 </div>
-                {paymentsExpanded ? (
+                {investigationExpanded ? (
                   <ChevronUp className="w-4 h-4 text-[#6B6B6B]" />
                 ) : (
                   <ChevronDown className="w-4 h-4 text-[#6B6B6B]" />
                 )}
               </button>
 
-              {/* Collapsed Sub-items (Indented in lighter gray) */}
-              {paymentsExpanded && (
+              {/* Sub-items (Indented exactly like Wise screenshot) */}
+              {investigationExpanded && (
                 <div className="pl-12 pr-2 py-1 space-y-1 transition-all">
-                  {subPaymentsItems.map((sub) => {
+                  {investigationSubItems.map((sub) => {
                     const isSubActive = currentView === sub.id;
                     return (
                       <button
@@ -187,7 +212,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               )}
             </div>
 
-            {/* Bottom Nav Items */}
+            {/* 3. Bottom Nav Items: Constituency Map, Leaderboard, Simulation Sandbox */}
             {bottomNavItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentView === item.id;
@@ -201,9 +226,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       : 'text-[#0E0E0E] hover:bg-[#F1F0EC] hover:text-[#0E0E0E]'
                   }`}
                 >
-                  <div className="flex items-center gap-3.5">
-                    <Icon className="w-5 h-5 stroke-[1.75]" />
-                    <span>{item.label}</span>
+                  <div className="flex items-center gap-3.5 min-w-0">
+                    <Icon className="w-5 h-5 stroke-[1.75] shrink-0" />
+                    <span className="truncate">{item.label}</span>
                   </div>
                 </button>
               );
@@ -220,3 +245,4 @@ export const Sidebar: React.FC<SidebarProps> = ({
     </>
   );
 };
+
