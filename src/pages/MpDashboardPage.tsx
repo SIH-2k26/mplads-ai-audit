@@ -238,6 +238,18 @@ export function MpDashboardPage() {
           { label: 'Intelligence Platform', path: '/' },
           { label: 'MP / Constituency Dashboard' },
         ]}
+        actions={
+          <Link to="/risk-assessment">
+            <Button
+              variant="default"
+              size="sm"
+              className="text-xs font-bold bg-[#15324A] hover:bg-[#0F2638] text-white flex items-center gap-1.5 shadow-subtle"
+            >
+              <span>Assess Project Risk</span>
+              <ArrowRight className="h-3.5 w-3.5 text-[#E5B45A]" />
+            </Button>
+          </Link>
+        }
       />
 
       {/* Institutional Disclaimer Notice */}

@@ -6,6 +6,7 @@ import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { FinancialVsPhysicalProgress } from '../components/domain/FinancialVsPhysicalProgress';
 import { ProjectRiskSheet, ProjectRiskData } from '../components/domain/ProjectRiskSheet';
+import { RecentAssessmentsCard } from '../components/risk-assessment/RecentAssessmentsCard';
 import { mockAlerts } from '../data/mock-alerts';
 import { mockProjects } from '../data/mock-projects';
 import { Link } from 'react-router-dom';
@@ -190,6 +191,18 @@ export function DistrictDashboardPage() {
           { label: 'Intelligence Platform', path: '/' },
           { label: 'District Command Centre' },
         ]}
+        actions={
+          <Link to="/risk-assessment">
+            <Button
+              variant="default"
+              size="sm"
+              className="text-xs font-bold bg-[#15324A] hover:bg-[#0F2638] text-white flex items-center gap-1.5 shadow-subtle"
+            >
+              <span>Assess Project Risk</span>
+              <ArrowRight className="h-3.5 w-3.5 text-[#E5B45A]" />
+            </Button>
+          </Link>
+        }
       />
 
       {/* Hero Operational KPI Strip (6 Key Indicators) */}
@@ -532,6 +545,11 @@ export function DistrictDashboardPage() {
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Section: Manual Project Risk Assessment & Proactive Inquiries */}
+        <div className="pt-2">
+          <RecentAssessmentsCard />
         </div>
 
       </div>

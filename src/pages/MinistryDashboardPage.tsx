@@ -99,6 +99,18 @@ export function MinistryDashboardPage() {
           { label: 'Intelligence Platform', path: '/' },
           { label: 'Ministry / National Oversight' },
         ]}
+        actions={
+          <Link to="/risk-assessment">
+            <Button
+              variant="default"
+              size="sm"
+              className="text-xs font-bold bg-[#15324A] hover:bg-[#0F2638] text-white flex items-center gap-1.5 shadow-subtle"
+            >
+              <span>Assess Project Risk</span>
+              <ArrowRight className="h-3.5 w-3.5 text-[#E5B45A]" />
+            </Button>
+          </Link>
+        }
       />
 
       {/* Hero National KPI Strip (8 Core Indicators) */}

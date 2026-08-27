@@ -1,0 +1,186 @@
+import { ProjectAssessmentInput } from '../types/riskAssessment';
+
+export interface SampleScenario {
+  id: string;
+  name: string;
+  badge: string;
+  badgeVariant: 'success' | 'saffron' | 'critical';
+  description: string;
+  expectedRiskScore: number;
+  expectedRiskLevel: 'LOW' | 'HIGH' | 'CRITICAL';
+  data: ProjectAssessmentInput;
+}
+
+export const SAMPLE_SCENARIOS: SampleScenario[] = [
+  {
+    id: 'SCENARIO_A',
+    name: 'Scenario A — Compliant Project (Low Risk)',
+    badge: 'LOW RISK (Score ~18)',
+    badgeVariant: 'success',
+    description: 'Balanced execution, open competitive tender with 5 bidders, verified geo-location, and complete documentation.',
+    expectedRiskScore: 18,
+    expectedRiskLevel: 'LOW',
+    data: {
+      projectId: 'MPLADS-MH-PUN-2025-0811',
+      projectName: 'Upgradation of Primary Health Centre & Solar Cold Chain',
+      state: 'Maharashtra',
+      district: 'Pune',
+      constituency: 'Pune Parliamentary Constituency',
+      implementingAgency: 'District Health Society / PWD Sub-Division',
+      category: 'Public Health',
+      sanctionDate: '2025-04-15',
+      expectedCompletionDate: '2026-03-31',
+
+      sanctionedAmount: 3850000,
+      estimatedProjectCost: 3800000,
+      amountReleased: 2500000,
+      amountUtilized: 1625000,
+      paymentCount: 2,
+      latestPaymentAmount: 750000,
+
+      physicalProgress: 68,
+      financialProgress: 65,
+      daysSinceSanction: 280,
+      daysSinceLastPayment: 35,
+      plannedDurationDays: 350,
+      actualDurationDays: 280,
+      currentStatus: 'In Progress',
+
+      bidderCount: 5,
+      eligibleBidderCount: 4,
+      selectedBidAmount: 3820000,
+      estimatedTenderAmount: 3800000,
+      contractorCount: 1,
+      contractorConcentrationPercentage: 14,
+      tenderType: 'Open Tender',
+
+      duplicateWorkSuspected: false,
+      nearbySimilarWork: false,
+      repeatedContractor: false,
+      documentationComplete: true,
+      geoLocationVerified: true,
+      administrativeApprovalAvailable: true,
+      technicalSanctionAvailable: true,
+
+      lastInspectionDate: '2026-07-10',
+      inspectionStatus: 'Verified',
+      photoEvidenceAvailable: true,
+      geoTaggedEvidenceAvailable: true,
+      independentQualityMonitorStatus: 'IQM Grade 1 Satisfactory',
+    },
+  },
+  {
+    id: 'SCENARIO_B',
+    name: 'Scenario B — Progress & Tender Mismatch (High Risk)',
+    badge: 'HIGH RISK (Score ~78)',
+    badgeVariant: 'saffron',
+    description: 'Financial disbursement (82%) significantly outpaces verified physical progress (40%), single eligible bidder with +36% bid markup.',
+    expectedRiskScore: 78,
+    expectedRiskLevel: 'HIGH',
+    data: {
+      projectId: 'MPLADS-MH-PUN-2025-1023',
+      projectName: 'Ward 17 Community Multi-Purpose Hall Complex',
+      state: 'Maharashtra',
+      district: 'Pune',
+      constituency: 'Pune Parliamentary Constituency',
+      implementingAgency: 'Pune Municipal Corporation (Building Dept.)',
+      category: 'Community Assets',
+      sanctionDate: '2025-02-10',
+      expectedCompletionDate: '2025-12-31',
+
+      sanctionedAmount: 6800000,
+      estimatedProjectCost: 5000000,
+      amountReleased: 5500000,
+      amountUtilized: 4510000,
+      paymentCount: 4,
+      latestPaymentAmount: 1800000,
+
+      physicalProgress: 40,
+      financialProgress: 82,
+      daysSinceSanction: 420,
+      daysSinceLastPayment: 18,
+      plannedDurationDays: 325,
+      actualDurationDays: 420,
+      currentStatus: 'Delayed',
+
+      bidderCount: 2,
+      eligibleBidderCount: 1,
+      selectedBidAmount: 6800000,
+      estimatedTenderAmount: 5000000,
+      contractorCount: 1,
+      contractorConcentrationPercentage: 48,
+      tenderType: 'Limited Tender',
+
+      duplicateWorkSuspected: false,
+      nearbySimilarWork: true,
+      repeatedContractor: true,
+      documentationComplete: true,
+      geoLocationVerified: true,
+      administrativeApprovalAvailable: true,
+      technicalSanctionAvailable: true,
+
+      lastInspectionDate: '2026-05-14',
+      inspectionStatus: 'Issue Identified',
+      photoEvidenceAvailable: true,
+      geoTaggedEvidenceAvailable: false,
+      independentQualityMonitorStatus: 'Physical Progress Lags Behind Cash Flow',
+    },
+  },
+  {
+    id: 'SCENARIO_C',
+    name: 'Scenario C — Severe Duplication & Compliance Violation (Critical Risk)',
+    badge: 'CRITICAL RISK (Score ~92)',
+    badgeVariant: 'critical',
+    description: '94% funds drawn vs 28% physical progress, suspected duplicate scheme overlap, nomination tender, missing technical sanction, 190+ days delay.',
+    expectedRiskScore: 92,
+    expectedRiskLevel: 'CRITICAL',
+    data: {
+      projectId: 'MPLADS-MH-PUN-2024-0419',
+      projectName: 'Rural Drinking Water Overhead Reservoir & Distribution Network',
+      state: 'Maharashtra',
+      district: 'Pune',
+      constituency: 'Pune Parliamentary Constituency',
+      implementingAgency: 'Zilla Parishad Rural Water Supply Division',
+      category: 'Water Infrastructure',
+      sanctionDate: '2024-08-01',
+      expectedCompletionDate: '2025-06-30',
+
+      sanctionedAmount: 12500000,
+      estimatedProjectCost: 9000000,
+      amountReleased: 11800000,
+      amountUtilized: 11092000,
+      paymentCount: 6,
+      latestPaymentAmount: 3200000,
+
+      physicalProgress: 28,
+      financialProgress: 94,
+      daysSinceSanction: 610,
+      daysSinceLastPayment: 12,
+      plannedDurationDays: 334,
+      actualDurationDays: 610,
+      currentStatus: 'Delayed',
+
+      bidderCount: 1,
+      eligibleBidderCount: 1,
+      selectedBidAmount: 12500000,
+      estimatedTenderAmount: 9000000,
+      contractorCount: 1,
+      contractorConcentrationPercentage: 74,
+      tenderType: 'Nomination',
+
+      duplicateWorkSuspected: true,
+      nearbySimilarWork: true,
+      repeatedContractor: true,
+      documentationComplete: false,
+      geoLocationVerified: false,
+      administrativeApprovalAvailable: true,
+      technicalSanctionAvailable: false,
+
+      lastInspectionDate: '2025-11-20',
+      inspectionStatus: 'Not Inspected',
+      photoEvidenceAvailable: false,
+      geoTaggedEvidenceAvailable: false,
+      independentQualityMonitorStatus: 'Pending Mandatory Vigilance Audit',
+    },
+  },
+];

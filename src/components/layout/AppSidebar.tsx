@@ -22,6 +22,7 @@ import {
   Sparkles,
   Activity,
   FileText,
+  Sliders,
 } from 'lucide-react';
 import { useRoleStore } from '../../stores/useRoleStore';
 import { useUiStore } from '../../stores/useUiStore';
@@ -39,14 +40,15 @@ export function AppSidebar() {
           { label: 'MP Constituency Oversight', path: '/mp', icon: UserCheck, primary: true },
           { label: 'Constituency Projects & Twins', path: '/projects', icon: FolderKanban },
           { label: 'Early Warning Signals', path: '/alerts', icon: ShieldAlert, badge: '3' },
+          { label: 'Project Risk Assessment', path: '/risk-assessment', icon: Sparkles, highlight: true },
           { label: 'Geographic Work Maps', path: '/maps', icon: Map },
           { label: 'Codified Rules & Guidelines', path: '/policies', icon: BookOpen },
-          { label: 'Browse States & Benchmarks', path: '/state', icon: Globe2 },
         ];
       case 'DISTRICT_AUTHORITY':
         return [
           { label: 'District Command Centre', path: '/district', icon: Building, primary: true },
           { label: 'Priority Action Queue', path: '/alerts', icon: ShieldAlert, badge: '7', highlight: true },
+          { label: 'Project Risk Assessment', path: '/risk-assessment', icon: Sparkles, highlight: true },
           { label: 'Monitored Works Explorer', path: '/projects', icon: FolderKanban },
           { label: 'Active Case Dossiers', path: '/cases', icon: Briefcase, badge: '3' },
           { label: 'Implementing Line Agencies', path: '/agencies', icon: Building2 },
@@ -57,7 +59,7 @@ export function AppSidebar() {
         return [
           { label: 'State Nodal Oversight (SNA)', path: '/state', icon: Globe2, primary: true },
           { label: 'District Anomaly League Table', path: '/state', icon: Building },
-          { label: 'State Risk Heatmap', path: '/maps', icon: Map },
+          { label: 'Project Risk Assessment', path: '/risk-assessment', icon: Sparkles, highlight: true },
           { label: 'Contractor Cartel Intel', path: '/contractors', icon: Users },
           { label: 'Fraud Archetypes & Overlap', path: '/compliance', icon: Scale },
           { label: 'Statewide Projects Directory', path: '/projects', icon: FolderKanban },
@@ -66,22 +68,22 @@ export function AppSidebar() {
       case 'AUDITOR':
         return [
           { label: 'Vigilance & Case Inquiries', path: '/cases', icon: Briefcase, primary: true, badge: '12' },
-          { label: 'CAG / CVC Audit Prioritisation', path: '/reports', icon: FileSpreadsheet, highlight: true },
+          { label: 'Project Risk Assessment', path: '/risk-assessment', icon: Sparkles, highlight: true },
+          { label: 'CAG / CVC Audit Prioritisation', path: '/reports', icon: FileSpreadsheet },
           { label: 'RAG Knowledge & Policy Store', path: '/policies', icon: BookOpen },
           { label: 'Fraud Archetypes & Cartels', path: '/compliance', icon: Scale },
           { label: 'All-India Projects Directory', path: '/projects', icon: FolderKanban },
-          { label: 'National Risk Analytics', path: '/ministry', icon: Landmark },
         ];
       case 'MINISTRY_DIID':
       default:
         return [
           { label: 'National Oversight Directorate', path: '/ministry', icon: Landmark, primary: true },
+          { label: 'Project Risk Assessment', path: '/risk-assessment', icon: Sparkles, highlight: true },
           { label: 'All-India Case Inquiries', path: '/cases', icon: Briefcase, badge: '12' },
-          { label: 'CAG / CVC Audit Prioritisation', path: '/reports', icon: FileSpreadsheet, highlight: true },
+          { label: 'CAG / CVC Audit Prioritisation', path: '/reports', icon: FileSpreadsheet },
           { label: 'Fraud Archetype Overlaps', path: '/compliance', icon: Scale },
           { label: 'Contractor Cartel Networks', path: '/contractors', icon: Users },
           { label: 'National Projects Telemetry', path: '/projects', icon: FolderKanban },
-          { label: 'National Geographic Maps', path: '/maps', icon: Map },
         ];
     }
   };

@@ -17,6 +17,7 @@ import { MapsPage } from '../pages/MapsPage';
 import { CompliancePage } from '../pages/CompliancePage';
 import { PoliciesPage } from '../pages/PoliciesPage';
 import { ReportsPage } from '../pages/ReportsPage';
+import { RiskAssessmentPage } from '../pages/RiskAssessmentPage';
 import { DesignSystemPage } from '../pages/DesignSystemPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
@@ -52,6 +53,14 @@ export const router = createBrowserRouter([
       {
         path: 'intelligence',
         element: <MinistryDashboardPage />,
+      },
+      {
+        path: 'risk-assessment',
+        element: <RiskAssessmentPage />,
+      },
+      {
+        path: 'simulate',
+        element: <RiskAssessmentPage />,
       },
       {
         path: 'projects',
