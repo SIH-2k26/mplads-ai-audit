@@ -68,16 +68,30 @@ def create_access_token(
     return jwt.encode(to_encode, _get_secret(), algorithm=JWT_ALGORITHM)
 
 
+
 def decode_access_token(token: str) -> Optional[TokenPayload]:
-    """Decodes and validates a JWT token. Returns None on any validation failure."""
+    """
+    Decodes and validates a JWT token. Returns None on any validation failure
+    (expired, tampered, wrong secret, none-algorithm attack, invalid structure).
+    """
+    if not token or not isinstance(token, str):
+        return None
     try:
-        payload = jwt.decode(token, _get_secret(), algorithms=[JWT_ALGORITHM])
+        header = jwt.get_unverified_header(token)
+        if header.get("alg", "").lower() == "none":
+            return None
+        payload = jwt.decode(
+            token,
+            _get_secret(),
+            algorithms=[JWT_ALGORITHM],
+            options={"verify_exp": True, "require": ["sub", "exp", "iat"]},
+        )
         return TokenPayload(
             sub=payload["sub"],
-            role=UserRole(payload["role"]),
+            role=UserRole(payload.get("role", "MP")),
             state=payload.get("state"),
             district=payload.get("district"),
             exp=payload["exp"],
         )
-    except (JWTError, KeyError, ValueError):
+    except Exception:
         return None
