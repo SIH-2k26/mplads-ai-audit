@@ -14,19 +14,50 @@ from rag.retriever import RAGRetriever, RetrievalFilter, RetrievalResponse
 
 
 class RAGAgent(BaseAgent):
+    """
+    Policy & Guideline Citation Agent.
+
+    Wraps CONTRACT 3 RAGRetriever interface to query versioned MPLADS statutory guidelines,
+    extract relevant section citations based on project category and state, and attach
+    verifiable policy references to AgentEvidence.
+    """
     agent_id = "rag_agent"
     agent_name = "Policy & Guideline Citation Agent"
     version = "1.0.0"
 
     def __init__(self, retriever: Optional[RAGRetriever] = None):
+        """
+        Initializes RAGAgent with an optional RAGRetriever instance.
+
+        Args:
+            retriever: RAGRetriever interface instance.
+        """
         super().__init__()
         self.retriever = retriever or RAGRetriever()
 
     def is_applicable(self, context: AgentContext) -> bool:
+        """
+        Checks applicability for digital twin.
+
+        Args:
+            context: Execution context.
+
+        Returns:
+            bool: True if digital twin exists.
+        """
         twin = context.digital_twin
         return twin is not None
 
     def analyze(self, context: AgentContext) -> AgentEvidence:
+        """
+        Constructs context-aware policy query, retrieves top citations, and attaches evidence items.
+
+        Args:
+            context: Execution context with digital twin metrics.
+
+        Returns:
+            AgentEvidence: Retrieved guideline section citations and evidence data points.
+        """
         twin = context.digital_twin
         signals: list[AgentSignal] = []
         evidence: list[EvidenceDataPoint] = []
