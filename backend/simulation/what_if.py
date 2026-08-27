@@ -16,8 +16,17 @@ from orchestration.graph import MPLADSOrchestrator, run_pipeline
 
 class WhatIfSimulator:
     """
-    Simulates parameter adjustments (delay days, expenditure, physical progress)
-    on a in-memory clone of ProjectDigitalTwin and calculates projected risk deltas.
+    Simulates parameter adjustments on an in-memory clone of ProjectDigitalTwin.
+
+    Simulation Steps:
+    1. Runs baseline risk assessment pipeline on original twin.
+    2. Performs deep-copy model clone (`digital_twin.model_copy(deep=True)`).
+    3. Applies parameter adjustments:
+       - `delay_days_delta`: Shifts expected completion date back/forward.
+       - `expenditure_delta`: Increments/decrements total expenditure INR.
+       - `physical_progress_delta`: Adjusts latest physical progress percentage.
+    4. Executes risk pipeline on simulated twin.
+    5. Calculates score deltas: `Delta = Simulated Score - Baseline Score`.
     """
 
     def simulate_what_if(
@@ -29,7 +38,15 @@ class WhatIfSimulator:
     ) -> dict[str, Any]:
         """
         Execute what-if simulation on a cloned digital twin.
-        Returns baseline, simulated risk scores, and score deltas.
+
+        Args:
+            digital_twin: Original ProjectDigitalTwin instance.
+            delay_days_delta: Days of schedule delay delta to project (+/- days).
+            expenditure_delta: Financial expenditure delta to apply (+/- INR).
+            physical_progress_delta: Physical progress % delta to apply (+/- %).
+
+        Returns:
+            dict[str, Any]: Baseline scores, simulated scores, calculated deltas, and risk transitions.
         """
         # 1. Run baseline pipeline
         baseline_state = run_pipeline(digital_twin)
