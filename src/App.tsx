@@ -14,6 +14,7 @@ import { WiseOfficerProfileModal } from './components/WiseOfficerProfileModal';
 import { ClaudeForensicCopilot } from './components/ClaudeForensicCopilot';
 import { InteractiveEntityGraph } from './components/InteractiveEntityGraph';
 import { InteractiveConstituencyExplorer } from './components/InteractiveConstituencyExplorer';
+import { ComplianceTrendlineChart } from './components/ComplianceTrendlineChart';
 import { FLAGGED_PROJECTS, SYSTEM_METRICS } from './data/mockData';
 import { MPLADSProject } from './types';
 import { Landmark, ShieldAlert, Users, Plus, ArrowLeft, Sparkles, Bot } from 'lucide-react';
@@ -144,6 +145,12 @@ export default function App() {
                 flaggedRiskCr={SYSTEM_METRICS.flaggedOutlayCr}
                 reconciledCr={SYSTEM_METRICS.totalExpendedCr - SYSTEM_METRICS.flaggedOutlayCr}
                 activeFreezesCount={activeFreezesCount}
+              />
+
+              {/* 30-Day Compliance Reliability Animated Recharts Trendline below National Scheme Account */}
+              <ComplianceTrendlineChart
+                currentScore={SYSTEM_METRICS.nationalCompositeTrustScore}
+                onOpenAuditLog={() => setShowAnalyticsChart(!showAnalyticsChart)}
               />
 
               {/* 3. Dismissible Notice Banner Strip */}

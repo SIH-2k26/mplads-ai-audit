@@ -29,13 +29,13 @@ export const WiseHeroBalance: React.FC<WiseHeroBalanceProps> = ({
       <div>
         <div className="flex items-center gap-2">
           <span className="text-sm text-[#6B6B6B] font-normal">
-            {displayMode === 'outlay' ? 'Total monitored outlay' : 'National scheme integrity score'}
+            {displayMode === 'outlay' ? 'Total monitored outlay' : 'National scheme compliance reliability score'}
           </span>
           <button
             onClick={() => setDisplayMode(displayMode === 'outlay' ? 'trust' : 'outlay')}
             className="text-[11px] text-[#6B6B6B] underline hover:text-[#0E0E0E] cursor-pointer"
           >
-            switch to {displayMode === 'outlay' ? 'trust score' : 'outlay'}
+            switch to {displayMode === 'outlay' ? 'compliance score' : 'outlay'}
           </button>
         </div>
 
@@ -139,4 +139,5 @@ export const WiseHeroBalance: React.FC<WiseHeroBalanceProps> = ({
     </div>
   );
 };
+
 
