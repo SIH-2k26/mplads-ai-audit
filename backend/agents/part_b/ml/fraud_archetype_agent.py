@@ -13,15 +13,45 @@ from models.enums import AgentStatus, Severity, ProjectStatus
 
 
 class FraudArchetypeAgent(BaseAgent):
+    """
+    Risk Archetype Classifier Agent.
+
+    Classifies multidimensional project vectors into dominant behavioral risk patterns:
+    1. Year-End Rush Pattern: High proportion of disbursements (>50%) issued in March / financial year-end.
+    2. Fund Parking Pattern: Long active duration (>= 60 days) with 0.0% physical progress while holding funds.
+    3. Rolling Duplicate Pattern: Multiple high spatial/name similarity candidates or duplicate graph edges.
+
+    Neutral Language Policy:
+    Enforces audit-compliant terminology ('risk archetype', 'pattern alignment', 'indicator detected').
+    Avoids autonomous claims of legal guilt or criminal intent.
+    """
     agent_id = "fraud_archetype_agent"
     agent_name = "Risk Archetype Classifier Agent"
     version = "1.0.0"
 
     def is_applicable(self, context: AgentContext) -> bool:
+        """
+        Checks applicability based on digital twin presence.
+
+        Args:
+            context: Execution context.
+
+        Returns:
+            bool: True if digital twin exists.
+        """
         twin = context.digital_twin
         return twin is not None
 
     def analyze(self, context: AgentContext) -> AgentEvidence:
+        """
+        Evaluates archetype features and identifies dominant risk pattern with confidence scores.
+
+        Args:
+            context: Project execution context.
+
+        Returns:
+            AgentEvidence: Dominant archetype classification, confidence, and audit signals.
+        """
         twin = context.digital_twin
         signals: list[AgentSignal] = []
         evidence: list[EvidenceDataPoint] = []
