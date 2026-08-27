@@ -85,7 +85,13 @@ class SystemState(TypedDict, total=False):
 class MPLADSOrchestrator:
     """
     Orchestrates the entire MPLADS Guardian Risk Assessment & Audit workflow.
-    Configures LangGraph StateGraph nodes (with fallback execution router) and executes pipeline steps.
+
+    Node Routing Pipeline:
+    1. node_fetch_digital_twin: Resolves ProjectDigitalTwin and initializes AgentContext.
+    2. node_run_all_agents: Executes all 19 system agents (9 Part A + 10 Part B) in parallel/sequence.
+    3. node_fuse_evidence: Computes dynamic weights and fuses evidence into 3D RiskOutput.
+    4. node_generate_explanation: Generates audit-compliant NLP Markdown report.
+    5. node_investigation_routing: Routes high-risk projects (score >= 70 or HIGH/CRITICAL) to CONTRACT 5 Investigation Service.
     """
 
     def __init__(
@@ -94,6 +100,14 @@ class MPLADSOrchestrator:
         explanation_engine: Optional[NLPExplanationEngine] = None,
         investigation_service: Optional[InvestigationService] = None,
     ):
+        """
+        Initializes MPLADSOrchestrator with required engines and StateGraph runner.
+
+        Args:
+            fusion_engine: EvidenceFusionEngine instance.
+            explanation_engine: NLPExplanationEngine instance.
+            investigation_service: InvestigationService instance.
+        """
         self.fusion_engine = fusion_engine or EvidenceFusionEngine()
         self.explanation_engine = explanation_engine or NLPExplanationEngine()
         self.investigation_service = investigation_service or InvestigationService()
@@ -102,7 +116,15 @@ class MPLADSOrchestrator:
     # ── Node Definitions ───────────────────────────────────────────────────────
 
     def node_fetch_digital_twin(self, state: SystemState) -> SystemState:
-        """Node 1: Resolves DigitalTwin and builds execution context."""
+        """
+        Node 1: Resolves DigitalTwin and builds execution context.
+
+        Args:
+            state: Current SystemState.
+
+        Returns:
+            SystemState: Updated state with digital twin and AgentContext populated.
+        """
         twin = state.get("digital_twin")
         context = state.get("context")
 
@@ -126,7 +148,15 @@ class MPLADSOrchestrator:
         return state
 
     def node_run_all_agents(self, state: SystemState) -> SystemState:
-        """Node 2: Executes all 19 Part A & Part B system agents against AgentContext."""
+        """
+        Node 2: Executes all 19 Part A & Part B system agents against AgentContext.
+
+        Args:
+            state: Current SystemState containing populated AgentContext.
+
+        Returns:
+            SystemState: Updated state containing agent_evidence_list array.
+        """
         context = state["context"]
         evidence_list: list[AgentEvidence] = []
 
@@ -148,7 +178,15 @@ class MPLADSOrchestrator:
         return state
 
     def node_fuse_evidence(self, state: SystemState) -> SystemState:
-        """Node 3: Invokes DynamicWeightEngine and EvidenceFusionEngine to construct RiskOutput."""
+        """
+        Node 3: Invokes DynamicWeightEngine and EvidenceFusionEngine to construct RiskOutput.
+
+        Args:
+            state: Current SystemState containing agent_evidence_list.
+
+        Returns:
+            SystemState: Updated state with fused RiskOutput populated.
+        """
         twin = state["digital_twin"]
         evidence_list = state["agent_evidence_list"]
         graph_result = state.get("graph_result")
@@ -164,7 +202,15 @@ class MPLADSOrchestrator:
         return state
 
     def node_generate_explanation(self, state: SystemState) -> SystemState:
-        """Node 4: Invokes NLPExplanationEngine for human-readable narrative generation."""
+        """
+        Node 4: Invokes NLPExplanationEngine for human-readable narrative generation.
+
+        Args:
+            state: Current SystemState containing RiskOutput and agent evidence.
+
+        Returns:
+            SystemState: Updated state with nlp_summary Markdown string populated.
+        """
         risk_output = state["risk_output"]
         evidence_list = state["agent_evidence_list"]
         twin = state.get("digital_twin")
@@ -179,7 +225,15 @@ class MPLADSOrchestrator:
         return state
 
     def node_investigation_routing(self, state: SystemState) -> SystemState:
-        """Node 5: Routes high-risk projects (Score >= 70 or HIGH/CRITICAL) to Investigation Engine (CONTRACT 5)."""
+        """
+        Node 5: Routes high-risk projects (Score >= 70 or HIGH/CRITICAL) to Investigation Engine (CONTRACT 5).
+
+        Args:
+            state: Current SystemState containing RiskOutput.
+
+        Returns:
+            SystemState: Updated state with investigation_case populated if high risk, else None.
+        """
         risk_output = state["risk_output"]
         evidence_list = state["agent_evidence_list"]
 
@@ -236,7 +290,15 @@ class MPLADSOrchestrator:
             return None
 
     async def execute(self, state: SystemState) -> SystemState:
-        """Executes state graph pipeline (via LangGraph or async fallback router)."""
+        """
+        Executes state graph pipeline (via LangGraph or async fallback router).
+
+        Args:
+            state: Initial SystemState.
+
+        Returns:
+            SystemState: Fully populated final SystemState.
+        """
         if self._graph_runner is not None:
             return await self._graph_runner.ainvoke(state)
 
