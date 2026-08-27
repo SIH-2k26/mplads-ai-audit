@@ -4,7 +4,8 @@ Audit trail for investigation cases.
 Every significant action is recorded immutably.
 """
 from __future__ import annotations
-from datetime import datetime
+from datetime import datetime, timezone
+UTC = timezone.utc
 from typing import Any, Optional
 from uuid import uuid4
 from models.investigation import AuditEntry
@@ -27,7 +28,7 @@ class AuditService:
             case_id=case_id,
             actor=actor,
             action=action,
-            timestamp=datetime.utcnow(),
+            timestamp=datetime.now(UTC),
             before_state=before_state,
             after_state=after_state,
             details=details or {},

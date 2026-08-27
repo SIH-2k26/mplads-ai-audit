@@ -3,7 +3,8 @@ agents/deterministic/data_quality.py
 Data Quality Agent — detects missing, stale, invalid, and conflicting data.
 """
 from __future__ import annotations
-from datetime import datetime, date
+from datetime import datetime, date, timezone
+UTC = timezone.utc
 from decimal import Decimal
 from typing import Any
 from agents.base import BaseAgent
@@ -83,7 +84,7 @@ class DataQualityAgent(BaseAgent):
 
         # ── Stale progress data ────────────────────────────────────────────────
         if twin.latest_progress:
-            age_days = (datetime.utcnow().date() - twin.latest_progress.as_of_date).days
+            age_days = (datetime.now(UTC).date() - twin.latest_progress.as_of_date).days
             if age_days > STALE_PROGRESS_DAYS:
                 signals.append(AgentSignal(
                     signal_type="STALE_PROGRESS_DATA",

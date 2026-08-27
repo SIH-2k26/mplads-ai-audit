@@ -4,7 +4,8 @@ InvestigationService — the Part A Investigation Engine.
 Receives InvestigationIntake from Part B's Risk Engine, manages case lifecycle.
 """
 from __future__ import annotations
-from datetime import datetime
+from datetime import datetime, timezone
+UTC = timezone.utc
 from uuid import uuid4
 from typing import Any, Optional
 from models.investigation import (
@@ -101,8 +102,8 @@ class InvestigationService:
             evidence_items=evidence_items,
             policy_evidence=intake.policy_evidence,
             agent_evidence_summary=agent_summary,
-            created_at=datetime.utcnow(),
-            updated_at=datetime.utcnow(),
+            created_at=datetime.now(UTC),
+            updated_at=datetime.now(UTC),
         )
 
         # Audit trail
@@ -153,7 +154,7 @@ class InvestigationService:
         return case.model_copy(update={
             "evidence_items": updated_items,
             "timeline": case.timeline + [audit],
-            "updated_at": datetime.utcnow(),
+            "updated_at": datetime.now(UTC),
         })
 
     def update_status(
@@ -177,7 +178,7 @@ class InvestigationService:
 
         updates = {
             "status": new_status,
-            "updated_at": datetime.utcnow(),
+            "updated_at": datetime.now(UTC),
             "timeline": case.timeline + [audit],
         }
         if new_status in (
@@ -185,7 +186,7 @@ class InvestigationService:
             InvestigationStatus.FALSE_POSITIVE,
             InvestigationStatus.INSUFFICIENT_EVIDENCE,
         ):
-            updates["closed_at"] = datetime.utcnow()
+            updates["closed_at"] = datetime.now(UTC)
 
         return case.model_copy(update=updates)
 
@@ -204,10 +205,10 @@ class InvestigationService:
         )
         return case.model_copy(update={
             "assigned_to": assigned_to,
-            "assigned_at": datetime.utcnow(),
+            "assigned_at": datetime.now(UTC),
             "status": InvestigationStatus.UNDER_REVIEW,
             "timeline": case.timeline + [audit],
-            "updated_at": datetime.utcnow(),
+            "updated_at": datetime.now(UTC),
         })
 
     def record_verdict(
@@ -248,7 +249,7 @@ class InvestigationService:
         return case.model_copy(update={
             "verdict": verdict,
             "status": new_status,
-            "closed_at": datetime.utcnow(),
+            "closed_at": datetime.now(UTC),
             "timeline": case.timeline + [audit],
-            "updated_at": datetime.utcnow(),
+            "updated_at": datetime.now(UTC),
         })

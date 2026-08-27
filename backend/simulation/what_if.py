@@ -6,7 +6,8 @@ and computing projected risk trajectories without persisting changes to DB.
 """
 from __future__ import annotations
 from typing import Any, Optional
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
+UTC = timezone.utc
 from decimal import Decimal
 
 from models.digital_twin import ProjectDigitalTwin
@@ -75,7 +76,7 @@ class WhatIfSimulator:
             fin_prog = sim_twin.financial_progress or 0.0
 
             latest_prog = ProgressRecord(
-                as_of_date=datetime.utcnow().date(),
+                as_of_date=datetime.now(UTC).date(),
                 financial_progress=fin_prog,
                 physical_progress=new_phy,
             )

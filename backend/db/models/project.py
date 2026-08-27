@@ -194,3 +194,131 @@ class MilestoneORM(Base):
     is_completed: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     completion_evidence: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+
+
+# ─── Risk History ──────────────────────────────────────────────────────────────
+
+class RiskHistoryORM(Base):
+    """Immutable append-only risk score history per project."""
+    __tablename__ = "risk_history"
+
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    project_id: Mapped[str] = mapped_column(
+        String(64), ForeignKey("projects.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    overall_risk_score: Mapped[float] = mapped_column(Numeric(6, 2), nullable=False)
+    risk_level: Mapped[str] = mapped_column(String(32), nullable=False)
+    current_risk: Mapped[float] = mapped_column(Numeric(6, 2), nullable=False, default=0)
+    future_risk: Mapped[float] = mapped_column(Numeric(6, 2), nullable=False, default=0)
+    systemic_risk: Mapped[float] = mapped_column(Numeric(6, 2), nullable=False, default=0)
+    fingerprint_json: Mapped[Optional[dict]] = mapped_column(JSONB, nullable=True)
+    top_signals: Mapped[Optional[list]] = mapped_column(JSONB, nullable=True)
+    agent_evidence_json: Mapped[Optional[dict]] = mapped_column(JSONB, nullable=True)
+    model_version: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
+    policy_version: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
+    weight_snapshot: Mapped[Optional[dict]] = mapped_column(JSONB, nullable=True)
+    computed_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=func.now(), index=True
+    )
+
+    __table_args__ = (
+        Index("ix_risk_history_project_computed", "project_id", "computed_at"),
+    )
+
+
+# ─── Investigation Case ────────────────────────────────────────────────────────
+
+class InvestigationCaseORM(Base, TimestampMixin):
+    """Persisted investigation case."""
+    __tablename__ = "investigation_cases"
+
+    id: Mapped[str] = mapped_column(String(64), primary_key=True, comment="UUID case_id")
+    project_id: Mapped[str] = mapped_column(
+        String(64), ForeignKey("projects.id", ondelete="RESTRICT"), nullable=False, index=True
+    )
+    status: Mapped[str] = mapped_column(String(32), nullable=False, default="OPEN", index=True)
+    priority: Mapped[str] = mapped_column(String(32), nullable=False, default="MEDIUM")
+    risk_score: Mapped[Optional[float]] = mapped_column(Numeric(6, 2), nullable=True)
+    risk_level: Mapped[Optional[str]] = mapped_column(String(32), nullable=True)
+    trigger_signals: Mapped[Optional[list]] = mapped_column(JSONB, nullable=True)
+    agent_summary: Mapped[Optional[list]] = mapped_column(JSONB, nullable=True)
+    summary_text: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    assigned_to: Mapped[Optional[str]] = mapped_column(String(128), nullable=True)
+    verdict: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
+    verdict_reason: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    closed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+
+
+class InvestigationEvidenceORM(Base):
+    """Evidence items attached to an investigation case."""
+    __tablename__ = "investigation_evidence"
+
+    id: Mapped[str] = mapped_column(String(64), primary_key=True)
+    case_id: Mapped[str] = mapped_column(
+        String(64), ForeignKey("investigation_cases.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    evidence_type: Mapped[str] = mapped_column(String(64), nullable=False)
+    description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    source: Mapped[Optional[str]] = mapped_column(String(128), nullable=True)
+    document_id: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
+    confidence: Mapped[Optional[float]] = mapped_column(Numeric(4, 3), nullable=True)
+    added_by: Mapped[Optional[str]] = mapped_column(String(128), nullable=True)
+    added_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=func.now()
+    )
+
+
+# ─── Feedback Records ──────────────────────────────────────────────────────────
+
+class FeedbackRecordORM(Base):
+    """Analyst-verified feedback record for supervised ML retraining."""
+    __tablename__ = "feedback_records"
+
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    project_id: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
+    case_id: Mapped[Optional[str]] = mapped_column(String(64), nullable=True, index=True)
+    analyst_id: Mapped[str] = mapped_column(String(128), nullable=False)
+    predicted_risk_score: Mapped[float] = mapped_column(Numeric(6, 2), nullable=False)
+    predicted_risk_level: Mapped[str] = mapped_column(String(32), nullable=False)
+    human_verdict: Mapped[str] = mapped_column(String(64), nullable=False)
+    is_false_positive: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    is_false_negative: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    analyst_notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    model_version: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
+    agent_evidence_snapshot: Mapped[Optional[dict]] = mapped_column(JSONB, nullable=True)
+    risk_fingerprint_snapshot: Mapped[Optional[dict]] = mapped_column(JSONB, nullable=True)
+    used_for_training: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, index=True)
+    used_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=func.now()
+    )
+
+
+# ─── Early Warnings ────────────────────────────────────────────────────────────
+
+class EarlyWarningORM(Base):
+    """Deduplicated early warning alerts per project."""
+    __tablename__ = "early_warnings"
+
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    project_id: Mapped[str] = mapped_column(
+        String(64), ForeignKey("projects.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    warning_type: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
+    severity: Mapped[str] = mapped_column(String(32), nullable=False)
+    title: Mapped[str] = mapped_column(String(256), nullable=False)
+    description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    trigger_value: Mapped[Optional[float]] = mapped_column(Numeric(10, 4), nullable=True)
+    threshold_value: Mapped[Optional[float]] = mapped_column(Numeric(10, 4), nullable=True)
+    evidence_json: Mapped[Optional[dict]] = mapped_column(JSONB, nullable=True)
+    is_acknowledged: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    acknowledged_by: Mapped[Optional[str]] = mapped_column(String(128), nullable=True)
+    acknowledged_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    triggered_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=func.now(), index=True
+    )
+
+    __table_args__ = (
+        # Deduplication: same warning type per project within 7 days must not be duplicated
+        Index("ix_early_warnings_project_type_time", "project_id", "warning_type", "triggered_at"),
+    )

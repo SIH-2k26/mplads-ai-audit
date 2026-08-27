@@ -1,0 +1,50 @@
+policy_id: "MPLADS_GUIDELINES"
+version: "2016"
+effective_from: "2016-01-01"
+effective_to: "2022-12-31"
+title: "Guidelines on Members of Parliament Local Area Development Scheme (MPLADS) - 2016 Edition"
+source_document: "MoSPI_MPLADS_Guidelines_2016.pdf"
+rules:
+  - rule_id: "RULE-2016-FIN-01"
+    name: "Expenditure within Sanction Limit"
+    description: "Total expenditure must not exceed sanctioned amount plus permissible tolerance (10%)."
+    category: "FINANCIAL"
+    severity: "CRITICAL"
+    condition_expression: "expenditure <= sanctioned_amount * 1.10"
+    remediation_guidance: "Obtain revised administrative and financial approval from the District Authority."
+    applicable_categories: ["ALL"]
+    citation_section: "Section 3.4 (Financial Ceilings)"
+    parameters:
+      tolerance_factor: 1.10
+
+  - rule_id: "RULE-2016-FIN-02"
+    name: "Proportional Payment vs Physical Progress"
+    description: "Financial disbursement must not lead physical progress by more than 30 percentage points."
+    category: "FINANCIAL"
+    severity: "HIGH"
+    condition_expression: "financial_progress - physical_progress <= 30.0"
+    remediation_guidance: "Halt advance payments until physical inspection verifies work milestone."
+    applicable_categories: ["ALL"]
+    citation_section: "Section 4.1 (Release of Installments)"
+    parameters:
+      max_gap: 30.0
+
+  - rule_id: "RULE-2016-DOC-01"
+    name: "Mandatory Sanction and Work Order"
+    description: "All projects must have at least a Sanction Order and a Work Order on record."
+    category: "DOCUMENTATION"
+    severity: "HIGH"
+    condition_expression: "'SANCTION_ORDER' in document_types and 'WORK_ORDER' in document_types"
+    remediation_guidance: "Upload certified copies of Sanction Order and Work Order."
+    applicable_categories: ["ALL"]
+    citation_section: "Section 5.2 (Essential Documentation)"
+
+  - rule_id: "RULE-2016-TIME-01"
+    name: "Project Completion Timelines"
+    description: "Projects exceeding completion deadline without sanctioned time extension are non-compliant."
+    category: "TIMELINE"
+    severity: "MEDIUM"
+    condition_expression: "not (is_overdue and physical_progress < 100.0)"
+    remediation_guidance: "Submit formal request for extension of time with valid justifications to District Collector."
+    applicable_categories: ["ALL"]
+    citation_section: "Section 3.8 (Execution Timeframes)"

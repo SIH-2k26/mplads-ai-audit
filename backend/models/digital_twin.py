@@ -11,7 +11,8 @@ Architecture:
     Agents consume the DigitalTwin context, not raw SQL.
 """
 from __future__ import annotations
-from datetime import datetime
+from datetime import datetime, timezone
+UTC = timezone.utc
 from typing import Any, Optional
 from pydantic import BaseModel, Field
 from .enums import ProjectStatus
@@ -114,14 +115,22 @@ class ProjectDigitalTwin(BaseModel):
             return False
         if not self.expected_completion_date:
             return False
-        return datetime.utcnow() > self.expected_completion_date
+        # Use naive UTC now for comparison since expected_completion_date is stored as naive datetime
+        now_naive = datetime.now(UTC).replace(tzinfo=None)
+        return now_naive > self.expected_completion_date
+
+    @property
+    def is_overdue(self) -> bool:
+        """Alias for is_delayed."""
+        return self.is_delayed
 
     @property
     def delay_days(self) -> int:
         """Days past expected completion (0 if not delayed)."""
         if not self.is_delayed:
             return 0
-        delta = datetime.utcnow() - self.expected_completion_date
+        now_naive = datetime.now(UTC).replace(tzinfo=None)
+        delta = now_naive - self.expected_completion_date
         return max(0, delta.days)
 
     @property
@@ -135,6 +144,14 @@ class ProjectDigitalTwin(BaseModel):
     @property
     def sanctioned_amount(self):
         return self.sanction.sanctioned_amount if self.sanction else None
+
+    @property
+    def approved_budget(self):
+        return self.budget.approved_budget if self.budget else None
+
+    @property
+    def estimated_cost(self):
+        return self.budget.estimated_cost if self.budget else self.sanctioned_amount
 
     @property
     def total_expenditure(self):

@@ -1,11 +1,17 @@
 """
 engine/__init__.py
-Part B Risk Engine package containing DynamicWeightEngine and EvidenceFusionEngine.
 """
-from .dynamic_weight_engine import DynamicWeightEngine
-from .evidence_fusion import EvidenceFusionEngine
+from engine.dynamic_weight_engine import DynamicWeightEngine
+from engine.evidence_fusion import EvidenceFusionEngine
+from engine.trajectory import RiskTrajectoryEngine, RiskTrajectory, RiskHistoricalPoint
+from engine.early_warning import EarlyWarningEngine, EarlyWarningAlert
 
 __all__ = [
     "DynamicWeightEngine",
     "EvidenceFusionEngine",
+    "RiskTrajectoryEngine",
+    "RiskTrajectory",
+    "RiskHistoricalPoint",
+    "EarlyWarningEngine",
+    "EarlyWarningAlert",
 ]

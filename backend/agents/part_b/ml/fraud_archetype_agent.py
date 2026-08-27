@@ -5,7 +5,8 @@ Classifies project risk vectors into K-Means archetypes: "Year-End Rush", "Rolli
 Strictly enforces neutral language guidelines.
 """
 from __future__ import annotations
-from datetime import datetime
+from datetime import datetime, timezone
+UTC = timezone.utc
 
 from agents.base import BaseAgent
 from models.agent import AgentContext, AgentEvidence, AgentSignal, EvidenceDataPoint
@@ -86,7 +87,7 @@ class FraudArchetypeAgent(BaseAgent):
 
         # ── 2. Fund Parking Pattern Evaluation ─────────────────────────────────
         # Active project for long duration with zero/low physical progress & funds held
-        now = datetime.utcnow().date()
+        now = datetime.now(UTC).date()
         reference_date = None
         if twin.start_date:
             reference_date = twin.start_date.date() if isinstance(twin.start_date, datetime) else twin.start_date

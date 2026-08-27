@@ -4,7 +4,8 @@ Delay Prediction & Horizon Agent — Part B ML/Statistical.
 Predicts completion delay probability and expected delay duration.
 """
 from __future__ import annotations
-from datetime import datetime
+from datetime import datetime, timezone
+UTC = timezone.utc
 
 from agents.base import BaseAgent
 from models.agent import AgentContext, AgentEvidence, AgentSignal, EvidenceDataPoint
@@ -58,7 +59,7 @@ class DelayPredictionAgent(BaseAgent):
         evidence: list[EvidenceDataPoint] = []
         score = 0.0
 
-        now = datetime.utcnow()
+        now = datetime.now(UTC)
         start = twin.start_date or (twin.created_at or now)
         expected_comp = twin.expected_completion_date or now
         actual_comp = twin.actual_completion_date

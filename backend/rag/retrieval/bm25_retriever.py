@@ -3,7 +3,7 @@ rag/retrieval/bm25_retriever.py
 BM25 lexical retrieval with fallback if rank_bm25 is not installed.
 """
 from __future__ import annotations
-from typing import Optional
+from typing import Any, Optional
 from rag.retriever import RetrievalFilter, RetrievalResult
 
 try:
