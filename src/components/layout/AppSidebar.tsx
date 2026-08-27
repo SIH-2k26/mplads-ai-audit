@@ -19,6 +19,7 @@ import {
   Building,
   UserCheck,
   Scale,
+  Sparkles,
 } from 'lucide-react';
 import { useRoleStore } from '../../stores/useRoleStore';
 import { useUiStore } from '../../stores/useUiStore';
@@ -28,22 +29,53 @@ export function AppSidebar() {
   const { currentRole } = useRoleStore();
   const { sidebarCollapsed, toggleSidebar } = useUiStore();
 
-  const navItems = [
-    { label: 'Early Warning Center', path: '/alerts', icon: ShieldAlert, badge: '7', highlight: true },
-    { label: 'Browse MPs & Performance', path: '/mp', icon: UserCheck },
-    { label: 'Browse States & Heatmap', path: '/state', icon: Globe2 },
-    { label: 'District Command Center', path: '/district', icon: Building },
-    { label: 'National Oversight Center', path: '/ministry', icon: Landmark },
-    { label: 'Projects & Digital Twins', path: '/projects', icon: FolderKanban },
-    { label: 'Case Investigations', path: '/cases', icon: Briefcase, badge: '3' },
-    { label: 'Contractor Cartel Intel', path: '/contractors', icon: Users },
-    { label: 'Fraud Archetypes & Overlap', path: '/compliance', icon: Scale },
-    { label: 'Implementing Agencies', path: '/agencies', icon: Building2 },
-    { label: 'Geographic Risk Maps', path: '/maps', icon: Map },
-    { label: 'Codified Rules & Policies', path: '/policies', icon: BookOpen },
-    { label: 'Official Audit Reports', path: '/reports', icon: FileSpreadsheet },
-    { label: 'Design System Gallery', path: '/design-system', icon: Palette },
-  ];
+  // Dynamically configure navigation items with role-based prioritization
+  const getNavItems = () => {
+    switch (currentRole) {
+      case 'MP':
+        return [
+          { label: 'MP Constituency Oversight', path: '/mp', icon: UserCheck, primary: true },
+          { label: 'Constituency Projects & Twins', path: '/projects', icon: FolderKanban },
+          { label: 'Early Warning Signals', path: '/alerts', icon: ShieldAlert, badge: '3' },
+          { label: 'Geographic Work Maps', path: '/maps', icon: Map },
+          { label: 'Codified Rules & Guidelines', path: '/policies', icon: BookOpen },
+          { label: 'Browse States & Benchmarks', path: '/state', icon: Globe2 },
+        ];
+      case 'DISTRICT_AUTHORITY':
+        return [
+          { label: 'District Command Centre', path: '/district', icon: Building, primary: true },
+          { label: 'Priority Action Queue', path: '/alerts', icon: ShieldAlert, badge: '7', highlight: true },
+          { label: 'Monitored Works Explorer', path: '/projects', icon: FolderKanban },
+          { label: 'Active Case Dossiers', path: '/cases', icon: Briefcase, badge: '3' },
+          { label: 'Implementing Line Agencies', path: '/agencies', icon: Building2 },
+          { label: 'District Geospatial Maps', path: '/maps', icon: Map },
+          { label: 'Statutory Guidelines & NOCs', path: '/policies', icon: BookOpen },
+        ];
+      case 'STATE_NODAL':
+        return [
+          { label: 'State Nodal Oversight (SNA)', path: '/state', icon: Globe2, primary: true },
+          { label: 'District Anomaly League Table', path: '/state', icon: Building },
+          { label: 'State Risk Heatmap', path: '/maps', icon: Map },
+          { label: 'Contractor Cartel Intel', path: '/contractors', icon: Users },
+          { label: 'Fraud Archetypes & Overlap', path: '/compliance', icon: Scale },
+          { label: 'Statewide Projects Directory', path: '/projects', icon: FolderKanban },
+          { label: 'Escalated Cases', path: '/cases', icon: Briefcase, badge: '5' },
+        ];
+      case 'MINISTRY_DIID':
+      default:
+        return [
+          { label: 'National Oversight Directorate', path: '/ministry', icon: Landmark, primary: true },
+          { label: 'All-India Case Inquiries', path: '/cases', icon: Briefcase, badge: '12' },
+          { label: 'CAG / CVC Audit Prioritisation', path: '/reports', icon: FileSpreadsheet, highlight: true },
+          { label: 'Fraud Archetype Overlaps', path: '/compliance', icon: Scale },
+          { label: 'Contractor Cartel Networks', path: '/contractors', icon: Users },
+          { label: 'National Projects Telemetry', path: '/projects', icon: FolderKanban },
+          { label: 'National Geographic Maps', path: '/maps', icon: Map },
+        ];
+    }
+  };
+
+  const navItems = getNavItems();
 
   return (
     <aside
@@ -54,21 +86,21 @@ export function AppSidebar() {
     >
       {/* Role Indicator Banner */}
       {!sidebarCollapsed && (
-        <div className="border-b border-[#D9DFE3] bg-[#F3F5F4] p-3.5">
+        <div className="border-b border-[#D9DFE3] bg-[#15324A] text-white p-3.5 shadow-sm">
           <div className="flex items-center gap-2">
-            <Landmark className="h-4 w-4 text-[#15324A]" />
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#15324A]">
+            <span className="h-2 w-2 rounded-full bg-[#E5B45A] animate-pulse" />
+            <span className="text-[11px] font-bold font-mono uppercase tracking-wider text-[#E5B45A]">
               {currentRole.replace('_', ' ')}
             </span>
           </div>
-          <p className="text-[10px] text-[#647383] mt-0.5 truncate font-mono">
+          <p className="text-[10px] text-gray-300 mt-0.5 truncate font-sans">
             {currentRole === 'MP'
-              ? 'Pune Constituency • Lok Sabha'
+              ? 'Pune Parliamentary Constituency'
               : currentRole === 'DISTRICT_AUTHORITY'
-              ? 'Pune District Command Authority'
+              ? 'District Magistrate & Collector, Pune'
               : currentRole === 'STATE_NODAL'
-              ? 'Maharashtra State Nodal Oversight'
-              : 'All-India National Ministry Center'}
+              ? 'Maharashtra State Planning Dept'
+              : 'Ministry of Statistics (MoSPI), New Delhi'}
           </p>
         </div>
       )}
@@ -80,7 +112,7 @@ export function AppSidebar() {
 
           return (
             <NavLink
-              key={item.path}
+              key={item.label}
               to={item.path}
               className={({ isActive }) =>
                 cn(
@@ -88,6 +120,7 @@ export function AppSidebar() {
                   isActive
                     ? 'bg-[#15324A] text-white shadow-subtle font-semibold'
                     : 'text-[#172B3A] hover:bg-[#F3F5F4] hover:text-[#15324A]',
+                  item.primary && !isActive && 'text-[#15324A] font-bold bg-[#15324A]/5 border border-[#15324A]/15',
                   item.highlight && !isActive && 'text-[#D99018] font-bold bg-[#D99018]/10'
                 )
               }
