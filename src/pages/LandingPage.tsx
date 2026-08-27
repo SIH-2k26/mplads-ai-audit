@@ -20,8 +20,8 @@ import { Toaster } from 'sonner';
 export function LandingPage() {
   return (
     <div className="min-h-screen bg-[#FAFAF7] text-[#172B3A] font-sans antialiased selection:bg-[#D99018]/20 selection:text-[#15324A]">
-      {/* Toast Notification Provider */}
-      <Toaster position="top-right" richColors />
+      {/* Toast Notification Provider with Close (X) Button */}
+      <Toaster position="top-right" richColors closeButton />
 
       {/* Sticky Streamlined Institutional Navbar */}
       <LandingNavbar />

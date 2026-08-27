@@ -7,12 +7,16 @@ import { EvidenceDrawer } from '../domain/EvidenceDrawer';
 import { AskAiAssistant } from '../domain/AskAiAssistant';
 import { useUiStore } from '../../stores/useUiStore';
 import { cn } from '../../lib/utils';
+import { Toaster } from 'sonner';
 
 export function AppShell() {
   const { sidebarCollapsed } = useUiStore();
 
   return (
     <div className="min-h-screen bg-[#F7F5F0] text-[#1D2939] flex flex-col font-sans">
+      {/* Toast Notification Provider with Close (X) Button */}
+      <Toaster position="top-right" richColors closeButton />
+
       {/* Top Fixed Header */}
       <TopHeader />
 
