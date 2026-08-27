@@ -171,6 +171,14 @@ def normalize_date(value: str | None) -> Optional[str]:
     return None  # Unrecognized format
 
 
+# ── Aliases & Backward Compatibility ──────────────────────────────────────────
+normalize_project_name = normalize_text
+normalize_state_name = normalize_state
+normalize_district_name = normalize_district
+normalize_currency = normalize_amount
+
+
+
 class ProjectNormalizer:
     """
     Normalizes a raw project record into a clean, consistent dict.

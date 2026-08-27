@@ -4,7 +4,8 @@ Payment Anomaly & Fund Parking Agent — Part B.
 Checks payment frequency and flags 45+ day zero-expenditure fund parking.
 """
 from __future__ import annotations
-from datetime import datetime, date
+from datetime import datetime, date, timezone
+UTC = timezone.utc
 from decimal import Decimal
 
 from agents.base import BaseAgent
@@ -78,7 +79,7 @@ class PaymentAgent(BaseAgent):
         ))
 
         # ── 1. Fund Parking Detection (45+ days zero expenditure) ────────────────
-        now = datetime.utcnow().date()
+        now = datetime.now(UTC).date()
         reference_date = None
         
         if twin.start_date:

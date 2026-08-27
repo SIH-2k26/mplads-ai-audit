@@ -5,7 +5,8 @@ Aggregates AgentEvidence from Part A & Part B agents into a unified 3D Risk Brea
 (Current, Future, Systemic), generates an 8-dimensional RiskFingerprint, and returns RiskOutput.
 """
 from __future__ import annotations
-from datetime import datetime
+from datetime import datetime, timezone
+UTC = timezone.utc
 from typing import Optional
 
 from models.agent import AgentEvidence, AgentSignal
@@ -111,7 +112,7 @@ class EvidenceFusionEngine:
             systemic_risk=round(systemic_risk, 2),
             fingerprint=fingerprint,
             top_signals=top_signals,
-            computed_at=datetime.utcnow(),
+            computed_at=datetime.now(UTC),
             model_version="2.0.0",
         )
 

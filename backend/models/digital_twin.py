@@ -11,9 +11,10 @@ Architecture:
     Agents consume the DigitalTwin context, not raw SQL.
 """
 from __future__ import annotations
-from datetime import datetime
+from datetime import datetime, timezone
+UTC = timezone.utc
 from typing import Any, Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from .enums import ProjectStatus
 from .project import (
     GeoLocation, Recommendation, Sanction, Budget, Expenditure,
@@ -102,7 +103,7 @@ class ProjectDigitalTwin(BaseModel):
 
     # Versioning
     twin_version: int = Field(1, description="Incremented on each rebuild")
-    built_at: datetime = Field(default_factory=datetime.utcnow)
+    built_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 
@@ -114,14 +115,22 @@ class ProjectDigitalTwin(BaseModel):
             return False
         if not self.expected_completion_date:
             return False
-        return datetime.utcnow() > self.expected_completion_date
+        # Use naive UTC now for comparison since expected_completion_date is stored as naive datetime
+        now_naive = datetime.now(UTC).replace(tzinfo=None)
+        return now_naive > self.expected_completion_date
+
+    @property
+    def is_overdue(self) -> bool:
+        """Alias for is_delayed."""
+        return self.is_delayed
 
     @property
     def delay_days(self) -> int:
         """Days past expected completion (0 if not delayed)."""
         if not self.is_delayed:
             return 0
-        delta = datetime.utcnow() - self.expected_completion_date
+        now_naive = datetime.now(UTC).replace(tzinfo=None)
+        delta = now_naive - self.expected_completion_date
         return max(0, delta.days)
 
     @property
@@ -137,15 +146,21 @@ class ProjectDigitalTwin(BaseModel):
         return self.sanction.sanctioned_amount if self.sanction else None
 
     @property
+    def approved_budget(self):
+        return self.budget.approved_budget if self.budget else None
+
+    @property
+    def estimated_cost(self):
+        return self.budget.estimated_cost if self.budget else self.sanctioned_amount
+
+    @property
     def total_expenditure(self):
         return self.expenditure.total_expenditure if self.expenditure else None
 
     def has_document_type(self, doc_type: str) -> bool:
         return doc_type in self.document_types_present
 
-    class Config:
-        # Allow arbitrary types for Decimal compatibility
-        arbitrary_types_allowed = True
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
 
 class DigitalTwinSummary(BaseModel):

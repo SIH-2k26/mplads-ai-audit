@@ -166,3 +166,12 @@ class ProjectValidationRules:
             return datetime.strptime(str(val), "%Y-%m-%d").date()
         except (ValueError, TypeError):
             return None
+
+    def validate_record(self, record: dict[str, Any]) -> ValidationResult:
+        """Alias for validate."""
+        return self.validate(record)
+
+
+# Alias for backward compatibility
+ValidationEngine = ProjectValidationRules
+

@@ -4,7 +4,8 @@ Investigation Case Management & Human Verdict Endpoints.
 """
 from __future__ import annotations
 from typing import Any, Optional
-from datetime import datetime
+from datetime import datetime, timezone
+UTC = timezone.utc
 from pydantic import BaseModel, Field
 from fastapi import APIRouter, HTTPException, status
 
@@ -54,8 +55,8 @@ async def submit_case_verdict(case_id: str, req: RecordVerdictRequest) -> dict[s
             risk_score_at_creation=75.0,
             risk_level_at_creation=RiskLevel.HIGH,
             trigger_signals=["[HIGH] Financial-Physical progress mismatch gap > 40%"],
-            created_at=datetime.utcnow(),
-            updated_at=datetime.utcnow(),
+            created_at=datetime.now(UTC),
+            updated_at=datetime.now(UTC),
         )
 
     investigator_verdict = InvestigatorVerdict(
@@ -65,7 +66,7 @@ async def submit_case_verdict(case_id: str, req: RecordVerdictRequest) -> dict[s
         investigator_id=req.investigator_id,
         investigator_name=req.investigator_name,
         is_feedback_consented=req.is_feedback_consented,
-        submitted_at=datetime.utcnow(),
+        submitted_at=datetime.now(UTC),
     )
 
     try:

@@ -3,7 +3,8 @@ agents/deterministic/deadline.py
 Deadline Agent — calculates delay and compliance with timeline requirements.
 """
 from __future__ import annotations
-from datetime import datetime
+from datetime import datetime, timezone
+UTC = timezone.utc
 from agents.base import BaseAgent
 from models.agent import AgentContext, AgentEvidence, AgentSignal, EvidenceDataPoint
 from models.enums import AgentStatus, ProjectStatus, Severity
@@ -31,7 +32,8 @@ class DeadlineAgent(BaseAgent):
         signals: list[AgentSignal] = []
         evidence: list[EvidenceDataPoint] = []
         score = 0.0
-        today = datetime.utcnow()
+        # Use naive UTC datetime for comparison - twin dates are stored as naive datetimes
+        today = datetime.now(UTC).replace(tzinfo=None)
 
         start = twin.start_date
         expected = twin.expected_completion_date
@@ -42,7 +44,7 @@ class DeadlineAgent(BaseAgent):
         # ── Effective deadline (accounting for extensions) ─────────────────────
         effective_deadline = expected
         if expected and extension_days > 0:
-            from datetime import timedelta
+            from datetime import timedelta, timezone
             effective_deadline = expected + timedelta(days=extension_days)
 
         # ── Evidence datapoints ────────────────────────────────────────────────

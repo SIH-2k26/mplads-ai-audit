@@ -3,7 +3,7 @@ rag/retrieval/bm25_retriever.py
 BM25 lexical retrieval with fallback if rank_bm25 is not installed.
 """
 from __future__ import annotations
-from typing import Optional
+from typing import Any, Optional
 from rag.retriever import RetrievalFilter, RetrievalResult
 
 try:
@@ -46,10 +46,16 @@ class BM25Retriever:
 
         tokenized_query = self._tokenize(query)
 
+        scores = None
         if HAS_BM25 and self._bm25:
-            scores = self._bm25.get_scores(tokenized_query)
-        else:
-            # Simple term frequency overlap fallback
+            raw_scores = self._bm25.get_scores(tokenized_query)
+            # rank_bm25 v0.2.2 can produce all-zero IDF on small corpora.
+            # Fall back to TF-overlap when that happens.
+            if any(s > 0 for s in raw_scores):
+                scores = raw_scores
+
+        if scores is None:
+            # TF-overlap fallback: count matching terms per document
             q_set = set(tokenized_query)
             scores = []
             for doc_tokens in self._tokenized_corpus:

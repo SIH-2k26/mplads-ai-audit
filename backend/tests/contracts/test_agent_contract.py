@@ -229,9 +229,9 @@ class TestDeadlineAgentSpecific:
         assert result.score > 30
 
     def test_no_flag_for_on_time_project(self):
-        from datetime import timedelta
+        from datetime import timedelta, timezone
         twin = make_minimal_twin(
-            expected_completion_date=datetime.utcnow() + timedelta(days=180),
+            expected_completion_date=datetime.now(timezone.utc).replace(tzinfo=None) + timedelta(days=180),
             actual_completion_date=None,
         )
         context = make_context(twin)
