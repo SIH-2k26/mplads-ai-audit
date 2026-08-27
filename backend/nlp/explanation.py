@@ -16,8 +16,15 @@ from models.risk import RiskOutput, RiskFingerprint
 class NLPExplanationEngine:
     """
     Generates human-readable, audit-compliant summary narratives for district authorities.
-    Translates raw risk metrics, fingerprints, and agent signals into structured Markdown reports.
-    Enforces neutral language guidelines: uses 'elevated risk indicator', 'anomaly', 'discrepancy'.
+
+    Report Structure:
+    1. Executive Risk Assessment Report (Metadata, Overall Score, Risk Level)
+    2. Executive Summary (Neutral contextual synthesis)
+    3. Multi-Dimensional Risk Breakdown (Current, Future, Systemic scores)
+    4. Risk Fingerprint Table (8 normalized dimensions & status badges)
+    5. Key Indicator Findings (Top agent signals)
+    6. Statutory & Guideline References (MPLADS policy citations)
+    7. Actionable Recommendations for District Authority
     """
 
     def generate_explanation(
@@ -28,6 +35,14 @@ class NLPExplanationEngine:
     ) -> str:
         """
         Generate structured Markdown narrative from RiskOutput and AgentEvidence list.
+
+        Args:
+            risk_output: Fused risk scores, fingerprint, and top signals.
+            evidence_list: AgentEvidence array from 19 system agents.
+            digital_twin: Optional project digital twin instance.
+
+        Returns:
+            str: Audit-compliant Markdown report narrative string.
         """
         proj_name = digital_twin.project_name if digital_twin else risk_output.project_id
         proj_id = risk_output.project_id
@@ -93,6 +108,7 @@ class NLPExplanationEngine:
         return "\n".join(sections)
 
     def _build_executive_summary(self, risk_output: RiskOutput) -> str:
+        """Builds executive summary paragraph using neutral audit tone."""
         score = risk_output.overall_risk_score
         level = risk_output.risk_level.value
 
@@ -121,6 +137,7 @@ class NLPExplanationEngine:
             )
 
     def _format_fp_status(self, score: float) -> str:
+        """Formats fingerprint dimension score into visual status badge."""
         if score >= 0.70:
             return "🔴 Elevated Indicator"
         elif score >= 0.35:
@@ -131,6 +148,7 @@ class NLPExplanationEngine:
     def _get_policy_citations(
         self, evidence_list: list[AgentEvidence], digital_twin: Optional[ProjectDigitalTwin]
     ) -> str:
+        """Extracts and formats statutory MPLADS policy citations."""
         citations = [
             "**MPLADS Guidelines 2023 (Section 3.2):** Mandates that all sanctioned works must undergo physical inspection by designated district engineers before final payment release.",
             "**MPLADS Guidelines 2023 (Section 4.1):** Requires submission of a formal Utilization Certificate (UC) upon completion of financial milestones prior to subsequent fund allocation.",
@@ -148,6 +166,7 @@ class NLPExplanationEngine:
     def _build_recommendations(
         self, risk_output: RiskOutput, evidence_list: list[AgentEvidence]
     ) -> list[str]:
+        """Generates actionable recommendations for district authorities."""
         recs = []
 
         if risk_output.current_risk >= 40:
