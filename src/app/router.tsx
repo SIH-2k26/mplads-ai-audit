@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { AppShell } from '../components/layout/AppShell';
 import { LandingPage } from '../pages/LandingPage';
 import { MpDashboardPage } from '../pages/MpDashboardPage';
@@ -42,7 +42,15 @@ export const router = createBrowserRouter([
         element: <StateDashboardPage />,
       },
       {
+        path: 'national',
+        element: <StateDashboardPage />,
+      },
+      {
         path: 'ministry',
+        element: <MinistryDashboardPage />,
+      },
+      {
+        path: 'intelligence',
         element: <MinistryDashboardPage />,
       },
       {
@@ -59,6 +67,10 @@ export const router = createBrowserRouter([
       },
       {
         path: 'alerts/:id',
+        element: <AlertsPage />,
+      },
+      {
+        path: 'early-warning',
         element: <AlertsPage />,
       },
       {
@@ -94,11 +106,19 @@ export const router = createBrowserRouter([
         element: <CompliancePage />,
       },
       {
+        path: 'governance',
+        element: <CompliancePage />,
+      },
+      {
         path: 'policies',
         element: <PoliciesPage />,
       },
       {
         path: 'reports',
+        element: <ReportsPage />,
+      },
+      {
+        path: 'audit',
         element: <ReportsPage />,
       },
       {

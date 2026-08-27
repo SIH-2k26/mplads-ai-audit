@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Filter, ArrowUpDown, ChevronRight, Eye, ShieldAlert, CheckCircle2, FileText, Plus } from 'lucide-react';
+import { Search, Filter, ArrowUpDown, ChevronRight, Eye, ShieldAlert, CheckCircle2, FileText, Plus, ShieldQuestion } from 'lucide-react';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '../ui/table';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
+import { ProjectRiskSheet, ProjectRiskData } from '../domain/ProjectRiskSheet';
 import { toast } from 'sonner';
 
 interface ProjectRow {
@@ -18,11 +19,15 @@ interface ProjectRow {
   riskScore: number;
   riskStatus: 'HIGH RISK' | 'MEDIUM RISK' | 'LOW RISK' | 'ON TRACK';
   slaStatus: 'DELAYED' | 'ON TRACK' | 'CRITICAL';
+  reasons: string[];
+  recommendedAction: string;
 }
 
 export function ProjectDataTableSection() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedFilter, setSelectedFilter] = useState<'ALL' | 'HIGH' | 'MEDIUM' | 'LOW'>('ALL');
+  const [selectedProjectForSheet, setSelectedProjectForSheet] = useState<ProjectRiskData | null>(null);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   const projects: ProjectRow[] = [
     {
@@ -37,6 +42,14 @@ export function ProjectDataTableSection() {
       riskScore: 86,
       riskStatus: 'HIGH RISK',
       slaStatus: 'CRITICAL',
+      reasons: [
+        '+38.2% cost deviation above prevailing PWD Schedule of Rates 2024-25 baseline',
+        '+51.5% progress gap: 92.5% funds disbursed vs only 31.0% physical execution',
+        'Single-bid tender award with compressed 8-day notice period',
+        'Contractor concentration: firm holds 38.5% of total ward public works',
+        'Missing mandatory GFR-12C Utilisation Certificate (UC-02 overdue by 45 days)',
+      ],
+      recommendedAction: 'Verify structural estimate, inspect site for duplicate MLALADS claim, and withhold 2nd fund disbursement.',
     },
     {
       id: 'P-0871',
@@ -50,6 +63,12 @@ export function ProjectDataTableSection() {
       riskScore: 82,
       riskStatus: 'HIGH RISK',
       slaStatus: 'DELAYED',
+      reasons: [
+        '88% geospatial polygon alignment with PMGSY Batch III completed in Nov 2023',
+        'Single-bid tender award with compressed 8-day notice period',
+        '+24.5% unit rate inflation on bitumen grade VG-30 against State PWD SoR',
+      ],
+      recommendedAction: 'Execute GPS geofenced road inspection survey to verify new pavement vs pre-existing PMGSY carpet.',
     },
     {
       id: 'P-0912',
@@ -63,6 +82,11 @@ export function ProjectDataTableSection() {
       riskScore: 72,
       riskStatus: 'MEDIUM RISK',
       slaStatus: 'DELAYED',
+      reasons: [
+        '+42.0% cost deviation on 15kVA solar panels vs GeM direct purchase rate',
+        'Unverified contractor GST status at time of work order issue',
+      ],
+      recommendedAction: 'Reconcile bill of quantities with GeM standard product rate cards and demand contractor explanation.',
     },
     {
       id: 'P-0412',
@@ -76,6 +100,11 @@ export function ProjectDataTableSection() {
       riskScore: 24,
       riskStatus: 'LOW RISK',
       slaStatus: 'ON TRACK',
+      reasons: [
+        'All milestone deliverables submitted on schedule',
+        'Direct GeM procurement with transparent manufacturer warranty',
+      ],
+      recommendedAction: 'Routine final completion inspection prior to asset handover.',
     },
     {
       id: 'P-0889',
@@ -89,6 +118,11 @@ export function ProjectDataTableSection() {
       riskScore: 68,
       riskStatus: 'MEDIUM RISK',
       slaStatus: 'DELAYED',
+      reasons: [
+        '32 days delay in electrical grid transformer connection approval',
+        'Water quality lab certification pending from State Nodal Agency',
+      ],
+      recommendedAction: 'Follow up with DISCOM for statutory grid energization certificate.',
     },
     {
       id: 'P-0655',
@@ -102,6 +136,11 @@ export function ProjectDataTableSection() {
       riskScore: 35,
       riskStatus: 'LOW RISK',
       slaStatus: 'ON TRACK',
+      reasons: [
+        'Physical progress aligned with approved architectural drawings',
+        'All three installment vouchers verified with Treasury DBT logs',
+      ],
+      recommendedAction: 'Final verification brief generation for district archival.',
     },
   ];
 
@@ -118,10 +157,34 @@ export function ProjectDataTableSection() {
     return matchesSearch;
   });
 
-  const handleQueueSimulation = (p: ProjectRow) => {
-    toast.success(`Project ${p.id} added to Priority Investigation Docket`, {
-      description: `Dispatched to ${p.district} District Authority audit queue.`,
+  const handleOpenRiskSheet = (p: ProjectRow) => {
+    setSelectedProjectForSheet({
+      id: p.id,
+      title: p.title,
+      category: p.category,
+      location: `${p.district}, ${p.state}`,
+      state: p.state,
+      district: p.district,
+      sanctionedAmount: p.amount,
+      expenditure: p.amount,
+      physicalProgress: p.physicalProgress,
+      financialProgress: p.financialProgress,
+      expectedCompletion: '30 Oct 2026',
+      riskScore: p.riskScore,
+      severity: p.riskScore >= 80 ? 'CRITICAL' : p.riskScore >= 60 ? 'HIGH' : 'LOW',
+      reasons: p.reasons,
+      evidenceDocuments: [
+        { name: `Technical Sanction (${p.id}-TS.pdf)`, type: 'Estimate', status: 'VERIFIED', date: '14 Feb 2025' },
+        { name: `e-Tender Bid Comparative Statement`, type: 'Procurement', status: p.riskScore >= 80 ? 'FLAGGED' : 'VERIFIED', date: '28 Feb 2025' },
+        { name: `Treasury DBT Vouchers (V-991 to V-994)`, type: 'Disbursement', status: 'AVAILABLE', date: '12 May 2025' },
+        { name: `Geotagged Foundation Excavation Photo`, type: 'Site EXIF', status: 'VERIFIED', date: '20 Jun 2025' },
+        { name: `GFR-12C Utilisation Certificate Stage 2`, type: 'Statutory', status: p.riskScore >= 80 ? 'FLAGGED' : 'PENDING', date: '15 Jul 2025' },
+      ],
+      recommendedAction: p.recommendedAction,
+      executingAgency: 'District Implementing Agency',
+      contractor: 'Awarded Contractor Entity',
     });
+    setSheetOpen(true);
   };
 
   return (
@@ -129,14 +192,14 @@ export function ProjectDataTableSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#D99016] bg-[#D99016]/10 px-3 py-1 rounded-full border border-[#D99016]/30">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#D99018] bg-[#D99018]/10 px-3 py-1 rounded-full border border-[#D99018]/30">
               NATIONAL PROJECT AUDIT DIRECTORY
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#15324A] tracking-tight uppercase mt-2 font-sans">
               Monitored Works Explorer
             </h2>
             <p className="text-xs sm:text-sm text-[#647383] mt-1">
-              Search and filter across live parliamentary recommendations and technical sanction milestones.
+              Search and filter across live parliamentary recommendations, technical sanction milestones, and explainable risk scores.
             </p>
           </div>
 
@@ -189,10 +252,14 @@ export function ProjectDataTableSection() {
               </TableHeader>
               <TableBody>
                 {filtered.map((p) => (
-                  <TableRow key={p.id} className="hover:bg-[#F3F5F4]/60 transition-colors">
+                  <TableRow
+                    key={p.id}
+                    onClick={() => handleOpenRiskSheet(p)}
+                    className="hover:bg-[#F3F5F4]/60 transition-colors cursor-pointer"
+                  >
                     <TableCell>
                       <div>
-                        <span className="font-bold text-xs text-[#172B3A] block hover:text-[#D99016] transition-colors">
+                        <span className="font-bold text-xs text-[#172B3A] block hover:text-[#D99018] transition-colors">
                           {p.title}
                         </span>
                         <span className="text-[10px] font-mono text-[#647383]">
@@ -248,16 +315,17 @@ export function ProjectDataTableSection() {
                       </div>
                     </TableCell>
 
-                    <TableCell className="text-right">
+                    <TableCell className="text-right" onClick={(e) => e.stopPropagation()}>
                       <div className="flex items-center justify-end gap-1.5">
                         <Button
                           variant="ghost"
                           size="sm"
-                          onClick={() => handleQueueSimulation(p)}
-                          className="h-7 px-2 text-[10px] text-[#647383] hover:text-[#15324A] hover:bg-[#D9DFE3]/50"
-                          title="Add to Investigation Queue"
+                          onClick={() => handleOpenRiskSheet(p)}
+                          className="h-7 px-2 text-[10px] font-semibold text-[#15324A] hover:bg-[#D9DFE3]/50"
+                          title="Open Risk Drawer"
                         >
-                          <Plus className="h-3 w-3 mr-0.5" /> Docket
+                          <ShieldAlert className="h-3 w-3 mr-1 text-[#D99018]" />
+                          Inspect Risk
                         </Button>
 
                         <Link to={`/projects/${p.id}`}>
@@ -278,13 +346,20 @@ export function ProjectDataTableSection() {
           </div>
 
           <div className="p-3 border-t border-[#D9DFE3] bg-[#FAFAF7] flex items-center justify-between text-xs text-[#647383]">
-            <span>Showing {filtered.length} of {projects.length} sample works</span>
+            <span>Showing {filtered.length} of {projects.length} sample works (Click any row to open Risk Sheet)</span>
             <Link to="/projects" className="font-bold text-[#15324A] hover:underline flex items-center gap-1">
               Explore All 7,842 Projects <ChevronRight className="h-3.5 w-3.5" />
             </Link>
           </div>
         </div>
       </div>
+
+      {/* REUSABLE PROJECT RISK SHEET DRAWER */}
+      <ProjectRiskSheet
+        open={sheetOpen}
+        onOpenChange={setSheetOpen}
+        project={selectedProjectForSheet}
+      />
     </section>
   );
 }
