@@ -11,15 +11,19 @@ import { ProjectDossierModal } from './components/ProjectDossierModal';
 import { QuickActionModal } from './components/QuickActionModal';
 import { DesignSpecModal } from './components/DesignSpecModal';
 import { WiseOfficerProfileModal } from './components/WiseOfficerProfileModal';
+import { ClaudeForensicCopilot } from './components/ClaudeForensicCopilot';
+import { InteractiveEntityGraph } from './components/InteractiveEntityGraph';
+import { InteractiveConstituencyExplorer } from './components/InteractiveConstituencyExplorer';
 import { FLAGGED_PROJECTS, SYSTEM_METRICS } from './data/mockData';
 import { MPLADSProject } from './types';
-import { Landmark, ShieldAlert, Users, Plus, ArrowLeft } from 'lucide-react';
+import { Landmark, ShieldAlert, Users, Plus, ArrowLeft, Sparkles, Bot } from 'lucide-react';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<string>('overview');
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState<boolean>(false);
   const [isDesignSpecOpen, setIsDesignSpecOpen] = useState<boolean>(false);
   const [isProfileOpen, setIsProfileOpen] = useState<boolean>(false);
+  const [isCopilotOpen, setIsCopilotOpen] = useState<boolean>(false);
   const [selectedProject, setSelectedProject] = useState<MPLADSProject | null>(null);
   const [quickActionType, setQuickActionType] = useState<string | null>(null);
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
@@ -267,13 +271,28 @@ export default function App() {
                   </p>
                 </div>
 
-                <button
-                  onClick={() => setQuickActionType('subpoena')}
-                  className="bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E] text-xs font-semibold px-4 py-2 rounded-full cursor-pointer"
-                >
-                  Issue Nexus Subpoena
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setIsCopilotOpen(true)}
+                    className="bg-[#0E0E0E] hover:bg-black text-white text-xs font-semibold px-4 py-2 rounded-full cursor-pointer flex items-center gap-1.5"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 text-[#9FE870]" />
+                    <span>AI Forensic Copilot</span>
+                  </button>
+                  <button
+                    onClick={() => setQuickActionType('subpoena')}
+                    className="bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E] text-xs font-semibold px-4 py-2 rounded-full cursor-pointer"
+                  >
+                    Issue Nexus Subpoena
+                  </button>
+                </div>
               </div>
+
+              {/* Interactive SVG Network Graph */}
+              <InteractiveEntityGraph
+                onTriggerSubpoena={() => setQuickActionType('subpoena')}
+                onSelectProject={(project) => setSelectedProject(project)}
+              />
 
               {/* Network stats summary */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -602,43 +621,21 @@ export default function App() {
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 bg-[#9FE870] text-[#0E0E0E] text-xs font-semibold rounded-full">
-                    543 Monitored
-                  </span>
+                  <button
+                    onClick={() => setIsCopilotOpen(true)}
+                    className="bg-[#0E0E0E] hover:bg-black text-white text-xs font-semibold px-4 py-2 rounded-full cursor-pointer flex items-center gap-1.5"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 text-[#9FE870]" />
+                    <span>AI Regional Scan</span>
+                  </button>
                 </div>
               </div>
 
-              {/* State breakdown cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {[
-                  { state: 'Uttar Pradesh', seats: 80, flaggedCr: 112.4, risk: 'High' },
-                  { state: 'Maharashtra', seats: 48, flaggedCr: 74.2, risk: 'Moderate' },
-                  { state: 'West Bengal', seats: 42, flaggedCr: 68.0, risk: 'High' },
-                  { state: 'Bihar', seats: 40, flaggedCr: 54.1, risk: 'High' },
-                  { state: 'Tamil Nadu', seats: 39, flaggedCr: 22.8, risk: 'Low' },
-                  { state: 'Karnataka', seats: 28, flaggedCr: 39.5, risk: 'Moderate' },
-                ].map((st, i) => (
-                  <div
-                    key={i}
-                    onClick={() => setCurrentView('flagged-projects')}
-                    className="p-5 rounded-[20px] bg-[#F1F0EC] hover:bg-[#EAE8E2] transition-colors cursor-pointer space-y-2"
-                  >
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-sm font-semibold text-[#0E0E0E]">{st.state}</h3>
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                        st.risk === 'High' ? 'bg-red-100 text-red-700' : st.risk === 'Moderate' ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'
-                      }`}>
-                        {st.risk}
-                      </span>
-                    </div>
-                    <p className="text-xs text-[#6B6B6B]">{st.seats} Lok Sabha Constituencies</p>
-                    <div className="pt-1 text-xs">
-                      <span className="text-[#6B6B6B]">Flagged Outlay: </span>
-                      <strong className="text-[#0E0E0E]">₹{st.flaggedCr} Cr</strong>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              {/* Rich Interactive Constituency Explorer */}
+              <InteractiveConstituencyExplorer
+                onSelectState={() => setCurrentView('flagged-projects')}
+                onSelectProject={(project) => setSelectedProject(project)}
+              />
             </div>
           )}
 
@@ -766,7 +763,7 @@ export default function App() {
           )}
 
           {/* FALLBACK SUB-VIEWS */}
-          {!['overview', 'flagged-projects', 'fund-cards', 'insights', 'recipients'].includes(currentView) && (
+          {!['overview', 'flagged-projects', 'fund-cards', 'entity-analytics', 'case-briefs', 'early-warnings', 'risk-fingerprint', 'shap-explainability', 'constituency-map', 'leaderboard', 'simulation-sandbox', 'insights', 'recipients'].includes(currentView) && (
             <div className="p-8 text-center bg-[#F1F0EC] rounded-[20px] space-y-3">
               <h2 className="text-base font-semibold text-[#0E0E0E] capitalize">
                 {currentView.replace('-', ' ')}
@@ -785,27 +782,50 @@ export default function App() {
         </main>
       </div>
 
+      {/* Persistent Floating AI Forensic Copilot Trigger */}
+      <div className="fixed bottom-6 right-6 z-40">
+        <button
+          onClick={() => setIsCopilotOpen(true)}
+          className="group flex items-center gap-2.5 bg-[#0E0E0E] hover:bg-black text-white px-4 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer border border-white/20 active:scale-95"
+          title="Open AI Forensic Copilot"
+        >
+          <div className="w-6 h-6 rounded-full bg-[#9FE870] flex items-center justify-center text-[#0E0E0E]">
+            <Sparkles className="w-3.5 h-3.5 fill-current" />
+          </div>
+          <span className="text-xs font-bold tracking-tight">AI Copilot</span>
+          <span className="w-2 h-2 rounded-full bg-[#9FE870] animate-pulse" />
+        </button>
+      </div>
+
       {/* MODALS */}
-      {/* 1. Design Spec Modal (Triggered by green pill top-right) */}
+      {/* 1. AI Forensic Copilot Modal */}
+      <ClaudeForensicCopilot
+        isOpen={isCopilotOpen}
+        onClose={() => setIsCopilotOpen(false)}
+        onTriggerAction={(actionType) => setQuickActionType(actionType)}
+        selectedProject={selectedProject}
+      />
+
+      {/* 2. Design Spec Modal (Triggered by green pill top-right) */}
       <DesignSpecModal
         isOpen={isDesignSpecOpen}
         onClose={() => setIsDesignSpecOpen(false)}
       />
 
-      {/* 2. Flagged Project Dossier Modal */}
+      {/* 3. Flagged Project Dossier Modal */}
       <ProjectDossierModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
         onToggleFreeze={handleToggleFreeze}
       />
 
-      {/* 3. Quick Action Directive Modal */}
+      {/* 4. Quick Action Directive Modal */}
       <QuickActionModal
         actionType={quickActionType}
         onClose={() => setQuickActionType(null)}
       />
 
-      {/* 4. Officer Profile Modal */}
+      {/* 5. Officer Profile Modal */}
       <WiseOfficerProfileModal
         isOpen={isProfileOpen}
         onClose={() => setIsProfileOpen(false)}

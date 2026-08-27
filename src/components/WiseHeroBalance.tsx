@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { BarChart2, ChevronDown, Check } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { BarChart2 as BarChartIcon, ChevronDown as ChevronDownIcon } from 'lucide-react';
+import { NumberTicker } from './motion/NumberTicker';
 
 interface WiseHeroBalanceProps {
   onAuditScan: () => void;
@@ -42,11 +44,11 @@ export const WiseHeroBalance: React.FC<WiseHeroBalanceProps> = ({
             {displayMode === 'outlay' ? (
               <>
                 <span className="font-light text-2xl sm:text-3xl mr-1">₹</span>
-                {totalOutlayCr.toLocaleString('en-IN', { minimumFractionDigits: 2 })} Cr
+                <NumberTicker value={totalOutlayCr} decimalPlaces={2} /> Cr
               </>
             ) : (
               <>
-                {trustScore.toFixed(1)}{' '}
+                <NumberTicker value={trustScore} decimalPlaces={1} />{' '}
                 <span className="text-lg font-light text-[#6B6B6B]">/ 100</span>
               </>
             )}
@@ -58,7 +60,7 @@ export const WiseHeroBalance: React.FC<WiseHeroBalanceProps> = ({
             title="View Scheme Trust Analytics"
             className="p-1.5 rounded-full hover:bg-[#F1F0EC] text-[#0E0E0E] transition-colors cursor-pointer"
           >
-            <BarChart2 className="w-4 h-4" />
+            <BarChartIcon className="w-4 h-4" />
           </button>
         </div>
       </div>
@@ -66,62 +68,75 @@ export const WiseHeroBalance: React.FC<WiseHeroBalanceProps> = ({
       {/* Wise Action Pills Row (Send, Add money, Request v) */}
       <div className="flex flex-wrap items-center gap-2 relative">
         {/* Primary Wise Green Pill (Send equivalent) */}
-        <button
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.97 }}
           onClick={onAuditScan}
           className="bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E] font-medium text-sm px-6 py-2 rounded-full transition-all cursor-pointer shadow-none"
         >
           Audit scan
-        </button>
+        </motion.button>
 
         {/* Secondary Warm Gray Pill (Add money equivalent) */}
-        <button
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.97 }}
           onClick={onFreezeTranche}
           className="bg-[#EAE8E2] hover:bg-[#E0DDD5] text-[#0E0E0E] font-medium text-sm px-5 py-2 rounded-full transition-all cursor-pointer"
         >
           Freeze tranche
-        </button>
+        </motion.button>
 
         {/* Dropdown Warm Gray Pill (Request v equivalent) */}
         <div className="relative">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => setDropdownOpen(!dropdownOpen)}
             className="bg-[#EAE8E2] hover:bg-[#E0DDD5] text-[#0E0E0E] font-medium text-sm px-5 py-2 rounded-full transition-all cursor-pointer flex items-center gap-1.5"
           >
             <span>Directives</span>
-            <ChevronDown className="w-4 h-4 text-[#0E0E0E]" />
-          </button>
+            <ChevronDownIcon className="w-4 h-4 text-[#0E0E0E]" />
+          </motion.button>
 
           {/* Dropdown Menu */}
-          {dropdownOpen && (
-            <div
-              className="absolute left-0 mt-2 w-56 bg-white rounded-2xl shadow-lg border border-[#F1F0EC] py-2 z-30 animate-in fade-in zoom-in-95 duration-100"
-              onClick={() => setDropdownOpen(false)}
-            >
-              <button
-                onClick={() => onSelectDirective('satellite')}
-                className="w-full text-left px-4 py-2.5 text-xs text-[#0E0E0E] hover:bg-[#F1F0EC] transition-colors flex items-center justify-between"
+          <AnimatePresence>
+            {dropdownOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -6, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -6, scale: 0.95 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
+                className="absolute left-0 mt-2 w-56 bg-white rounded-2xl shadow-lg border border-[#F1F0EC] py-2 z-30"
+                onClick={() => setDropdownOpen(false)}
               >
-                <span>Task ISRO Satellite Pass</span>
-                <span className="text-[10px] text-[#6B6B6B]">SAR</span>
-              </button>
-              <button
-                onClick={() => onSelectDirective('subpoena')}
-                className="w-full text-left px-4 py-2.5 text-xs text-[#0E0E0E] hover:bg-[#F1F0EC] transition-colors flex items-center justify-between"
-              >
-                <span>Issue Show-Cause Notice</span>
-                <span className="text-[10px] text-[#6B6B6B]">CAG</span>
-              </button>
-              <button
-                onClick={() => onSelectDirective('export')}
-                className="w-full text-left px-4 py-2.5 text-xs text-[#0E0E0E] hover:bg-[#F1F0EC] transition-colors flex items-center justify-between"
-              >
-                <span>Export Vigilance Dossier</span>
-                <span className="text-[10px] text-[#6B6B6B]">PDF / CSV</span>
-              </button>
-            </div>
-          )}
+                <button
+                  onClick={() => onSelectDirective('satellite')}
+                  className="w-full text-left px-4 py-2.5 text-xs text-[#0E0E0E] hover:bg-[#F1F0EC] transition-colors flex items-center justify-between cursor-pointer"
+                >
+                  <span>Task ISRO Satellite Pass</span>
+                  <span className="text-[10px] text-[#6B6B6B]">SAR</span>
+                </button>
+                <button
+                  onClick={() => onSelectDirective('subpoena')}
+                  className="w-full text-left px-4 py-2.5 text-xs text-[#0E0E0E] hover:bg-[#F1F0EC] transition-colors flex items-center justify-between cursor-pointer"
+                >
+                  <span>Issue Show-Cause Notice</span>
+                  <span className="text-[10px] text-[#6B6B6B]">CAG</span>
+                </button>
+                <button
+                  onClick={() => onSelectDirective('export')}
+                  className="w-full text-left px-4 py-2.5 text-xs text-[#0E0E0E] hover:bg-[#F1F0EC] transition-colors flex items-center justify-between cursor-pointer"
+                >
+                  <span>Export Vigilance Dossier</span>
+                  <span className="text-[10px] text-[#6B6B6B]">PDF / CSV</span>
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>
   );
 };
+
