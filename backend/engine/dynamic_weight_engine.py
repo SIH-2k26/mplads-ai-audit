@@ -39,15 +39,40 @@ DEFAULT_BASE_WEIGHTS: dict[str, float] = {
 
 class DynamicWeightEngine:
     """
-    Computes context-aware dynamic weights for all 19 agents.
-    Adjusted Weight = Base Weight * Applicability * Confidence.
-    Redistributes weight across active agents based on project lifecycle stage.
+    Computes context-aware dynamic weights for all 19 system agents.
+
+    Formulas & Mathematical Logic:
+    1. Adjusted Raw Weight:
+       `Adjusted Weight_i = Base Weight_i * Applicability_i * max(0.1, Confidence_i)`
+       (Set to 0.0 if AgentStatus != COMPLETED or Applicability == 0.0)
+
+    2. Lifecycle Stage Redistribution:
+       Multiplies raw weights by stage multipliers based on ProjectStatus:
+       - PROPOSED / SANCTIONED: Emphasizes eligibility, budget, procurement, cost, duplicate work.
+       - IN_PROGRESS / DELAYED: Emphasizes physical progress, payment gap, deadline, delay prediction, trend stagnation.
+       - COMPLETED: Emphasizes asset completion, documentation, data quality, contractor intelligence.
+
+    3. Weight Normalization:
+       `Normalized Weight_i = Adjusted Weight_i / Sum(Adjusted Weights)`
+       Guarantees `Sum(Normalized Weights) == 1.0000` across all active agents.
     """
 
     def __init__(self, base_weights: Optional[dict[str, float]] = None):
+        """
+        Initializes DynamicWeightEngine.
+
+        Args:
+            base_weights: Optional custom base weights mapping. Defaults to DEFAULT_BASE_WEIGHTS.
+        """
         self.base_weights = base_weights or DEFAULT_BASE_WEIGHTS.copy()
 
     def get_base_weights(self) -> dict[str, float]:
+        """
+        Returns a copy of configured baseline agent weights.
+
+        Returns:
+            dict[str, float]: Baseline weights dictionary.
+        """
         return self.base_weights.copy()
 
     def calculate_weights(
@@ -57,7 +82,13 @@ class DynamicWeightEngine:
     ) -> dict[str, float]:
         """
         Compute normalized dynamic weights for the provided evidence list.
-        Returns dict mapping agent_id -> normalized_weight (sum = 1.0).
+
+        Args:
+            evidence_list: List of AgentEvidence results from Part A & Part B agents.
+            project_status: Optional current project lifecycle stage.
+
+        Returns:
+            dict[str, float]: Dictionary mapping agent_id -> normalized_weight (sum = 1.0).
         """
         if not evidence_list:
             return {}
