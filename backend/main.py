@@ -1,6 +1,12 @@
 """
 main.py
 MPLADS Guardian AI Engine — Main FastAPI Application Entry Point.
+
+Application Features:
+- OpenAPI / Swagger Interactive Documentation (/docs, /redoc)
+- Permissive Cross-Origin Resource Sharing (CORS) Middleware for Web UI
+- API v1 Endpoint Router Registration (/api/v1)
+- Operational Health Checks & Component Status Monitoring (/health, /api/v1/health)
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -30,7 +36,12 @@ app.include_router(api_v1_router, prefix="/api/v1")
 @app.get("/health", tags=["System Health"])
 @app.get("/api/v1/health", tags=["System Health"])
 async def health_check():
-    """System health check endpoint."""
+    """
+    System health check endpoint verifying component readiness.
+
+    Returns:
+        JSON response with system status, version, and operational component inventory.
+    """
     return {
         "status": "healthy",
         "service": "mplads-guardian-backend",
