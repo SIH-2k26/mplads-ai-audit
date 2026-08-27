@@ -14,6 +14,20 @@ from models.enums import AgentStatus, Severity
 
 
 class AnomalyAgent(BaseAgent):
+    """
+    Isolation Forest Anomaly Agent.
+
+    Evaluates multidimensional project features using scikit-learn IsolationForest.
+    
+    Feature Vector Dimensions (7):
+    1. Log Cost: log(max(1, expenditure/sanctioned))
+    2. Financial Progress %: (0-100)
+    3. Physical Progress %: (0-100)
+    4. Delay Days: Days past expected completion
+    5. Extension Count: Approved deadline extensions
+    6. Document Count: Registered document IDs
+    7. Data Quality Flags Count: Number of active data flags
+    """
     agent_id = "anomaly_agent"
     agent_name = "Isolation Forest Anomaly Agent"
     version = "1.0.0"
@@ -26,29 +40,50 @@ class AnomalyAgent(BaseAgent):
     def _init_baseline_model(self):
         """Fit IsolationForest on a representative baseline dataset of normal project feature vectors."""
         np.random.seed(42)
+        # Synthetic baseline distribution matching typical normal project parameters
         # Features: [log_cost, fin_prog, phy_prog, delay_days, ext_count, doc_count, data_quality_flags_count]
         synthetic_normal = np.column_stack([
-            np.random.normal(14.5, 0.8, 200),   # log cost (~2M)
-            np.random.uniform(10, 90, 200),    # financial progress %
-            np.random.uniform(10, 90, 200),    # physical progress %
-            np.random.exponential(15, 200),    # delay days
-            np.random.poisson(0.5, 200),       # extension count
-            np.random.poisson(4, 200),         # doc count
-            np.random.poisson(0.3, 200),       # data quality flags
+            np.random.normal(14.5, 0.8, 200),   # Feature 1: Log cost (~2M INR baseline)
+            np.random.uniform(10, 90, 200),    # Feature 2: Financial progress %
+            np.random.uniform(10, 90, 200),    # Feature 3: Physical progress %
+            np.random.exponential(15, 200),    # Feature 4: Delay days
+            np.random.poisson(0.5, 200),       # Feature 5: Approved extension count
+            np.random.poisson(4, 200),         # Feature 6: Document count
+            np.random.poisson(0.3, 200),       # Feature 7: Data quality flags count
         ])
+        # Initialize IsolationForest with 50 trees and 8% expected contamination rate
         self.model = IsolationForest(n_estimators=50, contamination=0.08, random_state=42)
         self.model.fit(synthetic_normal)
 
     def is_applicable(self, context: AgentContext) -> bool:
+        """
+        Checks applicability for digital twin.
+
+        Args:
+            context: Execution context.
+
+        Returns:
+            bool: True if digital twin is available.
+        """
         twin = context.digital_twin
         return twin is not None
 
     def analyze(self, context: AgentContext) -> AgentEvidence:
+        """
+        Extracts 7D feature vector, computes IsolationForest decision score, and maps to risk score.
+
+        Args:
+            context: Execution context containing project digital twin metrics.
+
+        Returns:
+            AgentEvidence: Calculated anomaly score, decision score evidence, and signals.
+        """
         twin = context.digital_twin
         signals: list[AgentSignal] = []
         evidence: list[EvidenceDataPoint] = []
 
         # ── Construct Feature Vector ───────────────────────────────────────────
+        # Extract features into normalized numerical representation
         cost = float(twin.total_expenditure or twin.sanctioned_amount or 100000)
         log_cost = math.log(max(1.0, cost))
         fin_prog = float(twin.financial_progress or 0.0)
@@ -58,12 +93,13 @@ class AnomalyAgent(BaseAgent):
         doc_count = float(len(twin.document_ids or []))
         dq_flags = float(len(twin.data_quality_flags or []))
 
+        # Assemble 1x7 feature array for inference
         feature_vector = np.array([[
             log_cost, fin_prog, phy_prog, delay_days, ext_count, doc_count, dq_flags
         ]])
 
         # ── Predict Anomaly Score ──────────────────────────────────────────────
-        # decision_function gives negative score for outliers, positive for inliers
+        # decision_function yields negative values for anomalies, positive for normal instances
         raw_score = self.model.decision_function(feature_vector)[0]
         prediction = self.model.predict(feature_vector)[0]  # -1 for anomaly, 1 for normal
 
