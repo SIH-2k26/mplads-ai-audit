@@ -14,7 +14,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 UTC = timezone.utc
 from typing import Any, Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from .enums import ProjectStatus
 from .project import (
     GeoLocation, Recommendation, Sanction, Budget, Expenditure,
@@ -103,7 +103,7 @@ class ProjectDigitalTwin(BaseModel):
 
     # Versioning
     twin_version: int = Field(1, description="Incremented on each rebuild")
-    built_at: datetime = Field(default_factory=datetime.utcnow)
+    built_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 
@@ -160,9 +160,7 @@ class ProjectDigitalTwin(BaseModel):
     def has_document_type(self, doc_type: str) -> bool:
         return doc_type in self.document_types_present
 
-    class Config:
-        # Allow arbitrary types for Decimal compatibility
-        arbitrary_types_allowed = True
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
 
 class DigitalTwinSummary(BaseModel):

@@ -4,9 +4,9 @@ Provenance tracking — answers "where did this data come from?"
 Every important result must trace back to a source.
 """
 from __future__ import annotations
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from .enums import SourceType
 
 
@@ -31,7 +31,7 @@ class ProvenanceRecord(BaseModel):
         None, description="Timestamp on the original source record"
     )
     ingestion_timestamp: datetime = Field(
-        default_factory=datetime.utcnow,
+        default_factory=lambda: datetime.now(timezone.utc),
         description="When this data was ingested into the system"
     )
 
@@ -45,8 +45,7 @@ class ProvenanceRecord(BaseModel):
 
     metadata: dict[str, Any] = Field(default_factory=dict)
 
-    class Config:
-        frozen = True  # Provenance records are immutable
+    model_config = ConfigDict(frozen=True)  # Provenance records are immutable
 
 
 class DataLineage(BaseModel):
@@ -57,4 +56,4 @@ class DataLineage(BaseModel):
     primary_source: ProvenanceRecord
     secondary_sources: list[ProvenanceRecord] = Field(default_factory=list)
     transformation: str = Field(..., description="Description of how sources were combined/transformed")
-    produced_at: datetime = Field(default_factory=datetime.utcnow)
+    produced_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))

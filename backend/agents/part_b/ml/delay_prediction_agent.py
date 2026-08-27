@@ -64,8 +64,20 @@ class DelayPredictionAgent(BaseAgent):
         expected_comp = twin.expected_completion_date or now
         actual_comp = twin.actual_completion_date
 
-        total_planned_days = max(1, (expected_comp - start).days)
-        elapsed_days = max(1, (now - start).days)
+        # Twin dates are stored as naive datetimes (no tzinfo).
+        # Normalize `now` to naive UTC to prevent TypeError on subtraction.
+        def _to_naive(dt: datetime) -> datetime:
+            """Strips tzinfo if present, returning a naive datetime."""
+            if dt is None:
+                return None
+            return dt.replace(tzinfo=None) if dt.tzinfo is not None else dt
+
+        now_naive = _to_naive(now)
+        start_naive = _to_naive(start)
+        expected_comp_naive = _to_naive(expected_comp)
+
+        total_planned_days = max(1, (expected_comp_naive - start_naive).days)
+        elapsed_days = max(1, (now_naive - start_naive).days)
 
         phy_prog = float(twin.physical_progress or 0.0)
 

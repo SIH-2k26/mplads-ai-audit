@@ -14,13 +14,9 @@ Usage:
 """
 import asyncio
 import pytest
-import pytest_asyncio
 
-# ── Custom Marks ─────────────────────────────────────────────────────────────
-# These marks gate tests behind actual infrastructure availability.
-# Tests decorated with @pytest.mark.integration require real PostgreSQL.
-# Tests decorated with @pytest.mark.neo4j require real Neo4j.
-# Tests decorated with @pytest.mark.rag require sentence-transformers + pgvector.
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
 
 def pytest_configure(config):
@@ -35,11 +31,9 @@ def pytest_configure(config):
     )
 
 
-# ── PostgreSQL Availability Check ────────────────────────────────────────────
 def _check_postgres_available() -> bool:
-    """Returns True if PostgreSQL is reachable."""
+    """Returns True if PostgreSQL is reachable within 3 seconds."""
     try:
-        import asyncio
         import asyncpg
         from app.config.settings import get_settings
         settings = get_settings()
@@ -56,17 +50,15 @@ def _check_postgres_available() -> bool:
             await conn.execute("SELECT 1")
             await conn.close()
 
-        asyncio.get_event_loop().run_until_complete(_ping())
+        asyncio.run(_ping())
         return True
     except Exception:
         return False
 
 
-# ── Neo4j Availability Check ─────────────────────────────────────────────────
 def _check_neo4j_available() -> bool:
-    """Returns True if Neo4j is reachable."""
+    """Returns True if Neo4j is reachable within 3 seconds."""
     try:
-        import asyncio
         from neo4j import AsyncGraphDatabase
         from app.config.settings import get_settings
         settings = get_settings()
@@ -80,39 +72,38 @@ def _check_neo4j_available() -> bool:
             await driver.verify_connectivity()
             await driver.close()
 
-        asyncio.get_event_loop().run_until_complete(_ping())
+        asyncio.run(_ping())
         return True
     except Exception:
         return False
 
 
-# ── Skip Fixtures ─────────────────────────────────────────────────────────────
+# ── Shared Skip Markers ───────────────────────────────────────────────────────
+POSTGRES_AVAILABLE = None
+NEO4J_AVAILABLE = None
+
+
 @pytest.fixture(scope="session")
 def postgres_available():
-    available = _check_postgres_available()
-    if not available:
+    global POSTGRES_AVAILABLE
+    if POSTGRES_AVAILABLE is None:
+        POSTGRES_AVAILABLE = _check_postgres_available()
+    if not POSTGRES_AVAILABLE:
         pytest.skip(
-            "INFRASTRUCTURE_BLOCKED: PostgreSQL is not available. "
-            "Start Docker: docker compose up -d postgres"
+            "INFRASTRUCTURE_BLOCKED: PostgreSQL not reachable. "
+            "Run: docker compose up -d postgres (then wait for healthcheck)"
         )
     return True
 
 
 @pytest.fixture(scope="session")
 def neo4j_available():
-    available = _check_neo4j_available()
-    if not available:
+    global NEO4J_AVAILABLE
+    if NEO4J_AVAILABLE is None:
+        NEO4J_AVAILABLE = _check_neo4j_available()
+    if not NEO4J_AVAILABLE:
         pytest.skip(
-            "INFRASTRUCTURE_BLOCKED: Neo4j is not available. "
-            "Start Docker: docker compose up -d neo4j"
+            "INFRASTRUCTURE_BLOCKED: Neo4j not reachable. "
+            "Run: docker compose up -d neo4j (then wait for healthcheck)"
         )
     return True
-
-
-# ── Async Event Loop ─────────────────────────────────────────────────────────
-@pytest.fixture(scope="session")
-def event_loop():
-    """Session-scoped event loop for async integration tests."""
-    loop = asyncio.new_event_loop()
-    yield loop
-    loop.close()

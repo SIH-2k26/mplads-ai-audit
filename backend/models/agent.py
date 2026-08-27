@@ -12,7 +12,7 @@ IMPORTANT:
   Use: "elevated risk indicator", "anomaly detected", "requires investigation"
 """
 from __future__ import annotations
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Optional
 from uuid import uuid4
 from pydantic import BaseModel, Field, field_validator
@@ -84,7 +84,7 @@ class AgentEvidence(BaseModel):
     provenance: Optional[ProvenanceRecord] = None
 
     # Timing
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     execution_time_ms: Optional[float] = None
 
     # For failure cases
@@ -180,4 +180,4 @@ class AgentContext(BaseModel):
         None, description="Nearby/similar projects from graph query"
     )
     metadata: dict[str, Any] = Field(default_factory=dict)
-    context_built_at: datetime = Field(default_factory=datetime.utcnow)
+    context_built_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))

@@ -11,7 +11,12 @@ import numpy as np
 import pandas as pd
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.ensemble import GradientBoostingRegressor, IsolationForest, RandomForestClassifier
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, TimeSeriesSplit
+try:
+    from sklearn.frozen import FrozenEstimator
+    HAS_FROZEN_ESTIMATOR = True
+except ImportError:
+    HAS_FROZEN_ESTIMATOR = False
 
 try:
     from xgboost import XGBClassifier
@@ -75,13 +80,31 @@ class ModelTrainer:
             training_timestamp=pd.Timestamp.now("UTC").isoformat(),
         )
 
-    def train_risk_classifier(self, X: pd.DataFrame, y: np.ndarray) -> TrainingArtifact:
+    def train_risk_classifier(
+        self,
+        X: pd.DataFrame,
+        y: np.ndarray,
+        temporal_split: bool = False,
+    ) -> TrainingArtifact:
         """
         Trains calibrated XGBoost (or RandomForest) risk classifier.
+
+        Args:
+            X: Feature DataFrame.
+            y: Binary labels (0=normal, 1=anomalous).
+            temporal_split: If True, use TimeSeriesSplit (no data leakage for time-ordered data).
+                            If False, use stratified random split (for i.i.d. data).
         """
-        X_train, X_test, y_train, y_test = train_test_split(
-            X.values, y, test_size=0.25, random_state=self.random_state, stratify=y
-        )
+        if temporal_split:
+            # Temporal split: train on first 75%, test on last 25% — prevents future leakage
+            split_idx = int(len(X) * 0.75)
+            X_train, X_test = X.values[:split_idx], X.values[split_idx:]
+            y_train, y_test = y[:split_idx], y[split_idx:]
+            logger.info("ml_trainer.using_temporal_split", train_size=len(X_train), test_size=len(X_test))
+        else:
+            X_train, X_test, y_train, y_test = train_test_split(
+                X.values, y, test_size=0.25, random_state=self.random_state, stratify=y
+            )
 
         if HAS_XGBOOST:
             base_clf = XGBClassifier(
@@ -102,8 +125,21 @@ class ModelTrainer:
 
         base_clf.fit(X_train, y_train)
 
-        # Calibrate probabilities using Sigmoid / Platt scaling
-        calibrated = CalibratedClassifierCV(estimator=base_clf, method="sigmoid", cv="prefit")
+        # Calibrate probabilities using Platt scaling (sigmoid)
+        # Use FrozenEstimator (sklearn >= 1.6) or fall back to cv='prefit'
+        if HAS_FROZEN_ESTIMATOR:
+            from sklearn.frozen import FrozenEstimator
+            calibrated = CalibratedClassifierCV(
+                estimator=FrozenEstimator(base_clf), method="sigmoid"
+            )
+        else:
+            # Legacy fallback for sklearn < 1.6
+            import warnings
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore", FutureWarning)
+                calibrated = CalibratedClassifierCV(
+                    estimator=base_clf, method="sigmoid", cv="prefit"
+                )
         calibrated.fit(X_test, y_test)
 
         # Evaluate on test set
