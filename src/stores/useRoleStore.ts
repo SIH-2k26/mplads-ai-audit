@@ -40,15 +40,22 @@ export const useRoleStore = create<RoleState>((set) => ({
       case 'STATE_NODAL':
         set({
           currentRole: 'STATE_NODAL',
-          userTitle: 'State Nodal Authority (Planning Dept)',
+          userTitle: 'State Nodal Authority (Planning Dept.)',
           userJurisdiction: 'Government of Maharashtra',
         });
         break;
       case 'MINISTRY_DIID':
         set({
           currentRole: 'MINISTRY_DIID',
-          userTitle: 'Director General / DIID Oversight',
+          userTitle: 'Director General / Ministry Authority',
           userJurisdiction: 'Ministry of Statistics & Programme Implementation (MoSPI), New Delhi',
+        });
+        break;
+      case 'AUDITOR':
+        set({
+          currentRole: 'AUDITOR',
+          userTitle: 'Senior Vigilance & Audit Officer',
+          userJurisdiction: 'National Audit Directorate (CAG / CVC / MoSPI)',
         });
         break;
     }

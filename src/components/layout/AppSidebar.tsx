@@ -20,6 +20,8 @@ import {
   UserCheck,
   Scale,
   Sparkles,
+  Activity,
+  FileText,
 } from 'lucide-react';
 import { useRoleStore } from '../../stores/useRoleStore';
 import { useUiStore } from '../../stores/useUiStore';
@@ -61,6 +63,15 @@ export function AppSidebar() {
           { label: 'Statewide Projects Directory', path: '/projects', icon: FolderKanban },
           { label: 'Escalated Cases', path: '/cases', icon: Briefcase, badge: '5' },
         ];
+      case 'AUDITOR':
+        return [
+          { label: 'Vigilance & Case Inquiries', path: '/cases', icon: Briefcase, primary: true, badge: '12' },
+          { label: 'CAG / CVC Audit Prioritisation', path: '/reports', icon: FileSpreadsheet, highlight: true },
+          { label: 'RAG Knowledge & Policy Store', path: '/policies', icon: BookOpen },
+          { label: 'Fraud Archetypes & Cartels', path: '/compliance', icon: Scale },
+          { label: 'All-India Projects Directory', path: '/projects', icon: FolderKanban },
+          { label: 'National Risk Analytics', path: '/ministry', icon: Landmark },
+        ];
       case 'MINISTRY_DIID':
       default:
         return [
@@ -100,6 +111,8 @@ export function AppSidebar() {
               ? 'District Magistrate & Collector, Pune'
               : currentRole === 'STATE_NODAL'
               ? 'Maharashtra State Planning Dept'
+              : currentRole === 'AUDITOR'
+              ? 'National Audit Directorate (CAG/CVC)'
               : 'Ministry of Statistics (MoSPI), New Delhi'}
           </p>
         </div>

@@ -20,8 +20,10 @@ export function TopHeader() {
       setRole('DISTRICT_AUTHORITY');
     } else if (location.pathname === '/state' && currentRole !== 'STATE_NODAL') {
       setRole('STATE_NODAL');
-    } else if ((location.pathname === '/ministry' || location.pathname === '/intelligence') && currentRole !== 'MINISTRY_DIID') {
+    } else if (location.pathname === '/ministry' && currentRole !== 'MINISTRY_DIID') {
       setRole('MINISTRY_DIID');
+    } else if (location.pathname === '/cases' && currentRole !== 'AUDITOR') {
+      setRole('AUDITOR');
     }
   }, [location.pathname, currentRole, setRole]);
 
@@ -49,6 +51,12 @@ export function TopHeader() {
       label: 'Director General / Ministry Authority',
       desc: 'Executive risk intelligence, policy compliance & national investigation oversight',
       path: '/ministry',
+    },
+    {
+      role: 'AUDITOR',
+      label: 'Senior Vigilance & Audit Officer (CAG / CVC)',
+      desc: 'Deep investigation dockets, RAG evidence citations, critic verification & learning loop',
+      path: '/cases',
     },
   ];
 
@@ -84,10 +92,10 @@ export function TopHeader() {
 
       {/* Center/Right Controls */}
       <div className="flex items-center gap-3">
-        {/* Data Freshness Indicator */}
+        {/* Data Source Transparency Banner */}
         <div className="hidden lg:flex items-center gap-1.5 rounded-[4px] bg-[#FAFAF7] border border-[#D9DFE3] px-2.5 py-1 text-[11px] text-[#647383]">
           <span className="h-2 w-2 rounded-full bg-[#2E8064] animate-pulse" />
-          <span>Telemetry Sync: <strong>Today, 08:30 IST</strong></span>
+          <span>DATA MODE: <strong>PUBLIC BENCHMARK & SIMULATED TELEMETRY</strong></span>
         </div>
 
         {/* Global Role Switcher Dropdown */}
@@ -108,7 +116,7 @@ export function TopHeader() {
           </button>
 
           {roleMenuOpen && (
-            <div className="absolute right-0 mt-2 w-88 rounded-[6px] border border-[#D9DFE3] bg-white p-2 shadow-2xl z-50 animate-in fade-in-50 duration-150">
+            <div className="absolute right-0 mt-2 w-92 rounded-[6px] border border-[#D9DFE3] bg-white p-2 shadow-2xl z-50 animate-in fade-in-50 duration-150">
               <div className="px-3 py-2 border-b border-[#D9DFE3] mb-1 bg-[#FAFAF7] rounded-[4px]">
                 <span className="text-[10px] uppercase font-mono font-bold text-[#15324A] tracking-wider block">
                   Switch Active Governance Lens

@@ -1,4 +1,4 @@
-export type UserRole = 'MP' | 'DISTRICT_AUTHORITY' | 'STATE_NODAL' | 'MINISTRY_DIID';
+export type UserRole = 'MP' | 'DISTRICT_AUTHORITY' | 'STATE_NODAL' | 'MINISTRY_DIID' | 'AUDITOR';
 
 export type RiskLevel = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
 
