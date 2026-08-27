@@ -5,6 +5,7 @@ Calculates financial utilization percentage and evaluates over-utilization or fr
 """
 from __future__ import annotations
 from decimal import Decimal
+from typing import Optional
 
 from agents.base import BaseAgent
 from models.agent import AgentContext, AgentEvidence, AgentSignal, EvidenceDataPoint
@@ -12,32 +13,56 @@ from models.enums import AgentStatus, Severity, ProjectStatus
 
 
 class FinancialProgressAgent(BaseAgent):
-    agent_id = "financial_progress_agent"
-    agent_name = "Financial Utilization Agent"
-    version = "1.0.0"
+    """
+    Financial Utilization Agent.
+    
+    Computes financial utilization percentage (expenditure / sanctioned budget)
+    and evaluates excess utilization or severe front-loading risks.
+    """
+    agent_id: str = "financial_progress_agent"
+    agent_name: str = "Financial Utilization Agent"
+    version: str = "1.0.0"
 
     # Utilization Thresholds (%)
-    OVER_UTILIZATION_CRITICAL = 125.0
-    OVER_UTILIZATION_HIGH = 100.0
-    FRONT_LOAD_FINANCIAL_THRESHOLD = 80.0
-    FRONT_LOAD_PHYSICAL_MAX = 30.0
+    OVER_UTILIZATION_CRITICAL: float = 125.0
+    OVER_UTILIZATION_HIGH: float = 100.0
+    FRONT_LOAD_FINANCIAL_THRESHOLD: float = 80.0
+    FRONT_LOAD_PHYSICAL_MAX: float = 30.0
 
     def is_applicable(self, context: AgentContext) -> bool:
+        """
+        Determines applicability based on sanction data availability.
+
+        Args:
+            context: Project execution context.
+
+        Returns:
+            bool: True if sanction budget > 0 exists.
+        """
         twin = context.digital_twin
         return twin is not None and twin.sanctioned_amount is not None and twin.sanctioned_amount > 0
 
     def analyze(self, context: AgentContext) -> AgentEvidence:
+        """
+        Executes financial progress and utilization anomaly checks.
+
+        Args:
+            context: Project execution context.
+
+        Returns:
+            AgentEvidence: Calculated utilization signals and evidence records.
+        """
         twin = context.digital_twin
         signals: list[AgentSignal] = []
         evidence: list[EvidenceDataPoint] = []
-        score = 0.0
+        score: float = 0.0
 
-        sanctioned = twin.sanctioned_amount or Decimal("0")
-        expenditure = twin.total_expenditure or Decimal("0")
-        approved_budget = twin.budget.approved_budget if twin.budget else Decimal("0")
-        effective_sanction = approved_budget if approved_budget > 0 else sanctioned
+        sanctioned: Decimal = twin.sanctioned_amount or Decimal("0")
+        expenditure: Decimal = twin.total_expenditure or Decimal("0")
+        approved_budget: Decimal = twin.budget.approved_budget if twin.budget else Decimal("0")
+        effective_sanction: Decimal = approved_budget if approved_budget > 0 else sanctioned
 
-        utilization_pct = 0.0
+        utilization_pct: float = 0.0
         if effective_sanction > 0:
             utilization_pct = float((expenditure / effective_sanction) * Decimal("100"))
 
@@ -83,7 +108,7 @@ class FinancialProgressAgent(BaseAgent):
             score += 30.0
 
         # ── 2. Front-Loaded Utilization Check ────────────────────────────────
-        phy_prog = twin.physical_progress
+        phy_prog: Optional[float] = twin.physical_progress
         if phy_prog is not None:
             if utilization_pct >= self.FRONT_LOAD_FINANCIAL_THRESHOLD and phy_prog <= self.FRONT_LOAD_PHYSICAL_MAX:
                 signals.append(AgentSignal(
