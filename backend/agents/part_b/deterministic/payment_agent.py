@@ -13,6 +13,13 @@ from models.enums import AgentStatus, Severity, ProjectStatus
 
 
 class PaymentAgent(BaseAgent):
+    """
+    Payment Anomaly & Fund Parking Agent.
+    
+    Evaluates payment histories, financial inactivity intervals, and payment
+    frequency to identify fund parking anomalies (zero expenditure >= 45 days)
+    and invoice splitting patterns.
+    """
     agent_id = "payment_agent"
     agent_name = "Payment Anomaly & Fund Parking Agent"
     version = "1.0.0"
@@ -23,11 +30,28 @@ class PaymentAgent(BaseAgent):
     SPLIT_PAYMENT_WINDOW_DAYS = 2     # Multiple payments within 2 days
 
     def is_applicable(self, context: AgentContext) -> bool:
+        """
+        Determines if the agent can analyze the project context.
+
+        Args:
+            context: Execution context containing project digital twin.
+
+        Returns:
+            True if digital twin and valid sanctioned amount exist, False otherwise.
+        """
         twin = context.digital_twin
-        # Applicable if twin is present and has sanction amount
         return twin is not None and twin.sanctioned_amount is not None and twin.sanctioned_amount > 0
 
     def analyze(self, context: AgentContext) -> AgentEvidence:
+        """
+        Analyzes payment records for zero-expenditure fund parking and split payment patterns.
+
+        Args:
+            context: Execution context with project digital twin state.
+
+        Returns:
+            AgentEvidence containing risk score, signals, and evidence data points.
+        """
         twin = context.digital_twin
         signals: list[AgentSignal] = []
         evidence: list[EvidenceDataPoint] = []
