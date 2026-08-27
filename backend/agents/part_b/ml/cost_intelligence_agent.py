@@ -25,11 +25,32 @@ CATEGORY_BENCHMARKS = {
 
 
 class CostIntelligenceAgent(BaseAgent):
+    """
+    Cost Intelligence & Peer Benchmark Agent.
+
+    Evaluates project financial estimates against regional category distributions.
+    
+    Statistical Scoring:
+    - `Z-Score = (Effective Cost - Category Median) / Category StdDev`
+    - `Cost Ratio = Effective Cost / Category Median`
+    - Z-Score >= 3.0 or Ratio >= 2.5x: EXTREME_REGIONAL_COST_DEVIATION (CRITICAL)
+    - Z-Score >= 2.0 or Ratio >= 1.8x: HIGH_REGIONAL_COST_DEVIATION (HIGH)
+    - Z-Score <= -2.0 or Ratio <= 0.3x: ABNORMALLY_LOW_COST_ESTIMATE (MEDIUM)
+    """
     agent_id = "cost_intelligence_agent"
     agent_name = "Cost Intelligence & Peer Benchmark Agent"
     version = "1.0.0"
 
     def is_applicable(self, context: AgentContext) -> bool:
+        """
+        Determines applicability based on sanction or expenditure availability.
+
+        Args:
+            context: Project execution context.
+
+        Returns:
+            bool: True if non-zero financial cost exists.
+        """
         twin = context.digital_twin
         return twin is not None and (
             (twin.sanctioned_amount is not None and twin.sanctioned_amount > 0)
@@ -37,6 +58,15 @@ class CostIntelligenceAgent(BaseAgent):
         )
 
     def analyze(self, context: AgentContext) -> AgentEvidence:
+        """
+        Calculates Z-score and cost ratio peer deviations against baseline distributions.
+
+        Args:
+            context: Execution context containing project digital twin and peer data.
+
+        Returns:
+            AgentEvidence: Calculated Z-score, cost ratio, and anomaly signals.
+        """
         twin = context.digital_twin
         signals: list[AgentSignal] = []
         evidence: list[EvidenceDataPoint] = []
