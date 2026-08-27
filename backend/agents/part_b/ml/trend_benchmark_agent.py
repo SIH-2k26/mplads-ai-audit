@@ -11,15 +11,40 @@ from models.enums import AgentStatus, Severity, ProjectStatus
 
 
 class TrendBenchmarkAgent(BaseAgent):
+    """
+    Progress Stagnation & Trend Agent.
+
+    Analyzes multi-period progress history trends to detect:
+    1. Chronic Physical Stagnation: Zero physical progress movement across >= 30 days of active status.
+    2. Financial Drain Without Physical Movement: Financial progress increase >= 15% paired with 0.0% physical progress delta.
+    """
     agent_id = "trend_benchmark_agent"
     agent_name = "Progress Stagnation & Trend Agent"
     version = "1.0.0"
 
     def is_applicable(self, context: AgentContext) -> bool:
+        """
+        Checks applicability based on digital twin presence.
+
+        Args:
+            context: Project execution context.
+
+        Returns:
+            bool: True if digital twin exists.
+        """
         twin = context.digital_twin
         return twin is not None
 
     def analyze(self, context: AgentContext) -> AgentEvidence:
+        """
+        Evaluates progress history trend deltas across reporting periods.
+
+        Args:
+            context: Execution context containing project progress history records.
+
+        Returns:
+            AgentEvidence: Calculated stagnation metrics, trend deltas, and risk signals.
+        """
         twin = context.digital_twin
         signals: list[AgentSignal] = []
         evidence: list[EvidenceDataPoint] = []
