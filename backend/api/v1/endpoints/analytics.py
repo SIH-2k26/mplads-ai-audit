@@ -19,19 +19,22 @@ router = APIRouter()
 
 
 class ProjectAnalysisRequest(BaseModel):
-    project_id: Optional[str] = None
-    digital_twin: Optional[dict[str, Any]] = None
+    """Request schema for project risk analysis endpoint."""
+    project_id: Optional[str] = Field(None, description="Unique project ID (e.g., PROJ/VAR/2026/001)")
+    digital_twin: Optional[dict[str, Any]] = Field(None, description="Optional raw ProjectDigitalTwin JSON object payload")
 
 
 class WhatIfSimulationRequest(BaseModel):
-    project_id: Optional[str] = None
-    digital_twin: Optional[dict[str, Any]] = None
-    delay_days_delta: int = Field(0, description="Projected schedule delay delta in days")
-    expenditure_delta: float = Field(0.0, description="Projected expenditure change in INR")
-    physical_progress_delta: float = Field(0.0, description="Projected physical progress change %")
+    """Request schema for What-If parameter adjustment simulation."""
+    project_id: Optional[str] = Field(None, description="Target project ID for baseline risk evaluation")
+    digital_twin: Optional[dict[str, Any]] = Field(None, description="Optional raw ProjectDigitalTwin JSON payload")
+    delay_days_delta: int = Field(0, description="Projected schedule delay delta in days (+/- days)")
+    expenditure_delta: float = Field(0.0, description="Projected financial expenditure change in INR (+/- INR)")
+    physical_progress_delta: float = Field(0.0, description="Projected physical progress percentage change (+/- %)")
 
 
 def _get_or_create_twin(project_id: Optional[str], twin_dict: Optional[dict[str, Any]]) -> ProjectDigitalTwin:
+    """Helper to deserialize raw twin payload or resolve default sample digital twin."""
     if twin_dict:
         try:
             return ProjectDigitalTwin(**twin_dict)
@@ -62,8 +65,15 @@ def _get_or_create_twin(project_id: Optional[str], twin_dict: Optional[dict[str,
 async def analyze_project(req: ProjectAnalysisRequest) -> dict[str, Any]:
     """
     POST /api/v1/projects/analyze
-    Accepts project ID or raw payload, executes MPLADSOrchestrator pipeline,
-    and returns 3D risk scores, agent evidence array, NLP summary, and case ID (if created).
+
+    Executes 19-agent risk assessment pipeline and evidence fusion engine.
+
+    Args:
+        req: ProjectAnalysisRequest payload containing project_id or raw digital_twin dict.
+
+    Returns:
+        JSON response with overall risk score, 3D breakdown, 8D fingerprint, agent evidence array,
+        NLP markdown summary narrative, and created investigation case ID (if high risk).
     """
     twin = _get_or_create_twin(req.project_id, req.digital_twin)
     state = await execute_pipeline(twin)
@@ -93,8 +103,14 @@ async def analyze_project(req: ProjectAnalysisRequest) -> dict[str, Any]:
 async def run_what_if_simulation(req: WhatIfSimulationRequest) -> dict[str, Any]:
     """
     POST /api/v1/simulation/what-if
-    Accepts parameter adjustments (delay, expenditure, physical progress deltas)
-    and computes projected risk simulation results without persisting changes to DB.
+
+    Executes What-If parameter simulation on cloned digital twin.
+
+    Args:
+        req: WhatIfSimulationRequest payload specifying parameter deltas.
+
+    Returns:
+        JSON response detailing baseline risk, simulated risk, calculated score deltas, and risk transitions.
     """
     twin = _get_or_create_twin(req.project_id, req.digital_twin)
     simulator = WhatIfSimulator()
@@ -112,7 +128,14 @@ async def run_what_if_simulation(req: WhatIfSimulationRequest) -> dict[str, Any]
 async def generate_pdf_report(project_id: str):
     """
     GET /api/v1/reports/pdf/{project_id}
-    Invokes FieldInspectionPDFService and streams 1-page printable Field Inspection Brief PDF.
+
+    Generates and streams 1-page printable Field Inspection Brief PDF file.
+
+    Args:
+        project_id: Target project ID path parameter.
+
+    Returns:
+        Streaming Response with application/pdf header and binary PDF stream.
     """
     twin = _get_or_create_twin(project_id, None)
     state = await execute_pipeline(twin)
