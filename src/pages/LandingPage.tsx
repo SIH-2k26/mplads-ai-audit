@@ -3,6 +3,7 @@ import { LandingNavbar } from '../components/landing/LandingNavbar';
 import { HeroSection } from '../components/landing/HeroSection';
 import { InformationTicker } from '../components/landing/InformationTicker';
 import { FromDataToDecisionSection } from '../components/landing/FromDataToDecisionSection';
+import { PublicQuerySection } from '../components/landing/PublicQuerySection';
 import { IntelligenceFlowSection } from '../components/landing/IntelligenceFlowSection';
 import { ProjectDigitalTwinSection } from '../components/landing/ProjectDigitalTwinSection';
 import { GovernanceRulesSection } from '../components/landing/GovernanceRulesSection';
@@ -37,7 +38,12 @@ export function LandingPage() {
         <FromDataToDecisionSection />
       </div>
 
-      {/* CHAPTER 03: How AGASTYA Thinks — 7-Stage Intelligence Pipeline */}
+      {/* CHAPTER 03: Public Query & Transparency Capsule Rail */}
+      <div id="public-query">
+        <PublicQuerySection />
+      </div>
+
+      {/* CHAPTER 04: How AGASTYA Thinks — 7-Stage Intelligence Pipeline */}
       <div id="how-it-thinks">
         <IntelligenceFlowSection />
       </div>

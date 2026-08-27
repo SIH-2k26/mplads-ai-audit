@@ -23,8 +23,9 @@ export function LandingNavbar() {
   }, []);
 
   const navLinks = [
-    { label: 'Platform', href: '#how-it-thinks' },
     { label: 'Intelligence', href: '#from-data-to-decision' },
+    { label: 'Public Query', href: '#public-query' },
+    { label: 'Pipeline', href: '#how-it-thinks' },
     { label: 'Projects', href: '#digital-twin' },
     { label: 'Governance', href: '#rules' },
     { label: 'Early Warning', href: '#early-warning' },
