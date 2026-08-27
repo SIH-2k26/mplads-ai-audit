@@ -1,4 +1,4 @@
-# 🛡️ MPLADS Guardian — AI-Powered Government Risk Intelligence Platform
+# MPLADS Guardian — AI-Powered Government Risk Intelligence Platform
 
 > **Problem Statement ID:** SIH26102  
 > **Tagline:** DETECT → EXPLAIN → PREDICT → INVESTIGATE → LEARN
@@ -7,7 +7,7 @@ MPLADS Guardian is an AI-driven audit, early-warning, and investigation platform
 
 ---
 
-## 🏗️ Core System Architecture
+## Core System Architecture
 
 ```text
                                 MPLADS DATA
@@ -51,7 +51,7 @@ Deterministic Agents (10)     ML / Statistical Agents (8)     Policy RAG Agent (
 
 ---
 
-## 🔥 Key Capabilities
+## Key Capabilities
 
 * **Project Digital Twin:** Tracks the complete lifecycle of works across recommendations, sanctions, fund releases, physical progress updates, and completion certificates.
 * **19 Specialized Intelligence Agents:**
@@ -77,7 +77,7 @@ $$\text{Adjusted Weight}_i = \text{Base Weight}_i \times \text{Applicability}_i 
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technologies |
 | --- | --- |
@@ -92,7 +92,7 @@ $$\text{Adjusted Weight}_i = \text{Base Weight}_i \times \text{Applicability}_i 
 
 ---
 
-## 📁 Repository Directory Layout
+## Repository Directory Layout
 
 ```text
 mplads-ai-audit/
@@ -119,7 +119,7 @@ mplads-ai-audit/
 
 ---
 
-## 🚀 Quickstart Guide
+## Quickstart Guide
 
 ### 1. Prerequisites
 
@@ -175,7 +175,7 @@ Access the interactive API documentation at:
 
 ---
 
-## 📡 Core API Endpoints
+## Core API Endpoints
 
 | Method | Endpoint | Description |
 | --- | --- | --- |
@@ -187,7 +187,7 @@ Access the interactive API documentation at:
 
 ---
 
-## 🧪 Testing
+## Testing
 
 Run the automated test suite covering unit logic and mandatory integration contracts:
 
