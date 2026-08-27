@@ -25,7 +25,16 @@ from models.risk import RiskOutput, RiskFingerprint
 class FieldInspectionPDFService:
     """
     Constructs a 1-page printable Field Inspection Brief PDF using ReportLab.
-    Used by District Authorities for site inspections and audit verification.
+
+    Layout Specifications:
+    - Page Dimensions: Letter size (612 x 792 pt) with 36pt margins (0.5 inch).
+    - Section 1: Top Navy Banner (#1A365D) Header (Ministry/District details).
+    - Section 2: 4-Column Metadata Table (Project ID, Name, Category, Sanction, Progress).
+    - Section 3: 3D Risk Badge & Breakdown Table (Current, Future, Systemic scores).
+    - Section 4: 8D Risk Fingerprint 4x2 Table (Normalized 0.0-1.0 metrics).
+    - Section 5: Key Audit Signals & Indicators List.
+    - Section 6: 2x2 Physical Verification Sign-off Checklist (MB, Photo proof, UC, Physical %).
+    - Section 7: Footer Grid containing QR Code evidence placeholder & inspecting officer sign-off lines.
     """
 
     def generate_field_inspection_brief(
@@ -36,6 +45,14 @@ class FieldInspectionPDFService:
     ) -> bytes:
         """
         Generate PDF binary bytes for the project field inspection brief.
+
+        Args:
+            digital_twin: ProjectDigitalTwin instance.
+            risk_output: Fused RiskOutput metrics.
+            nlp_summary: Optional NLP summary string.
+
+        Returns:
+            bytes: Binary PDF file stream bytes starting with %PDF.
         """
         buffer = io.BytesIO()
         doc = SimpleDocTemplate(
@@ -276,6 +293,7 @@ class FieldInspectionPDFService:
         return pdf_bytes
 
     def _get_risk_color(self, level_str: str) -> colors.Color:
+        """Helper to get ReportLab Color for a risk level."""
         if level_str == "CRITICAL":
             return colors.HexColor("#E53E3E")  # Red
         elif level_str == "HIGH":
