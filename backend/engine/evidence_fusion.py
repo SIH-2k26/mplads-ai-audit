@@ -66,26 +66,29 @@ class EvidenceFusionEngine:
         Consumes evidence from Part A and Part B agents, computes dynamic weights,
         evaluates 3D risk dimensions, generates fingerprint, and returns RiskOutput.
         """
-        # 1. Compute dynamic weights for active agents
+        # Step 1: Compute dynamic context-aware weights for all active agents
         weights = self.weight_engine.calculate_weights(evidence_list, project_status)
 
-        # Lookup dict for easy score retrieval
+        # Lookup dict for efficient agent evidence score indexing
         evidence_map: dict[str, AgentEvidence] = {ev.agent_id: ev for ev in evidence_list}
 
-        # 2. Compute 3D Risk Breakdown
+        # Step 2: Compute 3D Risk Breakdown (Current, Future, Systemic)
+        # Current Risk: Financial utilization, payment parking, physical gap, budget, cost deviation
         current_risk = self._compute_dimension_risk(CURRENT_RISK_AGENTS, evidence_map, weights)
+        # Future Risk: Delay prediction, schedule deadline, trend stagnation, multivariate vector anomaly
         future_risk = self._compute_dimension_risk(FUTURE_RISK_AGENTS, evidence_map, weights)
+        # Systemic Risk: Network relationship graph, contractor intelligence, duplicate work, archetype
         systemic_risk = self._compute_dimension_risk(SYSTEMIC_RISK_AGENTS, evidence_map, weights)
 
-        # Incorporate Graph signals into Systemic Risk if provided (CONTRACT 4)
+        # Incorporate Neo4j Knowledge Graph signals into Systemic Risk if available (CONTRACT 4)
         if graph_result and not graph_result.is_empty():
             systemic_risk = self._enrich_systemic_risk_with_graph(systemic_risk, graph_result)
 
-        # 3. Overall Risk Score Calculation
+        # Step 3: Overall Risk Synthesis & Severity Floor
         # Weighted synthesis: 45% Current + 35% Future + 20% Systemic
         weighted_overall = (0.45 * current_risk) + (0.35 * future_risk) + (0.20 * systemic_risk)
 
-        # Severity floor: if any individual agent detected a critical score (>=85), floor the overall score
+        # Severity floor enforcement: if any individual agent detected a critical score (>=85), floor overall risk
         max_agent_score = max([ev.score for ev in evidence_list if ev.is_applicable()], default=0.0)
         if max_agent_score >= 85.0:
             weighted_overall = max(weighted_overall, max_agent_score * 0.75)
@@ -93,10 +96,10 @@ class EvidenceFusionEngine:
         overall_risk_score = round(min(100.0, max(0.0, weighted_overall)), 2)
         risk_level = self._determine_risk_level(overall_risk_score)
 
-        # 4. Generate 8D RiskFingerprint (Normalized 0.0 to 1.0)
+        # Step 4: Generate 8D RiskFingerprint (Normalized 0.0 to 1.0)
         fingerprint = self._generate_risk_fingerprint(evidence_map)
 
-        # 5. Extract Top Signals
+        # Step 5: Extract Top Audit Signals
         top_signals = self._extract_top_signals(evidence_list)
 
         return RiskOutput(
@@ -118,7 +121,9 @@ class EvidenceFusionEngine:
         evidence_map: dict[str, AgentEvidence],
         weights: dict[str, float],
     ) -> float:
-        """Computes weighted average score for a risk dimension."""
+        """
+        Computes weighted average score for a specific 3D risk dimension.
+        """
         total_weighted_score = 0.0
         sum_weights = 0.0
 
@@ -138,7 +143,9 @@ class EvidenceFusionEngine:
     def _enrich_systemic_risk_with_graph(
         self, base_systemic_risk: float, graph_result: GraphResult
     ) -> float:
-        """Enrich systemic risk using Knowledge Graph relationships & network metrics."""
+        """
+        Enriches systemic risk score using Knowledge Graph network metrics (contractor density, cartels, split tendering).
+        """
         boost = 0.0
 
         # Check contractor network strength
@@ -162,7 +169,9 @@ class EvidenceFusionEngine:
         return min(100.0, base_systemic_risk + boost)
 
     def _generate_risk_fingerprint(self, evidence_map: dict[str, AgentEvidence]) -> RiskFingerprint:
-        """Maps agent scores into an 8-dimensional normalized RiskFingerprint (0.0 to 1.0)."""
+        """
+        Maps agent scores into an 8-dimensional normalized RiskFingerprint (0.0 to 1.0 scale).
+        """
         def get_norm_score(*agent_ids: str) -> float:
             scores = [evidence_map[aid].score for aid in agent_ids if aid in evidence_map and evidence_map[aid].is_applicable()]
             if not scores:
@@ -183,7 +192,9 @@ class EvidenceFusionEngine:
         )
 
     def _extract_top_signals(self, evidence_list: list[AgentEvidence]) -> list[str]:
-        """Extracts top human-readable signals from high and critical agent findings."""
+        """
+        Extracts top human-readable signals from high and critical agent findings.
+        """
         extracted: list[str] = []
 
         for ev in evidence_list:
@@ -209,6 +220,9 @@ class EvidenceFusionEngine:
         return extracted[:10]
 
     def _determine_risk_level(self, score: float) -> RiskLevel:
+        """
+        Maps overall risk score to qualitative RiskLevel enum.
+        """
         if score >= 80.0:
             return RiskLevel.CRITICAL
         elif score >= 60.0:
