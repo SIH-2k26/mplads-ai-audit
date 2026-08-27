@@ -20,7 +20,8 @@ CASE_STORE: dict[str, InvestigationCase] = {}
 
 
 class RecordVerdictRequest(BaseModel):
-    verdict: Verdict = Field(..., description="CONFIRMED_ISSUE, FALSE_POSITIVE, INSUFFICIENT_EVIDENCE, ESCALATE, NO_ACTION_REQUIRED")
+    """Request schema for submitting human investigator verdict on an investigation case."""
+    verdict: Verdict = Field(..., description="Verdict status: CONFIRMED_ISSUE, FALSE_POSITIVE, INSUFFICIENT_EVIDENCE, ESCALATE, NO_ACTION_REQUIRED")
     reason: str = Field(..., description="Detailed justification for human investigator verdict")
     investigator_id: Optional[str] = Field("INV_001", description="ID of human investigator")
     investigator_name: Optional[str] = Field("Officer Inspector", description="Name of investigator")
@@ -31,7 +32,15 @@ class RecordVerdictRequest(BaseModel):
 async def submit_case_verdict(case_id: str, req: RecordVerdictRequest) -> dict[str, Any]:
     """
     POST /api/v1/cases/{case_id}/verdict
-    Ingests human investigator verdict and records it in the investigation case audit trail.
+
+    Ingests human investigator verdict and updates case audit trail.
+
+    Args:
+        case_id: Target investigation case ID.
+        req: RecordVerdictRequest payload containing verdict enum and reasoning.
+
+    Returns:
+        JSON representation of updated InvestigationCase.
     """
     # Retrieve existing case or construct default open case if testing API directly
     if case_id in CASE_STORE:
@@ -75,7 +84,14 @@ async def submit_case_verdict(case_id: str, req: RecordVerdictRequest) -> dict[s
 async def get_case_details(case_id: str) -> dict[str, Any]:
     """
     GET /api/v1/cases/{case_id}
-    Returns details of an investigation case.
+
+    Retrieves full details of an active or historical investigation case.
+
+    Args:
+        case_id: Target investigation case ID.
+
+    Returns:
+        JSON representation of InvestigationCase.
     """
     if case_id in CASE_STORE:
         return CASE_STORE[case_id].model_dump(mode="json")
