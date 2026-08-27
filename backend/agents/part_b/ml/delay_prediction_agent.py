@@ -12,17 +12,47 @@ from models.enums import AgentStatus, Severity, ProjectStatus
 
 
 class DelayPredictionAgent(BaseAgent):
+    """
+    Delay Prediction & Horizon Agent.
+
+    Predicts project completion delay probability and projected delay duration in days.
+
+    Pace & Horizon Math:
+    - `Current Daily Pace (%/day) = Physical Progress (%) / Elapsed Days`
+    - `Predicted Remaining Days = (100% - Physical Progress %) / Current Daily Pace`
+    - `Predicted Total Days = Elapsed Days + Predicted Remaining Days`
+    - `Predicted Delay Days = max(0, Predicted Total Days - Total Planned Days)`
+    - `Delay Probability = Logistic(-2.0 + 3.5*PaceDeficit + 0.01*DelayDays + 0.5*ApprovedExtensions)`
+    """
     agent_id = "delay_prediction_agent"
     agent_name = "Delay Prediction & Horizon Agent"
     version = "1.0.0"
 
     def is_applicable(self, context: AgentContext) -> bool:
+        """
+        Checks applicability based on project schedule availability.
+
+        Args:
+            context: Execution context.
+
+        Returns:
+            bool: True if start date or expected completion date exists.
+        """
         twin = context.digital_twin
         return twin is not None and (
             twin.expected_completion_date is not None or twin.start_date is not None
         )
 
     def analyze(self, context: AgentContext) -> AgentEvidence:
+        """
+        Computes current daily physical pace, projects remaining duration, and evaluates delay probability.
+
+        Args:
+            context: Project execution context.
+
+        Returns:
+            AgentEvidence: Projected delay days, delay probability, and risk signals.
+        """
         twin = context.digital_twin
         signals: list[AgentSignal] = []
         evidence: list[EvidenceDataPoint] = []
