@@ -4,6 +4,7 @@ import { useRoleStore } from '../../stores/useRoleStore';
 import { UserRole } from '../../types';
 import { useUiStore } from '../../stores/useUiStore';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { LanguageSelector } from '../common/LanguageSelector';
 
 export function TopHeader() {
   const { currentRole, setRole, userTitle, userJurisdiction } = useRoleStore();
@@ -97,6 +98,9 @@ export function TopHeader() {
           <span className="h-2 w-2 rounded-full bg-[#2E8064] animate-pulse" />
           <span>DATA MODE: <strong>PUBLIC BENCHMARK & SIMULATED TELEMETRY</strong></span>
         </div>
+
+        {/* 22 Eighth Schedule Languages Selector */}
+        <LanguageSelector variant="header" />
 
         {/* Global Role Switcher Dropdown */}
         <div className="relative">

@@ -4,6 +4,7 @@ import { Shield, ArrowRight, Search, Menu, X } from 'lucide-react';
 import { Button } from '../ui/button';
 import { CommandPalette } from '../ui/command';
 import { cn } from '../../lib/utils';
+import { LanguageSelector } from '../common/LanguageSelector';
 
 export function LandingNavbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -88,6 +89,9 @@ export function LandingNavbar() {
 
           {/* Right Action CTAs & Search Palette */}
           <div className="hidden sm:flex items-center gap-2.5 flex-shrink-0">
+            {/* 22 Eighth Schedule Languages Selector */}
+            <LanguageSelector variant="landing" />
+
             <button
               type="button"
               onClick={() => setCommandOpen(true)}

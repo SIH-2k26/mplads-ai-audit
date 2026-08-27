@@ -20,7 +20,18 @@
   body {
     background-color: #FAFAF7;
     color: #172B3A;
-    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', 'Noto Sans', 'Noto Sans Devanagari', 'Noto Sans Bengali', 'Noto Sans Tamil', 'Noto Sans Telugu', 'Noto Sans Gujarati', 'Noto Sans Kannada', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', system-ui, -apple-system, sans-serif;
+  }
+
+  /* RTL Support for Urdu, Sindhi, and Kashmiri */
+  [dir="rtl"] {
+    text-align: right;
+    font-family: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  [dir="rtl"] .ltr-numeric {
+    direction: ltr;
+    display: inline-block;
   }
 
   /* Custom institutional scrollbars */
