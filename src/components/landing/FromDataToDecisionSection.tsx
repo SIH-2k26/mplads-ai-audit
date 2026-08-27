@@ -9,38 +9,24 @@ import {
   ArrowLeft,
   X,
   Sparkles,
-  AlertTriangle,
-  FileSpreadsheet,
-  Building,
-  Check,
-  Layers,
   ArrowUpRight,
-  ChevronRight,
   Activity,
+  Check,
 } from 'lucide-react';
 import { Dialog } from '../ui/dialog';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 
-interface PipelineStageInfo {
+interface CompactStageInfo {
   num: string;
   title: string;
   subtitle: string;
   desc: string;
   bottomLabel: string;
   icon: React.ElementType;
-  miniPipeline: { step: string; label: string }[];
-  overview: string;
-  liveExample: {
-    project: string;
-    sanctionedCost: string;
-    benchmarkCost: string;
-    deviation: string;
-    riskSignal: string;
-    flags: string[];
-  };
-  sources: string[];
-  nextSteps: string;
+  summary: string;
+  keyPoints: string[];
+  exampleSignal: string;
 }
 
 export function FromDataToDecisionSection() {
@@ -52,7 +38,7 @@ export function FromDataToDecisionSection() {
 
   const sectionRef = useRef<HTMLElement>(null);
 
-  const stages: PipelineStageInfo[] = [
+  const stages: CompactStageInfo[] = [
     {
       num: '01',
       title: 'DETECT',
@@ -60,35 +46,14 @@ export function FromDataToDecisionSection() {
       desc: 'Identify anomalies across cost benchmarks, payment velocity, single-tender procurement and execution timelines.',
       bottomLabel: 'EARLY WARNING ENGINE',
       icon: Search,
-      miniPipeline: [
-        { step: '01', label: 'Project Data Ingestion' },
-        { step: '02', label: 'Statutory Rule Checks' },
-        { step: '03', label: 'Statistical & ML Analysis' },
-        { step: '04', label: 'Risk Signal Generated' },
+      summary:
+        'Continuously scans project records, financial velocity, and tender submissions against statutory benchmarks before payments are released.',
+      keyPoints: [
+        'Cost deviation above PWD Schedule of Rates baseline',
+        'Geospatial duplicate & cross-scheme overlap alerts',
+        'Single-bid tender awards & contractor concentration',
       ],
-      overview:
-        'Continuous automated monitoring scanning across pre-sanction, procurement, and fund release telemetry. Identifies irregular patterns before funds are irrevocably disbursed.',
-      liveExample: {
-        project: 'Construction of Ward 17 Community Hall (Project P-1023)',
-        sanctionedCost: '₹42.00 Lakhs',
-        benchmarkCost: '₹30.40 Lakhs (PWD SoR Baseline)',
-        deviation: '+38.2% Unit Rate Inflation',
-        riskSignal: 'HIGH RISK (Score: 87/100)',
-        flags: [
-          'Cost outlier above PWD Schedule of Rates 2024-25 median',
-          'Single-bid tender with compressed 8-day notice period',
-          'Tender awarded to high-concentration contractor syndicate',
-          'Overlapping geospatial polygon with MLALADS 2024 work (150m)',
-        ],
-      },
-      sources: [
-        'District Planning Office Sanction Records',
-        'State Public Works Department (PWD) Schedule of Rates',
-        'e-Procurement & GeM Tender Logs',
-        'ISRO Bhuvan Spatial Asset Registry',
-      ],
-      nextSteps:
-        'Automatically packages flagged telemetry anomalies and forwards to the Explainable Reasoning Engine.',
+      exampleSignal: 'Ward 17 Community Hall (P-1023): +38.2% cost mark-up vs PWD SoR',
     },
     {
       num: '02',
@@ -97,34 +62,14 @@ export function FromDataToDecisionSection() {
       desc: 'Explain why a project was flagged with plain-language diagnostic rationales and PWD SoR percentile baselines.',
       bottomLabel: 'EXPLAINABLE REASONING',
       icon: Eye,
-      miniPipeline: [
-        { step: '01', label: 'Risk Score 78/100' },
-        { step: '02', label: 'Factor Decomposition' },
-        { step: '03', label: 'Evidence Citation' },
-        { step: '04', label: 'Audit Rationale Dossier' },
+      summary:
+        'Decomposes composite risk scores into transparent, cited factors so officers understand the exact evidence and statutory rules behind every flag.',
+      keyPoints: [
+        'Multi-factor score decomposition (Cost, Delay, Disconnect)',
+        'Direct citations to MPLADS Guidelines 2023 & CVC rules',
+        'Zero black-box AI — every score traces to ledger vouchers',
       ],
-      overview:
-        'Decomposes composite risk scores into transparent, cited statutory factors. AGASTYA operates as a glass-box decision system where every risk point maps directly to evidence.',
-      liveExample: {
-        project: 'Bituminous Village Link Road KM 12/400 (Project P-0871)',
-        sanctionedCost: '₹58.00 Lakhs',
-        benchmarkCost: '₹46.50 Lakhs (Rural Roads Standard)',
-        deviation: '+24.7% Estimated Variance',
-        riskSignal: 'HIGH RISK (Score: 82/100)',
-        flags: [
-          'Cost Factor (+18 pts): Rate for bituminous macadam exceeds SoR Item #441',
-          'Delay Factor (+16 pts): 88 days lag against statutory milestone timeline',
-          'Financial Mismatch (+14 pts): 87% funds spent vs 51% physical completion',
-          'Duplicate Factor (+11 pts): 88% spatial overlap with PMGSY Batch III work',
-        ],
-      },
-      sources: [
-        'MPLADS Revised Guidelines 2023 §4.2 & §5.4',
-        'Central Vigilance Commission (CVC) Procurement Circulars',
-        'District Treasury Direct Benefit Transfer Ledger',
-      ],
-      nextSteps:
-        'Collates corroborating documents into an immutable electronic evidence docket for investigation.',
+      exampleSignal: 'Risk 87/100: Cost variance (+18 pts), Milestone delay (+16 pts)',
     },
     {
       num: '03',
@@ -133,71 +78,30 @@ export function FromDataToDecisionSection() {
       desc: 'Connect flags with corroborating evidence dossiers, treasury ledgers, and geotagged field survey photos.',
       bottomLabel: 'IMMUTABLE EVIDENCE DOCKET',
       icon: FileText,
-      miniPipeline: [
-        { step: '01', label: 'Alert Docket Received' },
-        { step: '02', label: 'Multi-Source Cross-Check' },
-        { step: '03', label: 'Field Verification Brief' },
-        { step: '04', label: 'Assigned to Officer' },
+      summary:
+        'Automatically collates technical sanction estimates, treasury DBT vouchers, and geotagged photos into an authoritative case docket for officer review.',
+      keyPoints: [
+        'Technical sanction & tender comparative statements',
+        'PFMS & State Treasury disbursement transaction records',
+        'Geotagged site photos & GFR-12C UC compliance tracking',
       ],
-      overview:
-        'Automated collation of cross-departmental documentation, treasury vouchers, contractor entity networks, and geotagged field photos into an authoritative case docket.',
-      liveExample: {
-        project: 'Dossier CASE-2026-0182: Ward 17 Public Works Cluster',
-        sanctionedCost: '₹1.18 Crore (Consolidated Outlay)',
-        benchmarkCost: '₹84.20 Lakhs (Benchmark Estimate)',
-        deviation: 'Multiple Structural Discrepancies',
-        riskSignal: 'CRITICAL AUDIT QUEUE',
-        flags: [
-          '✓ Technical Sanction Estimate (TS-MH-PUN-2024-881) Attached',
-          '⚠ Detailed Tender Comparative Statement Missing from e-Portal',
-          '✓ District Treasury DBT Ledger Vouchers Verified (V-991 to V-994)',
-          '✓ Geotagged Foundation Photo (EXIF: 18.5204° N, 73.8567° E)',
-          '⚠ GFR-12C Utilisation Certificate (UC-02) overdue by 45 days',
-        ],
-      },
-      sources: [
-        'PFMS & State Treasury Payment Gateway',
-        'Contractor PAN & Corporate Affairs Registry',
-        'Independent Quality Monitor (IQM) Field Inspection Reports',
-      ],
-      nextSteps:
-        'Dispatches complete 1-page inspection brief and mobile QR verification link to the designated District Vigilance Officer.',
+      exampleSignal: 'Case CASE-2026-0182: Dispatched to District Vigilance Officer',
     },
     {
       num: '04',
       title: 'ACT',
-      subtitle: 'Authoritative Human Verdict & Resolution',
+      subtitle: 'Authoritative Human Verdict',
       desc: 'Enable an authorized human decision-maker to confirm findings, dismiss false positives, resolve, or escalate.',
       bottomLabel: 'AUTHORITATIVE HUMAN VERDICT',
       icon: CheckCircle2,
-      miniPipeline: [
-        { step: '01', label: 'Authority Reviews Docket' },
-        { step: '02', label: 'On-Site Field Audit' },
-        { step: '03', label: 'Official Recorded Finding' },
-        { step: '04', label: 'Enforcement / Closure' },
+      summary:
+        'Empowers designated district authorities to make informed decisions. The AI provides decision support; authorized officials retain full control.',
+      keyPoints: [
+        'Dismiss valid site-specific variances as false positives',
+        'Demand formal contractor explanation under Rule 5.4',
+        'Freeze next fund installment or escalate to Vigilance Panel',
       ],
-      overview:
-        'Empowering authorized government officers with evidence-backed decision support. The platform never makes automatic legal accusations—human officials evaluate evidence and take authoritative decisions.',
-      liveExample: {
-        project: 'Administrative Decision Options (District Collector / Nodal Authority)',
-        sanctionedCost: 'Statutory 14-Day Decision SLA',
-        benchmarkCost: 'Human In The Loop Protocol',
-        deviation: 'Enforceable Audit Outcomes',
-        riskSignal: 'DECISION PENDING REVIEW',
-        flags: [
-          '✓ Option A: DISMISS AS FALSE POSITIVE (e.g., valid site-specific bedrock cost justified)',
-          '⚠ Option B: DEMAND CONTRACTOR EXPLANATION (Issue 14-day statutory notice under Rule 5.4)',
-          '⏸ Option C: FREEZE FUND DISBURSEMENT (Withhold 2nd installment pending milestone audit)',
-          '↗ Option D: ESCALATE TO VIGILANCE COMMITTEE (Initiate formal inquiry into contractor syndicate)',
-        ],
-      },
-      sources: [
-        'Ministry of Statistics & PI Governance Rules',
-        'CAG Performance Audit Guidelines',
-        'District Authority Statutory Sign-off Protocol',
-      ],
-      nextSteps:
-        'Immutable audit trail recorded on ledger; feedback fine-tunes future anomaly detection thresholds.',
+      exampleSignal: 'Officer Action: 14-day statutory clarification notice issued',
     },
   ];
 
@@ -370,7 +274,7 @@ export function FromDataToDecisionSection() {
                 <div className="mt-6 pt-3 border-t border-[#234D6C] text-[10px] font-mono font-bold text-[#E5B45A] flex items-center justify-between">
                   <span>{s.bottomLabel}</span>
                   <span className="flex items-center gap-1 text-[9px] font-sans font-bold uppercase group-hover:text-white transition-colors">
-                    <span>Explore Stage</span>
+                    <span>Inspect</span>
                     <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-1" />
                   </span>
                 </div>
@@ -382,172 +286,99 @@ export function FromDataToDecisionSection() {
         {/* Explanatory Pipeline Subtitle */}
         <div className="mt-8 text-center">
           <p className="text-[11px] font-mono text-gray-400 tracking-wide">
-            ● CONTINUOUS INTELLIGENCE PIPELINE: <span className="text-[#E5B45A]">DETECT</span> → <span className="text-[#E5B45A]">EXPLAIN</span> → <span className="text-[#E5B45A]">INVESTIGATE</span> → <span className="text-[#E5B45A]">HUMAN DECISION</span> (CLICK ANY CARD TO INSPECT)
+            ● CONTINUOUS INTELLIGENCE PIPELINE: <span className="text-[#E5B45A]">DETECT</span> → <span className="text-[#E5B45A]">EXPLAIN</span> → <span className="text-[#E5B45A]">INVESTIGATE</span> → <span className="text-[#E5B45A]">HUMAN DECISION</span>
           </p>
         </div>
 
       </div>
 
-      {/* PROCESS DETAIL MODAL / DIALOG */}
+      {/* COMPACT & ELEGANT STAGE POPUP CARD */}
       <Dialog
         open={modalOpen}
         onOpenChange={setModalOpen}
-        className="max-w-2xl max-h-[90vh] overflow-y-auto bg-[#102F45] text-white border-2 border-[#D99018] shadow-2xl p-6"
+        className="max-w-md bg-[#102F45] text-white border-2 border-[#D99018] shadow-2xl p-5 rounded-[8px]"
       >
-        {/* Custom Header */}
-        <div className="border-b border-[#234D6C] pb-4 mb-4">
-          <div className="flex items-center justify-between pr-8">
-            <div className="flex items-center gap-3">
-              <span className="text-2xl font-mono font-extrabold text-[#D99018] bg-[#183B54] px-2.5 py-0.5 rounded border border-[#234D6C]">
-                {currentModalStage.num}
-              </span>
-              <div>
-                <h3 className="text-xl font-extrabold text-white uppercase tracking-wide">
-                  {currentModalStage.title}
-                </h3>
-                <p className="text-xs font-mono text-[#E5B45A]">
-                  {currentModalStage.subtitle}
-                </p>
-              </div>
-            </div>
-
-            <div className="text-right">
-              <Badge variant="secondary" className="bg-[#183B54] text-[#E5B45A] border-[#234D6C] font-mono text-[10px]">
-                STAGE {selectedModalIndex + 1} OF 4
-              </Badge>
+        {/* Compact Header */}
+        <div className="flex items-center justify-between border-b border-[#234D6C] pb-3 mb-3.5 pr-6">
+          <div className="flex items-center gap-2.5">
+            <span className="text-lg font-mono font-extrabold text-[#D99018] bg-[#183B54] px-2 py-0.5 rounded border border-[#234D6C]">
+              {currentModalStage.num}
+            </span>
+            <div>
+              <h3 className="text-base font-extrabold text-white uppercase tracking-wide leading-none">
+                {currentModalStage.title}
+              </h3>
+              <p className="text-[10px] font-mono text-[#E5B45A] mt-0.5">
+                {currentModalStage.subtitle}
+              </p>
             </div>
           </div>
+
+          <Badge variant="secondary" className="bg-[#183B54] text-[#E5B45A] border-[#234D6C] font-mono text-[9px] px-1.5 py-0.2">
+            STAGE {selectedModalIndex + 1}/4
+          </Badge>
         </div>
 
-        {/* Modal Body */}
-        <div className="space-y-5 text-xs">
-          
-          {/* Mini Animated Workflow Diagram */}
-          <div className="bg-[#183B54] p-3.5 rounded-[6px] border border-[#234D6C] space-y-2">
+        {/* Concise Body Content */}
+        <div className="space-y-3.5 text-xs">
+          {/* Summary Sentence */}
+          <p className="text-xs text-gray-200 leading-relaxed font-normal bg-[#183B54] p-3 rounded-[4px] border border-[#234D6C]">
+            {currentModalStage.summary}
+          </p>
+
+          {/* Key Checklist Functions */}
+          <div className="space-y-1.5">
             <span className="text-[10px] font-mono font-bold text-gray-300 uppercase tracking-wider block">
-              Workflow Sequence in AGASTYA:
+              Core Capabilities:
             </span>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              {currentModalStage.miniPipeline.map((mp, i) => (
-                <div
-                  key={i}
-                  className="p-2 rounded bg-[#102F45] border border-[#234D6C] text-center space-y-1"
-                >
-                  <span className="text-[9px] font-mono text-[#D99018] font-bold block">
-                    {mp.step}
-                  </span>
-                  <span className="text-[10px] text-white font-medium block leading-tight">
-                    {mp.label}
-                  </span>
+            <div className="space-y-1 text-gray-300">
+              {currentModalStage.keyPoints.map((pt, i) => (
+                <div key={i} className="flex items-start gap-2 bg-[#183B54]/40 p-1.5 rounded border border-[#234D6C]/60 text-[11px]">
+                  <Check className="h-3.5 w-3.5 text-[#2E8064] flex-shrink-0 mt-0.5" />
+                  <span className="leading-tight">{pt}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Stage Overview Description */}
-          <p className="text-xs text-gray-200 leading-relaxed font-normal bg-[#183B54]/50 p-3 rounded border border-[#234D6C]">
-            {currentModalStage.overview}
-          </p>
-
-          {/* Live MPLADS Realistic Example Box */}
-          <div className="bg-[#183B54] p-4 rounded-[6px] border border-[#234D6C] space-y-3">
-            <div className="flex items-center justify-between border-b border-[#234D6C] pb-2">
-              <span className="text-[10px] font-mono font-bold text-[#E5B45A] uppercase flex items-center gap-1.5">
-                <Activity className="h-3.5 w-3.5" />
-                <span>Real-World Operational Scenario:</span>
-              </span>
-              <span className="text-[10px] font-mono text-[#C94B4B] font-bold bg-red-950/60 px-2 py-0.5 rounded border border-[#C94B4B]/40">
-                {currentModalStage.liveExample.riskSignal}
-              </span>
-            </div>
-
+          {/* Operational Trigger Example */}
+          <div className="p-2.5 rounded bg-[#183B54] border border-[#234D6C] flex items-start gap-2">
+            <Activity className="h-3.5 w-3.5 text-[#D99018] flex-shrink-0 mt-0.5" />
             <div>
-              <strong className="text-xs text-white block">
-                {currentModalStage.liveExample.project}
-              </strong>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 font-mono text-[10px]">
-                <div className="p-2 rounded bg-[#102F45] border border-[#234D6C]">
-                  <span className="text-gray-400 block">Sanctioned Cost:</span>
-                  <span className="text-white font-bold">{currentModalStage.liveExample.sanctionedCost}</span>
-                </div>
-                <div className="p-2 rounded bg-[#102F45] border border-[#234D6C]">
-                  <span className="text-gray-400 block">Benchmark:</span>
-                  <span className="text-[#2E8064] font-bold">{currentModalStage.liveExample.benchmarkCost}</span>
-                </div>
-                <div className="p-2 rounded bg-[#102F45] border border-[#234D6C]">
-                  <span className="text-gray-400 block">Identified Variance:</span>
-                  <span className="text-[#C94B4B] font-bold">{currentModalStage.liveExample.deviation}</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-1.5 pt-1">
-              <span className="text-[10px] font-mono text-gray-300 uppercase block">
-                Diagnostic Signals / Evidence Checks:
+              <span className="text-[9px] font-mono font-bold text-[#E5B45A] uppercase block">
+                Sample Operational Trigger:
               </span>
-              <ul className="space-y-1 text-gray-300">
-                {currentModalStage.liveExample.flags.map((flg, fi) => (
-                  <li key={fi} className="flex items-start gap-1.5 text-[11px] leading-snug">
-                    <span className="text-[#E5B45A] font-bold mt-0.5">•</span>
-                    <span>{flg}</span>
-                  </li>
-                ))}
-              </ul>
+              <span className="text-[11px] text-gray-200 font-medium leading-tight block mt-0.5">
+                {currentModalStage.exampleSignal}
+              </span>
             </div>
           </div>
-
-          {/* Corroborating Data Sources */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px]">
-            <div className="p-3 rounded bg-[#183B54] border border-[#234D6C]">
-              <span className="text-[9px] font-mono font-bold text-[#E5B45A] uppercase block mb-1">
-                Corroborating Data Sources:
-              </span>
-              <ul className="space-y-1 text-gray-300 text-[10px]">
-                {currentModalStage.sources.map((src, si) => (
-                  <li key={si} className="flex items-center gap-1">
-                    <Check className="h-3 w-3 text-[#2E8064]" />
-                    <span>{src}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="p-3 rounded bg-[#183B54] border border-[#234D6C]">
-              <span className="text-[9px] font-mono font-bold text-[#E5B45A] uppercase block mb-1">
-                What Happens Next:
-              </span>
-              <p className="text-[10px] text-gray-300 leading-relaxed">
-                {currentModalStage.nextSteps}
-              </p>
-            </div>
-          </div>
-
         </div>
 
-        {/* Modal Footer Navigation */}
-        <div className="mt-6 pt-4 border-t border-[#234D6C] flex items-center justify-between">
+        {/* Compact Footer Navigation */}
+        <div className="mt-4 pt-3 border-t border-[#234D6C] flex items-center justify-between">
           <Button
             variant="outline"
             size="sm"
             onClick={handlePrevModalStage}
-            className="bg-[#183B54] text-white border-[#234D6C] hover:bg-[#102F45] text-xs font-semibold h-8"
+            className="bg-[#183B54] text-white border-[#234D6C] hover:bg-[#102F45] text-xs font-semibold h-7 px-2.5"
           >
-            <ArrowLeft className="h-3.5 w-3.5 mr-1" />
-            Previous Stage
+            <ArrowLeft className="h-3 w-3 mr-1" />
+            Prev
           </Button>
 
           <span className="text-[10px] font-mono text-gray-400">
-            {selectedModalIndex + 1} / 4 Stages
+            {selectedModalIndex + 1} of 4
           </span>
 
           <Button
             variant="default"
             size="sm"
             onClick={handleNextModalStage}
-            className="bg-[#D99018] hover:bg-[#C98220] text-[#15324A] text-xs font-bold h-8"
+            className="bg-[#D99018] hover:bg-[#C98220] text-[#15324A] text-xs font-bold h-7 px-2.5"
           >
-            Next Stage
-            <ArrowRight className="h-3.5 w-3.5 ml-1" />
+            Next
+            <ArrowRight className="h-3 w-3 ml-1" />
           </Button>
         </div>
       </Dialog>
