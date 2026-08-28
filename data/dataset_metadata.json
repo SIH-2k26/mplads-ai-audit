@@ -1,0 +1,17 @@
+{
+  "dataset_version": "v2.4-relational-extended",
+  "generation_timestamp": "2026-08-28T19:11:17.254980",
+  "random_seed": 42,
+  "number_of_projects": 10000,
+  "number_of_contractors": 2500,
+  "number_of_agencies": 800,
+  "number_of_payments": 24869,
+  "fraud_rate": 0.2149,
+  "risk_distribution": {
+    "LOW": 7225,
+    "HIGH": 1239,
+    "MEDIUM": 932,
+    "CRITICAL": 604
+  },
+  "generator_version": "2.4.0"
+}

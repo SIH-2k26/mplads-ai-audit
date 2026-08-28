@@ -1,0 +1,17 @@
+# configs/risk_weights.yaml
+# Hybrid risk ensemble component weighting
+
+ensemble_weights:
+  supervised_ml_probability: 0.35
+  rule_engine_compliance: 0.25
+  unsupervised_anomaly_score: 0.20
+  contractor_risk_factor: 0.10
+  evidence_data_integrity: 0.10
+
+# Sub-domain penalty multipliers for rule violations
+rule_penalties:
+  missing_mb_voucher_mismatch: 25.0
+  prohibited_work_category: 40.0
+  single_bid_repeat_winner: 20.0
+  stalled_work_full_payment: 35.0
+  ghost_work_no_geotag: 30.0

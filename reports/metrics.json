@@ -1,0 +1,19 @@
+{
+  "best_model": "LightGBM",
+  "test_accuracy": 98.46,
+  "test_precision": 99.79,
+  "test_recall": 92.6,
+  "test_f1": 96.06,
+  "test_roc_auc": 0.999,
+  "test_pr_auc": 0.9964,
+  "test_confusion_matrix": [
+    [
+      11952,
+      6
+    ],
+    [
+      225,
+      2817
+    ]
+  ]
+}

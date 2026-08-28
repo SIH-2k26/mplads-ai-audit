@@ -3,8 +3,11 @@ _e2e_audit_test.py
 Full E2E pipeline audit verification script.
 Tests all 19 agents, orchestration, evidence fusion, NLP, and investigation routing.
 """
+import os
 import sys
-sys.path.insert(0, '.')
+backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if backend_dir not in sys.path:
+    sys.path.insert(0, backend_dir)
 import asyncio
 from datetime import datetime, date
 from decimal import Decimal

@@ -1,0 +1,55 @@
+# config/model_config.yaml
+# Configuration for Multi-Model Benchmark, Hyperparameters & Evaluation
+
+random_seed: 42
+
+split:
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+  stratify: true
+
+models:
+  logistic_regression:
+    max_iter: 1000
+    solver: "lbfgs"
+  random_forest:
+    n_estimators: 100
+    max_depth: 8
+    min_samples_split: 5
+    min_samples_leaf: 2
+  extra_trees:
+    n_estimators: 100
+    max_depth: 8
+  gradient_boosting:
+    n_estimators: 100
+    learning_rate: 0.08
+    max_depth: 5
+  hist_gradient_boosting:
+    max_iter: 100
+    learning_rate: 0.08
+    max_depth: 5
+  xgboost:
+    n_estimators: 100
+    learning_rate: 0.08
+    max_depth: 5
+  lightgbm:
+    n_estimators: 100
+    learning_rate: 0.08
+    max_depth: 5
+  isolation_forest:
+    contamination: 0.15
+    n_estimators: 100
+
+calibration:
+  method: "isotonic"
+  cv: 3
+
+metrics_priority:
+  - "f1"
+  - "recall"
+  - "pr_auc"
+  - "balanced_accuracy"
+  - "precision"
+  - "accuracy"
+  - "roc_auc"

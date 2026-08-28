@@ -1,0 +1,70 @@
+# configs/model.yaml
+seed: 42
+cv_folds: 5
+models_dir: "models"
+reports_dir: "reports"
+
+# Benchmark Models Configuration
+models:
+  logistic_regression:
+    enabled: true
+    max_iter: 1000
+    class_weight: "balanced"
+    C: 1.0
+
+  random_forest:
+    enabled: true
+    n_estimators: 150
+    max_depth: 14
+    min_samples_split: 5
+    min_samples_leaf: 2
+    class_weight: "balanced"
+    n_jobs: -1
+
+  hist_gradient_boosting:
+    enabled: true
+    max_iter: 150
+    max_depth: 10
+    learning_rate: 0.08
+    min_samples_leaf: 20
+    class_weight: "balanced"
+
+  xgboost:
+    enabled: true
+    n_estimators: 150
+    max_depth: 8
+    learning_rate: 0.08
+    subsample: 0.85
+    colsample_bytree: 0.85
+    scale_pos_weight: 3.0
+    n_jobs: -1
+    eval_metric: "logloss"
+
+  lightgbm:
+    enabled: true
+    n_estimators: 150
+    max_depth: 8
+    learning_rate: 0.08
+    subsample: 0.85
+    colsample_bytree: 0.85
+    class_weight: "balanced"
+    n_jobs: -1
+    verbose: -1
+
+  isolation_forest:
+    enabled: true
+    n_estimators: 100
+    contamination: 0.15
+    max_samples: "auto"
+    n_jobs: -1
+
+# Calibration Configuration
+calibration:
+  method: "isotonic"
+  cv: 3
+
+# Primary Selection Metric (Recall, PR-AUC and F1 prioritized over raw accuracy)
+selection_metric: "pr_auc"
+target_pr_auc: 0.85
+target_roc_auc: 0.90
+target_f1: 0.85

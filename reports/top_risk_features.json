@@ -1,0 +1,42 @@
+[
+  {
+    "feature": "rule_risk_score",
+    "importance": 13.443857168686629
+  },
+  {
+    "feature": "velocity_mismatch",
+    "importance": 12.996393353353735
+  },
+  {
+    "feature": "financial_progress",
+    "importance": 12.399125022437403
+  },
+  {
+    "feature": "total_rule_violation_count",
+    "importance": 9.674686013529483
+  },
+  {
+    "feature": "financial_velocity",
+    "importance": 4.267666744504863
+  },
+  {
+    "feature": "physical_progress",
+    "importance": 3.150974388075243
+  },
+  {
+    "feature": "balance_to_sanction_ratio",
+    "importance": 2.5170379247534
+  },
+  {
+    "feature": "contractor_total_value",
+    "importance": 2.3057777587381216
+  },
+  {
+    "feature": "contractor_average_project_value",
+    "importance": 2.1812542120352423
+  },
+  {
+    "feature": "financial_physical_gap",
+    "importance": 2.050966209352142
+  }
+]

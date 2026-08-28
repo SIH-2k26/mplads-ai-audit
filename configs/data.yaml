@@ -1,0 +1,37 @@
+# configs/data.yaml
+dataset_size: 100000
+seed: 42
+test_size: 0.15
+validation_size: 0.15
+hard_negative_rate: 0.05
+
+# Overall population split: ~75% normal, ~25% anomalous scenarios
+anomaly_rates:
+  cost_overrun: 0.04
+  payment_progress_mismatch: 0.04
+  delayed_project: 0.03
+  abandoned_project: 0.02
+  duplicate_project: 0.02
+  ghost_work: 0.015
+  suspicious_contractor: 0.025
+  contractor_monopoly: 0.02
+  suspicious_payment: 0.02
+  suspicious_procurement: 0.03
+  missing_documentation: 0.02
+  eligibility_violation: 0.01
+  multi_anomaly: 0.02
+
+# Project cost bounds (in INR)
+cost_ranges:
+  micro: [100000, 500000]         # 1-5 Lakhs (Solar lights, borewells)
+  small: [500000, 2500000]        # 5-25 Lakhs (Anganwadis, sanitation)
+  medium: [2500000, 10000000]     # 25 Lakhs - 1 Crore (Community halls, rural roads)
+  large: [10000000, 50000000]     # 1-5 Crores (Major bridges, hospital blocks)
+  mega_hard_negative: [50000000, 250000000] # 5-25 Crores (Legitimate multi-year complex works)
+
+# Output paths
+output_paths:
+  relational_dir: "data/synthetic/relational"
+  features_dir: "data/synthetic/features"
+  scenarios_dir: "data/synthetic/scenarios"
+  reports_dir: "reports"

@@ -1,0 +1,19 @@
+{
+  "best_model": "CatBoost",
+  "test_accuracy": 95.0,
+  "test_precision": 95.91,
+  "test_recall": 80.12,
+  "test_f1": 87.31,
+  "test_roc_auc": 0.9853,
+  "test_pr_auc": 0.959,
+  "test_confusion_matrix": [
+    [
+      1167,
+      11
+    ],
+    [
+      64,
+      258
+    ]
+  ]
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MPLADS AI Audit — Synthetic Data Quality Report</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #FAFAF7; color: #15324A; margin: 40px; }
+        h1 { color: #15324A; border-bottom: 2px solid #D99018; padding-bottom: 10px; }
+        .badge { display: inline-block; padding: 4px 12px; border-radius: 9999px; font-weight: bold; font-size: 12px; }
+        .badge-pass { background: #DCFCE7; color: #166534; }
+        .badge-fail { background: #FEE2E2; color: #991B1B; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; border: 1px solid #E5E7EB; border-radius: 8px; overflow: hidden; }
+        th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #E5E7EB; }
+        th { background: #F3F4F6; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
+        tr:hover { background: #F9FAFB; }
+    </style>
+</head>
+<body>
+    <h1>AGASTYA — Synthetic Relational Data Quality Audit</h1>
+    <p><strong>Status:</strong> <span class="badge badge-pass">PASS - 15/15 CHECKS VERIFIED</span></p>
+    <p><strong>Total Projects Evaluated:</strong> 100,000 | <strong>Timestamp:</strong> 2026-08-28 18:24:42</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Check Description</th>
+                <th>Status</th>
+                <th>Diagnostic Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>CHK-01</strong></td>
+                <td>Primary Key Nullity Check</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>Zero nulls in primary keys (Found: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-02</strong></td>
+                <td>Primary Key Uniqueness Check</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>Zero duplicate project IDs (Found: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-03</strong></td>
+                <td>Foreign Key Integrity (Project -> District)</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>All project district_ids exist in Geography master (Orphans: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-04</strong></td>
+                <td>Foreign Key Integrity (Project -> Contractor)</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>All project contractor_ids exist in Contractor master (Orphans: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-05</strong></td>
+                <td>Foreign Key Integrity (Project -> Agency)</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>All project agency_ids exist in Agency master (Orphans: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-06</strong></td>
+                <td>Non-Negative Financial Values Check</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>All financial amounts are strictly non-negative (Found: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-07</strong></td>
+                <td>Physical Progress Range Bounds [0, 100]</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>Physical progress strictly between 0% and 100% (Violations: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-08</strong></td>
+                <td>Date Chronology Logic (Recommendation <= Sanction)</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>Sanctions occur on or after MP recommendations (Violations: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-09</strong></td>
+                <td>Plausible Indian Geospatial Bounds Check</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>Coordinates fall within mainland Indian bounding box (Outliers: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-10</strong></td>
+                <td>Payment Referential Consistency</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>All payment vouchers linked to valid project records (Orphans: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-11</strong></td>
+                <td>Tender Bid Count Sanity Check (>= 1)</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>All procurement records have at least 1 bidder (Invalid: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-12</strong></td>
+                <td>Single-Bid Flag Logical Consistency</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>Single bid flag matches bid_count == 1 exactly (Mismatches: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-13</strong></td>
+                <td>Document Count Bounds (Available <= Required)</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>Available documents never exceed required document quota (Violations: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-14</strong></td>
+                <td>Ground Truth Label Completeness</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>100% of generated projects have ground truth scenario labels (Unlabeled: 0)</td>
+            </tr><tr>
+                <td><strong>CHK-15</strong></td>
+                <td>Multi-Class Risk Tier Coverage (LOW/MED/HIGH/CRIT)</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td>Distribution: {'LOW': 79717, 'HIGH': 11758, 'CRITICAL': 4621, 'MEDIUM': 3904}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

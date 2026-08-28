@@ -1,0 +1,13 @@
+{
+  "source_id": "SRC-008",
+  "source_name": "Government Open Data Platform",
+  "organization": "Open Government Data (OGD) Platform India",
+  "url": "https://www.data.gov.in/",
+  "authority_level": "LEVEL_7",
+  "classification": "REFERENCE_DATA",
+  "document_title": "Open Government Data (OGD) Administrative Metadata",
+  "document_date": "2023-01-01",
+  "retrieval_date": "2026-08-28",
+  "document_hash": "18a1566fd03d30e97d241203e39045487c4cfac130295751671c48bd5cca78d8",
+  "content_length_chars": 150
+}
