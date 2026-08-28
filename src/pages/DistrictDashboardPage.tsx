@@ -5,15 +5,11 @@ import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '.
 import { Button } from '../components/ui/button';
 import { projectService } from '../services/projectService';
 import { useRoleStore } from '../stores/useRoleStore';
-import { useUiStore } from '../stores/useUiStore';
 import { useT } from '../i18n/useT';
 import { formatCurrencyINR } from '../lib/utils';
 import { Link } from 'react-router-dom';
 import { Project } from '../types';
-import { WiseHeroBalance } from '../components/WiseHeroBalance';
-import { WiseCardsRow } from '../components/WiseCardsRow';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
-import { toast } from 'sonner';
 
 const STATUS_COLORS: Record<string, string> = {
   COMPLETED: '#9FE870',
@@ -26,7 +22,6 @@ const STATUS_COLORS: Record<string, string> = {
 export function DistrictDashboardPage() {
   const t = useT();
   const { selectedDistrict } = useRoleStore();
-  const { setAiAssistantOpen, openEvidenceDrawer } = useUiStore();
 
   const [summary, setSummary] = useState({
     totalCount: 0, criticalCount: 0, totalSanctioned: 0,
@@ -44,27 +39,7 @@ export function DistrictDashboardPage() {
     });
   }, [selectedDistrict]);
 
-  const handleAuditScan = () => {
-    toast.success(`Initiating Sanchay field audit scan for ${selectedDistrict} district...`);
-    setAiAssistantOpen(true);
-  };
-
-  const handleFreezeTranche = () => {
-    toast.warning(`Provisional administrative hold placed on high-risk works in ${selectedDistrict}.`);
-    openEvidenceDrawer({ title: `${selectedDistrict} District Tranche Freeze Order #FRZ-MH-04` });
-  };
-
-  const handleSelectDirective = (directive: string) => {
-    if (directive === 'satellite') {
-      toast.info(`ISRO Cartosat-3 SAR radar scan requested over ${selectedDistrict}.`);
-    } else if (directive === 'subpoena') {
-      toast.info('Issued PWD Engineering inspection directive.');
-    } else {
-      toast.success(`${selectedDistrict} Vigilance dossier PDF exported.`);
-    }
-  };
-
-  // Always compute rich distribution data so the chart is never empty
+  // Compute rich distribution data so the chart is never empty
   const statusChartData = useMemo(() => {
     const counts: Record<string, number> = {};
     projects.forEach((p) => {
@@ -111,29 +86,7 @@ export function DistrictDashboardPage() {
         ]}
       />
 
-      {/* Wise Hero Balance (Exact match to screenshot metrics) */}
-      <WiseHeroBalance
-        onAuditScan={handleAuditScan}
-        onFreezeTranche={handleFreezeTranche}
-        onSelectDirective={handleSelectDirective}
-        onToggleAnalytics={() => openEvidenceDrawer({ title: `${selectedDistrict} Compliance Reliability Analytics` })}
-        trustScore={82.1}
-        totalOutlayCr={selectedDistrict === 'Pune' ? 48.5 : 32.4}
-      />
-
-      {/* Wise Cards Row: Account Card + Sub-Balances + Flow Stream Telemetry + AI Sanchay Card */}
-      <WiseCardsRow
-        onOpenCardDetails={() => openEvidenceDrawer({ title: `${selectedDistrict} District Scheme Account Details` })}
-        onOpenDoMoreAction={() => setAiAssistantOpen(true)}
-        onSelectSubBalance={(type) => openEvidenceDrawer({ title: `${selectedDistrict} Sub-balance: ${type.toUpperCase()}` })}
-        totalOutlayCr={selectedDistrict === 'Pune' ? 48.5 : 32.4}
-        disbursedCr={selectedDistrict === 'Pune' ? 32.8 : 22.1}
-        flaggedRiskCr={selectedDistrict === 'Pune' ? 4.1 : 2.8}
-        reconciledCr={selectedDistrict === 'Pune' ? 28.7 : 19.3}
-        activeFreezesCount={selectedDistrict === 'Pune' ? 2 : 1}
-      />
-
-      {/* Metric cards */}
+      {/* District Collector Metric cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardHeader><CardTitle>{t.district.cards.works}</CardTitle></CardHeader>
@@ -165,7 +118,7 @@ export function DistrictDashboardPage() {
         </Card>
       </div>
 
-      {/* Charts Section */}
+      {/* Charts Section: Status Distribution Donut & Risk Matrix */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Works Status Distribution Card */}
         <Card className="lg:col-span-1 flex flex-col justify-between">
@@ -210,7 +163,7 @@ export function DistrictDashboardPage() {
               </div>
             </div>
 
-            {/* Custom Status Legend List */}
+            {/* Status Legend List */}
             <div className="space-y-2 pt-1 border-t border-[#F1F0EC]">
               {statusChartData.map((item) => {
                 const percentage = Math.round((item.value / totalStatusValue) * 100);
