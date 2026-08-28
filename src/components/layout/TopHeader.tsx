@@ -112,11 +112,11 @@ export function TopHeader() {
         {/* User Avatar Button */}
         <button
           onClick={() => setProfileModalOpen(true)}
-          title="Officer Profile & Clearance"
-          className="w-8 h-8 rounded-full bg-[#EAE8E2] text-[#0E0E0E] font-semibold text-xs flex items-center justify-center relative shadow-2xs hover:bg-[#E0DDD5] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-[#E5E3DC]"
+          title="Officer Profile & Clearance Dossier"
+          className="w-8 h-8 rounded-full bg-[#002449] text-white font-bold text-xs flex items-center justify-center relative shadow-2xs hover:bg-[#001B36] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-[#002449]/30"
         >
           <span>AS</span>
-          <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full" title="Online & Verified" />
+          <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 border-2 border-white rounded-full" title="Online & Verified" />
         </button>
       </div>
     </header>

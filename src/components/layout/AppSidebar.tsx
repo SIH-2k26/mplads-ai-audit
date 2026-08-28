@@ -182,7 +182,7 @@ const ROLE_BADGE_STYLE: Record<UserRole, string> = {
   MP: 'bg-blue-100 text-blue-800',
   DISTRICT_AUTHORITY: 'bg-[#16A34A] text-white',
   STATE_NODAL: 'bg-purple-100 text-purple-800',
-  MINISTRY_DIID: 'bg-amber-100 text-amber-800',
+  MINISTRY_DIID: 'bg-[#002449] text-white font-bold tracking-wider',
   AUDITOR: 'bg-red-100 text-red-700',
 };
 

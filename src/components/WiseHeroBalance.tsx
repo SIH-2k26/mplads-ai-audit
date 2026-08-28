@@ -87,16 +87,16 @@ export const WiseHeroBalance: React.FC<WiseHeroBalanceProps> = ({
           Freeze tranche
         </motion.button>
 
-        {/* Dropdown Warm Gray Pill (Request v equivalent) */}
+        {/* Dropdown Executive Navy Pill (Directives) */}
         <div className="relative">
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="bg-[#EAE8E2] hover:bg-[#E0DDD5] text-[#0E0E0E] font-medium text-sm px-5 py-2 rounded-full transition-all cursor-pointer flex items-center gap-1.5"
+            className="bg-[#002449] hover:bg-[#001B36] text-white font-medium text-sm px-5 py-2 rounded-full transition-all cursor-pointer flex items-center gap-1.5 shadow-2xs"
           >
             <span>Directives</span>
-            <ChevronDownIcon className="w-4 h-4 text-[#0E0E0E]" />
+            <ChevronDownIcon className="w-4 h-4 text-white" />
           </motion.button>
 
           {/* Dropdown Menu */}

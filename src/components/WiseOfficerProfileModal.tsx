@@ -150,25 +150,25 @@ export const WiseOfficerProfileModal: React.FC = () => {
             className="relative w-full max-w-lg bg-white rounded-[24px] shadow-2xl overflow-hidden border border-[#E5E3DC] z-10 font-sans"
           >
             {/* Header / Sub-banner with Exact User-Uploaded Indian Emblem */}
-            <div className="bg-[#0E0E0E] text-white px-6 py-4 flex items-center justify-between">
+            <div className="bg-[#002449] text-white px-6 py-4 flex items-center justify-between shadow-xs">
               <div className="flex items-center gap-3">
                 {/* Official State Emblem Image Badge */}
-                <div className="p-1 rounded-xl bg-white border border-gray-200 shrink-0 flex items-center justify-center">
+                <div className="p-1 rounded-xl bg-white border border-blue-200 shrink-0 flex items-center justify-center">
                   <img src="/emblem.png" alt="State Emblem of India" className="h-7 w-auto object-contain" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold tracking-widest text-[#4ADE80] uppercase block">
+                  <span className="text-[10px] font-bold tracking-widest text-emerald-400 uppercase block">
                     GOVERNMENT OF INDIA • GOV-SSO DOSSIER
                   </span>
                   <h2 className="text-sm font-bold tracking-tight text-white flex items-center gap-2">
                     <span>Officer Credentials & Clearance</span>
-                    <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   </h2>
                 </div>
               </div>
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                className="p-1.5 rounded-full text-blue-200 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -189,7 +189,7 @@ export const WiseOfficerProfileModal: React.FC = () => {
                 <div className="flex items-start justify-between gap-4 relative z-10">
                   <div className="flex items-center gap-3.5">
                     {/* Avatar Initials Circle */}
-                    <div className="w-14 h-14 rounded-2xl bg-[#0E0E0E] text-[#4ADE80] font-bold text-lg flex items-center justify-center shrink-0 shadow-md border-2 border-amber-400/40 relative">
+                    <div className="w-14 h-14 rounded-2xl bg-[#002449] text-white font-bold text-lg flex items-center justify-center shrink-0 shadow-md border-2 border-amber-400/60 relative">
                       <span>AS</span>
                       <span className="absolute -top-1 -right-1 flex h-3 w-3">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#16A34A] opacity-75"></span>
@@ -310,7 +310,7 @@ export const WiseOfficerProfileModal: React.FC = () => {
 
               <button
                 onClick={onClose}
-                className="px-6 py-1.5 rounded-full bg-[#0E0E0E] text-white text-xs font-bold hover:bg-black transition-colors cursor-pointer"
+                className="px-6 py-1.5 rounded-full bg-[#002449] text-white text-xs font-bold hover:bg-[#001B36] transition-colors cursor-pointer"
               >
                 Done
               </button>

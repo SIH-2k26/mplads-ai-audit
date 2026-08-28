@@ -51,8 +51,20 @@
   background-color: #16A34A;
 }
 
+.bg-wise-navy {
+  background-color: #002449;
+}
+
 .text-wise-dark {
   color: #0E0E0E;
+}
+
+.text-wise-navy {
+  color: #002449;
+}
+
+.border-wise-navy {
+  border-color: #002449;
 }
 
 .text-wise-gray {
@@ -73,6 +85,18 @@
 
 .btn-wise-primary:hover {
   background-color: #15803D;
+}
+
+.btn-wise-navy {
+  background-color: #002449;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.15s ease;
+}
+
+.btn-wise-navy:hover {
+  background-color: #001B36;
 }
 
 .btn-wise-secondary {
