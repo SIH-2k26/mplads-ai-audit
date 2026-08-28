@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUiStore } from '../../stores/useUiStore';
 import { useRoleStore } from '../../stores/useRoleStore';
 import { useLanguageStore } from '../../stores/useLanguageStore';
+import { SUPPORTED_LANGUAGES } from '../../i18n/types';
 import { useT } from '../../i18n/useT';
 import { UserRole } from '../../types';
 
@@ -90,9 +91,11 @@ export function TopHeader() {
             onChange={handleLangChange}
             className="bg-transparent border-none text-[#0E0E0E] font-semibold pr-4 py-0 focus:outline-none cursor-pointer appearance-none"
           >
-            <option value="en">English</option>
-            <option value="hi">हिन्दी</option>
-            <option value="mr">मराठी</option>
+            {SUPPORTED_LANGUAGES.map((l) => (
+              <option key={l.code} value={l.code}>
+                {l.nativeName}
+              </option>
+            ))}
           </select>
           <ChevronDown className="w-3.5 h-3.5 text-[#6B6B6B] absolute right-2 pointer-events-none" />
         </div>
