@@ -7,16 +7,40 @@ import {
   Copy,
   CheckCircle2,
   Download,
-  Building2,
   FileCheck2,
-  Clock,
   Activity,
-  KeyRound,
   QrCode,
 } from 'lucide-react';
 import { useUiStore } from '../stores/useUiStore';
 import { useRoleStore } from '../stores/useRoleStore';
 import { toast } from 'sonner';
+
+// Official State Emblem of India (Ashoka Lion Capital & Satyameva Jayate)
+const IndianEmblemSvg = ({ className = "w-8 h-8" }: { className?: string }) => (
+  <svg
+    viewBox="0 0 100 120"
+    className={className}
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* Three Lions motif silhouette */}
+    <path d="M50 5 C35 5, 25 15, 25 30 C25 40, 30 48, 38 52 C35 56, 32 62, 32 70 L68 70 C68 62, 65 56, 62 52 C70 48, 75 40, 75 30 C75 15, 65 5, 50 5 Z M42 22 C42 19, 45 17, 50 17 C55 17, 58 19, 58 22 C58 25, 55 27, 50 27 C45 27, 42 25, 42 22 Z M35 32 C33 32, 31 30, 31 27 C31 24, 33 22, 35 22 C37 22, 39 24, 39 27 C39 30, 37 32, 35 32 Z M65 32 C63 32, 61 30, 61 27 C61 24, 63 22, 65 22 C67 22, 69 24, 69 27 C69 30, 67 32, 65 32 Z" />
+    {/* Abacus pedestal */}
+    <rect x="22" y="72" width="56" height="8" rx="2" />
+    {/* Ashoka Chakra Wheel */}
+    <circle cx="50" cy="88" r="8" fill="none" stroke="currentColor" strokeWidth="2.5" />
+    <circle cx="50" cy="88" r="1.5" />
+    {/* Chakra spokes */}
+    <line x1="50" y1="80" x2="50" y2="96" stroke="currentColor" strokeWidth="1" />
+    <line x1="42" y1="88" x2="58" y2="88" stroke="currentColor" strokeWidth="1" />
+    <line x1="44" y1="82" x2="56" y2="94" stroke="currentColor" strokeWidth="1" />
+    <line x1="44" y1="94" x2="56" y2="82" stroke="currentColor" strokeWidth="1" />
+    {/* Pedestal base */}
+    <rect x="18" y="98" width="64" height="6" rx="2" />
+    {/* Satyameva Jayate text */}
+    <text x="50" y="116" textAnchor="middle" fontSize="9" fontWeight="bold" fontFamily="serif">सत्यमेव जयते</text>
+  </svg>
+);
 
 export const WiseOfficerProfileModal: React.FC = () => {
   const { profileModalOpen, setProfileModalOpen } = useUiStore();
@@ -153,16 +177,20 @@ export const WiseOfficerProfileModal: React.FC = () => {
             transition={{ type: 'spring', duration: 0.35, bounce: 0.15 }}
             className="relative w-full max-w-lg bg-white rounded-[24px] shadow-2xl overflow-hidden border border-[#E5E3DC] z-10"
           >
-            {/* Header / Sub-banner */}
+            {/* Header / Sub-banner with Indian Emblem */}
             <div className="bg-[#0E0E0E] text-white px-6 py-4 flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#9FE870] animate-pulse" />
+              <div className="flex items-center gap-3">
+                {/* Gold State Emblem of India */}
+                <div className="p-1.5 rounded-xl bg-amber-500/20 border border-amber-400/30 text-amber-300 shrink-0">
+                  <IndianEmblemSvg className="w-6 h-7" />
+                </div>
                 <div>
-                  <span className="text-[10px] font-bold tracking-widest text-[#8C8C8C] uppercase block">
-                    REPUBLIC OF INDIA • GOV-SSO DOSSIER
+                  <span className="text-[10px] font-bold tracking-widest text-[#9FE870] uppercase block">
+                    GOVERNMENT OF INDIA • GOV-SSO DOSSIER
                   </span>
-                  <h2 className="text-sm font-bold tracking-tight text-white">
-                    Officer Credentials & Clearance
+                  <h2 className="text-sm font-bold tracking-tight text-white flex items-center gap-2">
+                    <span>Officer Credentials & Clearance</span>
+                    <span className="w-2 h-2 rounded-full bg-[#9FE870] animate-pulse" />
                   </h2>
                 </div>
               </div>
@@ -178,26 +206,37 @@ export const WiseOfficerProfileModal: React.FC = () => {
             <div className="p-6 space-y-5 max-h-[80vh] overflow-y-auto no-scrollbar">
               
               {/* Official Credential Badge Card */}
-              <div className="relative p-5 rounded-2xl bg-gradient-to-br from-[#FAF9F5] to-[#F1F0EC] border border-[#E5E3DC] space-y-3 overflow-hidden shadow-2xs">
+              <div className="relative p-5 rounded-2xl bg-gradient-to-br from-[#FAF9F5] via-[#F5F3EB] to-[#F1F0EC] border border-[#E5E3DC] space-y-3 overflow-hidden shadow-2xs">
                 {/* Background Emblem Watermark */}
-                <div className="absolute right-3 top-3 opacity-5 pointer-events-none text-right">
-                  <Building2 className="w-32 h-32 text-black" />
+                <div className="absolute right-4 top-2 opacity-[0.07] pointer-events-none text-black">
+                  <IndianEmblemSvg className="w-36 h-40" />
                 </div>
 
                 <div className="flex items-start justify-between gap-4 relative z-10">
                   <div className="flex items-center gap-3.5">
-                    {/* Avatar Initials Circle */}
-                    <div className="w-14 h-14 rounded-2xl bg-[#0E0E0E] text-[#9FE870] font-bold text-lg flex items-center justify-center shrink-0 shadow-md border-2 border-white">
-                      AS
+                    {/* Avatar Initials Circle with Tricolour Accent Ring */}
+                    <div className="w-14 h-14 rounded-2xl bg-[#0E0E0E] text-[#9FE870] font-bold text-lg flex items-center justify-center shrink-0 shadow-md border-2 border-amber-400/40 relative">
+                      <span>AS</span>
+                      <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#9FE870] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-[#9FE870]"></span>
+                      </span>
                     </div>
                     <div>
-                      <h3 className="text-base font-bold text-[#0E0E0E] leading-tight">{details.name}</h3>
+                      <div className="flex items-center gap-1.5">
+                        <h3 className="text-base font-bold text-[#0E0E0E] leading-tight">{details.name}</h3>
+                        <span className="text-[10px]" title="Government of India Verified">🇮🇳</span>
+                      </div>
                       <p className="text-xs text-[#6B6B6B] font-medium mt-0.5">{details.designation}</p>
                       <p className="text-[10px] font-mono text-gray-500 mt-0.5">{details.cadre}</p>
                     </div>
                   </div>
 
-                  <QrCode className="w-10 h-10 text-[#0E0E0E]/40 shrink-0 hidden sm:block" />
+                  {/* Top Right State Emblem Watermark Icon */}
+                  <div className="flex flex-col items-end shrink-0 hidden sm:flex">
+                    <IndianEmblemSvg className="w-8 h-9 text-[#0E0E0E]/70" />
+                    <span className="text-[8px] font-serif text-[#0E0E0E]/60 font-bold mt-0.5">सत्यमेव जयते</span>
+                  </div>
                 </div>
 
                 <div className="pt-3 border-t border-[#E5E3DC]/60 flex flex-wrap items-center justify-between gap-2 relative z-10 text-xs">
