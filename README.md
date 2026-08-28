@@ -123,80 +123,75 @@ mplads-ai-audit/
 
 ### 1. Prerequisites
 
-Ensure you have the following installed locally:
-
 * Python 3.11+
-* PostgreSQL 16 (with `pgvector` extension)
-* Neo4j 5.x
-* Node.js 18+ (for frontend)
+* Node.js 18+ & npm
+* Git
 
-### 2. Environment Setup
+### 2. Environment & Dependencies Setup
 
-Clone the repository and install backend dependencies:
+Clone the repository and install all dependencies:
 
 ```bash
-git clone https://github.com/YourOrg/mplads-ai-audit.git
-cd mplads-ai-audit/backend
+git clone https://github.com/SIH-2k26/mplads-ai-audit.git
+cd mplads-ai-audit
 
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
-
-# Install dependencies
+# Python Virtual Environment
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
 pip install -r requirements.txt
+
+# Frontend Dependencies
+npm install
 ```
 
-### 3. Run Database Infrastructure (Docker)
+### 3. One-Command Full System Verification
 
-Start local PostgreSQL and Neo4j database containers:
+Execute the complete multi-tier data validation, anti-leakage audit, ML evaluation, pytest suite, and frontend build:
 
 ```bash
-docker compose up -d
+make all
 ```
 
-Execute Alembic migrations:
+### 4. Launch the Applications
 
+**Launch FastAPI Backend Server (Port 8000):**
 ```bash
-alembic upgrade head
+uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
 ```
+* **Interactive OpenAPI Docs:** `http://localhost:8000/docs`
+* **ReDoc Documentation:** `http://localhost:8000/redoc`
 
-### 4. Launch the Backend Server
-
-Start the Uvicorn development server:
-
+**Launch React / Vite Frontend Dashboard (Port 5173):**
 ```bash
-python -m uvicorn app.main:app --reload --port 8000
+npm run dev
 ```
-
-Access the interactive API documentation at:
-
-* **Swagger UI:** `http://localhost:8000/docs`
-* **ReDoc:** `http://localhost:8000/redoc`
+* **Web Portal:** `http://localhost:5173`
 
 ---
 
 ## Core API Endpoints
 
 | Method | Endpoint | Description |
-| --- | --- | --- |
-| `POST` | `/api/v1/projects/analyze` | Executes the 19-agent orchestrator, returning 3D risk scores, 8D fingerprints, and NLP narratives. |
-| `POST` | `/api/v1/simulation/what-if` | Simulates project parameter deltas (delay, cost, progress) in-memory without DB persistence. |
-| `GET` | `/api/v1/reports/pdf/{project_id}` | Streams a printable 1-page Field Inspection Brief PDF (`application/pdf`). |
-| `POST` | `/api/v1/cases/{case_id}/verdict` | Ingests human investigator verdicts (`CONFIRMED_ISSUE`, `FALSE_POSITIVE`, etc.) for model calibration. |
-| `GET` | `/health` | System health and database status check. |
+| :--- | :--- | :--- |
+| `POST` | `/api/v1/analyze` | Canonical endpoint executing 176-feature ML inference, rule compliance checks, and temporal RAG retrieval. |
+| `GET` | `/api/v1/models/status` | Real-time health, loaded classifier versions, and feature counts. |
+| `GET` | `/api/v1/rag/status` | Vector index status and temporal regulatory filter health. |
+| `POST` | `/api/v1/cases/{case_id}/verdict` | Ingests human investigator verdicts (`CONFIRMED_ISSUE`, `FALSE_POSITIVE`, `INSUFFICIENT_EVIDENCE`). |
+| `GET` | `/health` | System health check and API latency monitoring. |
 
 ---
 
-## Testing
-
-Run the automated test suite covering unit logic and mandatory integration contracts:
+## Automated Testing Suite
 
 ```bash
-# Run contract integration tests
-pytest backend/tests/contracts/
+# Run complete test suite (170+ unit, integration, and security tests)
+pytest -v
 
-# Run unit tests
-pytest backend/tests/unit/
+# Run 8-scenario deterministic end-to-end integration tests
+pytest tests/test_end_to_end_pipeline.py -v
+
+# Run 100-query statutory RAG evaluation
+python scripts/rag/evaluate.py
 ```
 
 ---
