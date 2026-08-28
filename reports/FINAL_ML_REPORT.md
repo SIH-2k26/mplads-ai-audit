@@ -11,40 +11,40 @@ The model stack features **CatBoost, XGBoost, LightGBM, Random Forest, and Isola
 
 | Model | Accuracy | Precision | Recall | F1 Score | PR-AUC | Balanced Acc | MCC |
 |---|---|---|---|---|---|---|---|
-| **CatBoost** | 93.27% | 81.01% | 89.78% | 85.17% | `0.9538` | 92.0% | 0.8101 |
-| **XGBoost** | 93.67% | 82.57% | 89.47% | 85.88% | `0.9447` | 92.15% | 0.8192 |
-| **LightGBM** | 93.27% | 81.18% | 89.47% | 85.13% | `0.9446` | 91.89% | 0.8095 |
-| **Gradient Boosting** | 95.07% | 94.95% | 81.42% | 87.67% | `0.9429` | 90.12% | 0.85 |
-| **HistGradientBoosting** | 93.2% | 80.11% | 91.02% | 85.22% | `0.9426` | 92.41% | 0.811 |
-| **Random Forest** | 93.4% | 82.94% | 87.31% | 85.07% | `0.9425` | 91.19% | 0.8088 |
-| **Extra Trees** | 93.6% | 92.19% | 76.78% | 83.78% | `0.935` | 87.5% | 0.8036 |
-| **Logistic Regression** | 94.0% | 85.41% | 87.0% | 86.2% | `0.9259` | 91.46% | 0.8237 |
+| **CatBoost** | 93.41% | 79.64% | 93.33% | 85.94% | `0.9672` | 93.38% | 0.8211 |
+| **XGBoost** | 93.12% | 78.91% | 92.95% | 85.36% | `0.9563` | 93.06% | 0.8136 |
+| **Gradient Boosting** | 95.44% | 98.48% | 80.1% | 88.34% | `0.9552` | 89.88% | 0.8625 |
+| **HistGradientBoosting** | 92.99% | 78.5% | 92.95% | 85.12% | `0.9542` | 92.97% | 0.8106 |
+| **LightGBM** | 93.28% | 79.41% | 92.95% | 85.65% | `0.954` | 93.16% | 0.8173 |
+| **Random Forest** | 93.95% | 83.37% | 89.86% | 86.5% | `0.9533` | 92.47% | 0.827 |
+| **Extra Trees** | 93.89% | 93.03% | 77.5% | 84.56% | `0.9455` | 87.95% | 0.8131 |
+| **Logistic Regression** | 93.79% | 84.37% | 87.39% | 85.85% | `0.9353` | 91.47% | 0.8189 |
 
 
 ---
 
 ## 3. Held-Out Test Evaluation
-- **Total Test Samples:** `1,500` (Stratified 15% holdout)
-- **Accuracy:** `95.00%`
-- **ROC-AUC:** `0.9853`
-- **PR-AUC:** `0.9590`
-- **Confusion Matrix:** TN=`1167`, FP=`11`, FN=`64`, TP=`258`
+- **Total Test Samples:** `3,750` (Stratified 15% holdout)
+- **Accuracy:** `95.97%`
+- **ROC-AUC:** `0.9902`
+- **PR-AUC:** `0.9713`
+- **Confusion Matrix:** TN=`2922`, FP=`19`, FN=`132`, TP=`677`
 
 ---
 
 ## 4. Top Predictive Risk Drivers
 | Rank | Feature Name | Domain | Description |
 |---|---|---|---|
-| 1 | `rule_risk_score` | Risk Signal | Relative weight: 13.4439 |
-| 2 | `velocity_mismatch` | Risk Signal | Relative weight: 12.9964 |
-| 3 | `financial_progress` | Risk Signal | Relative weight: 12.3991 |
-| 4 | `total_rule_violation_count` | Risk Signal | Relative weight: 9.6747 |
-| 5 | `financial_velocity` | Risk Signal | Relative weight: 4.2677 |
-| 6 | `physical_progress` | Risk Signal | Relative weight: 3.1510 |
-| 7 | `balance_to_sanction_ratio` | Risk Signal | Relative weight: 2.5170 |
-| 8 | `contractor_total_value` | Risk Signal | Relative weight: 2.3058 |
-| 9 | `contractor_average_project_value` | Risk Signal | Relative weight: 2.1813 |
-| 10 | `financial_physical_gap` | Risk Signal | Relative weight: 2.0510 |
+| 1 | `financial_progress` | Risk Signal | Relative weight: 18.4760 |
+| 2 | `total_rule_violation_count` | Risk Signal | Relative weight: 12.1605 |
+| 3 | `velocity_mismatch` | Risk Signal | Relative weight: 8.8420 |
+| 4 | `rule_risk_score` | Risk Signal | Relative weight: 7.5059 |
+| 5 | `financial_velocity` | Risk Signal | Relative weight: 5.7739 |
+| 6 | `expenditure_to_sanction_ratio` | Risk Signal | Relative weight: 4.2669 |
+| 7 | `physical_velocity` | Risk Signal | Relative weight: 4.0075 |
+| 8 | `payment_to_work_order_ratio` | Risk Signal | Relative weight: 3.6636 |
+| 9 | `actual_to_tender_ratio` | Risk Signal | Relative weight: 3.3137 |
+| 10 | `release_to_sanction_ratio` | Risk Signal | Relative weight: 3.2885 |
 
 
 ---

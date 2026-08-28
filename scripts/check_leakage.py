@@ -45,9 +45,12 @@ def audit_feature_leakage(features_path: str = "data/synthetic/features/train_fe
         return True
 
     df_feats = pd.read_parquet(features_path)
-    feature_cols = [c for c in df_feats.columns if c not in ["project_id", "is_anomalous", "risk_level"]]
+    target_labels = ["fraud_label", "is_anomalous", "risk_level", "anomaly_type", "investigation_priority",
+                     "financial_anomaly", "procurement_anomaly", "contractor_anomaly", "geographic_anomaly",
+                     "timeline_anomaly", "progress_anomaly", "documentation_anomaly", "cost_anomaly", "project_id"]
+    feature_cols = [c for c in df_feats.columns if c not in target_labels]
 
-    # 1. Check for explicit exclusion overlap
+    # 1. Check for explicit exclusion overlap in feature inputs
     forbidden_present = set(feature_cols).intersection(set(exclusions))
     if forbidden_present:
         print(f"[FAIL] Leakage Detected! Forbidden columns present in feature matrix: {forbidden_present}")
@@ -75,6 +78,8 @@ def audit_feature_leakage(features_path: str = "data/synthetic/features/train_fe
     print("=" * 60)
     return True
 
+
+run_leakage_audit = audit_feature_leakage
 
 if __name__ == "__main__":
     success = audit_feature_leakage()
