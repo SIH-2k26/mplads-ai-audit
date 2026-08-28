@@ -73,7 +73,7 @@ export function MinistryDashboardPage() {
         totalOutlayCr={4950.0}
       />
 
-      {/* Wise Cards Row: Account Card with Sub-Balances + Flow Stream Telemetry + AI Sanchay Card */}
+      {/* Wise Cards Row: Expanded Full-Width National Scheme Account Card with Sub-Balances + Flow Stream Telemetry */}
       <WiseCardsRow
         onOpenCardDetails={() => openEvidenceDrawer({ title: 'National Scheme Account Details' })}
         onOpenDoMoreAction={() => setAiAssistantOpen(true)}
@@ -83,6 +83,7 @@ export function MinistryDashboardPage() {
         flaggedRiskCr={412.8}
         reconciledCr={3427.7}
         activeFreezesCount={2}
+        hideDoMore={true}
       />
 
       {/* Additional Metric cards */}
