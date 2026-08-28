@@ -8,23 +8,36 @@ import {
   Sparkles,
   Globe
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useUiStore } from '../../stores/useUiStore';
 import { useRoleStore } from '../../stores/useRoleStore';
 import { useLanguageStore } from '../../stores/useLanguageStore';
 import { UserRole } from '../../types';
 
+const ROLE_DASHBOARD_MAP: Record<UserRole, string> = {
+  DISTRICT_AUTHORITY: '/district',
+  MP: '/mp',
+  STATE_NODAL: '/state',
+  MINISTRY_DIID: '/ministry',
+  AUDITOR: '/reports',
+};
+
 export function TopHeader() {
+  const navigate = useNavigate();
   const { toggleSidebar, setAiAssistantOpen } = useUiStore();
   const { currentRole, userTitle, userJurisdiction, setRole } = useRoleStore();
   const { language, setLanguage } = useLanguageStore();
 
   const handleRoleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setRole(e.target.value as UserRole);
+    const role = e.target.value as UserRole;
+    setRole(role);
+    navigate(ROLE_DASHBOARD_MAP[role]);
   };
 
   const handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLanguage(e.target.value as any);
   };
+
 
   return (
     <header className="w-full bg-white px-4 sm:px-8 py-3 flex items-center justify-between border-b border-[#F1F0EC] sticky top-0 z-30 select-none">
