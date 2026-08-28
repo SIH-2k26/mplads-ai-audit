@@ -4,6 +4,13 @@ DocumentPipeline — full document processing pipeline.
 PDF → Parse → OCR (if needed) → Clean → Structure → Metadata → Chunk → Embed → Store.
 """
 from __future__ import annotations
+import os
+import sys
+
+backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+if backend_dir not in sys.path:
+    sys.path.insert(0, backend_dir)
+
 import hashlib
 import uuid
 from dataclasses import dataclass, field
@@ -187,3 +194,19 @@ class DocumentPipeline:
             for block in iter(lambda: f.read(65536), b""):
                 sha256.update(block)
         return sha256.hexdigest()
+
+
+if __name__ == "__main__":
+    import os
+    import sys
+    backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    if backend_dir not in sys.path:
+        sys.path.insert(0, backend_dir)
+
+    print("=" * 60)
+    print("[DOCUMENT PIPELINE] Initializing Document Ingestion & Chunking Pipeline")
+    print("=" * 60)
+    pipe = DocumentPipeline()
+    print(" [OK] DocumentPipeline parser, OCR engine, and semantic chunker initialized successfully.")
+    print("=" * 60)
+

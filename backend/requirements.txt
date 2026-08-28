@@ -27,6 +27,7 @@ python-dateutil>=2.9.0
 # ── Document Processing ───────────────────────────────────────────────────────
 PyMuPDF>=1.24.0                  # PDF parsing (fitz)
 unstructured[pdf,local-inference]>=0.13.0   # Structured document extraction
+reportlab>=4.0.0                 # 1-page inspection brief PDF generation
 
 # ── OCR ───────────────────────────────────────────────────────────────────────
 pytesseract>=0.3.10              # Tesseract Python wrapper

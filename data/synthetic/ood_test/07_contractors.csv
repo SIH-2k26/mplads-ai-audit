@@ -1,0 +1,301 @@
+contractor_id,contractor_name,home_district_id,home_state_id,registration_category,financial_capacity,base_quality_score,past_irregularity_rate
+CONT-0001,Khosla-Dhar Infrastructure Pvt Ltd,DIST-0261,ST-06,Class A,20000000.0,0.844,0.0376
+CONT-0002,"Dada, Char and Taneja Infrastructure Pvt Ltd",DIST-0337,ST-08,Class B,5000000.0,0.887,0.0526
+CONT-0003,Shroff Inc Infrastructure Pvt Ltd,DIST-0379,ST-09,Class B,20000000.0,0.964,0.0435
+CONT-0004,Bakshi Enterprises,DIST-0380,ST-10,Class C,5000000.0,0.831,0.0111
+CONT-0005,Kar Enterprises,DIST-0300,ST-07,Class C,100000000.0,0.788,0.0255
+CONT-0006,Chada Enterprises,DIST-0382,ST-10,Class B,20000000.0,0.973,0.0901
+CONT-0007,"Dutta, Taneja and Sani Infrastructure Pvt Ltd",DIST-0293,ST-07,Class B,5000000.0,0.896,0.1134
+CONT-0008,Sule Enterprises,DIST-0206,ST-05,Class C,5000000.0,0.92,0.0578
+CONT-0009,Batra-Puri Infrastructure Pvt Ltd,DIST-0351,ST-09,Class B,100000000.0,0.911,0.026
+CONT-0010,Yohannan PLC Infrastructure Pvt Ltd,DIST-0017,ST-01,Class C,20000000.0,0.882,0.0397
+CONT-0011,Bir Inc Infrastructure Pvt Ltd,DIST-0377,ST-09,Class A,5000000.0,0.879,0.0223
+CONT-0012,"Doshi, Mand and Pingle Infrastructure Pvt Ltd",DIST-0530,ST-15,Class C,5000000.0,0.957,0.0944
+CONT-0013,Chad Enterprises,DIST-0034,ST-01,Class B,20000000.0,0.902,0.1055
+CONT-0014,Jain-Bedi Infrastructure Pvt Ltd,DIST-0615,ST-18,Class B,20000000.0,0.943,0.0264
+CONT-0015,"Issac, Garg and Walla Infrastructure Pvt Ltd",DIST-0589,ST-17,Class A,20000000.0,0.844,0.0142
+CONT-0016,Gokhale-Sidhu Infrastructure Pvt Ltd,DIST-0097,ST-02,Class A,100000000.0,0.721,0.1534
+CONT-0017,"Pandit, Lad and Varkey Infrastructure Pvt Ltd",DIST-0442,ST-12,Class B,100000000.0,0.814,0.071
+CONT-0018,"Gola, Gala and Madan Infrastructure Pvt Ltd",DIST-0460,ST-12,Class C,5000000.0,0.973,0.0387
+CONT-0019,"Saran, Pant and Pau Infrastructure Pvt Ltd",DIST-0459,ST-12,Class B,20000000.0,0.802,0.0374
+CONT-0020,Subramaniam Ltd Infrastructure Pvt Ltd,DIST-0338,ST-08,Class B,100000000.0,0.903,0.0315
+CONT-0021,Dani and Sons Infrastructure Pvt Ltd,DIST-0494,ST-14,Class C,5000000.0,0.968,0.0743
+CONT-0022,Sabharwal Enterprises,DIST-0572,ST-17,Class B,20000000.0,0.962,0.0938
+CONT-0023,"Sahota, Malhotra and Yogi Infrastructure Pvt Ltd",DIST-0160,ST-04,Class B,5000000.0,0.936,0.0327
+CONT-0024,Sodhi Enterprises,DIST-0022,ST-01,Class A,5000000.0,0.889,0.2441
+CONT-0025,Wali Enterprises,DIST-0205,ST-05,Class C,20000000.0,0.783,0.2501
+CONT-0026,Hora Inc Infrastructure Pvt Ltd,DIST-0359,ST-09,Class B,5000000.0,0.923,0.0349
+CONT-0027,Kakar-Brahmbhatt Infrastructure Pvt Ltd,DIST-0495,ST-14,Class A,5000000.0,0.947,0.0314
+CONT-0028,Batra Group Infrastructure Pvt Ltd,DIST-0098,ST-02,Class B,20000000.0,0.792,0.0436
+CONT-0029,Saha Enterprises,DIST-0323,ST-08,Class B,5000000.0,0.969,0.0684
+CONT-0030,Talwar-Ranganathan Infrastructure Pvt Ltd,DIST-0475,ST-13,Class B,100000000.0,0.793,0.0327
+CONT-0031,"Sodhi, Chakrabarti and Desai Infrastructure Pvt Ltd",DIST-0143,ST-03,Class A,100000000.0,0.947,0.0668
+CONT-0032,Gara Enterprises,DIST-0458,ST-12,Class C,20000000.0,0.926,0.1667
+CONT-0033,Ghosh-Wable Infrastructure Pvt Ltd,DIST-0468,ST-12,Class B,20000000.0,0.798,0.0814
+CONT-0034,"Karnik, Balay and Malhotra Infrastructure Pvt Ltd",DIST-0612,ST-18,Class C,5000000.0,0.828,0.014
+CONT-0035,"Roy, Thaker and Pradhan Infrastructure Pvt Ltd",DIST-0431,ST-11,Class C,5000000.0,0.712,0.0841
+CONT-0036,"Kalita, Ranganathan and Bir Infrastructure Pvt Ltd",DIST-0534,ST-15,Class B,20000000.0,0.972,0.1779
+CONT-0037,Das Group Infrastructure Pvt Ltd,DIST-0033,ST-01,Class B,100000000.0,0.899,0.2239
+CONT-0038,Gola Group Infrastructure Pvt Ltd,DIST-0007,ST-01,Class C,100000000.0,0.836,0.0358
+CONT-0039,Malhotra Enterprises,DIST-0372,ST-09,Class C,20000000.0,0.83,0.0521
+CONT-0040,Ahuja-Malhotra Infrastructure Pvt Ltd,DIST-0529,ST-15,Class B,20000000.0,0.77,0.0802
+CONT-0041,Sachdev Enterprises,DIST-0405,ST-10,Class B,5000000.0,0.912,0.0497
+CONT-0042,Dhar Enterprises,DIST-0610,ST-18,Class C,5000000.0,0.777,0.046
+CONT-0043,"Bhargava, Prabhu and Ganguly Infrastructure Pvt Ltd",DIST-0187,ST-05,Class B,5000000.0,0.955,0.128
+CONT-0044,"Oak, Butala and Agrawal Infrastructure Pvt Ltd",DIST-0217,ST-05,Class C,5000000.0,0.741,0.0383
+CONT-0045,Sridhar Enterprises,DIST-0139,ST-03,Class B,20000000.0,0.832,0.0071
+CONT-0046,Konda Enterprises,DIST-0507,ST-15,Class C,5000000.0,0.88,0.0374
+CONT-0047,Gera Enterprises,DIST-0044,ST-01,Class B,100000000.0,0.753,0.0451
+CONT-0048,Bhandari-Sagar Infrastructure Pvt Ltd,DIST-0025,ST-01,Class B,5000000.0,0.954,0.175
+CONT-0049,Ratti Enterprises,DIST-0190,ST-05,Class B,5000000.0,0.798,0.0638
+CONT-0050,"Subramanian, Chaudhary and Dhillon Infrastructure Pvt Ltd",DIST-0175,ST-05,Class B,5000000.0,0.848,0.0167
+CONT-0051,"Devi, Joshi and Singhal Infrastructure Pvt Ltd",DIST-0024,ST-01,Class C,5000000.0,0.965,0.0253
+CONT-0052,"Parmer, Manda and Dhar Infrastructure Pvt Ltd",DIST-0446,ST-12,Class B,20000000.0,0.722,0.0475
+CONT-0053,Pal Enterprises,DIST-0304,ST-07,Class B,100000000.0,0.861,0.1225
+CONT-0054,Nadig Enterprises,DIST-0217,ST-05,Class B,20000000.0,0.78,0.0228
+CONT-0055,Venkatesh Group Infrastructure Pvt Ltd,DIST-0083,ST-02,Class C,20000000.0,0.887,0.1318
+CONT-0056,Sunder-Sura Infrastructure Pvt Ltd,DIST-0309,ST-07,Class A,100000000.0,0.795,0.0139
+CONT-0057,Malhotra PLC Infrastructure Pvt Ltd,DIST-0023,ST-01,Class C,5000000.0,0.866,0.1814
+CONT-0058,Ramanathan Enterprises,DIST-0440,ST-12,Class B,100000000.0,0.749,0.044
+CONT-0059,"Chowdhury, Suresh and Kalita Infrastructure Pvt Ltd",DIST-0251,ST-06,Class B,20000000.0,0.824,0.0538
+CONT-0060,Dar Enterprises,DIST-0422,ST-11,Class A,20000000.0,0.903,0.0845
+CONT-0061,"Sen, Sarma and Kala Infrastructure Pvt Ltd",DIST-0005,ST-01,Class A,20000000.0,0.783,0.1028
+CONT-0062,"Saha, Dhillon and Kalla Infrastructure Pvt Ltd",DIST-0591,ST-17,Class B,5000000.0,0.8,0.088
+CONT-0063,Sane Enterprises,DIST-0443,ST-12,Class A,100000000.0,0.737,0.0461
+CONT-0064,Sarna-Keer Infrastructure Pvt Ltd,DIST-0105,ST-02,Class C,100000000.0,0.737,0.1374
+CONT-0065,Naik Group Infrastructure Pvt Ltd,DIST-0145,ST-03,Class C,100000000.0,0.793,0.1239
+CONT-0066,Iyengar Enterprises,DIST-0313,ST-07,Class C,20000000.0,0.79,0.0373
+CONT-0067,Muni and Sons Infrastructure Pvt Ltd,DIST-0387,ST-10,Class B,100000000.0,0.798,0.129
+CONT-0068,Warrior Enterprises,DIST-0373,ST-09,Class A,20000000.0,0.932,0.0376
+CONT-0069,"Bandi, Sem and Nair Infrastructure Pvt Ltd",DIST-0390,ST-10,Class B,100000000.0,0.857,0.2239
+CONT-0070,Sur PLC Infrastructure Pvt Ltd,DIST-0486,ST-14,Class C,5000000.0,0.744,0.0318
+CONT-0071,"Goda, Sane and Chakraborty Infrastructure Pvt Ltd",DIST-0466,ST-12,Class B,5000000.0,0.893,0.0406
+CONT-0072,"Ben, Bath and Mannan Infrastructure Pvt Ltd",DIST-0543,ST-16,Class C,5000000.0,0.761,0.3068
+CONT-0073,Misra-Bhat Infrastructure Pvt Ltd,DIST-0182,ST-05,Class B,5000000.0,0.802,0.1972
+CONT-0074,Chacko PLC Infrastructure Pvt Ltd,DIST-0195,ST-05,Class A,20000000.0,0.779,0.1467
+CONT-0075,"Bail, Das and Warrior Infrastructure Pvt Ltd",DIST-0141,ST-03,Class C,20000000.0,0.793,0.0562
+CONT-0076,Handa Enterprises,DIST-0504,ST-14,Class B,20000000.0,0.799,0.0612
+CONT-0077,Thaman Enterprises,DIST-0552,ST-16,Class B,100000000.0,0.808,0.0109
+CONT-0078,Goda-Mannan Infrastructure Pvt Ltd,DIST-0264,ST-06,Class B,100000000.0,0.806,0.035
+CONT-0079,Narang-Grewal Infrastructure Pvt Ltd,DIST-0303,ST-07,Class B,20000000.0,0.775,0.1447
+CONT-0080,Yogi Enterprises,DIST-0561,ST-16,Class B,20000000.0,0.933,0.0904
+CONT-0081,"Hari, Yohannan and Gill Infrastructure Pvt Ltd",DIST-0332,ST-08,Class B,5000000.0,0.957,0.0888
+CONT-0082,Devi Enterprises,DIST-0152,ST-04,Class B,20000000.0,0.784,0.0189
+CONT-0083,Sethi and Sons Infrastructure Pvt Ltd,DIST-0495,ST-14,Class B,20000000.0,0.806,0.0162
+CONT-0084,Sood Group Infrastructure Pvt Ltd,DIST-0321,ST-08,Class B,5000000.0,0.737,0.0605
+CONT-0085,Thaker Enterprises,DIST-0580,ST-17,Class B,5000000.0,0.953,0.0243
+CONT-0086,Karpe Enterprises,DIST-0142,ST-03,Class A,5000000.0,0.827,0.1119
+CONT-0087,Panchal Enterprises,DIST-0054,ST-01,Class A,20000000.0,0.732,0.0211
+CONT-0088,Deep and Sons Infrastructure Pvt Ltd,DIST-0149,ST-03,Class A,5000000.0,0.852,0.0438
+CONT-0089,"Chahal, Chakraborty and Murty Infrastructure Pvt Ltd",DIST-0420,ST-11,Class B,100000000.0,0.822,0.1091
+CONT-0090,Ramaswamy Group Infrastructure Pvt Ltd,DIST-0535,ST-15,Class B,5000000.0,0.89,0.121
+CONT-0091,Mani Enterprises,DIST-0516,ST-15,Class C,5000000.0,0.842,0.037
+CONT-0092,Majumdar Group Infrastructure Pvt Ltd,DIST-0486,ST-14,Class B,100000000.0,0.883,0.037
+CONT-0093,Naik-Krishna Infrastructure Pvt Ltd,DIST-0414,ST-11,Class B,5000000.0,0.804,0.0715
+CONT-0094,Vig-Ramesh Infrastructure Pvt Ltd,DIST-0392,ST-10,Class B,20000000.0,0.883,0.015
+CONT-0095,Kulkarni-Banik Infrastructure Pvt Ltd,DIST-0064,ST-01,Class B,5000000.0,0.915,0.036
+CONT-0096,Chawla Ltd Infrastructure Pvt Ltd,DIST-0338,ST-08,Class B,5000000.0,0.822,0.1158
+CONT-0097,"Saxena, Wable and Contractor Infrastructure Pvt Ltd",DIST-0050,ST-01,Class B,20000000.0,0.955,0.0299
+CONT-0098,Kashyap Enterprises,DIST-0581,ST-17,Class C,20000000.0,0.707,0.0837
+CONT-0099,Parekh Enterprises,DIST-0258,ST-06,Class C,5000000.0,0.941,0.0905
+CONT-0100,Bandi PLC Infrastructure Pvt Ltd,DIST-0600,ST-18,Class C,20000000.0,0.893,0.0446
+CONT-0101,Nigam-Menon Infrastructure Pvt Ltd,DIST-0417,ST-11,Class B,20000000.0,0.744,0.0585
+CONT-0102,Sur Inc Infrastructure Pvt Ltd,DIST-0360,ST-09,Class C,100000000.0,0.717,0.0253
+CONT-0103,Madan-Bajwa Infrastructure Pvt Ltd,DIST-0268,ST-07,Class C,100000000.0,0.957,0.0835
+CONT-0104,"Ranganathan, Sarkar and Deep Infrastructure Pvt Ltd",DIST-0016,ST-01,Class B,5000000.0,0.878,0.0874
+CONT-0105,"Bala, Naidu and Narang Infrastructure Pvt Ltd",DIST-0336,ST-08,Class B,5000000.0,0.855,0.0364
+CONT-0106,"Shanker, Viswanathan and Warrior Infrastructure Pvt Ltd",DIST-0283,ST-07,Class B,20000000.0,0.901,0.0334
+CONT-0107,Venkatesh-Hayer Infrastructure Pvt Ltd,DIST-0379,ST-09,Class B,20000000.0,0.811,0.1513
+CONT-0108,"Memon, Cherian and Nath Infrastructure Pvt Ltd",DIST-0579,ST-17,Class B,5000000.0,0.892,0.1011
+CONT-0109,Salvi-Bhalla Infrastructure Pvt Ltd,DIST-0206,ST-05,Class A,5000000.0,0.793,0.1293
+CONT-0110,Brar LLC Infrastructure Pvt Ltd,DIST-0404,ST-10,Class A,100000000.0,0.812,0.0114
+CONT-0111,"Rege, Ganguly and Parsa Infrastructure Pvt Ltd",DIST-0152,ST-04,Class C,20000000.0,0.828,0.0205
+CONT-0112,Randhawa PLC Infrastructure Pvt Ltd,DIST-0120,ST-03,Class C,5000000.0,0.747,0.2116
+CONT-0113,Basu Inc Infrastructure Pvt Ltd,DIST-0181,ST-05,Class B,5000000.0,0.926,0.0611
+CONT-0114,Kata Group Infrastructure Pvt Ltd,DIST-0386,ST-10,Class B,20000000.0,0.961,0.028
+CONT-0115,"Bassi, Ranganathan and Srivastava Infrastructure Pvt Ltd",DIST-0378,ST-09,Class A,20000000.0,0.745,0.0447
+CONT-0116,"Toor, Dhaliwal and Trivedi Infrastructure Pvt Ltd",DIST-0536,ST-15,Class B,5000000.0,0.962,0.1729
+CONT-0117,Konda-Swamy Infrastructure Pvt Ltd,DIST-0497,ST-14,Class C,5000000.0,0.759,0.0753
+CONT-0118,Dyal-Sheth Infrastructure Pvt Ltd,DIST-0057,ST-01,Class B,20000000.0,0.838,0.0492
+CONT-0119,"Morar, Nair and Balay Infrastructure Pvt Ltd",DIST-0155,ST-04,Class C,5000000.0,0.941,0.137
+CONT-0120,"Ahluwalia, Natarajan and Balakrishnan Infrastructure Pvt Ltd",DIST-0427,ST-11,Class B,5000000.0,0.893,0.0938
+CONT-0121,"Balasubramanian, Thakur and Nayak Infrastructure Pvt Ltd",DIST-0612,ST-18,Class B,5000000.0,0.724,0.157
+CONT-0122,Kara-Wadhwa Infrastructure Pvt Ltd,DIST-0488,ST-14,Class B,20000000.0,0.953,0.1672
+CONT-0123,Saini Group Infrastructure Pvt Ltd,DIST-0004,ST-01,Class C,5000000.0,0.79,0.0193
+CONT-0124,Ramanathan LLC Infrastructure Pvt Ltd,DIST-0069,ST-01,Class B,100000000.0,0.708,0.1338
+CONT-0125,Walia-Murty Infrastructure Pvt Ltd,DIST-0046,ST-01,Class B,5000000.0,0.936,0.0166
+CONT-0126,Palla Ltd Infrastructure Pvt Ltd,DIST-0244,ST-06,Class C,20000000.0,0.773,0.0816
+CONT-0127,Krishna Enterprises,DIST-0134,ST-03,Class B,5000000.0,0.768,0.027
+CONT-0128,"Sagar, Wali and Sethi Infrastructure Pvt Ltd",DIST-0374,ST-09,Class A,20000000.0,0.831,0.1575
+CONT-0129,"Koshy, Krish and Sarma Infrastructure Pvt Ltd",DIST-0609,ST-18,Class C,20000000.0,0.751,0.1018
+CONT-0130,"Handa, Dar and Buch Infrastructure Pvt Ltd",DIST-0398,ST-10,Class B,100000000.0,0.938,0.0201
+CONT-0131,Patla Enterprises,DIST-0467,ST-12,Class C,5000000.0,0.949,0.3135
+CONT-0132,Swamy-Andra Infrastructure Pvt Ltd,DIST-0030,ST-01,Class B,20000000.0,0.809,0.1578
+CONT-0133,Soni LLC Infrastructure Pvt Ltd,DIST-0073,ST-01,Class B,20000000.0,0.844,0.0416
+CONT-0134,Balakrishnan-Kibe Infrastructure Pvt Ltd,DIST-0395,ST-10,Class B,100000000.0,0.881,0.1483
+CONT-0135,Dutta Group Infrastructure Pvt Ltd,DIST-0519,ST-15,Class B,5000000.0,0.751,0.075
+CONT-0136,Lad Enterprises,DIST-0364,ST-09,Class B,100000000.0,0.916,0.0275
+CONT-0137,Mohanty-Kant Infrastructure Pvt Ltd,DIST-0429,ST-11,Class B,100000000.0,0.764,0.2178
+CONT-0138,Varughese-More Infrastructure Pvt Ltd,DIST-0603,ST-18,Class B,5000000.0,0.815,0.0692
+CONT-0139,"Shroff, Seshadri and Kulkarni Infrastructure Pvt Ltd",DIST-0064,ST-01,Class A,100000000.0,0.807,0.0119
+CONT-0140,Chopra PLC Infrastructure Pvt Ltd,DIST-0529,ST-15,Class C,5000000.0,0.758,0.0903
+CONT-0141,Barman LLC Infrastructure Pvt Ltd,DIST-0082,ST-02,Class C,20000000.0,0.701,0.0555
+CONT-0142,Bumb Enterprises,DIST-0356,ST-09,Class B,20000000.0,0.736,0.1337
+CONT-0143,Borra LLC Infrastructure Pvt Ltd,DIST-0172,ST-04,Class A,20000000.0,0.95,0.1515
+CONT-0144,Apte-Tripathi Infrastructure Pvt Ltd,DIST-0133,ST-03,Class C,100000000.0,0.781,0.1087
+CONT-0145,Khatri Enterprises,DIST-0272,ST-07,Class B,20000000.0,0.907,0.1264
+CONT-0146,"Bava, Contractor and Tandon Infrastructure Pvt Ltd",DIST-0567,ST-17,Class B,20000000.0,0.718,0.0175
+CONT-0147,Kala Enterprises,DIST-0084,ST-02,Class B,20000000.0,0.89,0.0286
+CONT-0148,"Mann, Borra and Sekhon Infrastructure Pvt Ltd",DIST-0139,ST-03,Class A,20000000.0,0.722,0.0835
+CONT-0149,D’Alia Enterprises,DIST-0406,ST-11,Class B,5000000.0,0.922,0.0906
+CONT-0150,Bath Group Infrastructure Pvt Ltd,DIST-0091,ST-02,Class B,5000000.0,0.873,0.0731
+CONT-0151,Pathak LLC Infrastructure Pvt Ltd,DIST-0440,ST-12,Class C,20000000.0,0.977,0.0374
+CONT-0152,Raval Enterprises,DIST-0407,ST-11,Class B,20000000.0,0.895,0.1056
+CONT-0153,"Kapur, Nagi and Comar Infrastructure Pvt Ltd",DIST-0173,ST-05,Class B,5000000.0,0.831,0.0168
+CONT-0154,"Patil, Pingle and Verma Infrastructure Pvt Ltd",DIST-0204,ST-05,Class B,20000000.0,0.765,0.0336
+CONT-0155,Chada-Joshi Infrastructure Pvt Ltd,DIST-0458,ST-12,Class C,5000000.0,0.818,0.101
+CONT-0156,Dasgupta Enterprises,DIST-0414,ST-11,Class B,5000000.0,0.979,0.0386
+CONT-0157,"Wali, Sami and D’Alia Infrastructure Pvt Ltd",DIST-0009,ST-01,Class C,20000000.0,0.776,0.0099
+CONT-0158,De Group Infrastructure Pvt Ltd,DIST-0454,ST-12,Class A,5000000.0,0.785,0.0283
+CONT-0159,Bhasin Enterprises,DIST-0248,ST-06,Class C,100000000.0,0.742,0.1344
+CONT-0160,Butala Enterprises,DIST-0613,ST-18,Class B,100000000.0,0.867,0.0417
+CONT-0161,Lanka Group Infrastructure Pvt Ltd,DIST-0145,ST-03,Class B,5000000.0,0.747,0.1441
+CONT-0162,Master Enterprises,DIST-0428,ST-11,Class A,100000000.0,0.769,0.0192
+CONT-0163,Modi Enterprises,DIST-0532,ST-15,Class C,100000000.0,0.719,0.1351
+CONT-0164,Rau-Ratti Infrastructure Pvt Ltd,DIST-0043,ST-01,Class B,100000000.0,0.937,0.112
+CONT-0165,Sha Enterprises,DIST-0300,ST-07,Class A,5000000.0,0.907,0.1571
+CONT-0166,"Bajaj, Wason and Dyal Infrastructure Pvt Ltd",DIST-0355,ST-09,Class A,100000000.0,0.789,0.0481
+CONT-0167,Dube Enterprises,DIST-0536,ST-15,Class B,20000000.0,0.868,0.0388
+CONT-0168,Bail-Aggarwal Infrastructure Pvt Ltd,DIST-0067,ST-01,Class B,5000000.0,0.966,0.1679
+CONT-0169,Halder Enterprises,DIST-0414,ST-11,Class A,20000000.0,0.793,0.1505
+CONT-0170,Walia Inc Infrastructure Pvt Ltd,DIST-0272,ST-07,Class B,20000000.0,0.885,0.0327
+CONT-0171,"Dubey, Char and Mittal Infrastructure Pvt Ltd",DIST-0126,ST-03,Class B,5000000.0,0.878,0.0503
+CONT-0172,Palan Enterprises,DIST-0190,ST-05,Class C,5000000.0,0.746,0.0418
+CONT-0173,"Savant, Andra and Dugal Infrastructure Pvt Ltd",DIST-0449,ST-12,Class C,20000000.0,0.807,0.1677
+CONT-0174,Toor LLC Infrastructure Pvt Ltd,DIST-0181,ST-05,Class C,5000000.0,0.725,0.1339
+CONT-0175,Pau PLC Infrastructure Pvt Ltd,DIST-0408,ST-11,Class C,5000000.0,0.953,0.168
+CONT-0176,"Sem, Butala and Narasimhan Infrastructure Pvt Ltd",DIST-0406,ST-11,Class A,100000000.0,0.775,0.0356
+CONT-0177,Datta Enterprises,DIST-0028,ST-01,Class C,20000000.0,0.77,0.1125
+CONT-0178,Dhawan Group Infrastructure Pvt Ltd,DIST-0553,ST-16,Class B,5000000.0,0.974,0.0706
+CONT-0179,Dave-Walia Infrastructure Pvt Ltd,DIST-0382,ST-10,Class A,20000000.0,0.707,0.0395
+CONT-0180,Dass Enterprises,DIST-0109,ST-02,Class B,20000000.0,0.883,0.1328
+CONT-0181,"Karpe, Pai and Dubey Infrastructure Pvt Ltd",DIST-0058,ST-01,Class C,20000000.0,0.805,0.0618
+CONT-0182,"Pillai, Nazareth and Lanka Infrastructure Pvt Ltd",DIST-0076,ST-02,Class B,100000000.0,0.757,0.0026
+CONT-0183,"Sachdev, Bhavsar and Lal Infrastructure Pvt Ltd",DIST-0196,ST-05,Class C,20000000.0,0.831,0.0076
+CONT-0184,Ben Enterprises,DIST-0044,ST-01,Class B,100000000.0,0.8,0.039
+CONT-0185,Basak Enterprises,DIST-0110,ST-02,Class B,20000000.0,0.925,0.0555
+CONT-0186,Muni Enterprises,DIST-0396,ST-10,Class C,100000000.0,0.814,0.0118
+CONT-0187,"Trivedi, Chhabra and Narayan Infrastructure Pvt Ltd",DIST-0082,ST-02,Class B,100000000.0,0.921,0.1189
+CONT-0188,Parsa-Bawa Infrastructure Pvt Ltd,DIST-0143,ST-03,Class B,5000000.0,0.758,0.0211
+CONT-0189,"Naidu, Sule and Puri Infrastructure Pvt Ltd",DIST-0180,ST-05,Class B,20000000.0,0.937,0.0223
+CONT-0190,Roy Enterprises,DIST-0077,ST-02,Class C,5000000.0,0.917,0.0466
+CONT-0191,Swamy-Shan Infrastructure Pvt Ltd,DIST-0446,ST-12,Class C,20000000.0,0.837,0.0937
+CONT-0192,Bhat Enterprises,DIST-0568,ST-17,Class B,100000000.0,0.803,0.0299
+CONT-0193,Deep Enterprises,DIST-0506,ST-14,Class B,100000000.0,0.949,0.0822
+CONT-0194,"Grover, Panchal and Bera Infrastructure Pvt Ltd",DIST-0065,ST-01,Class C,100000000.0,0.714,0.008
+CONT-0195,"Dugal, Doshi and Dalal Infrastructure Pvt Ltd",DIST-0286,ST-07,Class B,5000000.0,0.708,0.0281
+CONT-0196,Khosla and Sons Infrastructure Pvt Ltd,DIST-0077,ST-02,Class C,100000000.0,0.977,0.0942
+CONT-0197,Som-Pai Infrastructure Pvt Ltd,DIST-0413,ST-11,Class B,5000000.0,0.804,0.0427
+CONT-0198,Keer and Sons Infrastructure Pvt Ltd,DIST-0473,ST-13,Class A,100000000.0,0.962,0.0327
+CONT-0199,Mand-Sridhar Infrastructure Pvt Ltd,DIST-0052,ST-01,Class B,20000000.0,0.716,0.0282
+CONT-0200,"Mallick, Sampath and Bumb Infrastructure Pvt Ltd",DIST-0080,ST-02,Class B,20000000.0,0.973,0.0451
+CONT-0201,Manda Enterprises,DIST-0502,ST-14,Class B,20000000.0,0.839,0.1246
+CONT-0202,"Konda, Nori and Batta Infrastructure Pvt Ltd",DIST-0523,ST-15,Class C,20000000.0,0.744,0.0412
+CONT-0203,Menon Ltd Infrastructure Pvt Ltd,DIST-0535,ST-15,Class B,5000000.0,0.83,0.0616
+CONT-0204,Loyal Group Infrastructure Pvt Ltd,DIST-0305,ST-07,Class C,20000000.0,0.708,0.042
+CONT-0205,Buch Enterprises,DIST-0381,ST-10,Class C,20000000.0,0.815,0.0953
+CONT-0206,Lad-Sura Infrastructure Pvt Ltd,DIST-0529,ST-15,Class A,100000000.0,0.804,0.0469
+CONT-0207,Thakkar-Jaggi Infrastructure Pvt Ltd,DIST-0043,ST-01,Class B,20000000.0,0.962,0.1116
+CONT-0208,Nigam-Roy Infrastructure Pvt Ltd,DIST-0260,ST-06,Class A,5000000.0,0.704,0.0799
+CONT-0209,Muni-Krishna Infrastructure Pvt Ltd,DIST-0425,ST-11,Class B,20000000.0,0.803,0.0591
+CONT-0210,"Kar, Minhas and Nagy Infrastructure Pvt Ltd",DIST-0503,ST-14,Class A,100000000.0,0.736,0.0267
+CONT-0211,Parsa Enterprises,DIST-0102,ST-02,Class B,100000000.0,0.875,0.0255
+CONT-0212,"Soni, Iyengar and Choudhary Infrastructure Pvt Ltd",DIST-0331,ST-08,Class C,20000000.0,0.807,0.1038
+CONT-0213,"Chowdhury, Sarma and Sachdev Infrastructure Pvt Ltd",DIST-0556,ST-16,Class B,5000000.0,0.947,0.0958
+CONT-0214,Shanker and Sons Infrastructure Pvt Ltd,DIST-0333,ST-08,Class C,100000000.0,0.904,0.1097
+CONT-0215,Purohit Enterprises,DIST-0083,ST-02,Class B,5000000.0,0.957,0.2965
+CONT-0216,"Pillay, Gupta and Bala Infrastructure Pvt Ltd",DIST-0003,ST-01,Class B,20000000.0,0.886,0.0647
+CONT-0217,Nigam and Sons Infrastructure Pvt Ltd,DIST-0564,ST-16,Class A,100000000.0,0.799,0.0632
+CONT-0218,Gandhi LLC Infrastructure Pvt Ltd,DIST-0210,ST-05,Class B,100000000.0,0.863,0.0079
+CONT-0219,Krishna Enterprises,DIST-0415,ST-11,Class C,20000000.0,0.801,0.0069
+CONT-0220,Soni-Batta Infrastructure Pvt Ltd,DIST-0139,ST-03,Class B,5000000.0,0.782,0.0317
+CONT-0221,Badal Ltd Infrastructure Pvt Ltd,DIST-0605,ST-18,Class C,100000000.0,0.81,0.0378
+CONT-0222,"Sengupta, Nayak and Sachdeva Infrastructure Pvt Ltd",DIST-0546,ST-16,Class C,100000000.0,0.83,0.0109
+CONT-0223,Kashyap Enterprises,DIST-0357,ST-09,Class B,5000000.0,0.85,0.0255
+CONT-0224,"Varty, Nagy and Sant Infrastructure Pvt Ltd",DIST-0228,ST-06,Class A,20000000.0,0.9,0.0219
+CONT-0225,Rattan Group Infrastructure Pvt Ltd,DIST-0368,ST-09,Class B,5000000.0,0.742,0.0392
+CONT-0226,"Varma, Keer and Issac Infrastructure Pvt Ltd",DIST-0416,ST-11,Class A,5000000.0,0.784,0.0466
+CONT-0227,"Acharya, Pant and Mutti Infrastructure Pvt Ltd",DIST-0314,ST-07,Class B,5000000.0,0.908,0.1788
+CONT-0228,Tara Enterprises,DIST-0335,ST-08,Class B,5000000.0,0.795,0.0206
+CONT-0229,Sarkar Enterprises,DIST-0445,ST-12,Class B,5000000.0,0.852,0.1072
+CONT-0230,Karpe Group Infrastructure Pvt Ltd,DIST-0539,ST-15,Class B,20000000.0,0.714,0.0424
+CONT-0231,Oza Enterprises,DIST-0482,ST-13,Class A,5000000.0,0.836,0.0444
+CONT-0232,"Ramanathan, Soman and Bahl Infrastructure Pvt Ltd",DIST-0248,ST-06,Class B,100000000.0,0.759,0.0627
+CONT-0233,Merchant Enterprises,DIST-0232,ST-06,Class B,20000000.0,0.802,0.0484
+CONT-0234,"Golla, Sarna and Peri Infrastructure Pvt Ltd",DIST-0140,ST-03,Class C,100000000.0,0.947,0.019
+CONT-0235,"Desai, Mand and Balay Infrastructure Pvt Ltd",DIST-0176,ST-05,Class B,20000000.0,0.847,0.0799
+CONT-0236,Bhalla Enterprises,DIST-0452,ST-12,Class C,20000000.0,0.801,0.1266
+CONT-0237,Dewan-Vaidya Infrastructure Pvt Ltd,DIST-0342,ST-08,Class C,20000000.0,0.743,0.115
+CONT-0238,Pathak-Buch Infrastructure Pvt Ltd,DIST-0587,ST-17,Class B,5000000.0,0.823,0.122
+CONT-0239,Jha-Sarna Infrastructure Pvt Ltd,DIST-0586,ST-17,Class A,20000000.0,0.894,0.0779
+CONT-0240,Mane and Sons Infrastructure Pvt Ltd,DIST-0091,ST-02,Class B,100000000.0,0.745,0.0345
+CONT-0241,Ahuja Group Infrastructure Pvt Ltd,DIST-0061,ST-01,Class C,5000000.0,0.716,0.0865
+CONT-0242,Dani-Deshpande Infrastructure Pvt Ltd,DIST-0408,ST-11,Class B,100000000.0,0.707,0.1041
+CONT-0243,Savant Enterprises,DIST-0243,ST-06,Class B,20000000.0,0.879,0.0598
+CONT-0244,Chandra and Sons Infrastructure Pvt Ltd,DIST-0591,ST-17,Class A,5000000.0,0.71,0.0817
+CONT-0245,Dixit Enterprises,DIST-0371,ST-09,Class C,100000000.0,0.959,0.0288
+CONT-0246,Deo Enterprises,DIST-0021,ST-01,Class C,20000000.0,0.909,0.0709
+CONT-0247,Sidhu-Gour Infrastructure Pvt Ltd,DIST-0315,ST-07,Class B,5000000.0,0.855,0.0444
+CONT-0248,"Sant, Sood and Borde Infrastructure Pvt Ltd",DIST-0512,ST-15,Class B,5000000.0,0.786,0.087
+CONT-0249,Sangha PLC Infrastructure Pvt Ltd,DIST-0088,ST-02,Class C,20000000.0,0.815,0.0872
+CONT-0250,"Peri, Tank and Nadig Infrastructure Pvt Ltd",DIST-0140,ST-03,Class A,20000000.0,0.724,0.0126
+CONT-0251,Baral Enterprises,DIST-0305,ST-07,Class C,20000000.0,0.881,0.0513
+CONT-0252,Singh Ltd Infrastructure Pvt Ltd,DIST-0492,ST-14,Class C,20000000.0,0.925,0.1324
+CONT-0253,Kurian LLC Infrastructure Pvt Ltd,DIST-0428,ST-11,Class B,5000000.0,0.713,0.1285
+CONT-0254,Devi Enterprises,DIST-0113,ST-03,Class A,5000000.0,0.852,0.0225
+CONT-0255,"Ganesh, Apte and Sarma Infrastructure Pvt Ltd",DIST-0146,ST-03,Class B,20000000.0,0.907,0.0787
+CONT-0256,Batta Enterprises,DIST-0075,ST-01,Class C,20000000.0,0.734,0.0537
+CONT-0257,Rattan Enterprises,DIST-0051,ST-01,Class B,5000000.0,0.89,0.1206
+CONT-0258,Kanda Ltd Infrastructure Pvt Ltd,DIST-0473,ST-13,Class A,20000000.0,0.842,0.1622
+CONT-0259,"Sengupta, Grover and Sarma Infrastructure Pvt Ltd",DIST-0199,ST-05,Class B,20000000.0,0.819,0.022
+CONT-0260,"Deshmukh, Contractor and Narain Infrastructure Pvt Ltd",DIST-0301,ST-07,Class B,5000000.0,0.804,0.0171
+CONT-0261,Mohan PLC Infrastructure Pvt Ltd,DIST-0523,ST-15,Class B,20000000.0,0.903,0.0313
+CONT-0262,Misra Group Infrastructure Pvt Ltd,DIST-0114,ST-03,Class B,100000000.0,0.784,0.1075
+CONT-0263,Doshi PLC Infrastructure Pvt Ltd,DIST-0311,ST-07,Class C,20000000.0,0.888,0.1763
+CONT-0264,Wable-Chana Infrastructure Pvt Ltd,DIST-0370,ST-09,Class A,5000000.0,0.784,0.1185
+CONT-0265,"Lata, Chand and Batta Infrastructure Pvt Ltd",DIST-0481,ST-13,Class B,20000000.0,0.911,0.0296
+CONT-0266,Vaidya Enterprises,DIST-0495,ST-14,Class A,20000000.0,0.71,0.0065
+CONT-0267,Dara Ltd Infrastructure Pvt Ltd,DIST-0122,ST-03,Class C,5000000.0,0.92,0.0381
+CONT-0268,Raval-Sarna Infrastructure Pvt Ltd,DIST-0013,ST-01,Class C,20000000.0,0.943,0.0829
+CONT-0269,Setty Enterprises,DIST-0078,ST-02,Class B,5000000.0,0.948,0.0218
+CONT-0270,"Soman, Sinha and Gill Infrastructure Pvt Ltd",DIST-0292,ST-07,Class C,5000000.0,0.954,0.1614
+CONT-0271,Srinivasan Enterprises,DIST-0591,ST-17,Class C,100000000.0,0.85,0.0337
+CONT-0272,"Raman, Bahri and Narasimhan Infrastructure Pvt Ltd",DIST-0530,ST-15,Class A,20000000.0,0.814,0.0929
+CONT-0273,Thakkar-Andra Infrastructure Pvt Ltd,DIST-0053,ST-01,Class B,20000000.0,0.809,0.1151
+CONT-0274,Dhar Enterprises,DIST-0153,ST-04,Class C,5000000.0,0.829,0.1263
+CONT-0275,Misra Enterprises,DIST-0011,ST-01,Class A,100000000.0,0.787,0.0407
+CONT-0276,Dayal Enterprises,DIST-0216,ST-05,Class B,20000000.0,0.856,0.0134
+CONT-0277,Vora-Dua Infrastructure Pvt Ltd,DIST-0128,ST-03,Class C,5000000.0,0.743,0.1136
+CONT-0278,Deep Enterprises,DIST-0547,ST-16,Class A,5000000.0,0.802,0.0124
+CONT-0279,Murthy Enterprises,DIST-0535,ST-15,Class B,5000000.0,0.876,0.0095
+CONT-0280,Ganesan PLC Infrastructure Pvt Ltd,DIST-0517,ST-15,Class C,20000000.0,0.898,0.1136
+CONT-0281,Ramaswamy Enterprises,DIST-0296,ST-07,Class C,5000000.0,0.725,0.0093
+CONT-0282,Sani Group Infrastructure Pvt Ltd,DIST-0227,ST-05,Class C,100000000.0,0.936,0.0143
+CONT-0283,Choudhry Enterprises,DIST-0102,ST-02,Class C,20000000.0,0.863,0.0377
+CONT-0284,Chowdhury Enterprises,DIST-0382,ST-10,Class B,5000000.0,0.878,0.3138
+CONT-0285,Iyer-Wadhwa Infrastructure Pvt Ltd,DIST-0038,ST-01,Class B,20000000.0,0.965,0.1867
+CONT-0286,Chaudhary LLC Infrastructure Pvt Ltd,DIST-0412,ST-11,Class A,100000000.0,0.961,0.0141
+CONT-0287,Deep Enterprises,DIST-0061,ST-01,Class C,20000000.0,0.778,0.0159
+CONT-0288,Seshadri-Luthra Infrastructure Pvt Ltd,DIST-0110,ST-02,Class C,20000000.0,0.743,0.0733
+CONT-0289,Sule Enterprises,DIST-0343,ST-08,Class B,5000000.0,0.888,0.0765
+CONT-0290,Sani-Murty Infrastructure Pvt Ltd,DIST-0539,ST-15,Class C,5000000.0,0.816,0.0931
+CONT-0291,Chandra Enterprises,DIST-0585,ST-17,Class C,20000000.0,0.902,0.0436
+CONT-0292,Gera-Upadhyay Infrastructure Pvt Ltd,DIST-0565,ST-17,Class A,100000000.0,0.942,0.0704
+CONT-0293,"Natt, Hari and Chander Infrastructure Pvt Ltd",DIST-0325,ST-08,Class B,20000000.0,0.761,0.0458
+CONT-0294,Parikh Inc Infrastructure Pvt Ltd,DIST-0124,ST-03,Class B,100000000.0,0.772,0.0045
+CONT-0295,Sarma Enterprises,DIST-0059,ST-01,Class A,20000000.0,0.918,0.0104
+CONT-0296,Vaidya Ltd Infrastructure Pvt Ltd,DIST-0050,ST-01,Class B,20000000.0,0.934,0.0779
+CONT-0297,"Tiwari, Iyengar and Mitter Infrastructure Pvt Ltd",DIST-0168,ST-04,Class A,20000000.0,0.891,0.1619
+CONT-0298,Ranganathan-Bala Infrastructure Pvt Ltd,DIST-0016,ST-01,Class B,20000000.0,0.702,0.0462
+CONT-0299,Maharaj-Khanna Infrastructure Pvt Ltd,DIST-0451,ST-12,Class B,5000000.0,0.897,0.0256
+CONT-0300,Bora Enterprises,DIST-0129,ST-03,Class A,100000000.0,0.966,0.0239

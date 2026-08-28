@@ -4,14 +4,23 @@ Production-grade ML Training Pipeline for MPLADS Guardian risk & anomaly models.
 Trains IsolationForest, XGBoost/RandomForest classifiers, and GradientBoosting regressors with probability calibration.
 """
 from __future__ import annotations
+import os
+import sys
 from dataclasses import dataclass
 from typing import Any, Dict, Optional, Tuple
+
+# Ensure backend directory is in sys.path
+backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+if backend_dir not in sys.path:
+    sys.path.insert(0, backend_dir)
+
 import joblib
 import numpy as np
 import pandas as pd
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.ensemble import GradientBoostingRegressor, IsolationForest, RandomForestClassifier
 from sklearn.model_selection import train_test_split, TimeSeriesSplit
+
 try:
     from sklearn.frozen import FrozenEstimator
     HAS_FROZEN_ESTIMATOR = True
@@ -203,3 +212,52 @@ class ModelTrainer:
             dataset_size=len(X),
             training_timestamp=pd.Timestamp.now("UTC").isoformat(),
         )
+
+
+if __name__ == "__main__":
+    import argparse
+    import os
+    import sys
+    
+    # Ensure sys.path includes backend
+    backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    if backend_dir not in sys.path:
+        sys.path.insert(0, backend_dir)
+
+    parser = argparse.ArgumentParser(description="Train MPLADS ML Models")
+    parser.add_argument("--input", type=str, default="backend/data/master_240_matrix.parquet", help="Path to master parquet matrix")
+    parser.add_argument("--samples", type=int, default=200, help="Number of digital twins if input not found")
+    args = parser.parse_args()
+
+    trainer = ModelTrainer(random_state=42)
+
+    if os.path.exists(args.input):
+        print(f"Loading master dataset from {args.input}...")
+        df_master = pd.read_parquet(args.input)
+        
+        # Select numeric feature columns
+        feature_cols = [
+            "sanctioned_amount", "actual_expenditure", "unit_cost_variance",
+            "sanction_delay_days", "financial_progress_pct", "physical_progress_pct",
+            "financial_physical_gap", "contractor_past_irregularity_rate",
+            "bid_count", "single_bid_flag", "has_utilization_cert",
+            "has_measurement_book", "has_geotagged_photos", "missing_mb_flag",
+            "missing_uc_flag", "missing_geotag_flag"
+        ]
+        X = df_master[[c for c in feature_cols if c in df_master.columns]]
+        y = df_master["is_fraud"].values if "is_fraud" in df_master.columns else np.zeros(len(df_master))
+        
+        print(f"Training on {len(X):,} samples ({np.mean(y)*100:.1f}% anomaly rate)...")
+        art_anomaly = trainer.train_anomaly_model(X)
+        art_clf = trainer.train_risk_classifier(X, y)
+        print(f"-> Anomaly Model Trained: {art_anomaly.metrics}")
+        print(f"-> Risk Classifier Trained: {art_clf.metrics}")
+    else:
+        print(f"Input file {args.input} not found. Generating synthetic digital twin dataset ({args.samples} samples)...")
+        gen = SyntheticDatasetGenerator(seed=42)
+        X, y, _ = gen.generate_dataset(n_samples=args.samples)
+        art_anomaly = trainer.train_anomaly_model(X)
+        art_clf = trainer.train_risk_classifier(X, y)
+        print(f"-> Anomaly Model: {art_anomaly.metrics}")
+        print(f"-> Risk Classifier: {art_clf.metrics}")
+

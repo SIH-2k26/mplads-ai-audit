@@ -1,0 +1,12 @@
+============================================================
+MPLADS AI Audit — Held-Out Test Classification Report
+============================================================
+
+                      precision    recall  f1-score   support
+
+          Legitimate       0.96      0.99      0.97      2941
+Suspicious/Anomalous       0.97      0.84      0.90       809
+
+            accuracy                           0.96      3750
+           macro avg       0.96      0.92      0.94      3750
+        weighted avg       0.96      0.96      0.96      3750

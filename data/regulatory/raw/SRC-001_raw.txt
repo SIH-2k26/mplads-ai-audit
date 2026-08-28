@@ -1,0 +1,18 @@
+1. SCOPE AND ELIGIBILITY: Members of Parliament recommend works of developmental nature with emphasis on creation of durable community assets based on locally felt needs.
+            2. WORK RECOMMENDATION & SANCTION WORKFLOW:
+               - Step 1: MP recommends works online through the eSAKSHI portal to the District Authority.
+               - Step 2: District Authority assesses feasibility within 45 days of receipt of recommendation.
+               - Step 3: District Authority accords Administrative Sanction and issues Technical Sanction through eligible Implementing Agencies.
+               - Step 4: Work Order is issued to the executing agency/contractor.
+            3. TIMELINE & EXECUTION:
+               - All sanctioned works shall ordinarily be completed within one year from the date of sanction.
+               - In cases of genuine difficulty, District Authority may grant extensions up to a maximum of six months with recorded reasons.
+            4. PAYMENT & DISBURSEMENT CONTROLS:
+               - Advance payment to implementing agency shall not exceed 50% of sanctioned cost upon work order issuance.
+               - Subsequent payments are strictly conditional on verification of physical progress via Measurement Book (MB) and uploading of stage-wise geotagged photographs on eSAKSHI.
+               - Final payment requires physical completion certificate, final MB entry, and submission of Utilization Certificate (UC).
+            5. PROHIBITED WORKS:
+               - Works for private individuals or religious bodies are strictly prohibited.
+               - Acquisition of land or purchase of movable assets not integral to community works is prohibited.
+            6. SC/ST COMPLIANCE:
+               - MPs must allocate at least 15% of MPLADS funds for areas inhabited by Scheduled Caste (SC) population and 7.5% for Scheduled Tribe (ST) population annually.

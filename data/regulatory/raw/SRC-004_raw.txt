@@ -1,0 +1,7 @@
+1. APPLICABILITY: Applies strictly to procurement transactions executed on the Government e-Marketplace (GeM) portal.
+            2. BUYER & SELLER OBLIGATIONS:
+               - Delivery must be completed within the contractually stipulated delivery period.
+               - Liquidated Damages (LD) of 0.5% per week up to a maximum of 10% applies for delayed supply/execution.
+            3. PAYMENT OBLIGATIONS:
+               - Consignee Receipt and Acceptance Certificate (CRAC) must be generated within 10 days of delivery.
+               - Buyer must release payment within 10 calendar days of CRAC generation.

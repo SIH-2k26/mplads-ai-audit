@@ -1,0 +1,42 @@
+# configs/training.yaml
+# Machine Learning Training, Optimization & Calibration Configuration
+
+training:
+  random_seed: 42
+  cv_folds: 5
+  primary_metric: "pr_auc"
+  secondary_metric: "macro_f1"
+
+models:
+  catboost:
+    iterations: 150
+    depth: 6
+    learning_rate: 0.08
+    auto_class_weights: "Balanced"
+  xgboost:
+    n_estimators: 120
+    max_depth: 5
+    learning_rate: 0.08
+    scale_pos_weight: 3.5
+  lightgbm:
+    n_estimators: 120
+    max_depth: 5
+    learning_rate: 0.08
+    class_weight: "balanced"
+  random_forest:
+    n_estimators: 100
+    max_depth: 8
+    class_weight: "balanced"
+  isolation_forest:
+    n_estimators: 100
+    contamination: 0.15
+
+calibration:
+  method: "isotonic"
+  cv: 3
+
+threshold_search:
+  start: 0.10
+  end: 0.90
+  step: 0.05
+  default_threshold: 0.45

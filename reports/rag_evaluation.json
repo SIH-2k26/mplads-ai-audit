@@ -1,0 +1,12 @@
+{
+  "benchmark_queries_count": 100,
+  "precision_at_1": 0.37,
+  "recall_at_3": 0.46,
+  "hit_rate_at_3": 46.0,
+  "mean_reciprocal_rank": 0.415,
+  "temporal_filtering_accuracy": 90.0,
+  "citation_faithfulness": 98.5,
+  "avg_retrieval_latency_ms": 0.06,
+  "total_evaluation_time_seconds": 0.01,
+  "status": "PASSED_AUTHORITATIVE"
+}

@@ -1,0 +1,47 @@
+{
+  "dataset_version": "v2.5-relational-production",
+  "generation_timestamp": "2026-08-28T20:19:17.774758",
+  "random_seed": 42,
+  "number_of_projects": 4000,
+  "number_of_contractors": 320,
+  "number_of_agencies": 1238,
+  "number_of_payments": 11078,
+  "fraud_rate": 0.19,
+  "hard_negative_count": 424,
+  "hard_negative_rate": 0.106,
+  "risk_distribution": {
+    "LOW": 3035,
+    "CRITICAL": 392,
+    "HIGH": 368,
+    "MEDIUM": 205
+  },
+  "tables": [
+    "01_projects",
+    "02_financials",
+    "03_payments",
+    "04_progress",
+    "05_procurement",
+    "06_contracts",
+    "07_contractors",
+    "08_agencies",
+    "09_geography",
+    "10_constituencies",
+    "11_documents",
+    "12_labels"
+  ],
+  "row_counts": {
+    "01_projects": 4000,
+    "02_financials": 4000,
+    "03_payments": 11078,
+    "04_progress": 4000,
+    "05_procurement": 4000,
+    "06_contracts": 4000,
+    "07_contractors": 320,
+    "08_agencies": 1238,
+    "09_geography": 619,
+    "10_constituencies": 913,
+    "11_documents": 4000,
+    "12_labels": 4000
+  },
+  "generator_version": "2.5.0"
+}
