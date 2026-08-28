@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-28T18:24:42.452380",
-  "total_projects": 100000,
+  "timestamp": "2026-08-28T20:01:00.628954",
+  "total_projects": 25000,
   "total_checks": 15,
   "passed_checks": 15,
   "overall_status": "PASS",
@@ -93,13 +93,13 @@
       "check_id": "CHK-15",
       "description": "Multi-Class Risk Tier Coverage (LOW/MED/HIGH/CRIT)",
       "passed": true,
-      "details": "Distribution: {'LOW': 79717, 'HIGH': 11758, 'CRITICAL': 4621, 'MEDIUM': 3904}"
+      "details": "Distribution: {'LOW': 18003, 'HIGH': 3161, 'MEDIUM': 2382, 'CRITICAL': 1454}"
     }
   ],
   "risk_distribution": {
-    "LOW": 79717,
-    "HIGH": 11758,
-    "CRITICAL": 4621,
-    "MEDIUM": 3904
+    "LOW": 18003,
+    "HIGH": 3161,
+    "MEDIUM": 2382,
+    "CRITICAL": 1454
   }
 }

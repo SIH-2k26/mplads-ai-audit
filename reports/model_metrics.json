@@ -1,19 +1,19 @@
 {
-  "best_model": "CatBoost",
-  "test_accuracy": 95.97,
-  "test_precision": 97.27,
-  "test_recall": 83.68,
-  "test_f1": 89.97,
-  "test_roc_auc": 0.9902,
-  "test_pr_auc": 0.9713,
+  "best_model": "Random Forest",
+  "test_accuracy": 95.73,
+  "test_precision": 96.75,
+  "test_recall": 80.95,
+  "test_f1": 88.15,
+  "test_roc_auc": 0.937,
+  "test_pr_auc": 0.9193,
   "test_confusion_matrix": [
     [
-      2922,
-      19
+      599,
+      4
     ],
     [
-      132,
-      677
+      28,
+      119
     ]
   ]
 }

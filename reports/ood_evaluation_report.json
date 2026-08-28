@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-08-28T20:19:19.469687",
+  "train_projects": 4000,
+  "ood_projects": 1500,
+  "ood_accuracy": 93.33,
+  "ood_precision": 94.03,
+  "ood_recall": 79.75,
+  "ood_f1": 86.3,
+  "ood_roc_auc": 0.9364,
+  "ood_pr_auc": 0.9235,
+  "ood_false_positive_rate": 1.81,
+  "hard_negative_tested": 287,
+  "hard_negative_false_positives": 20,
+  "hard_negative_fp_rate": 6.97
+}

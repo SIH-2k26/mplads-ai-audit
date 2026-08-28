@@ -18,6 +18,7 @@ import { CompliancePage } from '../pages/CompliancePage';
 import { PoliciesPage } from '../pages/PoliciesPage';
 import { ReportsPage } from '../pages/ReportsPage';
 import { RiskAssessmentPage } from '../pages/RiskAssessmentPage';
+import { ArachneRiskMatrixPage } from '../pages/ArachneRiskMatrixPage';
 import { DesignSystemPage } from '../pages/DesignSystemPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
@@ -57,6 +58,14 @@ export const router = createBrowserRouter([
       {
         path: 'risk-assessment',
         element: <RiskAssessmentPage />,
+      },
+      {
+        path: 'arachne-audit',
+        element: <ArachneRiskMatrixPage />,
+      },
+      {
+        path: 'procurement-intelligence',
+        element: <ArachneRiskMatrixPage />,
       },
       {
         path: 'simulate',

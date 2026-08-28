@@ -6,6 +6,7 @@ import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { RiskMap } from '../components/domain/RiskMap';
 import { ProjectRiskSheet, ProjectRiskData } from '../components/domain/ProjectRiskSheet';
+import { FundLapseSimulator } from '../components/domain/FundLapseSimulator';
 import { mockNationalRiskTrend, mockSystemicRiskCategories } from '../data/mock-analytics';
 import { mockCases } from '../data/mock-cases';
 import { Link } from 'react-router-dom';
@@ -267,16 +268,20 @@ export function MinistryDashboardPage() {
         </div>
       </div>
 
-      {/* SECTION B: STATE BENCHMARKING ALL-INDIA LEAGUE TABLE */}
-      <Card>
-        <CardHeader className="p-4 border-b border-[#D9DFE3] bg-[#FAFAF7]">
+      {/* Fund-Lapse Risk Triage & What-If Simulator (Use Case C) */}
+      <FundLapseSimulator />
+
+      {/* State-by-State League Table */}
+      <Card className="border-[#D9DFE3] bg-white shadow-card">
+        <CardHeader className="border-b border-[#D9DFE3] pb-3 bg-[#FAFAF7]">
           <div className="flex items-center justify-between">
             <div>
-              <CardTitle className="text-sm uppercase font-bold text-[#15324A]">
-                State & UT Performance & Risk Benchmark Table
+              <CardTitle className="text-base font-bold text-[#15324A] flex items-center gap-2">
+                <Scale className="h-4 w-4 text-[#15324A]" />
+                State-by-State Governance & Risk Benchmarks
               </CardTitle>
-              <CardDescription className="text-xs">
-                National benchmarking across fund utilization, risk density, and average milestone delay
+              <CardDescription className="text-xs text-[#647383]">
+                Aggregated cross-state telemetry across 543 Parliamentary Constituencies & State Nodal Accounts.
               </CardDescription>
             </div>
             <Link to="/reports">

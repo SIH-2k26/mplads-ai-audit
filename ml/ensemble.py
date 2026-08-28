@@ -16,6 +16,11 @@ import yaml
 
 class HybridRiskEnsemble:
     def __init__(self, models_dir: str = "models", config_dir: str = "configs"):
+        if not os.path.exists(os.path.join(models_dir, "best_overall_model.joblib")) and os.path.exists(os.path.join("..", models_dir, "best_overall_model.joblib")):
+            models_dir = os.path.join("..", models_dir)
+        if not os.path.exists(os.path.join(config_dir, "risk_weights.yaml")) and os.path.exists(os.path.join("..", config_dir, "risk_weights.yaml")):
+            config_dir = os.path.join("..", config_dir)
+
         self.models_dir = models_dir
         self.config_dir = config_dir
 

@@ -69,6 +69,7 @@ export function AppSidebar() {
         return [
           { label: 'Vigilance & Case Inquiries', path: '/cases', icon: Briefcase, primary: true, badge: '12' },
           { label: 'Project Risk Assessment', path: '/risk-assessment', icon: Sparkles, highlight: true },
+          { label: 'ARACHNE Anti-Fraud Matrix', path: '/arachne-audit', icon: ShieldAlert, highlight: true },
           { label: 'CAG / CVC Audit Prioritisation', path: '/reports', icon: FileSpreadsheet },
           { label: 'RAG Knowledge & Policy Store', path: '/policies', icon: BookOpen },
           { label: 'Fraud Archetypes & Cartels', path: '/compliance', icon: Scale },
@@ -79,6 +80,7 @@ export function AppSidebar() {
         return [
           { label: 'National Oversight Directorate', path: '/ministry', icon: Landmark, primary: true },
           { label: 'Project Risk Assessment', path: '/risk-assessment', icon: Sparkles, highlight: true },
+          { label: 'ARACHNE Anti-Fraud Matrix', path: '/arachne-audit', icon: ShieldAlert, highlight: true },
           { label: 'All-India Case Inquiries', path: '/cases', icon: Briefcase, badge: '12' },
           { label: 'CAG / CVC Audit Prioritisation', path: '/reports', icon: FileSpreadsheet },
           { label: 'Fraud Archetype Overlaps', path: '/compliance', icon: Scale },

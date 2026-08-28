@@ -1,8 +1,11 @@
-"""
-backend/tests/test_ml_pipeline.py
-Unit and Integration Tests for MPLADS AI Audit ML Pipeline & Inference API.
-"""
+import os
+import sys
 import pytest
+
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+
 from ml.ensemble import HybridRiskEnsemble
 
 

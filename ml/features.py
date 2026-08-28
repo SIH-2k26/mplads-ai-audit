@@ -47,11 +47,30 @@ def build_comprehensive_feature_matrix(relational_dir: str = "data/synthetic/rel
         payment_std=("payment_amount", "std"),
     ).reset_index().fillna(0.0)
 
-    # 3. Base Merges
+    # Normalize contractor columns
+    if "past_irregularity_rate" in df_c.columns and "contractor_past_irregularity_rate" not in df_c.columns:
+        df_c["contractor_past_irregularity_rate"] = df_c["past_irregularity_rate"]
+    if "contractor_capacity_strain" not in df_c.columns:
+        df_c["contractor_capacity_strain"] = 1.0
+    if "contractor_past_irregularity_rate" not in df_c.columns:
+        df_c["contractor_past_irregularity_rate"] = 0.05
+
+    # Normalize agency columns
+    if "agency_workload_ratio" not in df_a.columns:
+        df_a["agency_workload_ratio"] = 1.0
+    if "agency_completion_rate" not in df_a.columns:
+        df_a["agency_completion_rate"] = 0.85
+
+    # Normalize progress columns
+    if "delay_days" not in df_pr.columns:
+        df_pr["delay_days"] = np.maximum(0, df_pr.get("actual_duration_days", 180) - df_pr.get("planned_duration_days", 180))
+
+    # 3. Base Merges (Select only necessary columns to prevent _x/_y suffix collision)
+    cn_cols = [c for c in df_cn.columns if c == "project_id" or c not in df_p.columns]
     df_merged = df_p.merge(df_f, on="project_id") \
                     .merge(df_pr, on="project_id") \
                     .merge(df_pc, on="project_id") \
-                    .merge(df_cn, on="project_id") \
+                    .merge(df_cn[cn_cols], on="project_id") \
                     .merge(df_d, on="project_id") \
                     .merge(df_c[["contractor_id", "contractor_past_irregularity_rate", "contractor_capacity_strain"]], on="contractor_id", how="left") \
                     .merge(df_a[["agency_id", "agency_workload_ratio", "agency_completion_rate"]], on="agency_id", how="left") \
@@ -61,7 +80,7 @@ def build_comprehensive_feature_matrix(relational_dir: str = "data/synthetic/rel
     sanction = df_merged["sanctioned_amount"]
     expenditure = df_merged["actual_expenditure"]
     estimate = df_merged["estimated_cost"]
-    work_order = df_merged["work_order_amount"]
+    work_order = df_merged.get("work_order_amount", sanction * 0.95)
     phys = df_merged["physical_progress"]
     fin = df_merged["financial_progress"]
     delay = df_merged["delay_days"]
@@ -99,7 +118,7 @@ def build_comprehensive_feature_matrix(relational_dir: str = "data/synthetic/rel
     df_feats["payment_velocity"] = df_merged["total_payment_amount"] / np.maximum(1.0, df_merged["payment_count"])
     df_feats["sor_deviation_ratio"] = (expenditure - estimate) / np.maximum(1.0, estimate)
     df_feats["peer_cost_deviation_zscore"] = (expenditure - expenditure.mean()) / max(1.0, expenditure.std())
-    df_feats["utilization_ratio"] = df_merged["utilization_ratio"]
+    df_feats["utilization_ratio"] = df_merged.get("fund_utilization_ratio", df_merged.get("utilization_ratio", expenditure / np.maximum(1.0, sanction)))
     df_feats["monthly_spending_variance"] = df_merged["payment_std"] ** 2
     df_feats["monthly_spending_zscore"] = (df_merged["average_payment_amount"] - df_merged["average_payment_amount"].mean()) / max(1.0, df_merged["average_payment_amount"].std())
     df_feats["quarterly_spending_zscore"] = df_feats["monthly_spending_zscore"] * 1.2
@@ -238,6 +257,31 @@ def build_comprehensive_feature_matrix(relational_dir: str = "data/synthetic/rel
     df_feats["dpr_present"] = 1
     df_feats["estimate_present"] = 1
     df_feats["revised_estimate_present"] = np.where(df_feats["cost_overrun_percentage"] > 0, 1, 0)
+    # Normalize document flags
+    if "missing_mb_flag" not in df_merged.columns:
+        if "measurement_book" in df_merged.columns:
+            df_merged["missing_mb_flag"] = (~df_merged["measurement_book"].astype(bool)).astype(int)
+        else:
+            df_merged["missing_mb_flag"] = 0
+
+    if "missing_uc_flag" not in df_merged.columns:
+        if "utilization_certificate" in df_merged.columns:
+            df_merged["missing_uc_flag"] = (~df_merged["utilization_certificate"].astype(bool)).astype(int)
+        else:
+            df_merged["missing_uc_flag"] = 0
+
+    if "missing_completion_cert_flag" not in df_merged.columns:
+        if "completion_certificate" in df_merged.columns:
+            df_merged["missing_completion_cert_flag"] = (~df_merged["completion_certificate"].astype(bool)).astype(int)
+        else:
+            df_merged["missing_completion_cert_flag"] = 0
+
+    if "missing_geotag_flag" not in df_merged.columns:
+        if "geo_tagged_photos" in df_merged.columns:
+            df_merged["missing_geotag_flag"] = (~df_merged["geo_tagged_photos"].astype(bool)).astype(int)
+        else:
+            df_merged["missing_geotag_flag"] = 0
+
     df_feats["tender_document_present"] = 1
     df_feats["bid_document_present"] = 1
     df_feats["work_order_present"] = 1
@@ -248,8 +292,8 @@ def build_comprehensive_feature_matrix(relational_dir: str = "data/synthetic/rel
     df_feats["completion_certificate_present"] = 1 - df_merged["missing_completion_cert_flag"]
     df_feats["inspection_report_present"] = 1
     df_feats["site_verification_present"] = 1
-    df_feats["photo_count"] = 4.0
-    df_feats["geotag_photo_count"] = np.where(df_merged["missing_geotag_flag"] == 1, 0.0, 4.0)
+    df_feats["photo_count"] = df_merged.get("photo_count", 4.0)
+    df_feats["geotag_photo_count"] = np.where(df_merged["missing_geotag_flag"] == 1, 0.0, df_merged.get("photo_count", 4.0))
     df_feats["unique_photo_hash_count"] = df_feats["geotag_photo_count"]
     df_feats["document_date_consistency"] = 1.0
     df_feats["document_sequence_consistency"] = 1.0
@@ -278,9 +322,12 @@ def build_comprehensive_feature_matrix(relational_dir: str = "data/synthetic/rel
         df_feats["payment_violation_count"] + df_feats["completion_violation_count"]
     )
     df_feats["critical_rule_violation_count"] = np.where(df_feats["payment_violation_count"] + df_feats["financial_violation_count"] >= 2, 1, 0)
-    df_feats["rule_risk_score"] = np.minimum(100.0, df_feats["total_rule_violation_count"] * 25.0)
-
     # Attach Ground Truth Target Labels at the very end
+    if "anomaly_type" not in df_l.columns:
+        df_l["anomaly_type"] = df_l.get("scenario_type", "NORMAL")
+    if "investigation_priority" not in df_l.columns:
+        df_l["investigation_priority"] = "ROUTINE"
+
     df_feats = df_feats.merge(df_l[["project_id", "fraud_label", "risk_level", "anomaly_type", "investigation_priority"]], on="project_id")
 
     # Multi-label Anomaly Targets

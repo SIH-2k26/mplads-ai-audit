@@ -175,7 +175,6 @@
     "payment_violation_count",
     "completion_violation_count",
     "total_rule_violation_count",
-    "critical_rule_violation_count",
-    "rule_risk_score"
+    "critical_rule_violation_count"
   ]
 }
