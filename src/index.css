@@ -48,7 +48,7 @@
 }
 
 .bg-wise-green {
-  background-color: #9FE870;
+  background-color: #16A34A;
 }
 
 .text-wise-dark {
@@ -64,15 +64,15 @@
 }
 
 .btn-wise-primary {
-  background-color: #9FE870;
-  color: #0E0E0E;
+  background-color: #16A34A;
+  color: #FFFFFF;
   font-weight: 600;
   border-radius: 9999px;
   transition: all 0.15s ease;
 }
 
 .btn-wise-primary:hover {
-  background-color: #8fe05d;
+  background-color: #15803D;
 }
 
 .btn-wise-secondary {

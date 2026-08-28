@@ -112,7 +112,7 @@ export const AnimatedSchemeGraph: React.FC<AnimatedSchemeGraphProps> = ({ onOpen
       {/* Header with Title, Live Badge, and Metric Toggle */}
       <div className="relative z-10 flex items-center justify-between mb-2">
         <div className="flex items-center gap-1.5">
-          <div className="w-2 h-2 rounded-full bg-[#9FE870] animate-pulse" />
+          <div className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
           <span className="text-[11px] font-semibold text-[#0E0E0E] uppercase tracking-wider">
             Flow Stream
           </span>
@@ -194,12 +194,12 @@ export const AnimatedSchemeGraph: React.FC<AnimatedSchemeGraphProps> = ({ onOpen
             <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
               <stop
                 offset="0%"
-                stopColor={activeMetric === 'disbursed' ? '#9FE870' : '#ef4444'}
-                stopOpacity="0.45"
+                stopColor={activeMetric === 'disbursed' ? '#16A34A' : '#ef4444'}
+                stopOpacity="0.35"
               />
               <stop
                 offset="100%"
-                stopColor={activeMetric === 'disbursed' ? '#9FE870' : '#ef4444'}
+                stopColor={activeMetric === 'disbursed' ? '#16A34A' : '#ef4444'}
                 stopOpacity="0.0"
               />
             </linearGradient>

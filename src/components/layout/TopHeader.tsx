@@ -100,9 +100,9 @@ export function TopHeader() {
         {/* Ask Agastya */}
         <button
           onClick={() => setAiAssistantOpen(true)}
-          className="bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E] font-semibold text-xs px-4 py-2 rounded-full transition-colors cursor-pointer flex items-center gap-1.5 shadow-none"
+          className="bg-[#16A34A] hover:bg-[#15803D] text-white font-semibold text-xs px-4 py-2 rounded-full transition-colors cursor-pointer flex items-center gap-1.5 shadow-none"
         >
-          <Sparkles className="w-3.5 h-3.5 fill-[#0E0E0E]" />
+          <Sparkles className="w-3.5 h-3.5 fill-white" />
           <span>{t.header.askAgastya}</span>
         </button>
 

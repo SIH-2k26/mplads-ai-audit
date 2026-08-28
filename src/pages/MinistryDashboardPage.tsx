@@ -14,7 +14,7 @@ import { toast } from 'sonner';
 
 const STATE_CHART_DATA = [
   { name: 'Uttar Pradesh', sanctioned: 188.2, color: '#0E0E0E' },
-  { name: 'Maharashtra',   sanctioned: 124.5, color: '#9FE870' },
+  { name: 'Maharashtra',   sanctioned: 124.5, color: '#16A34A' },
   { name: 'Bihar',         sanctioned: 94.1,  color: '#EAE8E2' },
   { name: 'Karnataka',     sanctioned: 88.5,  color: '#E5E3DC' },
 ];
@@ -133,7 +133,7 @@ export function MinistryDashboardPage() {
                 <Tooltip
                   contentStyle={{ backgroundColor: '#0E0E0E', borderColor: 'transparent', borderRadius: '12px' }}
                   labelStyle={{ color: '#FFFFFF', fontSize: '11px', fontWeight: 'bold' }}
-                  itemStyle={{ color: '#9FE870', fontSize: '11px' }}
+                  itemStyle={{ color: '#16A34A', fontSize: '11px' }}
                 />
                 <Bar dataKey="sanctioned" radius={[8, 8, 0, 0]}>
                   {STATE_CHART_DATA.map((entry, i) => (
@@ -175,7 +175,7 @@ export function MinistryDashboardPage() {
                     {row.critical}
                   </TableCell>
                   <TableCell>
-                    <span className="bg-[#9FE870] text-[#0E0E0E] text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+                    <span className="bg-[#16A34A] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
                       {t.ministry.table.activeMonitoring}
                     </span>
                   </TableCell>

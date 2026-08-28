@@ -44,18 +44,18 @@ export const WiseCardsRow: React.FC<WiseCardsRowProps> = ({
             <div className="absolute top-2 left-1 right-1 h-3 bg-[#E8A338] rounded-t-xl" />
 
             {/* Front Wise Signature Green Card */}
-            <div className="relative mt-3 bg-[#9FE870] rounded-xl p-3 flex items-center justify-between shadow-xs">
+            <div className="relative mt-3 bg-[#16A34A] text-white rounded-xl p-3 flex items-center justify-between shadow-xs">
               <button
                 onClick={onOpenCardDetails}
-                className="bg-black/10 hover:bg-black/15 text-[#0E0E0E] text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1.5 transition-colors cursor-pointer"
+                className="bg-white/20 hover:bg-white/30 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1.5 transition-colors cursor-pointer"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
                 <span>{activeFreezesCount} active freezes</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </button>
 
               {/* Geometric Wise-style mark */}
-              <div className="w-6 h-6 flex items-center justify-center text-[#0E0E0E]">
+              <div className="w-6 h-6 flex items-center justify-center text-white">
                 <svg
                   viewBox="0 0 24 24"
                   className="w-5 h-5 fill-current"
@@ -183,7 +183,7 @@ export const WiseCardsRow: React.FC<WiseCardsRowProps> = ({
           {/* Wise Signature Green Circular Action Button */}
           <button
             onClick={onOpenDoMoreAction}
-            className="w-14 h-14 rounded-full bg-[#9FE870] hover:bg-[#8ee05c] flex items-center justify-center text-[#0E0E0E] transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-xs mt-4"
+            className="w-14 h-14 rounded-full bg-[#16A34A] hover:bg-[#15803D] flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-xs mt-4"
             title="Launch Continuous Vigilance Scan"
           >
             <Plus className="w-7 h-7 stroke-[2.5]" />

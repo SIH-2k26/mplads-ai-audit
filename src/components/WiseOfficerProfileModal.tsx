@@ -157,12 +157,12 @@ export const WiseOfficerProfileModal: React.FC = () => {
                   <img src="/emblem.png" alt="State Emblem of India" className="h-7 w-auto object-contain" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold tracking-widest text-[#9FE870] uppercase block">
+                  <span className="text-[10px] font-bold tracking-widest text-[#4ADE80] uppercase block">
                     GOVERNMENT OF INDIA • GOV-SSO DOSSIER
                   </span>
                   <h2 className="text-sm font-bold tracking-tight text-white flex items-center gap-2">
                     <span>Officer Credentials & Clearance</span>
-                    <span className="w-2 h-2 rounded-full bg-[#9FE870] animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
                   </h2>
                 </div>
               </div>
@@ -189,11 +189,11 @@ export const WiseOfficerProfileModal: React.FC = () => {
                 <div className="flex items-start justify-between gap-4 relative z-10">
                   <div className="flex items-center gap-3.5">
                     {/* Avatar Initials Circle */}
-                    <div className="w-14 h-14 rounded-2xl bg-[#0E0E0E] text-[#9FE870] font-bold text-lg flex items-center justify-center shrink-0 shadow-md border-2 border-amber-400/40 relative">
+                    <div className="w-14 h-14 rounded-2xl bg-[#0E0E0E] text-[#4ADE80] font-bold text-lg flex items-center justify-center shrink-0 shadow-md border-2 border-amber-400/40 relative">
                       <span>AS</span>
                       <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#9FE870] opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-[#9FE870]"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#16A34A] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-[#16A34A]"></span>
                       </span>
                     </div>
                     <div>

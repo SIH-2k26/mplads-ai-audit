@@ -12,7 +12,7 @@ import { Project } from '../types';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 
 const STATUS_COLORS: Record<string, string> = {
-  COMPLETED: '#9FE870',
+  COMPLETED: '#16A34A',
   WORK_IN_PROGRESS: '#0E0E0E',
   SANCTIONED: '#EAE8E2',
   HALTED: '#EF4444',
