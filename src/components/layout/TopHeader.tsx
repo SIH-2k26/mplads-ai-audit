@@ -26,7 +26,7 @@ const ROLE_DASHBOARD_MAP: Record<UserRole, string> = {
 export function TopHeader() {
   const navigate = useNavigate();
   const t = useT();
-  const { toggleSidebar, setAiAssistantOpen } = useUiStore();
+  const { toggleSidebar, setAiAssistantOpen, setProfileModalOpen } = useUiStore();
   const { currentRole, userTitle, userJurisdiction, setRole } = useRoleStore();
   const { language, setLanguage } = useLanguageStore();
 
@@ -106,11 +106,15 @@ export function TopHeader() {
           <span>{t.header.askAgastya}</span>
         </button>
 
-        {/* User Avatar */}
-        <div className="w-8 h-8 rounded-full bg-[#EAE8E2] text-[#0E0E0E] font-semibold text-xs flex items-center justify-center relative shadow-2xs">
+        {/* User Avatar Button */}
+        <button
+          onClick={() => setProfileModalOpen(true)}
+          title="Officer Profile & Clearance"
+          className="w-8 h-8 rounded-full bg-[#EAE8E2] text-[#0E0E0E] font-semibold text-xs flex items-center justify-center relative shadow-2xs hover:bg-[#E0DDD5] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-[#E5E3DC]"
+        >
           <span>AS</span>
-          <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-red-500 border-2 border-white rounded-full" />
-        </div>
+          <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full" title="Online & Verified" />
+        </button>
       </div>
     </header>
   );

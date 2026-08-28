@@ -12,6 +12,9 @@ interface UiState {
   aiAssistantOpen: boolean;
   setAiAssistantOpen: (open: boolean) => void;
 
+  profileModalOpen: boolean;
+  setProfileModalOpen: (open: boolean) => void;
+
   activeEvidenceDrawerItem: {
     isOpen: boolean;
     title: string;
@@ -55,6 +58,13 @@ export const useUiStore = create<UiState>((set) => ({
   setAiAssistantOpen: (open) =>
     set({
       aiAssistantOpen: open,
+    }),
+
+  profileModalOpen: false,
+
+  setProfileModalOpen: (open) =>
+    set({
+      profileModalOpen: open,
     }),
 
   activeEvidenceDrawerItem: {

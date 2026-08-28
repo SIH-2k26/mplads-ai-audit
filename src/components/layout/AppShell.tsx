@@ -5,6 +5,7 @@ import { AppSidebar } from './AppSidebar';
 import { ScrollToTop } from './ScrollToTop';
 import { EvidenceDrawer } from '../domain/EvidenceDrawer';
 import { AskAiAssistant } from '../domain/AskAiAssistant';
+import { WiseOfficerProfileModal } from '../WiseOfficerProfileModal';
 import { useUiStore } from '../../stores/useUiStore';
 import { cn } from '../../lib/utils';
 import { Toaster } from 'sonner';
@@ -35,6 +36,7 @@ export function AppShell() {
 
       <EvidenceDrawer />
       <AskAiAssistant />
+      <WiseOfficerProfileModal />
       <ScrollToTop />
     </div>
   );
