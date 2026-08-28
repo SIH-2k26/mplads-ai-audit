@@ -166,7 +166,7 @@ export const WiseCardsRow: React.FC<WiseCardsRowProps> = ({
 
         <div className="my-auto space-y-2 max-w-[280px]">
           <h2 className="text-lg sm:text-xl font-semibold text-[#0E0E0E] leading-snug">
-            Do more with AI Sentinel
+            Do more with AI Sanchay
           </h2>
           <p className="text-xs sm:text-sm text-[#6B6B6B] leading-relaxed">
             Continuous ISRO satellite radar, GSTIN shell detection, and automated CAG compliance.

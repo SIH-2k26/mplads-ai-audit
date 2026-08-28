@@ -5,7 +5,7 @@ export const translations = {
 
   en: {
     // Brand
-    brand: 'sentinel',
+    brand: 'sanchay',
     tagline: 'MPLADS Forensic Auditing & Risk Intelligence',
 
     // Header / Context bar
@@ -243,7 +243,7 @@ export const translations = {
 
   // ─── HINDI ───────────────────────────────────────────────────────────────
   hi: {
-    brand: 'sentinel',
+    brand: 'sanchay',
     tagline: 'एमपीलैड्स न्यायिक लेखापरीक्षण और जोखिम खुफिया',
 
     header: {
@@ -467,7 +467,7 @@ export const translations = {
 
   // ─── MARATHI ─────────────────────────────────────────────────────────────
   mr: {
-    brand: 'sentinel',
+    brand: 'sanchay',
     tagline: 'एमपीलैड्स न्यायवैद्यक लेखापरीक्षण आणि जोखीम बुद्धिमत्ता',
 
     header: {
