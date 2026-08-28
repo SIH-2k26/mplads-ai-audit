@@ -4,11 +4,13 @@ import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card'
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '../components/ui/table';
 import { Button } from '../components/ui/button';
 import { projectService } from '../services/projectService';
+import { useT } from '../i18n/useT';
 import { formatCurrencyINR } from '../lib/utils';
 import { Link } from 'react-router-dom';
 import { Project } from '../types';
 
 export function MpDashboardPage() {
+  const t = useT();
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -23,44 +25,31 @@ export function MpDashboardPage() {
   const totalExpended = projects.reduce((acc, p) => acc + p.expenditure, 0);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 select-none font-sans">
       <PageHeader
-        title="MP CONSTITUENCY TELEMETRY"
-        subtitle="Constituency Financial & Physical Development Tracker"
+        title={t.mp.title}
+        subtitle={t.mp.subtitle}
         breadcrumbs={[
-          {
-            label: 'Home',
-            path: '/',
-          },
-          {
-            label: 'MP Oversight',
-          },
+          { label: t.common.home, path: '/' },
+          { label: t.nav.mpOverview },
         ]}
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card>
-          <CardHeader>
-            <CardTitle>Sanctioned Fund allocation</CardTitle>
-          </CardHeader>
+          <CardHeader><CardTitle>{t.mp.cards.sanctioned}</CardTitle></CardHeader>
           <CardContent>
             <div className="text-2xl font-bold font-mono">₹{formatCurrencyINR(totalSanctioned)}</div>
           </CardContent>
         </Card>
-
         <Card>
-          <CardHeader>
-            <CardTitle>Expenditure Incurred</CardTitle>
-          </CardHeader>
+          <CardHeader><CardTitle>{t.mp.cards.expenditure}</CardTitle></CardHeader>
           <CardContent>
             <div className="text-2xl font-bold font-mono">₹{formatCurrencyINR(totalExpended)}</div>
           </CardContent>
         </Card>
-
         <Card>
-          <CardHeader>
-            <CardTitle>Active Works</CardTitle>
-          </CardHeader>
+          <CardHeader><CardTitle>{t.mp.cards.activeWorks}</CardTitle></CardHeader>
           <CardContent>
             <div className="text-2xl font-bold font-mono">{projects.length}</div>
           </CardContent>
@@ -68,26 +57,24 @@ export function MpDashboardPage() {
       </div>
 
       <Card>
-        <CardHeader>
-          <CardTitle>Constituency Civil Projects Portfolio</CardTitle>
-        </CardHeader>
+        <CardHeader><CardTitle>{t.mp.table.title}</CardTitle></CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Code</TableHead>
-                <TableHead>Project Title</TableHead>
-                <TableHead>Sanctioned Amount</TableHead>
-                <TableHead>Physical Progress</TableHead>
-                <TableHead>Financial Progress</TableHead>
-                <TableHead>Actions</TableHead>
+                <TableHead>{t.mp.table.code}</TableHead>
+                <TableHead>{t.mp.table.project}</TableHead>
+                <TableHead>{t.mp.table.sanctioned}</TableHead>
+                <TableHead>{t.mp.table.physical}</TableHead>
+                <TableHead>{t.mp.table.financial}</TableHead>
+                <TableHead>{t.mp.table.actions}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {loading ? (
                 <TableRow>
                   <TableCell colSpan={6} className="text-center py-4 text-xs text-[#6B6B6B]">
-                    Loading portfolio...
+                    {t.mp.table.loading}
                   </TableCell>
                 </TableRow>
               ) : (
@@ -100,9 +87,7 @@ export function MpDashboardPage() {
                     <TableCell>{p.financialProgressPercentage}%</TableCell>
                     <TableCell>
                       <Link to={`/projects/${p.id}`}>
-                        <Button variant="outline" size="sm">
-                          Inspect Digital Twin
-                        </Button>
+                        <Button variant="outline" size="sm">{t.mp.table.inspect}</Button>
                       </Link>
                     </TableCell>
                   </TableRow>

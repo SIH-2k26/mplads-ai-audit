@@ -20,187 +20,184 @@ import {
 } from 'lucide-react';
 import { useUiStore } from '../../stores/useUiStore';
 import { useRoleStore } from '../../stores/useRoleStore';
+import { useT } from '../../i18n/useT';
 import { UserRole } from '../../types';
-
-// ─── Per-role sidebar configuration ─────────────────────────────────────────
-// Each role gets exactly the nav items relevant to their jurisdiction.
+import { TranslationKeys } from '../../i18n/locales';
 
 interface NavItem {
   path: string;
-  label: string;
+  labelKey: keyof TranslationKeys['nav'];
   icon: React.ElementType;
 }
 
 interface NavGroup {
-  label: string;
+  labelKey: keyof TranslationKeys['nav'];
   items: NavItem[];
 }
 
+// Static shape — labels resolved from t.nav at render time
 const ROLE_NAV: Record<UserRole, NavGroup[]> = {
-  // ── MP: Constituency-level view ─────────────────────────────────────────
   MP: [
     {
-      label: 'My Constituency',
+      labelKey: 'myConstituency',
       items: [
-        { path: '/mp', label: 'MP Overview', icon: Home },
-        { path: '/projects', label: 'Projects Explorer', icon: Search },
-        { path: '/maps', label: 'Constituency Map', icon: MapPin },
+        { path: '/mp', labelKey: 'mpOverview', icon: Home },
+        { path: '/projects', labelKey: 'projectsExplorer', icon: Search },
+        { path: '/maps', labelKey: 'constituencyMap', icon: MapPin },
       ],
     },
     {
-      label: 'Financials & Risk',
+      labelKey: 'financialsRisk',
       items: [
-        { path: '/alerts', label: 'Alerts & Warnings', icon: ShieldAlert },
-        { path: '/risk-assessment', label: 'Risk Simulator', icon: Activity },
+        { path: '/alerts', labelKey: 'alertsWarnings', icon: ShieldAlert },
+        { path: '/risk-assessment', labelKey: 'riskSimulator', icon: Activity },
       ],
     },
     {
-      label: 'Reports',
+      labelKey: 'reports',
       items: [
-        { path: '/compliance', label: 'Compliance Status', icon: BarChart2 },
-        { path: '/reports', label: 'Reports', icon: FileText },
+        { path: '/compliance', labelKey: 'complianceStatus', icon: BarChart2 },
+        { path: '/reports', labelKey: 'auditReports', icon: FileText },
       ],
     },
   ],
 
-  // ── District Authority: District-level command ───────────────────────────
   DISTRICT_AUTHORITY: [
     {
-      label: 'District Command',
+      labelKey: 'districtCommand',
       items: [
-        { path: '/district', label: 'District Overview', icon: Sliders },
-        { path: '/projects', label: 'Projects Explorer', icon: Search },
-        { path: '/maps', label: 'Constituency Map', icon: MapPin },
+        { path: '/district', labelKey: 'districtOverview', icon: Sliders },
+        { path: '/projects', labelKey: 'projectsExplorer', icon: Search },
+        { path: '/maps', labelKey: 'constituencyMap', icon: MapPin },
       ],
     },
     {
-      label: 'Forensics & Watch',
+      labelKey: 'forensicsWatch',
       items: [
-        { path: '/alerts', label: 'Alerts & Warnings', icon: ShieldAlert },
-        { path: '/cases', label: 'Cases Directorate', icon: ClipboardList },
-        { path: '/risk-assessment', label: 'Risk Assessment', icon: Activity },
+        { path: '/alerts', labelKey: 'alertsWarnings', icon: ShieldAlert },
+        { path: '/cases', labelKey: 'casesDirectorate', icon: ClipboardList },
+        { path: '/risk-assessment', labelKey: 'riskAssessment', icon: Activity },
       ],
     },
     {
-      label: 'Registries',
+      labelKey: 'registries',
       items: [
-        { path: '/contractors', label: 'Contractors', icon: Users },
-        { path: '/agencies', label: 'Agencies Office', icon: Briefcase },
-        { path: '/compliance', label: 'Statutory Compliance', icon: BarChart2 },
+        { path: '/contractors', labelKey: 'contractors', icon: Users },
+        { path: '/agencies', labelKey: 'agenciesOffice', icon: Briefcase },
+        { path: '/compliance', labelKey: 'statutoryCompliance', icon: BarChart2 },
       ],
     },
   ],
 
-  // ── State Nodal: State-wide oversight ───────────────────────────────────
   STATE_NODAL: [
     {
-      label: 'State Command',
+      labelKey: 'stateCommand',
       items: [
-        { path: '/state', label: 'State Overview', icon: Landmark },
-        { path: '/district', label: 'District Breakdown', icon: Sliders },
-        { path: '/projects', label: 'Projects Explorer', icon: Search },
+        { path: '/state', labelKey: 'stateOverview', icon: Landmark },
+        { path: '/district', labelKey: 'districtBreakdown', icon: Sliders },
+        { path: '/projects', labelKey: 'projectsExplorer', icon: Search },
       ],
     },
     {
-      label: 'Enforcement & Risk',
+      labelKey: 'enforcement',
       items: [
-        { path: '/alerts', label: 'Alerts & Warnings', icon: ShieldAlert },
-        { path: '/cases', label: 'Cases Directorate', icon: ClipboardList },
-        { path: '/risk-assessment', label: 'Risk Assessment', icon: Activity },
+        { path: '/alerts', labelKey: 'alertsWarnings', icon: ShieldAlert },
+        { path: '/cases', labelKey: 'casesDirectorate', icon: ClipboardList },
+        { path: '/risk-assessment', labelKey: 'riskAssessment', icon: Activity },
       ],
     },
     {
-      label: 'Governance',
+      labelKey: 'governance',
       items: [
-        { path: '/contractors', label: 'Contractors', icon: Users },
-        { path: '/agencies', label: 'Agencies Office', icon: Briefcase },
-        { path: '/compliance', label: 'Compliance Tracker', icon: BarChart2 },
-        { path: '/policies', label: 'Policies Registry', icon: BookOpen },
-        { path: '/reports', label: 'Audit Reports', icon: FileText },
+        { path: '/contractors', labelKey: 'contractors', icon: Users },
+        { path: '/agencies', labelKey: 'agenciesOffice', icon: Briefcase },
+        { path: '/compliance', labelKey: 'complianceTracker', icon: BarChart2 },
+        { path: '/policies', labelKey: 'policiesRegistry', icon: BookOpen },
+        { path: '/reports', labelKey: 'auditReports', icon: FileText },
       ],
     },
   ],
 
-  // ── Ministry: National command ───────────────────────────────────────────
   MINISTRY_DIID: [
     {
-      label: 'National Command',
+      labelKey: 'nationalCommand',
       items: [
-        { path: '/ministry', label: 'Ministry Command', icon: Building2 },
-        { path: '/state', label: 'State Telemetry', icon: Landmark },
-        { path: '/projects', label: 'Projects Explorer', icon: Search },
+        { path: '/ministry', labelKey: 'ministryCommand', icon: Building2 },
+        { path: '/state', labelKey: 'stateTelemetry', icon: Landmark },
+        { path: '/projects', labelKey: 'projectsExplorer', icon: Search },
       ],
     },
     {
-      label: 'Intelligence & Risk',
+      labelKey: 'intelligenceRisk',
       items: [
-        { path: '/alerts', label: 'National Alerts', icon: ShieldAlert },
-        { path: '/cases', label: 'Cases Directorate', icon: ClipboardList },
-        { path: '/risk-assessment', label: 'Risk Simulator', icon: Activity },
+        { path: '/alerts', labelKey: 'nationalAlerts', icon: ShieldAlert },
+        { path: '/cases', labelKey: 'casesDirectorate', icon: ClipboardList },
+        { path: '/risk-assessment', labelKey: 'riskSimulator', icon: Activity },
       ],
     },
     {
-      label: 'Policy & Governance',
+      labelKey: 'policyGovernance',
       items: [
-        { path: '/contractors', label: 'Contractors', icon: Users },
-        { path: '/agencies', label: 'Agencies Office', icon: Briefcase },
-        { path: '/compliance', label: 'Compliance Tracker', icon: BarChart2 },
-        { path: '/policies', label: 'Policies Registry', icon: BookOpen },
-        { path: '/reports', label: 'National Reports', icon: FileText },
-        { path: '/maps', label: 'National Map', icon: MapPin },
+        { path: '/contractors', labelKey: 'contractors', icon: Users },
+        { path: '/agencies', labelKey: 'agenciesOffice', icon: Briefcase },
+        { path: '/compliance', labelKey: 'complianceTracker', icon: BarChart2 },
+        { path: '/policies', labelKey: 'policiesRegistry', icon: BookOpen },
+        { path: '/reports', labelKey: 'nationalReports', icon: FileText },
+        { path: '/maps', labelKey: 'nationalMap', icon: MapPin },
       ],
     },
   ],
 
-  // ── CAG Auditor: Full audit access ───────────────────────────────────────
   AUDITOR: [
     {
-      label: 'Audit Operations',
+      labelKey: 'auditOperations',
       items: [
-        { path: '/reports', label: 'Audit Reports', icon: FileText },
-        { path: '/cases', label: 'Cases Directorate', icon: ClipboardList },
-        { path: '/compliance', label: 'Compliance Tracker', icon: BarChart2 },
+        { path: '/reports', labelKey: 'auditReports', icon: FileText },
+        { path: '/cases', labelKey: 'casesDirectorate', icon: ClipboardList },
+        { path: '/compliance', labelKey: 'complianceTracker', icon: BarChart2 },
       ],
     },
     {
-      label: 'Forensic Investigation',
+      labelKey: 'forensicInvestigation',
       items: [
-        { path: '/projects', label: 'Projects Explorer', icon: Search },
-        { path: '/risk-assessment', label: 'Risk Simulator', icon: Activity },
-        { path: '/alerts', label: 'Alerts & Flags', icon: ShieldAlert },
+        { path: '/projects', labelKey: 'projectsExplorer', icon: Search },
+        { path: '/risk-assessment', labelKey: 'riskSimulator', icon: Activity },
+        { path: '/alerts', labelKey: 'alertsFlags', icon: ShieldAlert },
       ],
     },
     {
-      label: 'Registries',
+      labelKey: 'registries',
       items: [
-        { path: '/contractors', label: 'Contractors', icon: Users },
-        { path: '/agencies', label: 'Agencies Office', icon: Briefcase },
-        { path: '/policies', label: 'Policies Registry', icon: BookOpen },
-        { path: '/maps', label: 'National Map', icon: MapPin },
+        { path: '/contractors', labelKey: 'contractors', icon: Users },
+        { path: '/agencies', labelKey: 'agenciesOffice', icon: Briefcase },
+        { path: '/policies', labelKey: 'policiesRegistry', icon: BookOpen },
+        { path: '/maps', labelKey: 'nationalMap', icon: MapPin },
       ],
     },
   ],
 };
 
 // Role badge colours
-const ROLE_BADGE: Record<UserRole, { bg: string; label: string }> = {
-  MP: { bg: 'bg-blue-100 text-blue-800', label: 'MP' },
-  DISTRICT_AUTHORITY: { bg: 'bg-[#9FE870] text-[#0E0E0E]', label: 'District' },
-  STATE_NODAL: { bg: 'bg-purple-100 text-purple-800', label: 'State Nodal' },
-  MINISTRY_DIID: { bg: 'bg-amber-100 text-amber-800', label: 'Ministry' },
-  AUDITOR: { bg: 'bg-red-100 text-red-700', label: 'CAG Auditor' },
+const ROLE_BADGE_STYLE: Record<UserRole, string> = {
+  MP: 'bg-blue-100 text-blue-800',
+  DISTRICT_AUTHORITY: 'bg-[#9FE870] text-[#0E0E0E]',
+  STATE_NODAL: 'bg-purple-100 text-purple-800',
+  MINISTRY_DIID: 'bg-amber-100 text-amber-800',
+  AUDITOR: 'bg-red-100 text-red-700',
 };
 
 export function AppSidebar() {
   const { sidebarCollapsed } = useUiStore();
   const { currentRole } = useRoleStore();
+  const t = useT();
   const location = useLocation();
   const currentPath = location.pathname;
 
   const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({});
 
   const groups = ROLE_NAV[currentRole] ?? [];
-  const badge = ROLE_BADGE[currentRole];
+  const badgeStyle = ROLE_BADGE_STYLE[currentRole];
+  const badgeLabel = t.roleBadge[currentRole];
 
   const isActive = (path: string) => {
     if (path === '/') return currentPath === '/';
@@ -216,14 +213,11 @@ export function AppSidebar() {
     }`;
   };
 
-  const toggleGroup = (label: string) => {
-    setExpandedGroups((prev) => ({
-      ...prev,
-      [label]: prev[label] === false ? true : false,
-    }));
+  const toggleGroup = (key: string) => {
+    setExpandedGroups((prev) => ({ ...prev, [key]: prev[key] === false ? true : false }));
   };
 
-  const isGroupExpanded = (label: string) => expandedGroups[label] !== false;
+  const isGroupExpanded = (key: string) => expandedGroups[key] !== false;
 
   return (
     <aside
@@ -233,25 +227,27 @@ export function AppSidebar() {
       }`}
     >
       <div className="space-y-4">
-        {/* Role indicator pill */}
+        {/* Role badge */}
         {!sidebarCollapsed && (
-          <div className={`mx-2 px-3 py-1.5 rounded-full text-[10px] font-bold text-center ${badge.bg} select-none`}>
-            {badge.label} VIEW
+          <div className={`mx-2 px-3 py-1.5 rounded-full text-[10px] font-bold text-center ${badgeStyle}`}>
+            {badgeLabel}
           </div>
         )}
 
-        {/* Dynamic navigation groups */}
+        {/* Dynamic nav groups */}
         <nav className="space-y-4">
           {groups.map((group) => {
-            const expanded = isGroupExpanded(group.label);
+            const groupLabel = t.nav[group.labelKey] as string;
+            const expanded = isGroupExpanded(group.labelKey);
+
             return (
-              <div key={group.label}>
+              <div key={group.labelKey}>
                 {!sidebarCollapsed && (
                   <button
-                    onClick={() => toggleGroup(group.label)}
+                    onClick={() => toggleGroup(group.labelKey)}
                     className="w-full flex items-center justify-between px-4 py-2 text-[10px] font-bold text-[#6B6B6B] uppercase tracking-wider cursor-pointer"
                   >
-                    <span>{group.label}</span>
+                    <span>{groupLabel}</span>
                     {expanded ? (
                       <ChevronUp className="w-3.5 h-3.5" />
                     ) : (
@@ -264,17 +260,16 @@ export function AppSidebar() {
                   <div className="space-y-1 mt-1">
                     {group.items.map((item) => {
                       const Icon = item.icon;
+                      const label = t.nav[item.labelKey] as string;
                       return (
                         <Link
                           to={item.path}
                           key={item.path}
                           className={navItemClass(item.path)}
-                          title={sidebarCollapsed ? item.label : undefined}
+                          title={sidebarCollapsed ? label : undefined}
                         >
                           <Icon className="w-5 h-5 stroke-[1.75] shrink-0" />
-                          {!sidebarCollapsed && (
-                            <span className="truncate">{item.label}</span>
-                          )}
+                          {!sidebarCollapsed && <span className="truncate">{label}</span>}
                         </Link>
                       );
                     })}
@@ -289,7 +284,7 @@ export function AppSidebar() {
       {/* Footer */}
       {!sidebarCollapsed && (
         <div className="px-3 pt-4 border-t border-[#F1F0EC] text-[10px] text-[#6B6B6B] flex items-center justify-between shrink-0">
-          <span>MPLADS Guardian v3.0</span>
+          <span>{t.sidebarFooter}</span>
           <span className="w-2 h-2 rounded-full bg-[#9FE870] animate-pulse" title="System Live" />
         </div>
       )}
