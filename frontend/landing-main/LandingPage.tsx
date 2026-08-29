@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { LandingNavbar } from './components/LandingNavbar';
 import { HeroSection } from './components/HeroSection';
 import { InformationTicker } from './components/InformationTicker';
@@ -17,8 +17,14 @@ import { LandingFooter } from './components/LandingFooter';
 import { AskAiAssistant } from './components/domain/AskAiAssistant';
 import { ScrollToTop } from './components/layout/ScrollToTop';
 import { Toaster } from 'sonner';
+import { useLanguageStore } from '../src/stores/useLanguageStore';
 
 export function LandingPage() {
+  useEffect(() => {
+    // Reset to English on public portal landing
+    useLanguageStore.getState().setLanguage('en');
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#FAFAF7] text-[#172B3A] font-sans antialiased selection:bg-[#D99018]/20 selection:text-[#15324A]">
       {/* Toast Notification Provider with Close (X) Button */}

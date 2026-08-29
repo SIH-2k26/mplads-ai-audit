@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { useUiStore } from '../stores/useUiStore';
 import { useRoleStore } from '../stores/useRoleStore';
+import { useLanguageStore } from '../stores/useLanguageStore';
 import { toast } from 'sonner';
 
 export const WiseOfficerProfileModal: React.FC = () => {
@@ -132,6 +133,14 @@ export const WiseOfficerProfileModal: React.FC = () => {
   };
 
   const handleLogout = () => {
+    // Automatically switch language back to English upon logout
+    useLanguageStore.getState().setLanguage('en');
+    try {
+      localStorage.removeItem('sanchay_preferred_language');
+    } catch {
+      // ignore
+    }
+
     onClose();
     toast.success('Logged Out Successfully', {
       description: 'Redirecting to Sanchay Public Portal...',
