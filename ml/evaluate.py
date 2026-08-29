@@ -1,6 +1,6 @@
 """
 ml/evaluate.py
-Evaluation & Explainability Reporting Engine for MPLADS AI Audit.
+Evaluation & Explainability Reporting Engine for Sanchay AI.
 Generates Confusion Matrix, ROC/PR curves, Feature Importance, SHAP Summary, and comprehensive Markdown reports.
 """
 from __future__ import annotations
@@ -30,7 +30,7 @@ def evaluate_and_generate_reports(
     docs_dir: str = "docs",
 ):
     print("=" * 60)
-    print("[MPLADS EVALUATOR] Generating Evaluation Reports, SHAP & Visual Plots")
+    print("[SANCHAY EVALUATOR] Generating Evaluation Reports, SHAP & Visual Plots")
     print(f"Reports: {reports_dir} | Docs: {docs_dir}")
     print("=" * 60)
 
@@ -41,9 +41,11 @@ def evaluate_and_generate_reports(
     test_path = os.path.join(features_dir, "test_features.parquet")
     df_test = pd.read_parquet(test_path)
 
-    non_feature_cols = ["project_id", "fraud_label", "risk_level", "anomaly_type", "investigation_priority",
-                        "financial_anomaly", "procurement_anomaly", "contractor_anomaly", "geographic_anomaly",
-                        "timeline_anomaly", "progress_anomaly", "documentation_anomaly", "cost_anomaly"]
+    non_feature_cols = [
+        "project_id", "fraud_label", "risk_level", "anomaly_type", "investigation_priority",
+        "financial_anomaly", "procurement_anomaly", "contractor_anomaly", "geographic_anomaly",
+        "timeline_anomaly", "progress_anomaly", "documentation_anomaly", "cost_anomaly"
+    ]
     feature_cols = [c for c in df_test.columns if c not in non_feature_cols]
 
     X_test_raw = df_test[feature_cols].copy().fillna(0.0)
@@ -60,7 +62,7 @@ def evaluate_and_generate_reports(
     cr = classification_report(y_test, y_pred, target_names=["Legitimate", "Suspicious/Anomalous"])
     with open(os.path.join(reports_dir, "classification_report.txt"), "w") as f:
         f.write("============================================================\n")
-        f.write("MPLADS AI Audit — Held-Out Test Classification Report\n")
+        f.write("Sanchay AI Audit — Held-Out Test Classification Report\n")
         f.write("============================================================\n\n")
         f.write(cr)
 
@@ -69,7 +71,7 @@ def evaluate_and_generate_reports(
     fig, ax = plt.subplots(figsize=(6, 5))
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=["Legitimate", "Anomalous"])
     disp.plot(ax=ax, cmap="Blues", values_format="d")
-    ax.set_title("MPLADS Audit Risk Model — Test Confusion Matrix")
+    ax.set_title("Sanchay Audit Risk Model — Test Confusion Matrix")
     plt.tight_layout()
     plt.savefig(os.path.join(reports_dir, "confusion_matrix.png"), dpi=300)
     plt.close()
@@ -98,24 +100,20 @@ def evaluate_and_generate_reports(
     plt.savefig(os.path.join(reports_dir, "precision_recall_curve.png"), dpi=300)
     plt.close()
 
-    # 5. Feature Importance & SHAP Ranking
-    underlying_estimator = getattr(model, "estimator", model)
-    if hasattr(underlying_estimator, "calibrated_classifiers_"):
-        underlying_estimator = underlying_estimator.calibrated_classifiers_[0].estimator
-    if hasattr(underlying_estimator, "estimator"):
-        underlying_estimator = underlying_estimator.estimator
-
-    if hasattr(underlying_estimator, "feature_importances_"):
-        importances = underlying_estimator.feature_importances_
-    elif hasattr(underlying_estimator, "coef_"):
-        importances = np.abs(underlying_estimator.coef_[0])
+    # 5. Feature Importances
+    base_est = getattr(model, "estimator", model)
+    if hasattr(base_est, "calibrated_classifiers_") and len(base_est.calibrated_classifiers_) > 0:
+        sub = base_est.calibrated_classifiers_[0].estimator
     else:
-        importances = np.ones(len(feature_cols))
+        sub = base_est
 
-    df_imp = pd.DataFrame({
-        "feature": feature_cols,
-        "importance": importances,
-    }).sort_values("importance", ascending=False)
+    if hasattr(sub, "feature_importances_"):
+        importances = sub.feature_importances_
+    else:
+        importances = np.ones(len(feature_cols)) / len(feature_cols)
+
+    df_imp = pd.DataFrame({"feature": feature_cols, "importance": importances})
+    df_imp = df_imp.sort_values("importance", ascending=False).reset_index(drop=True)
     df_imp.to_csv(os.path.join(reports_dir, "feature_importance.csv"), index=False)
 
     top_15 = df_imp.head(15).sort_values("importance", ascending=True)
@@ -136,22 +134,33 @@ def evaluate_and_generate_reports(
     comp_path = os.path.join(reports_dir, "model_comparison.csv")
     df_comp = pd.read_csv(comp_path) if os.path.exists(comp_path) else pd.DataFrame()
 
+    table_rows = []
+    if not df_comp.empty:
+        for _, r in df_comp.iterrows():
+            m_name = r.get("model", "Model")
+            split = r.get("split", "CV")
+            pr = r.get("pr_auc", 0.0)
+            roc = r.get("roc_auc", 0.0)
+            f1 = r.get("f1_score", 0.0)
+            brier = r.get("brier_score", 0.0)
+            ece = r.get("expected_calibration_error", "N/A")
+            table_rows.append(f"| **{m_name}** | {split} | `{pr}` | `{roc}` | `{f1}` | `{brier}` | `{ece}` |")
+
     # 7. Generate reports/FINAL_ML_REPORT.md & docs/ML_MODEL_REPORT.md
-    final_report_md = f"""# MPLADS AI Audit — Comprehensive Machine Learning & Risk Model Report
+    final_report_md = f"""# Sanchay AI — Machine Learning & Statutory Risk Model Report
 
 ## 1. Executive Summary
-The **AGASTYA Machine Learning Risk Engine** classifies project risk into **LOW, MEDIUM, HIGH, and CRITICAL** tiers and independently predicts multi-label anomaly vectors across 8 operational domains.
+The **Sanchay Machine Learning Risk Engine** classifies project risk into **LOW, MEDIUM, HIGH, and CRITICAL** tiers and predicts multi-label anomaly vectors across 7 operational domains.
 
-The model stack features **CatBoost, XGBoost, LightGBM, Random Forest, and Isolation Forest**, calibrated with Isotonic Regression to output reliable posterior probabilities without artificial boundary memorization.
+The model stack features **Random Forest, CatBoost, XGBoost, LightGBM, and Isolation Forest**, calibrated with Platt Scaling (3-Fold Sigmoid Calibration) to output reliable posterior probabilities.
 
 ---
 
-## 2. Model Benchmark & Comparison
+## 2. Model Benchmark & 5-Fold Cross-Validation Comparison
 
-| Model | Accuracy | Precision | Recall | F1 Score | PR-AUC | Balanced Acc | MCC |
-|---|---|---|---|---|---|---|---|
-{"".join(f'''| **{r["model"]}** | {r["accuracy"]}% | {r["precision"]}% | {r["recall"]}% | {r["f1"]}% | `{r["pr_auc"]}` | {r["balanced_accuracy"]}% | {r["mcc"]} |
-''' for _, r in df_comp.iterrows())}
+| Model | Split | PR-AUC | ROC-AUC | F1 Score | Brier Score | ECE |
+|---|---|---|---|---|---|---|
+{chr(10).join(table_rows)}
 
 ---
 
@@ -167,7 +176,7 @@ The model stack features **CatBoost, XGBoost, LightGBM, Random Forest, and Isola
 ## 4. Top Predictive Risk Drivers
 | Rank | Feature Name | Domain | Description |
 |---|---|---|---|
-{"".join(f'''| {idx+1} | `{r["feature"]}` | Risk Signal | Relative weight: {r["importance"]:.4f} |
+{"".join(f'''| {idx+1} | `{r["feature"]}` | Statutory Signal | Relative weight: {r["importance"]:.4f} |
 ''' for idx, r in enumerate(df_imp.head(10).to_dict(orient="records")))}
 
 ---

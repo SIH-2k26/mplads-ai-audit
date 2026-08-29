@@ -1,0 +1,64 @@
+# configs/risk_policy_v1.yaml
+# Sanchay AI — Versioned Risk Policy & Fusion Configuration
+version: "1.0.0"
+policy_name: "MPLADS Statutory & Anomaly Risk Fusion Policy"
+description: >
+  Calibrated heuristic risk fusion configuration combining supervised ML anomaly probability,
+  statutory compliance rule violations, unsupervised multivariate outlier scores,
+  contractor network strain, and document chain-of-custody completeness.
+
+components:
+  supervised_ml_probability:
+    weight: 0.35
+    description: "Platt-calibrated probability of anomalous project patterns from Gradient Boosting ensemble"
+    justification: "Captures non-linear feature interactions and multidimensional expenditure/velocity anomalies."
+  rule_engine_compliance:
+    weight: 0.25
+    description: "Deterministic statutory rule violations against MPLADS 2023 Guidelines, GFR 2017, and CVC Circulars"
+    justification: "Statutory requirements (such as missing Measurement Books or single-bid awards) carry mandatory legal weight."
+  unsupervised_anomaly_score:
+    weight: 0.20
+    description: "Isolation Forest multivariate outlier score identifying rare or unseen anomaly combinations"
+    justification: "Guards against novel fraud archetypes and emerging distribution anomalies not captured in historical rules."
+  contractor_risk_factor:
+    weight: 0.10
+    description: "Contractor historical irregularity rate, tender concentration, and capacity strain index"
+    justification: "Incorporates entity-level risk and repeat non-compliance behavior across constituencies."
+  evidence_data_integrity:
+    weight: 0.10
+    description: "Chain-of-custody checklist, geotagged photographic proof, and document date sequence validity"
+    justification: "Penalizes projects with missing mandatory verification artifacts and audit trail gaps."
+
+thresholds:
+  low:
+    min_score: 0.0
+    max_score: 39.99
+    label: "LOW"
+    severity_label: "STANDARD_MONITORING"
+    recommended_action: "Routine quarterly automated monitoring; proceed with scheduled disbursement."
+  medium:
+    min_score: 40.0
+    max_score: 64.99
+    label: "MEDIUM"
+    severity_label: "DESK_AUDIT_RECOMMENDED"
+    recommended_action: "Desk review of milestone invoices and procurement documentation before next tranche release."
+  high:
+    min_score: 65.0
+    max_score: 84.99
+    label: "HIGH"
+    severity_label: "FIELD_INSPECTION_REQUIRED"
+    recommended_action: "Mandatory on-site physical inspection by District Technical Squad and Measurement Book verification."
+  critical:
+    min_score: 85.0
+    max_score: 100.0
+    label: "CRITICAL"
+    severity_label: "CRITICAL_RISK"
+    recommended_action: "Withhold subsequent disbursement, summon implementing agency, and refer to State Vigilance."
+
+# Statutory rule penalty point deductions (scaled 0-100)
+rule_penalties:
+  missing_mb_voucher_mismatch: 25.0
+  prohibited_work_category: 40.0
+  single_bid_repeat_winner: 20.0
+  stalled_work_full_payment: 35.0
+  ghost_work_no_geotag: 30.0
