@@ -286,7 +286,9 @@ export function AppSidebar() {
       {/* Footer */}
       {!sidebarCollapsed && (
         <div className="px-3 pt-4 border-t border-[#F1F0EC] text-[10px] text-[#6B6B6B] flex items-center justify-between shrink-0">
-          <span>{t.sidebarFooter}</span>
+          <Link to="/" title="Return to Landing Page" className="hover:text-[#0E0E0E] transition-colors cursor-pointer">
+            {t.sidebarFooter}
+          </Link>
           <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" title="System Live" />
         </div>
       )}

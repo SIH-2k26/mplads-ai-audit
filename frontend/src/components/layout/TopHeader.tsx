@@ -8,7 +8,7 @@ import {
   Sparkles,
   Globe
 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useUiStore } from '../../stores/useUiStore';
 import { useRoleStore } from '../../stores/useRoleStore';
 import { useLanguageStore } from '../../stores/useLanguageStore';
@@ -51,9 +51,13 @@ export function TopHeader() {
         >
           <Menu className="w-5 h-5" />
         </button>
-        <span className="font-bold text-lg tracking-tight text-[#0E0E0E] lowercase leading-none">
-          {t.brand}
-        </span>
+        <Link
+          to="/"
+          title="Return to National Sanchay Portal"
+          className="font-bold text-lg tracking-tight text-[#0E0E0E] lowercase leading-none hover:opacity-75 transition-opacity cursor-pointer flex items-center gap-2"
+        >
+          <span>{t.brand}</span>
+        </Link>
       </div>
 
       {/* Middle: Role & Jurisdiction Context */}
