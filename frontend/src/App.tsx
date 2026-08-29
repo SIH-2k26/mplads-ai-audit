@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
 import { WiseHeroBalance } from './components/WiseHeroBalance';
@@ -16,6 +16,7 @@ import { InteractiveEntityGraph } from './components/InteractiveEntityGraph';
 import { InteractiveConstituencyExplorer } from './components/InteractiveConstituencyExplorer';
 import { ComplianceTrendlineChart } from './components/ComplianceTrendlineChart';
 import { FLAGGED_PROJECTS, SYSTEM_METRICS } from './data/mockData';
+import { getDashboardSummary } from './services/api';
 import { MPLADSProject } from './types';
 import { Landmark, ShieldAlert, Users, Plus, ArrowLeft, Sparkles, Bot } from 'lucide-react';
 
@@ -31,14 +32,77 @@ export default function App() {
   const [showAnalyticsChart, setShowAnalyticsChart] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
+  // Real backend metrics state (falls back to mock if backend offline)
+  const [systemMetrics, setSystemMetrics] = useState(SYSTEM_METRICS);
   // Mutable projects state for interactive freezing
   const [projectsList, setProjectsList] = useState<MPLADSProject[]>(FLAGGED_PROJECTS);
 
-  const handleRefresh = () => {
+  const fetchDashboardData = async () => {
+    const { data, error } = await getDashboardSummary();
+    if (data && !error) {
+      setSystemMetrics((prev) => ({
+        ...prev,
+        totalSanctionedCr: data.total_sanctioned_cr,
+        totalExpendedCr: data.total_expended_cr,
+        utilizationRate: data.overall_utilisation_percentage,
+        totalMonitoredProjects: data.total_projects,
+        flaggedOutlayCr: data.flagged_outlay_cr,
+        flaggedProjectsCount: data.flagged_projects_count,
+        activeCriticalAlerts: data.critical_count,
+        nationalCompositeTrustScore: data.composite_trust_score,
+        trustScoreDelta: data.trust_score_delta,
+        riskDistribution: {
+          low: { count: data.risk_distribution.low.count, percent: data.risk_distribution.low.percent, label: data.risk_distribution.low.label },
+          medium: { count: data.risk_distribution.medium.count, percent: data.risk_distribution.medium.percent, label: data.risk_distribution.medium.label },
+          high: { count: data.risk_distribution.high.count, percent: data.risk_distribution.high.percent, label: data.risk_distribution.high.label },
+          critical: { count: data.risk_distribution.critical.count, percent: data.risk_distribution.critical.percent, label: data.risk_distribution.critical.label },
+        },
+      }));
+
+      if (data.top_flagged_projects && data.top_flagged_projects.length > 0) {
+        const mappedTop: MPLADSProject[] = data.top_flagged_projects.map((p: any) => ({
+          id: p.id,
+          code: p.code,
+          title: p.title,
+          category: 'Rural Roads',
+          state: p.state,
+          constituency: `${p.district} Constituency`,
+          constituencyType: 'Lok Sabha' as const,
+          mpName: `Hon. Member ${p.district}`,
+          implementingAgency: 'District Rural Development Agency',
+          contractorName: 'Registered Infra Vendor',
+          contractorGstin: '27AAAAA0000A1Z5',
+          sanctionedAmountCr: p.sanctioned_amount_cr,
+          disbursedAmountCr: p.expended_amount_cr,
+          expendedAmountCr: p.expended_amount_cr,
+          sanctionDate: '2024-03-12',
+          targetCompletionDate: '2024-12-30',
+          physicalProgressPercent: p.physical_progress,
+          reportedFinancialProgressPercent: p.financial_progress,
+          discrepancyPercent: p.discrepancy_percent,
+          trustScore: Math.round(100 - p.risk_score),
+          riskTier: p.risk_tier as any,
+          primaryAnomaly: p.top_signals[0] || 'ELEVATED_RISK_SIGNAL',
+          anomalyCategory: 'Vendor Collusion' as const,
+          satelliteAuditStatus: 'Verified' as const,
+          status: p.risk_tier === 'critical' ? 'Disbursal Frozen' : 'Under Forensic Review',
+          flaggedDate: '2025-02-23',
+        }));
+        setProjectsList(mappedTop);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchDashboardData();
+  }, []);
+
+  const handleRefresh = async () => {
     setIsRefreshing(true);
+    await fetchDashboardData();
     setTimeout(() => {
       setIsRefreshing(false);
-    }, 1000);
+    }, 600);
   };
 
   const handleToggleFreeze = (projectId: string) => {
@@ -118,8 +182,8 @@ export default function App() {
                 onFreezeTranche={() => setQuickActionType('freeze')}
                 onSelectDirective={(directive) => setQuickActionType(directive)}
                 onToggleAnalytics={() => setShowAnalyticsChart(!showAnalyticsChart)}
-                trustScore={SYSTEM_METRICS.nationalCompositeTrustScore}
-                totalOutlayCr={SYSTEM_METRICS.totalSanctionedCr}
+                trustScore={systemMetrics.nationalCompositeTrustScore}
+                totalOutlayCr={systemMetrics.totalSanctionedCr}
               />
 
               {/* Optional Inline Scheme Analytics Card (when toggled via chart icon) */}
@@ -140,16 +204,16 @@ export default function App() {
                     setQuickActionType('freeze');
                   }
                 }}
-                totalOutlayCr={SYSTEM_METRICS.totalSanctionedCr}
-                disbursedCr={SYSTEM_METRICS.totalExpendedCr}
-                flaggedRiskCr={SYSTEM_METRICS.flaggedOutlayCr}
-                reconciledCr={SYSTEM_METRICS.totalExpendedCr - SYSTEM_METRICS.flaggedOutlayCr}
+                totalOutlayCr={systemMetrics.totalSanctionedCr}
+                disbursedCr={systemMetrics.totalExpendedCr}
+                flaggedRiskCr={systemMetrics.flaggedOutlayCr}
+                reconciledCr={systemMetrics.totalExpendedCr - systemMetrics.flaggedOutlayCr}
                 activeFreezesCount={activeFreezesCount}
               />
 
               {/* 30-Day Compliance Reliability Animated Recharts Trendline below National Scheme Account */}
               <ComplianceTrendlineChart
-                currentScore={SYSTEM_METRICS.nationalCompositeTrustScore}
+                currentScore={systemMetrics.nationalCompositeTrustScore}
                 onOpenAuditLog={() => setShowAnalyticsChart(!showAnalyticsChart)}
               />
 

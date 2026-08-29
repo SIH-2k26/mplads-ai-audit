@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Card } from '../components/ui/card';
 import { ShieldAlert, CheckCircle2, Clock, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Alert } from '../types';
 import { useT } from '../i18n/useT';
+import { getAlerts } from '../services/api';
 
 const MOCK_ALERTS: Alert[] = [
   {
@@ -75,6 +76,35 @@ const MOCK_ALERTS: Alert[] = [
 export function AlertsPage() {
   const t = useT();
   const [alerts, setAlerts] = useState<Alert[]>(MOCK_ALERTS);
+
+  useEffect(() => {
+    getAlerts().then(({ data, error }) => {
+      if (data && !error && Array.isArray(data) && data.length > 0) {
+        const mapped: Alert[] = data.map((a: any) => ({
+          id: a.warning_id,
+          projectId: a.project_id,
+          projectCode: a.project_id,
+          projectTitle: a.title,
+          district: a.district || 'District',
+          state: a.state || 'State',
+          type: 'PROGRESS_MISMATCH',
+          severity: a.severity as any,
+          status: 'ACTIVE',
+          riskScore: Math.round(a.trigger_value),
+          timestamp: a.created_at ? a.created_at.slice(0, 16).replace('T', ' ') : '2025-02-23 10:30',
+          deadline: '2025-03-15',
+          whyFlagged: a.description,
+          evidenceCount: 2,
+          applicableRuleId: 'R-42',
+          applicableRuleTitle: 'MPLADS Guidelines §4.2',
+          assignedAuthority: 'District Magistrate & Collector',
+          recommendedAction: a.remediation_advice,
+          slaDaysRemaining: 7,
+        }));
+        setAlerts(mapped);
+      }
+    });
+  }, []);
 
   const handleUpdateStatus = (id: string, newStatus: Alert['status']) => {
     setAlerts(prev => prev.map(a => (a.id === id ? { ...a, status: newStatus } : a)));

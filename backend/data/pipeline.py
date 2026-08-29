@@ -61,7 +61,10 @@ class IngestionPipeline:
         self.event_publisher = event_publisher or DatabaseEventPublisher()
 
     def process_csv(self, file_path: str) -> IngestionPipelineResult:
-        source = CSVDataSource(file_path=file_path)
+        from data.ingestion.base import DataSourceConfig
+        from models.enums import SourceType
+        cfg = DataSourceConfig(source_name="Synthetic CSV", source_type=SourceType.CSV, source_id="csv-ingest", file_path=file_path)
+        source = CSVDataSource(config=cfg)
         return self._process_source(source)
 
     def process_json(self, file_path: str) -> IngestionPipelineResult:
@@ -116,10 +119,12 @@ class IngestionPipeline:
         try:
             for record in source.read():
                 total_cnt += 1
-                twin, dup, err = self.process_single_record(record.raw_data, record_id=record.record_id)
+                raw_dict = getattr(record, "raw_data", record) if not isinstance(record, dict) else record
+                rec_id = getattr(record, "record_id", str(raw_dict.get("project_id", f"rec-{total_cnt}")))
+                twin, dup, err = self.process_single_record(raw_dict, record_id=rec_id)
                 if err:
                     invalid_cnt += 1
-                    errors.append({"record_id": record.record_id, "error": err, "raw": record.raw_data})
+                    errors.append({"record_id": rec_id, "error": err, "raw": raw_dict})
                 else:
                     valid_cnt += 1
                     if twin:
@@ -152,7 +157,7 @@ class IngestionPipeline:
         # 1. Validation
         val_result = self.validator.validate_record(raw)
         if not val_result.is_valid:
-            error_msgs = "; ".join(f"{f}: {m}" for f, m in val_result.field_errors.items())
+            error_msgs = "; ".join(f"{e.field}: {e.message}" for e in val_result.errors)
             return None, None, f"Validation failed: {error_msgs}"
 
         # 2. Normalization

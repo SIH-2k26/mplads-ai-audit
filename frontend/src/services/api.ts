@@ -6,7 +6,9 @@
  * gracefully fall back to mock data when the backend is unreachable.
  */
 
-const BASE_URL = ((import.meta as any).env?.VITE_API_URL as string) || '/api/v1';
+import { toast } from 'sonner';
+
+const BASE_URL = ((import.meta as any).env?.VITE_API_URL as string) || 'http://localhost:8000/api/v1';
 
 // ─── Role Mapping (Step 4) ───────────────────────────────────
 // Frontend role names → backend role names.
@@ -47,6 +49,12 @@ async function apiFetch<T>(
     if (!res.ok) {
       const errText = await res.text().catch(() => res.statusText);
       return { data: null, error: `HTTP ${res.status}: ${errText}` };
+    }
+
+    const contentType = res.headers.get('content-type') || '';
+    if (contentType.includes('text/csv') || contentType.includes('text/html') || contentType.includes('text/plain')) {
+      const textData = (await res.text()) as unknown as T;
+      return { data: textData, error: null };
     }
 
     const data = (await res.json()) as T;
@@ -172,4 +180,102 @@ export async function runWhatIf(
     method: 'POST',
     body: JSON.stringify(payload),
   });
+}
+
+/**
+ * GET /api/v1/dashboard/summary
+ * Returns real portfolio aggregates from DB (or resilient parquet file fallback).
+ */
+export async function getDashboardSummary(params?: {
+  district?: string;
+  state?: string;
+}): Promise<ApiResult<any>> {
+  const query = new URLSearchParams();
+  if (params?.district) query.append('district', params.district);
+  if (params?.state) query.append('state', params.state);
+  const queryString = query.toString() ? `?${query.toString()}` : '';
+  return apiFetch(`/dashboard/summary${queryString}`);
+}
+
+export async function getAlerts(): Promise<ApiResult<any[]>> {
+  return apiFetch('/alerts');
+}
+
+export async function getCases(params?: { priority?: string; status_filter?: string }): Promise<ApiResult<any[]>> {
+  const query = new URLSearchParams();
+  if (params?.priority) query.append('priority', params.priority);
+  if (params?.status_filter) query.append('status_filter', params.status_filter);
+  const queryString = query.toString() ? `?${query.toString()}` : '';
+  return apiFetch(`/cases${queryString}`);
+}
+
+export async function getCaseDetails(caseId: string): Promise<ApiResult<any>> {
+  return apiFetch(`/cases/${caseId}`);
+}
+
+export async function submitVerdict(caseId: string, payload: {
+  verdict: string;
+  reason: string;
+  investigator_id?: string;
+  investigator_name?: string;
+  is_feedback_consented?: boolean;
+}): Promise<ApiResult<any>> {
+  return apiFetch(`/cases/${caseId}/verdict`, {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function getContractors(): Promise<ApiResult<any[]>> {
+  return apiFetch('/contractors');
+}
+
+export async function getAgencies(): Promise<ApiResult<any[]>> {
+  return apiFetch('/agencies');
+}
+
+export async function getPolicies(): Promise<ApiResult<any[]>> {
+  return apiFetch('/policies');
+}
+
+export async function downloadReport(reportType: string = 'summary', format: string = 'csv'): Promise<void> {
+  const fmt = format.toLowerCase();
+  const endpoint = `/reports/download?format=${fmt}&report_type=${encodeURIComponent(reportType)}`;
+  const url = `${BASE_URL}${endpoint}`;
+
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      toast.error('Download Failed', { description: `Server returned HTTP ${res.status}` });
+      return;
+    }
+
+    const blob = await res.blob();
+    const isCsv = fmt === 'csv' || fmt === 'xlsx';
+    const blobUrl = window.URL.createObjectURL(blob);
+
+    if (fmt === 'pdf') {
+      const newWin = window.open(blobUrl, '_blank');
+      if (!newWin) {
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = `mplads_statutory_audit_report_${reportType}.html`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+    } else {
+      const a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = `mplads_statutory_audit_report_${reportType}.${isCsv ? 'csv' : 'html'}`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+    toast.success('Report Download Ready', {
+      description: `Downloaded ${isCsv ? 'CSV' : 'PDF/HTML'} audit report successfully.`
+    });
+  } catch (err: any) {
+    toast.error('Download Error', { description: err?.message || String(err) });
+  }
 }

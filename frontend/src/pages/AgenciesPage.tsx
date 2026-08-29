@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '../components/ui/table';
 import { ImplementingAgency } from '../types';
 import { formatCurrencyINR } from '../lib/utils';
 import { Briefcase } from 'lucide-react';
+import { getAgencies } from '../services/api';
 
 const MOCK_AGENCIES: ImplementingAgency[] = [
   {

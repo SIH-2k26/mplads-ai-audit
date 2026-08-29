@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '../components/ui/table';
@@ -6,6 +6,7 @@ import { Button } from '../components/ui/button';
 import { FolderGit2, AlertTriangle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { CaseInvestigation } from '../types';
+import { getCases } from '../services/api';
 
 export const MOCK_CASES: CaseInvestigation[] = [
   {
@@ -50,6 +51,46 @@ export const MOCK_CASES: CaseInvestigation[] = [
 
 export function CasesPage() {
   const [cases, setCases] = useState<CaseInvestigation[]>(MOCK_CASES);
+
+  useEffect(() => {
+    getCases().then(({ data, error }) => {
+      if (data && !error && Array.isArray(data) && data.length > 0) {
+        const mapped: CaseInvestigation[] = data.map((c: any) => ({
+          id: c.case_id,
+          caseNumber: c.case_id,
+          projectId: c.project_id,
+          projectCode: c.project_id,
+          projectTitle: `Investigation Docket ${c.case_id}`,
+          district: 'Varanasi',
+          state: 'Uttar Pradesh',
+          riskScore: Math.round(c.risk_score_at_creation || 85),
+          priority: c.priority as any,
+          status: (c.status === 'VERDICT_RECORDED' ? 'CLOSED' : 'UNDER_INVESTIGATION') as any,
+          createdDate: c.created_at ? c.created_at.slice(0, 10) : '2025-02-23',
+          lastUpdated: '2025-02-26',
+          assignedInvestigator: 'Vigilance Inspector Officer',
+          whyFlagged: c.trigger_signals?.[0] || 'High risk discrepancy flag triggered by Sentinel AI Engine.',
+          evidenceCount: 3,
+          applicableRule: {
+            ruleId: 'R-42',
+            title: 'MPLADS Revised Guidelines Section 4.2',
+            section: 'Section 4.2',
+            page: 37,
+            documentUrl: 'https://mospi.gov.in'
+          },
+          peerComparison: {
+            expectedRange: '₹2.8 Cr - ₹3.8 Cr',
+            actualAmount: '₹4.8 Cr',
+            peerDeviation: '+50% above median',
+            sampleSize: 14
+          },
+          evidenceList: [],
+          timeline: []
+        }));
+        setCases(mapped);
+      }
+    });
+  }, []);
 
   return (
     <div className="space-y-6">

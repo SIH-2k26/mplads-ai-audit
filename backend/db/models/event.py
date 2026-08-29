@@ -137,6 +137,7 @@ class PolicyRuleORM(Base):
 
 class InvestigationCaseORM(Base, TimestampMixin):
     __tablename__ = "investigation_cases"
+    __table_args__ = {"extend_existing": True}
 
     id: Mapped[str] = mapped_column(String(64), primary_key=True)
     project_id: Mapped[str] = mapped_column(

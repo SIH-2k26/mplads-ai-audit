@@ -55,15 +55,15 @@ class ProjectValidationRules:
         return result
 
     def _validate_required_fields(self, record: dict, result: ValidationResult):
-        for field in ("project_name",):
-            if not record.get(field):
-                result.add_error(field, f"Required field '{field}' is missing or empty")
+        name = record.get("project_name") or record.get("work_name") or record.get("title")
+        if not name:
+            result.add_error("project_name", "Required project name/title is missing or empty")
 
     def _validate_amounts(self, record: dict, result: ValidationResult):
         amount_fields = ["sanctioned_amount", "approved_budget", "estimated_cost", "total_expenditure"]
         for f in amount_fields:
             val = record.get(f)
-            if val is None:
+            if val is None or val == "":
                 continue
             try:
                 d = Decimal(str(val))
@@ -87,12 +87,14 @@ class ProjectValidationRules:
     def _validate_progress(self, record: dict, result: ValidationResult):
         for f in ("financial_progress", "physical_progress"):
             val = record.get(f)
-            if val is None:
+            if val is None or val == "":
                 continue
             try:
                 p = float(val)
-                if p < 0 or p > 100:
-                    result.add_error(f, f"Progress '{f}' must be between 0 and 100", value=val)
+                if p < 0:
+                    result.add_error(f, f"Progress '{f}' cannot be negative", value=val)
+                elif p > 100:
+                    result.add_warning(f, f"Progress '{f}' exceeds 100% ({p}%) — possible anomaly signal", value=val)
             except (ValueError, TypeError):
                 result.add_error(f, f"Progress '{f}' is not a valid number", value=val)
 

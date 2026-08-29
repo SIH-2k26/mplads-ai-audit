@@ -4,11 +4,11 @@ import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card'
 import { Download, FileSpreadsheet, BarChart2 } from 'lucide-react';
 import { toast } from 'sonner';
 
+import { downloadReport } from '../services/api';
+
 export function ReportsPage() {
-  const handleExport = (format: string) => {
-    toast.success('Report Generation Initialized', {
-      description: `Downloading central audit summary report in ${format} format.`
-    });
+  const handleExport = (format: string, title?: string) => {
+    downloadReport(title || 'summary', format);
   };
 
   const leaderboardData = [
@@ -49,7 +49,7 @@ export function ReportsPage() {
                     <p className="text-[11px] text-[#6B6B6B] leading-relaxed">{item.detail}</p>
                   </div>
                   <button
-                    onClick={() => handleExport(item.type)}
+                    onClick={() => handleExport(item.type, item.title)}
                     className="bg-[#0E0E0E] hover:bg-black text-white text-[10px] font-bold px-3 py-1.5 rounded-full cursor-pointer flex items-center gap-1 transition-colors shrink-0"
                   >
                     <Download className="w-3.5 h-3.5" />

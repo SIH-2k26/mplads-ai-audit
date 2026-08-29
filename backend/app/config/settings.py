@@ -72,7 +72,7 @@ class Settings(BaseSettings):
     # Example: CORS_ORIGINS=https://mplads-portal.gov.in,https://admin.mplads.gov.in
     # Do NOT use '*' in production.
     cors_origins_str: str = Field(
-        default="http://localhost:3000,http://localhost:8080",
+        default="http://localhost:3000,http://localhost:8080,http://localhost:5173,http://localhost:5174,http://127.0.0.1:5173,http://127.0.0.1:5174",
         alias="cors_origins",
         description=(
             "Comma-separated allowed CORS origins. "
