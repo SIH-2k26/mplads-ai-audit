@@ -63,8 +63,8 @@ class TestJWTSecurity:
             subject="real@test.com",
             role=UserRole.INVESTIGATOR,
         )
-        # Tamper with payload by flipping last character
-        tampered = token[:-1] + ("A" if token[-1] != "A" else "B")
+        # Tamper with signature
+        tampered = token[:-4] + "XXXX"
         payload = decode_access_token(tampered)
         assert payload is None, \
             f"Tampered token should return None, but got: {payload}"

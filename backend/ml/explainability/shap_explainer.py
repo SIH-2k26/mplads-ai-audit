@@ -14,7 +14,16 @@ try:
 except (ImportError, Exception):
     HAS_SHAP = False
 
-from app.utils.logging import get_logger
+try:
+    from app.utils.logging import get_logger
+except ImportError:
+    try:
+        from backend.app.utils.logging import get_logger
+    except ImportError:
+        import logging
+        def get_logger(name: str):
+            return logging.getLogger(name)
+
 from ml.features.schema import CANONICAL_FEATURES
 
 logger = get_logger("shap_explainer")
