@@ -97,7 +97,7 @@ export function HeroSection() {
 
             {/* Supporting Copy */}
             <p className="text-sm sm:text-base text-[#172B3A] leading-relaxed max-w-lg font-normal">
-              AI-powered monitoring for MPLADS works, fund utilization and project execution — helping authorities identify anomalies before they become audit findings.
+              AI-powered monitoring for MPLADS works, fund utilization and project execution, helping authorities identify anomalies before they become audit findings.
             </p>
 
             {/* Human-in-the-loop Trust Statement */}
@@ -108,7 +108,7 @@ export function HeroSection() {
 
             {/* Two Action CTAs */}
             <div className="pt-2 flex flex-wrap items-center gap-3">
-              <Link to="/mp">
+              <Link to="/district">
                 <Button
                   variant="default"
                   size="lg"
