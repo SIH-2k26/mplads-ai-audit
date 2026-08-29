@@ -108,7 +108,7 @@ export function HeroSection() {
 
             {/* Two Action CTAs */}
             <div className="pt-2 flex flex-wrap items-center gap-3">
-              <Link to="/district">
+              <Link to="/mp">
                 <Button
                   variant="default"
                   size="lg"

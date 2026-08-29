@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import {
   X,
   ShieldCheck,
@@ -9,6 +10,7 @@ import {
   Download,
   FileCheck2,
   Activity,
+  LogOut,
 } from 'lucide-react';
 import { useUiStore } from '../stores/useUiStore';
 import { useRoleStore } from '../stores/useRoleStore';
@@ -112,6 +114,7 @@ export const WiseOfficerProfileModal: React.FC = () => {
     }
   };
 
+  const navigate = useNavigate();
   const details = getRoleDetails();
 
   const handleCopyToken = () => {
@@ -126,6 +129,14 @@ export const WiseOfficerProfileModal: React.FC = () => {
 
   const handleDownloadDossier = () => {
     toast.success(`Dossier PDF for ${details.name} generated successfully.`);
+  };
+
+  const handleLogout = () => {
+    onClose();
+    toast.success('Logged Out Successfully', {
+      description: 'Redirecting to Agastya Public Portal...',
+    });
+    navigate('/');
   };
 
   return (
@@ -292,6 +303,13 @@ export const WiseOfficerProfileModal: React.FC = () => {
             {/* Modal Footer Actions */}
             <div className="px-6 py-4 border-t border-[#F1F0EC] bg-[#FAF9F5] flex items-center justify-between flex-wrap gap-2">
               <div className="flex items-center gap-2">
+                <button
+                  onClick={handleLogout}
+                  className="px-3.5 py-1.5 rounded-full border border-red-200 bg-red-50 text-red-700 text-xs font-bold hover:bg-red-100 hover:border-red-300 transition-colors cursor-pointer flex items-center gap-1.5 shadow-2xs"
+                >
+                  <LogOut className="w-3.5 h-3.5 text-red-600" />
+                  <span>Log Out</span>
+                </button>
                 <button
                   onClick={handleDownloadDossier}
                   className="px-3.5 py-1.5 rounded-full border border-[#E5E3DC] bg-white text-[#0E0E0E] text-xs font-semibold hover:bg-[#F1F0EC] transition-colors cursor-pointer flex items-center gap-1.5"

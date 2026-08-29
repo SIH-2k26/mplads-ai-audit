@@ -104,7 +104,7 @@ export function LandingNavbar() {
               </kbd>
             </button>
 
-            <Link to="/district">
+            <Link to="/mp">
               <Button
                 variant="default"
                 size="sm"
@@ -125,7 +125,7 @@ export function LandingNavbar() {
             >
               <Search className="h-4 w-4" />
             </button>
-            <Link to="/district">
+            <Link to="/mp">
               <Button variant="default" size="sm" className="text-xs py-1 px-2.5 font-bold h-8 bg-[#15324A]">
                 Enter
               </Button>
@@ -153,7 +153,7 @@ export function LandingNavbar() {
               </a>
             ))}
             <div className="pt-2 border-t border-[#F3F5F4] flex gap-2">
-              <Link to="/district" className="flex-1">
+              <Link to="/mp" className="flex-1">
                 <Button variant="default" size="sm" className="w-full text-xs font-bold h-8 bg-[#15324A]">
                   Enter Operational Platform
                 </Button>

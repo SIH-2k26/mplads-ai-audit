@@ -25,7 +25,7 @@ export function FinalCtaSection() {
         </p>
 
         <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
-          <Link to="/district">
+          <Link to="/mp">
             <Button
               variant="default"
               size="lg"

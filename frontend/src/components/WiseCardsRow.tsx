@@ -120,7 +120,9 @@ export const WiseCardsRow: React.FC<WiseCardsRowProps> = ({
                     <span className="text-xs sm:text-sm font-semibold text-[#0E0E0E] block">
                       ₹<NumberTicker value={flaggedRiskCr} decimalPlaces={2} /> Cr
                     </span>
-                    <span className="text-[10px] text-red-600 font-medium">Flagged at Risk (8.3%)</span>
+                    <span className="text-[10px] text-red-600 font-medium">
+                      Flagged at Risk ({totalOutlayCr > 0 ? ((flaggedRiskCr / totalOutlayCr) * 100).toFixed(1) : '7.4'}%)
+                    </span>
                   </div>
                 </div>
                 <ChevronRight className="w-3.5 h-3.5 text-[#6B6B6B] group-hover:text-[#0E0E0E]" />
@@ -139,16 +141,22 @@ export const WiseCardsRow: React.FC<WiseCardsRowProps> = ({
                     <span className="text-xs sm:text-sm font-semibold text-[#0E0E0E] block">
                       ₹<NumberTicker value={reconciledCr} decimalPlaces={2} /> Cr
                     </span>
-                    <span className="text-[10px] text-emerald-700 font-medium">Physical Reconciled (89.2%)</span>
+                    <span className="text-[10px] text-emerald-700 font-medium">
+                      Physical Reconciled ({totalOutlayCr > 0 ? ((reconciledCr / totalOutlayCr) * 100).toFixed(1) : '67.1'}%)
+                    </span>
                   </div>
                 </div>
                 <ChevronRight className="w-3.5 h-3.5 text-[#6B6B6B] group-hover:text-[#0E0E0E]" />
               </button>
             </div>
 
-            {/* Animated Graph Beside National Scheme Account */}
+            {/* Animated Graph Beside Scheme Account */}
             <div className="w-full">
-              <AnimatedSchemeGraph onOpenDetails={onOpenCardDetails} />
+              <AnimatedSchemeGraph
+                onOpenDetails={onOpenCardDetails}
+                disbursedCr={disbursedCr}
+                riskCr={flaggedRiskCr}
+              />
             </div>
           </div>
         </div>

@@ -15,11 +15,11 @@ interface RoleState {
 }
 
 export const useRoleStore = create<RoleState>((set) => ({
-  currentRole: 'DISTRICT_AUTHORITY',
+  currentRole: 'MP',
 
-  userTitle: 'District Magistrate & Collector',
+  userTitle: 'Member of Parliament (Lok Sabha)',
 
-  userJurisdiction: 'Pune District, Maharashtra',
+  userJurisdiction: 'Pune Parliamentary Constituency',
 
   selectedState: 'Maharashtra',
 

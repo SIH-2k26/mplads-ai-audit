@@ -182,6 +182,40 @@ export async function runWhatIf(
   });
 }
 
+export interface DashboardSummaryResponse {
+  total_projects: number;
+  total_sanctioned_amount: number;
+  total_sanctioned_cr: number;
+  total_expenditure: number;
+  total_expended_cr: number;
+  overall_utilisation_percentage: number;
+  flagged_outlay: number;
+  flagged_outlay_cr: number;
+  flagged_projects_count: number;
+  critical_count: number;
+  composite_trust_score: number;
+  trust_score_delta: number;
+  risk_distribution: {
+    low: { count: number; percent: number; label: string };
+    medium: { count: number; percent: number; label: string };
+    high: { count: number; percent: number; label: string };
+    critical: { count: number; percent: number; label: string };
+  };
+  top_flagged_projects: any[];
+  state_breakdown?: Array<{
+    state: string;
+    works: number;
+    sanctioned: string;
+    sanctioned_cr: number;
+    expended_cr: number;
+    util: string;
+    util_pct: number;
+    critical: number;
+    flagged: number;
+  }>;
+  data_source: string;
+}
+
 /**
  * GET /api/v1/dashboard/summary
  * Returns real portfolio aggregates from DB (or resilient parquet file fallback).
@@ -189,12 +223,12 @@ export async function runWhatIf(
 export async function getDashboardSummary(params?: {
   district?: string;
   state?: string;
-}): Promise<ApiResult<any>> {
+}): Promise<ApiResult<DashboardSummaryResponse>> {
   const query = new URLSearchParams();
   if (params?.district) query.append('district', params.district);
   if (params?.state) query.append('state', params.state);
-  const queryString = query.toString() ? `?${query.toString()}` : '';
-  return apiFetch(`/dashboard/summary${queryString}`);
+  const qStr = query.toString() ? `?${query.toString()}` : '';
+  return apiFetch<DashboardSummaryResponse>(`/dashboard/summary${qStr}`);
 }
 
 export async function getAlerts(): Promise<ApiResult<any[]>> {
@@ -238,9 +272,9 @@ export async function getPolicies(): Promise<ApiResult<any[]>> {
   return apiFetch('/policies');
 }
 
-export async function downloadReport(reportType: string = 'summary', format: string = 'csv'): Promise<void> {
+export async function downloadReport(reportType: string = 'summary', format: string = 'csv', role: string = 'AUDITOR'): Promise<void> {
   const fmt = format.toLowerCase();
-  const endpoint = `/reports/download?format=${fmt}&report_type=${encodeURIComponent(reportType)}`;
+  const endpoint = `/reports/download?format=${fmt}&report_type=${encodeURIComponent(reportType)}&role=${encodeURIComponent(role)}`;
   const url = `${BASE_URL}${endpoint}`;
 
   try {
@@ -254,26 +288,19 @@ export async function downloadReport(reportType: string = 'summary', format: str
     const isCsv = fmt === 'csv' || fmt === 'xlsx';
     const blobUrl = window.URL.createObjectURL(blob);
 
-    if (fmt === 'pdf') {
-      const newWin = window.open(blobUrl, '_blank');
-      if (!newWin) {
-        const a = document.createElement('a');
-        a.href = blobUrl;
-        a.download = `mplads_statutory_audit_report_${reportType}.html`;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      }
-    } else {
-      const a = document.createElement('a');
-      a.href = blobUrl;
-      a.download = `mplads_statutory_audit_report_${reportType}.${isCsv ? 'csv' : 'html'}`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    }
-    toast.success('Report Download Ready', {
-      description: `Downloaded ${isCsv ? 'CSV' : 'PDF/HTML'} audit report successfully.`
+    const safeName = reportType.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+    const filename = `mplads_${role.toLowerCase()}_audit_${safeName}.${isCsv ? 'csv' : 'html'}`;
+
+    const a = document.createElement('a');
+    a.href = blobUrl;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => window.URL.revokeObjectURL(blobUrl), 1000);
+
+    toast.success('Report Downloaded Successfully', {
+      description: `Saved ${filename} to your downloads.`,
     });
   } catch (err: any) {
     toast.error('Download Error', { description: err?.message || String(err) });
