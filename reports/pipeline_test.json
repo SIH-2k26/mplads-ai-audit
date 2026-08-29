@@ -1,0 +1,160 @@
+{
+  "timestamp": "2026-08-28T20:17:59.872190",
+  "parameters": {
+    "n_projects": 5000,
+    "seed": 42,
+    "fraud_rate": 0.2,
+    "hard_negative_rate": 0.1,
+    "test_size": 0.2
+  },
+  "data_status": {
+    "generation": "PASS",
+    "validation": "PASSED_CLEAN",
+    "critical_errors": 0,
+    "warnings": 0,
+    "leakage": "PASS"
+  },
+  "models": {
+    "CatBoost": {
+      "accuracy": 95.0,
+      "precision": 93.45,
+      "recall": 80.1,
+      "f1": 86.26,
+      "roc_auc": 0.935,
+      "pr_auc": 0.9184,
+      "cm": [
+        [
+          793,
+          11
+        ],
+        [
+          39,
+          157
+        ]
+      ]
+    },
+    "XGBoost": {
+      "accuracy": 95.6,
+      "precision": 93.68,
+      "recall": 83.16,
+      "f1": 88.11,
+      "roc_auc": 0.9433,
+      "pr_auc": 0.924,
+      "cm": [
+        [
+          793,
+          11
+        ],
+        [
+          33,
+          163
+        ]
+      ]
+    },
+    "LightGBM": {
+      "accuracy": 96.1,
+      "precision": 95.38,
+      "recall": 84.18,
+      "f1": 89.43,
+      "roc_auc": 0.9447,
+      "pr_auc": 0.9265,
+      "cm": [
+        [
+          796,
+          8
+        ],
+        [
+          31,
+          165
+        ]
+      ]
+    },
+    "Random Forest": {
+      "accuracy": 95.8,
+      "precision": 96.39,
+      "recall": 81.63,
+      "f1": 88.4,
+      "roc_auc": 0.942,
+      "pr_auc": 0.9239,
+      "cm": [
+        [
+          798,
+          6
+        ],
+        [
+          36,
+          160
+        ]
+      ]
+    }
+  },
+  "false_positive_analysis": {
+    "total_false_positives": 11,
+    "false_positive_rate": 0.0137,
+    "hard_negative_tested": 121,
+    "hard_negative_false_positives": 11,
+    "hard_negative_fp_rate": 9.09
+  },
+  "scenario_breakdown": {
+    "ABANDONED_WORK": {
+      "count": 17,
+      "accuracy": 100.0,
+      "flagged_rate": 100.0
+    },
+    "COST_OVERRUN": {
+      "count": 32,
+      "accuracy": 100.0,
+      "flagged_rate": 100.0
+    },
+    "DELAYED_WORK": {
+      "count": 28,
+      "accuracy": 96.43,
+      "flagged_rate": 96.43
+    },
+    "DOCUMENTATION_DEFICIT": {
+      "count": 12,
+      "accuracy": 100.0,
+      "flagged_rate": 100.0
+    },
+    "GHOST_WORK": {
+      "count": 9,
+      "accuracy": 100.0,
+      "flagged_rate": 100.0
+    },
+    "HIGH_VALUE_LEGITIMATE": {
+      "count": 59,
+      "accuracy": 100.0,
+      "flagged_rate": 0.0
+    },
+    "LEGITIMATE_REMOTE_SINGLE_BID": {
+      "count": 34,
+      "accuracy": 67.65,
+      "flagged_rate": 32.35
+    },
+    "LEGITIMATE_WEATHER_DELAY": {
+      "count": 28,
+      "accuracy": 100.0,
+      "flagged_rate": 0.0
+    },
+    "NORMAL": {
+      "count": 683,
+      "accuracy": 100.0,
+      "flagged_rate": 0.0
+    },
+    "PAYMENT_PROGRESS_MISMATCH": {
+      "count": 59,
+      "accuracy": 100.0,
+      "flagged_rate": 100.0
+    },
+    "PROCUREMENT_SINGLE_BID": {
+      "count": 18,
+      "accuracy": 5.56,
+      "flagged_rate": 5.56
+    },
+    "SUSPICIOUS_CONTRACTOR_MONOPOLY": {
+      "count": 21,
+      "accuracy": 0.0,
+      "flagged_rate": 0.0
+    }
+  }
+}

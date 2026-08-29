@@ -1,0 +1,10 @@
+1. TENDERING PRINCIPLES:
+               - Rule 149: Procurement through Government e-Marketplace (GeM) is mandatory for goods and services available on GeM.
+               - Rule 161: Open competitive bidding is mandatory for works exceeding financial threshold of Rs. 2.5 Lakhs.
+               - Direct nomination or quotation method is permissible only up to Rs. 2.5 Lakhs in emergency or specialized cases.
+            2. SINGLE-BID TENDER SCRUTINY:
+               - In case of single bid response, tender shall not be awarded automatically. Reasonableness of rate must be verified against current Schedule of Rates (SOR) and re-tendering evaluated.
+            3. CONTRACT AMENDMENTS:
+               - Cost escalation or variation orders shall not exceed 10% of the original contract value without prior approval of the competent financial authority.
+            4. ADVANCE PAYMENT LIMITS:
+               - Mobilization advance shall not exceed 10% of contract value and must be secured against an unconditional Bank Guarantee.

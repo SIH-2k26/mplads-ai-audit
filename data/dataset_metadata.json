@@ -1,0 +1,40 @@
+{
+  "dataset_name": "MPLADS_AI_AUDIT_SYNTHETIC_RELATIONAL",
+  "generated_at": "2026-08-28T16:47:08.480325+00:00",
+  "seed": 42,
+  "num_projects": 500,
+  "fraud_rate": 0.198,
+  "hard_negative_rate": 0.12,
+  "fraud_rate_target": 0.2,
+  "fraud_rate_actual": 0.198,
+  "hard_negative_rate_target": 0.1,
+  "hard_negative_rate_actual": 0.12,
+  "table_counts": {
+    "01_projects": 500,
+    "02_financials": 500,
+    "03_payments": 1389,
+    "04_progress": 500,
+    "05_procurement": 500,
+    "06_contracts": 500,
+    "07_contractors": 300,
+    "08_agencies": 1238,
+    "09_geography": 619,
+    "10_constituencies": 913,
+    "11_documents": 500,
+    "12_labels": 500
+  },
+  "tables": [
+    "01_projects",
+    "02_financials",
+    "03_payments",
+    "04_progress",
+    "05_procurement",
+    "06_contracts",
+    "07_contractors",
+    "08_agencies",
+    "09_geography",
+    "10_constituencies",
+    "11_documents",
+    "12_labels"
+  ]
+}

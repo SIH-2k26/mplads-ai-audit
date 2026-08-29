@@ -1,0 +1,42 @@
+[
+  {
+    "feature": "financial_progress",
+    "importance": 18.475960024568263
+  },
+  {
+    "feature": "total_rule_violation_count",
+    "importance": 12.160535877563584
+  },
+  {
+    "feature": "velocity_mismatch",
+    "importance": 8.841957487579457
+  },
+  {
+    "feature": "rule_risk_score",
+    "importance": 7.505947134615422
+  },
+  {
+    "feature": "financial_velocity",
+    "importance": 5.773877612118399
+  },
+  {
+    "feature": "expenditure_to_sanction_ratio",
+    "importance": 4.266859901211189
+  },
+  {
+    "feature": "physical_velocity",
+    "importance": 4.007471924000466
+  },
+  {
+    "feature": "payment_to_work_order_ratio",
+    "importance": 3.6635871835324756
+  },
+  {
+    "feature": "actual_to_tender_ratio",
+    "importance": 3.313745960453761
+  },
+  {
+    "feature": "release_to_sanction_ratio",
+    "importance": 3.2884688086174303
+  }
+]

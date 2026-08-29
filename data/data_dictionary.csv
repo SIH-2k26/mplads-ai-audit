@@ -1,0 +1,125 @@
+table_name,column_name,data_type,nullable,sample_value
+01_projects,project_id,str,False,MPLADS-000001
+01_projects,project_name,str,False,Public Toilet Complex at Anand (TAM-District-28)
+01_projects,project_category,str,False,Community Infrastructure
+01_projects,project_type,str,False,Public Toilet Complex
+01_projects,state_id,str,False,ST-06
+01_projects,district_id,str,False,DIST-0255
+01_projects,constituency_id,str,False,PC-0282
+01_projects,implementing_agency_id,str,False,AGCY-0396
+01_projects,contractor_id,str,False,CONT-02366
+01_projects,location_name,str,False,Mittal Nagar
+01_projects,latitude,float64,False,12.84327
+01_projects,longitude,float64,False,79.16999
+01_projects,rural_urban,str,False,Rural
+01_projects,recommendation_date,str,False,2024-03-20
+01_projects,sanction_date,str,False,2024-04-10
+01_projects,start_date,str,False,2024-05-07
+01_projects,expected_completion_date,str,False,2024-09-15
+01_projects,actual_completion_date,str,True,2022-09-25
+01_projects,project_status,str,False,DELAYED
+01_projects,beneficiary_population,int64,False,1795
+02_financials,project_id,str,False,MPLADS-000001
+02_financials,proposed_cost,float64,False,1503000.0
+02_financials,sanctioned_amount,float64,False,1526000.0
+02_financials,fund_allocated,float64,False,1526000.0
+02_financials,fund_released,float64,False,1385000.0
+02_financials,actual_expenditure,float64,False,1375000.0
+02_financials,unspent_balance,float64,False,10000.0
+02_financials,utilization_ratio,float64,False,0.9928
+02_financials,cost_overrun_amount,float64,False,0.0
+02_financials,cost_overrun_ratio,float64,False,-0.099
+02_financials,sor_deviation_ratio,float64,False,-0.0852
+02_financials,round_number_payment_ratio,float64,False,0.311
+02_financials,spending_spike_score,float64,False,0.324
+03_payments,payment_id,str,False,PMT-000001-1
+03_payments,project_id,str,False,MPLADS-000001
+03_payments,contractor_id,str,False,CONT-02366
+03_payments,payment_date,str,False,2024-10-03
+03_payments,payment_amount,float64,False,458333.33
+03_payments,is_round_number,int64,False,0
+04_progress,progress_id,str,False,PRG-000001
+04_progress,project_id,str,False,MPLADS-000001
+04_progress,report_date,str,False,2024-09-15
+04_progress,physical_progress,float64,False,51.5
+04_progress,financial_progress,float64,False,90.1
+04_progress,financial_physical_gap,float64,False,38.6
+04_progress,planned_progress,float64,False,100.0
+04_progress,progress_velocity,float64,False,3.46
+04_progress,is_stagnant,int64,False,0
+05_procurement,tender_id,str,False,TND-000001
+05_procurement,project_id,str,False,MPLADS-000001
+05_procurement,procurement_method,str,False,Open E-Tender
+05_procurement,tender_publication_date,str,False,2024-03-30
+05_procurement,tender_duration_days,int64,False,7
+05_procurement,bid_count,int64,False,4
+05_procurement,single_bid_flag,int64,False,0
+05_procurement,sanctioned_amount,float64,False,1526000.0
+05_procurement,tender_value,float64,False,1546000.0
+05_procurement,winning_bid_deviation,float64,False,0.0131
+05_procurement,bidder_price_similarity,float64,False,0.122
+05_procurement,retender_count,int64,False,0
+06_contracts,contract_id,str,False,CNT-000001
+06_contracts,project_id,str,False,MPLADS-000001
+06_contracts,contractor_id,str,False,CONT-02366
+06_contracts,original_contract_value,float64,False,1546000.0
+06_contracts,final_contract_value,float64,False,1375000.0
+06_contracts,planned_duration_days,int64,False,131
+06_contracts,actual_duration_days,int64,False,447
+06_contracts,delay_days,int64,False,316
+06_contracts,delay_ratio,float64,False,2.4122
+06_contracts,extension_count,int64,False,4
+07_contractors,contractor_id,str,False,CONT-00001
+07_contractors,contractor_name,str,False,Srinivasan Enterprises
+07_contractors,home_district_id,str,False,DIST-0011
+07_contractors,home_state_id,str,False,ST-01
+07_contractors,registration_category,str,False,Class B
+07_contractors,financial_capacity,float64,False,5000000.0
+07_contractors,base_quality_score,float64,False,0.809
+07_contractors,contractor_total_projects,int64,False,22
+07_contractors,contractor_total_value,float64,False,167432000.0
+07_contractors,contractor_avg_delay,float64,False,20.0
+07_contractors,contractor_anomalous_projects,int64,False,9
+07_contractors,contractor_past_irregularity_rate,float64,False,0.4091
+07_contractors,contractor_delay_rate,float64,False,0.1111
+07_contractors,contractor_market_share,float64,False,0.00022
+07_contractors,contractor_win_rate,float64,False,0.312
+07_contractors,contractor_capacity_strain,float64,False,33.486
+08_agencies,agency_id,str,False,AGCY-0001
+08_agencies,agency_name,str,False,AND-District-23 - Panchayati Raj Institution (PRI)
+08_agencies,district_id,str,False,DIST-0402
+08_agencies,state_id,str,False,ST-10
+08_agencies,agency_type,str,False,Rural Development Department (RDD)
+09_geography,district_id,str,False,DIST-0001
+09_geography,district_name,str,False,UTT-District-01
+09_geography,state_id,str,False,ST-01
+09_geography,state_name,str,False,Uttar Pradesh
+09_geography,centroid_latitude,float64,False,26.43451
+09_geography,centroid_longitude,float64,False,84.13036
+09_geography,population,int64,False,1275789
+10_constituencies,constituency_id,str,False,PC-0001
+10_constituencies,constituency_name,str,False,UTT-District-01-Seat-01
+10_constituencies,district_id,str,False,DIST-0001
+10_constituencies,state_id,str,False,ST-01
+10_constituencies,mp_name,str,False,Hon. MP Isaac Bakshi
+10_constituencies,mp_house,str,False,Lok Sabha
+11_documents,document_id,str,False,DOC-000001
+11_documents,project_id,str,False,MPLADS-000001
+11_documents,required_document_count,int64,False,6
+11_documents,available_document_count,int64,False,6
+11_documents,missing_document_ratio,float64,False,0.0
+11_documents,missing_mb_flag,int64,False,0
+11_documents,missing_uc_flag,int64,False,0
+11_documents,missing_completion_cert_flag,int64,False,0
+11_documents,missing_geotag_flag,int64,False,0
+11_documents,geo_distance_mismatch_km,float64,False,0.29
+12_labels,project_id,str,False,MPLADS-000001
+12_labels,scenario_type,str,False,DELAYED_PROJECT
+12_labels,is_anomalous,int64,False,1
+12_labels,risk_level,str,False,MEDIUM
+12_labels,is_cost_anomaly,int64,False,0
+12_labels,is_financial_anomaly,int64,False,0
+12_labels,is_procurement_anomaly,int64,False,0
+12_labels,is_progress_anomaly,int64,False,0
+12_labels,is_contractor_anomaly,int64,False,0
+12_labels,is_ghost_work,int64,False,0

@@ -1,0 +1,13 @@
+{
+  "feature_count": 177,
+  "description": "Deterministic 177-feature manifest for MPLADS AI Audit ML models",
+  "domains": [
+    "financial",
+    "temporal_velocity",
+    "contractor_network",
+    "procurement_spread",
+    "geographic_proximity",
+    "document_integrity",
+    "compliance_violations"
+  ]
+}

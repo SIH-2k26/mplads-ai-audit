@@ -1,0 +1,81 @@
+# configs/features.yaml
+# Strict Feature Registry — defines feature domains and anti-leakage rules.
+
+# Features used as inputs to ML models
+feature_groups:
+  cost_features:
+    - cost_to_sanction_ratio
+    - tender_to_estimate_ratio
+    - actual_to_tender_ratio
+    - sor_deviation_ratio
+    - peer_cost_deviation_zscore
+
+  financial_features:
+    - fund_utilization_ratio
+    - fund_release_ratio
+    - unspent_balance_ratio
+    - payment_velocity
+    - round_number_payment_ratio
+    - final_installment_concentration
+    - spending_spike_score
+
+  progress_features:
+    - physical_progress
+    - financial_progress
+    - financial_physical_gap
+    - progress_velocity
+    - actual_vs_planned_progress_gap
+    - is_stagnant_flag
+
+  timeline_features:
+    - planned_duration_days
+    - actual_duration_days
+    - delay_days
+    - delay_ratio
+    - extension_count
+
+  procurement_features:
+    - bid_count
+    - single_bid_flag
+    - winning_bid_deviation
+    - bidder_price_similarity
+    - tender_duration_days
+    - retender_count
+    - repeat_winner_rate
+
+  contractor_features:
+    - contractor_total_projects
+    - contractor_market_share
+    - contractor_win_rate
+    - contractor_past_irregularity_rate
+    - contractor_delay_rate
+    - contractor_capacity_strain
+
+  geographic_features:
+    - geo_cluster_density
+    - contractor_district_distance_km
+    - is_high_density_cluster
+
+  compliance_evidence_features:
+    - missing_document_ratio
+    - required_document_count
+    - available_document_count
+    - missing_mb_flag
+    - missing_uc_flag
+    - missing_completion_cert_flag
+    - missing_geotag_flag
+    - geo_distance_mismatch_km
+
+# STRICT ANTI-LEAKAGE EXCLUSION LIST:
+# These fields MUST NEVER be included in the ML feature matrix X:
+leakage_exclusions:
+  - project_id
+  - scenario_id
+  - scenario_type
+  - fraud_label
+  - is_anomalous
+  - risk_level
+  - overall_risk_score
+  - investigation_verdict
+  - audit_finding_confirmed
+  - created_timestamp

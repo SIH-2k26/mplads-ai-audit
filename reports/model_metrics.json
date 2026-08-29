@@ -1,0 +1,19 @@
+{
+  "best_model": "Random Forest",
+  "test_accuracy": 95.73,
+  "test_precision": 96.75,
+  "test_recall": 80.95,
+  "test_f1": 88.15,
+  "test_roc_auc": 0.937,
+  "test_pr_auc": 0.9193,
+  "test_confusion_matrix": [
+    [
+      599,
+      4
+    ],
+    [
+      28,
+      119
+    ]
+  ]
+}

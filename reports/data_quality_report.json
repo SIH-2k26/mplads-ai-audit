@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-08-28T20:01:00.628954",
+  "total_projects": 25000,
+  "total_checks": 15,
+  "passed_checks": 15,
+  "overall_status": "PASS",
+  "checks": [
+    {
+      "check_id": "CHK-01",
+      "description": "Primary Key Nullity Check",
+      "passed": true,
+      "details": "Zero nulls in primary keys (Found: 0)"
+    },
+    {
+      "check_id": "CHK-02",
+      "description": "Primary Key Uniqueness Check",
+      "passed": true,
+      "details": "Zero duplicate project IDs (Found: 0)"
+    },
+    {
+      "check_id": "CHK-03",
+      "description": "Foreign Key Integrity (Project -> District)",
+      "passed": true,
+      "details": "All project district_ids exist in Geography master (Orphans: 0)"
+    },
+    {
+      "check_id": "CHK-04",
+      "description": "Foreign Key Integrity (Project -> Contractor)",
+      "passed": true,
+      "details": "All project contractor_ids exist in Contractor master (Orphans: 0)"
+    },
+    {
+      "check_id": "CHK-05",
+      "description": "Foreign Key Integrity (Project -> Agency)",
+      "passed": true,
+      "details": "All project agency_ids exist in Agency master (Orphans: 0)"
+    },
+    {
+      "check_id": "CHK-06",
+      "description": "Non-Negative Financial Values Check",
+      "passed": true,
+      "details": "All financial amounts are strictly non-negative (Found: 0)"
+    },
+    {
+      "check_id": "CHK-07",
+      "description": "Physical Progress Range Bounds [0, 100]",
+      "passed": true,
+      "details": "Physical progress strictly between 0% and 100% (Violations: 0)"
+    },
+    {
+      "check_id": "CHK-08",
+      "description": "Date Chronology Logic (Recommendation <= Sanction)",
+      "passed": true,
+      "details": "Sanctions occur on or after MP recommendations (Violations: 0)"
+    },
+    {
+      "check_id": "CHK-09",
+      "description": "Plausible Indian Geospatial Bounds Check",
+      "passed": true,
+      "details": "Coordinates fall within mainland Indian bounding box (Outliers: 0)"
+    },
+    {
+      "check_id": "CHK-10",
+      "description": "Payment Referential Consistency",
+      "passed": true,
+      "details": "All payment vouchers linked to valid project records (Orphans: 0)"
+    },
+    {
+      "check_id": "CHK-11",
+      "description": "Tender Bid Count Sanity Check (>= 1)",
+      "passed": true,
+      "details": "All procurement records have at least 1 bidder (Invalid: 0)"
+    },
+    {
+      "check_id": "CHK-12",
+      "description": "Single-Bid Flag Logical Consistency",
+      "passed": true,
+      "details": "Single bid flag matches bid_count == 1 exactly (Mismatches: 0)"
+    },
+    {
+      "check_id": "CHK-13",
+      "description": "Document Count Bounds (Available <= Required)",
+      "passed": true,
+      "details": "Available documents never exceed required document quota (Violations: 0)"
+    },
+    {
+      "check_id": "CHK-14",
+      "description": "Ground Truth Label Completeness",
+      "passed": true,
+      "details": "100% of generated projects have ground truth scenario labels (Unlabeled: 0)"
+    },
+    {
+      "check_id": "CHK-15",
+      "description": "Multi-Class Risk Tier Coverage (LOW/MED/HIGH/CRIT)",
+      "passed": true,
+      "details": "Distribution: {'LOW': 18003, 'HIGH': 3161, 'MEDIUM': 2382, 'CRITICAL': 1454}"
+    }
+  ],
+  "risk_distribution": {
+    "LOW": 18003,
+    "HIGH": 3161,
+    "MEDIUM": 2382,
+    "CRITICAL": 1454
+  }
+}

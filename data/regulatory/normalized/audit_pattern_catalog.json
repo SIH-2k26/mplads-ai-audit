@@ -1,0 +1,62 @@
+[
+  {
+    "pattern_id": "CAG-OBS-001",
+    "category": "PROGRESS_PAYMENT_MISMATCH",
+    "title": "Unwarranted Disbursement Against Lagging Physical Progress",
+    "description": "Disbursement of 80%+ funds while recorded physical progress remains stalled below 50%.",
+    "indicator_features": "financial_physical_gap > 30.0",
+    "potential_risk": "Unearned mobilization advance, risk of project abandonment and fund misdirection.",
+    "audit_type": "COMPLIANCE_AUDIT",
+    "source_report": "CAG Union Civil Audit Reports on MPLADS",
+    "severity": "CRITICAL",
+    "evidence_requirements": "Measurement Book entries, bank payment advice, physical site verification photographs."
+  },
+  {
+    "pattern_id": "CAG-OBS-002",
+    "category": "PROCUREMENT_COLLUSION",
+    "title": "Repetitive Award to Single Contractor via Restrictive Bidding",
+    "description": "Consistent award of high-value constituency works to a single contractor under single-bid tenders.",
+    "indicator_features": "single_bid_flag == 1 and contractor_win_rate > 0.70",
+    "potential_risk": "Lack of price competitiveness, tender rigging, and potential contractor-agency nexus.",
+    "audit_type": "PERFORMANCE_AUDIT",
+    "source_report": "CAG State Audit Reports on Local Bodies and Scheme Works",
+    "severity": "HIGH",
+    "evidence_requirements": "Comparative bid sheets, NIT publication dates, contractor registration ledger."
+  },
+  {
+    "pattern_id": "CAG-OBS-003",
+    "category": "GHOST_ASSET_RISK",
+    "title": "Completed Work Claim Without Physical Asset Register Entry or Geotags",
+    "description": "100% financial disbursement recorded for a completed work with missing geotag coordinates and unverified physical asset.",
+    "indicator_features": "financial_progress == 100.0 and (missing_geotag_flag == 1 or geo_distance_mismatch_km > 10.0)",
+    "potential_risk": "Ghost infrastructure, fictitious billing, or duplication of assets built under other government funds.",
+    "audit_type": "FINANCIAL_AUDIT",
+    "source_report": "CAG Compliance Audit on Scheme Asset Creation",
+    "severity": "CRITICAL",
+    "evidence_requirements": "Site inspection report, GIS coordinate verification, physical asset register entry."
+  },
+  {
+    "pattern_id": "CAG-OBS-004",
+    "category": "COST_OVERRUN_ESCALATION",
+    "title": "Excess Expenditure Beyond Administrative Sanction Without Revised Approvals",
+    "description": "Final expenditure exceeding approved sanction by over 25% without technical justification or revised administrative approval.",
+    "indicator_features": "cost_to_sanction_ratio > 1.25",
+    "potential_risk": "Unauthorized scope expansion and violation of financial delegation ceilings.",
+    "audit_type": "COMPLIANCE_AUDIT",
+    "source_report": "CAG Report on Scheme Expenditure Management",
+    "severity": "HIGH",
+    "evidence_requirements": "Original sanction order, revised estimate, competent authority approval minutes."
+  },
+  {
+    "pattern_id": "CAG-OBS-005",
+    "category": "DOCUMENTATION_DEFICIENCY",
+    "title": "Missing Measurement Book and Stage Utilization Certificates",
+    "description": "Payment vouchers passed without supporting Measurement Book recordings or stage UCs.",
+    "indicator_features": "missing_mb_flag == 1 or missing_uc_flag == 1",
+    "potential_risk": "Lapse in internal financial controls, inability to substantiate executed quantities.",
+    "audit_type": "COMPLIANCE_AUDIT",
+    "source_report": "CAG Audit Observation on Record Maintenance",
+    "severity": "MEDIUM",
+    "evidence_requirements": "MB ledger, division cashbook, verified contractor bills."
+  }
+]
