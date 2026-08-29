@@ -27,7 +27,7 @@ class PGVectorStore:
           document_id TEXT,
           chunk_index INT,
           text TEXT,
-          embedding vector(384),   -- dimension matches provider
+          embedding vector(1024),   -- dimension matches BGE-M3 provider
           page_number INT,
           section TEXT,
           project_id TEXT,
@@ -36,7 +36,7 @@ class PGVectorStore:
           metadata JSONB
     """
 
-    def __init__(self, connection_pool, embedding_dimension: int = 384):
+    def __init__(self, connection_pool, embedding_dimension: int = 1024):
         """
         Args:
             connection_pool: asyncpg connection pool
