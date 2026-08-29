@@ -43,7 +43,17 @@ const MOCK_AGENCIES: ImplementingAgency[] = [
 ];
 
 export function AgenciesPage() {
-  const [agencies] = useState<ImplementingAgency[]>(MOCK_AGENCIES);
+  const [agencies, setAgencies] = useState<ImplementingAgency[]>(MOCK_AGENCIES);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getAgencies().then(({ data, error }) => {
+      if (data && !error && Array.isArray(data) && data.length > 0) {
+        setAgencies(data as ImplementingAgency[]);
+      }
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <div className="space-y-6">

@@ -38,7 +38,17 @@ const MOCK_POLICIES: PolicyRule[] = [
 ];
 
 export function PoliciesPage() {
-  const [policies] = useState<PolicyRule[]>(MOCK_POLICIES);
+  const [policies, setPolicies] = useState<PolicyRule[]>(MOCK_POLICIES);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getPolicies().then(({ data, error }) => {
+      if (data && !error && Array.isArray(data) && data.length > 0) {
+        setPolicies(data as PolicyRule[]);
+      }
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <div className="space-y-6 select-none font-sans">

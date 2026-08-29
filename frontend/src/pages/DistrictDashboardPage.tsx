@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card'
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '../components/ui/table';
 import { Button } from '../components/ui/button';
 import { projectService } from '../services/projectService';
+import { getDashboardSummary } from '../services/api';
 import { useRoleStore } from '../stores/useRoleStore';
 import { useT } from '../i18n/useT';
 import { formatCurrencyINR } from '../lib/utils';
@@ -44,6 +45,13 @@ export function DistrictDashboardPage() {
 
   useEffect(() => {
     setLoading(true);
+    // Fetch from backend API for dashboard summary
+    getDashboardSummary({ district: selectedDistrict }).then(({ data, error }) => {
+      if (data && !error) {
+        console.log('[DistrictDashboard] Backend API responded:', data.data_source, 'projects:', data.total_projects);
+      }
+    });
+    // Fetch from local mock service
     projectService.getProjectsSummary(selectedDistrict).then(setSummary);
     projectService.getProjects({ district: selectedDistrict }).then((data) => {
       setProjects(data);

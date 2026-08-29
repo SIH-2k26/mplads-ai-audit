@@ -49,7 +49,17 @@ const MOCK_CONTRACTORS: Contractor[] = [
 ];
 
 export function ContractorsPage() {
-  const [contractors] = useState<Contractor[]>(MOCK_CONTRACTORS);
+  const [contractors, setContractors] = useState<Contractor[]>(MOCK_CONTRACTORS);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getContractors().then(({ data, error }) => {
+      if (data && !error && Array.isArray(data) && data.length > 0) {
+        setContractors(data as Contractor[]);
+      }
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <div className="space-y-6">
