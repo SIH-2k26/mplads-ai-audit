@@ -238,7 +238,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
         {/* Footer info in sidebar */}
         <div className="px-3 pt-4 border-t border-[#F1F0EC] text-xs text-[#6B6B6B] flex items-center justify-between">
-          <span>MPLADS Sentinel v2.4</span>
+          <span>SANCHAY v3.0</span>
           <span className="w-2 h-2 rounded-full bg-[#9FE870]" title="System Live" />
         </div>
       </aside>
