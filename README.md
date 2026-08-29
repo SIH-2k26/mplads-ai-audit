@@ -1,23 +1,26 @@
 <div align="center">
 
-# 🏛️ AGASTYA — MPLADS AI AUDIT & RISK INTELLIGENCE PLATFORM
-### *Automated Governance, Audit, Surveillance & Trend Yielding Analytics*
+# 🏛️ SANCHAY — National Infrastructure Intelligence Platform
+### *Scheme Audit, Network-Centric Compliance & High-Assurance Yield Intelligence*
 
 **Smart India Hackathon (SIH-2024 / SIH-26102)**  
 **Ministry of Statistics and Programme Implementation (MoSPI) — Data Informatics & Innovation Division (DIID)**
 
-[![CI / Pipeline Status](https://img.shields.io/badge/Pipeline-170%20Passed%20%7C%20100%25%20Clean-success?style=flat-square&logo=githubactions)](https://github.com/SIH-2k26/mplads-ai-audit)
-[![ML Ensemble PR-AUC](https://img.shields.io/badge/ML%20Ensemble%20PR--AUC-0.9335-blue?style=flat-square&logo=scikitlearn)](https://github.com/SIH-2k26/mplads-ai-audit)
-[![Target Leakage](https://img.shields.io/badge/Target%20Leakage-0.00%25%20Verified-brightgreen?style=flat-square)](https://github.com/SIH-2k26/mplads-ai-audit)
-[![RAG Citations](https://img.shields.io/badge/RAG%20Faithfulness-98.5%25-orange?style=flat-square)](https://github.com/SIH-2k26/mplads-ai-audit)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Strict%200%20Errors-informational?style=flat-square&logo=typescript)](https://github.com/SIH-2k26/mplads-ai-audit)
-[![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20%7C%20Pydantic%20v2-teal?style=flat-square&logo=fastapi)](https://github.com/SIH-2k26/mplads-ai-audit)
+[![Live Production](https://img.shields.io/badge/Production-Live%20on%20Vercel%20%26%20Railway-brightgreen?style=flat-square&logo=vercel)](https://sanchay-ai-two.vercel.app/)
+[![Pipeline Status](https://img.shields.io/badge/Pipeline-170%20Passed%20%7C%20100%25%20Clean-success?style=flat-square&logo=githubactions)](https://github.com/SIH-2k26/sanchay-ai)
+[![ML Ensemble PR-AUC](https://img.shields.io/badge/ML%20Ensemble%20PR--AUC-0.9335-blue?style=flat-square&logo=scikitlearn)](https://github.com/SIH-2k26/sanchay-ai)
+[![Target Leakage](https://img.shields.io/badge/Target%20Leakage-0.00%25%20Verified-brightgreen?style=flat-square)](https://github.com/SIH-2k26/sanchay-ai)
+[![RAG Faithfulness](https://img.shields.io/badge/RAG%20Faithfulness-98.5%25-orange?style=flat-square)](https://github.com/SIH-2k26/sanchay-ai)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict%200%20Errors-informational?style=flat-square&logo=typescript)](https://github.com/SIH-2k26/sanchay-ai)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20%7C%20Pydantic%20v2-teal?style=flat-square&logo=fastapi)](https://github.com/SIH-2k26/sanchay-ai)
 
 ---
 
 ### **DETECT → EXPLAIN → PREDICT → INVESTIGATE → LEARN**
 
 *An end-to-end AI-powered Government Risk Intelligence, Automated Audit, and Forensic Decision-Support System designed for the Member of Parliament Local Area Development Scheme (MPLADS).*
+
+🌐 **Live Public Portal:** [https://sanchay-ai-two.vercel.app/](https://sanchay-ai-two.vercel.app/)
 
 </div>
 
@@ -28,16 +31,16 @@
 1. [Executive Overview & Vision](#1-executive-overview--vision)
 2. [Core Architectural Framework](#2-core-architectural-framework)
 3. [Key Innovations & Technical Capabilities](#3-key-innovations--technical-capabilities)
-   * [19 Risk & Governance Domains](#a-19-risk--governance-domains)
+   * [19 AI Multi-Agent Swarm](#a-19-ai-multi-agent-risk-swarm)
    * [Multi-Classifier Machine Learning Suite](#b-multi-classifier-machine-learning-suite)
    * [Explainable AI (TreeSHAP) & Plain-English Translation](#c-explainable-ai-treeshap)
    * [Temporal Regulatory RAG Engine](#d-temporal-regulatory-rag-engine)
    * [EU ARACHNE 7-Pillar Anti-Fraud Risk Matrix](#e-eu-arachne-7-pillar-anti-fraud-matrix)
    * [OCDS 5-Stage Procurement Audit Flow](#f-open-contracting-data-standard-ocds-flow)
    * [Fund-Lapse Risk Triage & What-If Simulator](#g-fund-lapse-risk-triage--simulator)
-4. [Role-Based Operational Dashboards](#4-role-based-operational-dashboards)
+4. [Role-Based Operational Cockpits](#4-role-based-operational-cockpits)
 5. [Deterministic Golden Verification Scenarios](#5-deterministic-golden-verification-scenarios)
-6. [Data Pipeline, Schema Integrity & Anti-Leakage Controls](#6-data-pipeline--anti-leakage-controls)
+6. [Data Pipeline & Anti-Leakage Controls](#6-data-pipeline--anti-leakage-controls)
 7. [System Performance & Benchmark Metrics](#7-system-performance--benchmark-metrics)
 8. [Interactive API Specification](#8-interactive-api-specification)
 9. [Repository Directory Layout](#9-repository-directory-layout)
@@ -52,15 +55,15 @@ The **Member of Parliament Local Area Development Scheme (MPLADS)** is a flagshi
 **The Governance Challenge:**
 Traditional audit mechanisms rely on retrospective, sample-based manual inspections conducted months or years after fund disbursement. This allows cost inflation, single-bid tender manipulation, ghost assets, and milestone desynchronization to go undetected until irreversible financial loss occurs.
 
-**The AGASTYA Solution:**
-AGASTYA transitions oversight from *post-mortem inspection* to **continuous, proactive, explainable risk intelligence**. It unifies deterministic statutory rules, multi-model machine learning, graph analytics, and temporal RAG to audit 100% of works in real-time across their full lifecycle:
+**The SANCHAY Solution:**
+SANCHAY transitions oversight from *post-mortem inspection* to **continuous, proactive, explainable risk intelligence**. It unifies deterministic statutory rules, 19 specialized AI agents, multi-model machine learning, graph analytics, and temporal RAG to audit 100% of works in real-time across their full lifecycle:
 
 ```text
 DATA (12 Relational Tables / 176 Features)
   ↓
 KNOWLEDGE (15 Statutory Clauses / GFR 2017 / CVC / CAG)
   ↓
-DETECTION (5 ML Classifiers + Isolation Forest Contamination)
+DETECTION (19 AI Agents + 5 ML Classifiers + Isolation Forest)
   ↓
 EXPLANATION (TreeSHAP Attribution + Neutral Plain-English Narratives)
   ↓
@@ -68,7 +71,7 @@ PREDICTION (Delay Curves + Milestone Desynchronization Trajectories)
   ↓
 INVESTIGATION (1-Click Printable Field Inspection Briefs + Case Triage)
   ↓
-HUMAN DECISION (District Authority Second Opinion + Verdict Logging)
+HUMAN DECISION (District Collector Second Opinion + Verdict Logging)
   ↓
 CONTINUOUS LEARNING (Active Feedback Loop Calibrating Model Weights)
 ```
@@ -92,13 +95,13 @@ CONTINUOUS LEARNING (Active Feedback Loop Calibrating Model Weights)
                         │                                          │
                         ▼                                          ▼
 ┌──────────────────────────────────────────────┐ ┌─────────────────────────────────────────────────┐
-│         MULTI-CLASSIFIER ML SUITE            │ │          DETERMINISTIC COMPLIANCE RULES         │
-│  • Random Forest (PR-AUC 0.9335, F1 88.15%)  │ │  • Rule 1: Fin vs Phys Progress Gap (>20%)      │
-│  • Gradient Boosting (PR-AUC 0.9315)         │ │  • Rule 2: Missing Measurement Book / UC        │
-│  • CatBoost Classifier (PR-AUC 0.9263)       │ │  • Rule 3: Single-Bid Tender without Retender   │
-│  • XGBoost Classifier (PR-AUC 0.9259)        │ │  • Rule 4: Cost Overrun > 115% of Sanction      │
-│  • LightGBM Classifier (PR-AUC 0.9255)       │ │  • Rule 5: 45-Day Statutory Sanction SLA        │
-│  • Isolation Forest (Contamination = 0.15)   │ │  • Rule 6: SC (15%) / ST (7.5%) Quota Tracker   │
+│         MULTI-CLASSIFIER ML SUITE            │ │          19 AI MULTI-AGENT SWARM                │
+│  • Random Forest (PR-AUC 0.9335, F1 88.15%)  │ │  • Part A: Data Quality, Eligibility, Budget    │
+│  • Gradient Boosting (PR-AUC 0.9315)         │ │    Deadline, Docs, Procurement, Contractor      │
+│  • CatBoost Classifier (PR-AUC 0.9263)       │ │    Geographic Intel, Duplicate/Ghost Detection  │
+│  • XGBoost Classifier (PR-AUC 0.9259)        │ │  • Part B: Payment, Progress Gap, Cost Intel    │
+│  • LightGBM Classifier (PR-AUC 0.9255)       │ │    Anomaly, Delay Curve, Fraud Archetypes, RAG  │
+│  • Isolation Forest (Contamination = 0.15)   │ │  • LangGraph Stateful Orchestration Pipeline    │
 └───────────────────────┬──────────────────────┘ └─────────────────────────┬───────────────────────┘
                         │                                          │
                         └──────────────────┬───────────────────────┘
@@ -134,27 +137,29 @@ CONTINUOUS LEARNING (Active Feedback Loop Calibrating Model Weights)
 
 ## 3. Key Innovations & Technical Capabilities
 
-### A. 19 Risk & Governance Domains
-The system models risk across 19 specialized dimensions:
-1. **Project Identification:** Scheme code, sector classification, multi-year asset ID.
-2. **Cost Reasonability:** Schedule of Rates (SoR) deviation, peer mean/median cost/sqft/km.
-3. **Procurement Integrity:** Single-bid flag, compressed tender publication windows (<7 days), bid disqualification ratios.
-4. **Contract Administration:** Award-to-estimate deviation, sub-contracting layers, time extensions.
-5. **Financial Behavior:** Disbursement velocity, March fiscal year-end rush spending (>40% in Q4).
-6. **Physical vs. Financial Progress:** Desynchronization radar ($|\text{Financial Progress} - \text{Physical Progress}| > 20\%$).
-7. **Timeline & SLA Tracking:** 45-day statutory sanction SLA (Guidelines Para 3.11), 18-month post-demitting completion rule.
-8. **Contractor Intelligence:** Cumulative portfolio size, pan-state multi-agency concentration, default rates.
-9. **Corporate Collusion:** Cross-bidder shared director DINs, GSTIN prefixes, common registered addresses.
-10. **Duplicate & Ghost Asset Detection:** Sentence-BERT semantic title similarity + 500m GIS geospatial clustering.
-11. **Regulatory Compliance Rules:** Automated validation against 15 statutory clauses.
-12. **Historical Reputation:** Repeat irregularity index, past arbitration history.
-13. **Geospatial Density:** Spatial heatmaps of expenditure density vs. local census demographics.
-14. **Predictive Bottlenecks:** Survival analysis modeling probability of multi-month execution stagnation.
-15. **Hybrid Risk Scoring:** Dynamic 0–100 composite index weighted by confidence.
-16. **Explainability:** Natural language translation of SHAP top feature drivers.
-17. **Data Quality & Confidence:** Missing field penalty, telemetry confidence scoring.
-18. **Document Verification:** Measurement Book (MB) uploads, Form MPLADS-UC utilization certificates.
-19. **Field Asset Verification:** Geotagged photographic proof, QR asset registers.
+### A. 19 AI Multi-Agent Risk Swarm
+The backend executes a 19-agent swarm coordinated via LangGraph:
+* **Part A (Data & Structural Compliance Agents):**
+  1. `DataQualityAgent`: Analyzes schema completeness, telemetry confidence, and missing fields.
+  2. `EligibilityAgent`: Validates work category against permissible MPLADS Schedule I/II works.
+  3. `BudgetAgent`: Assesses cost ceilings, SoR estimates, and contingency fund allocations.
+  4. `DeadlineAgent`: Monitors 45-day sanction SLAs (Para 3.11) and 18-month completion mandates.
+  5. `DocumentationAgent`: Verifies presence of Administrative Sanction, DPR, Measurement Book (MB), and UC.
+  6. `ProcurementAgent`: Flags single-bid tenders, short publication windows (<7 days), and GeM bypass.
+  7. `ContractorIntelligenceAgent`: Evaluates vendor concentration, pan-district share, and default records.
+  8. `GeographicIntelligenceAgent`: Cross-references boundary bounding boxes and demographic priority areas.
+  9. `DuplicateGhostWorkAgent`: S-BERT semantic title similarity + 500m geospatial clustering.
+* **Part B (Risk, ML & RAG Agents):**
+  10. `PaymentAgent`: Monitors tranche velocity and March fiscal rush spending (>40% in Q4).
+  11. `FinancialProgressAgent`: Evaluates disbursement speed vs. milestones.
+  12. `PhysicalProgressAgent`: Computes discrepancy with ISRO Cartosat-3 elevation / optical progress.
+  13. `AssetCompletionAgent`: Assesses geotagged completion certificate validity.
+  14. `CostIntelligenceAgent`: Tracks Schedule of Rates (SoR) deviations against regional benchmarks.
+  15. `AnomalyAgent`: Runs unsupervised Isolation Forest anomaly scoring on multi-dimensional vectors.
+  16. `DelayPredictionAgent`: Survival analysis predicting multi-month milestone stagnation.
+  17. `TrendBenchmarkAgent`: Evaluates district pacing against state and national peer baselines.
+  18. `FraudArchetypeAgent`: Matches behavioral patterns against known corruption archetypes (cover bidding, split orders).
+  19. `RagAgent`: Queries date-aware statutory guidelines and GFR rules for precise regulatory citations.
 
 ---
 
@@ -189,7 +194,7 @@ A date-aware statutory retrieval system grounding findings in official governmen
   * *General Financial Rules (GFR) 2017 Rule 149* (Mandatory GeM procurement)
   * *CVC Circular 02/05/2022* (Single-bid transparency safeguards)
   * *CAG Performance Audit Report #2341* (Split-tendering & milestone compliance)
-* **Temporal Logic:** Automatically determines applicability based on project sanction date (works sanctioned on/after 01-Apr-2023 are audited under 2023 Guidelines; prior works under 2016 provisions).
+* **Temporal Logic:** Automatically determines applicability based on project sanction date.
 * **Performance:** 98.5% Citation Faithfulness, 90.0% Temporal Routing Accuracy, 0.06 ms query latency.
 
 ---
@@ -220,24 +225,23 @@ Provides stage-by-stage procurement tracking across the 5 OCDS lifecycle stages:
 ---
 
 ### G. Fund-Lapse Risk Triage & Simulator
-An interactive What-If scenario engine for Ministry administrators to simulate compressed disbursement deadlines:
-* **COVID-19 Suspension Resumption Simulator:** Replays post-pandemic compressed release windows.
+An interactive What-If scenario engine for administrators to simulate compressed disbursement deadlines:
+* **Digital Twin Cloning:** Replays scenario deltas ($\Delta \text{Risk}$) under user-modified timeline delays, cost shifts, and physical progress changes.
 * **Fiscal Year-End March Rush:** Models risk surges when unspent balances face statutory lapse.
-* **Interactive Sliders:** Adjust sanction delays, execution velocities, and document upload delays to view real-time risk score deltas ($\Delta \text{Risk}$).
 
 ---
 
-## 4. Role-Based Operational Dashboards
+## 4. Role-Based Operational Cockpits
 
 | User Role | Route | Key Features & Capabilities |
 | :--- | :--- | :--- |
+| **District Authority / Collector** | `/district` | **Default Primary Cockpit.** Pre-sanction second opinion panel, financial vs. physical progress gap radar, SLA breach queues, 1-click printable Field Inspection Brief. |
 | **Hon'ble Member of Parliament** | `/mp` | Recommendation status tracker, 45-day district sanction SLA gauge, SC/ST expenditure quota visualizer, constituency map. |
-| **District Authority / Collector** | `/district` | Pre-sanction second opinion panel, financial vs. physical progress gap radar, 1-click printable Field Inspection Brief. |
 | **State Nodal Department** | `/state` | Inter-district benchmark league tables, state-wide fund utilization pacing, bottleneck identification. |
-| **Ministry / MoSPI DIID** | `/ministry` | National risk heatmaps, state performance rankings, Fund-Lapse Risk Simulator (Use Case C). |
+| **Ministry / MoSPI DIID** | `/ministry` | National risk heatmaps, state performance rankings, Fund-Lapse Risk Simulator. |
 | **CAG / CVC Vigilance Auditor** | `/cases`, `/reports` | Risk-ranked forensic case queue, TreeSHAP feature attribution, Human-in-the-Loop verdict recorder, immutable audit logs. |
 | **Live Assessment Center** | `/risk-assessment` | Interactive live risk playground connecting real-time frontend inputs to `POST /api/v1/analyze`. |
-| **ARACHNE Anti-Fraud Center** | `/arachne-audit` | 7-pillar early warning radar + OCDS 5-stage procurement audit flow. |
+| **Registries & Compliance** | `/contractors`, `/agencies`, `/compliance`, `/policies` | Monitored contractor profiles, implementing agency workloads, statutory GFR rules catalog. |
 
 ---
 
@@ -288,7 +292,7 @@ Verified via automated end-to-end integration tests (`tests/test_end_to_end_pipe
 | **Pytest Suite** | 100% Passing | **170 Passed, 0 Failed, 22 Skipped in 8.77s** |
 | **End-to-End Golden Tests** | 8 Deterministic Tests | **9 / 9 Passed (`tests/test_end_to_end_pipeline.py`)** |
 | **TypeScript Static Check** | 0 Type Errors | **0 Errors (`npx tsc --noEmit`)** |
-| **Frontend Production Build** | Clean Vite Bundle | **586 ms (`dist/` generated)** |
+| **Frontend Production Build** | Clean Vite Bundle | **4.35s (`dist/` generated, 0 errors)** |
 | **Data Integrity Audit** | 100% Referential Integrity | **15 / 15 Checks PASSED_CLEAN** |
 | **Anti-Target Leakage** | 0.00% Leakage | **0 Leaked Target Columns in 176 Features** |
 | **RAG Faithfulness** | $\ge 95\%$ | **98.50% Citation Faithfulness** |
@@ -404,32 +408,34 @@ Executes end-to-end risk evaluation over input project telemetry:
 ## 9. Repository Directory Layout
 
 ```text
-mplads-ai-audit/
+sanchay-ai/
 ├── backend/
-│   ├── api/v1/endpoints/    # FastAPI route controllers (risk.py, models, cases, rag)
+│   ├── api/v1/endpoints/    # REST endpoints (health, dashboard, alerts, cases, contractors, policies)
+│   ├── orchestration/       # LangGraph 19-agent execution graph & state management
+│   ├── agents/              # 19 Specialized AI Risk & Governance Agents
 │   ├── ml/                  # Inference engine, ensemble logic, feature transformers
 │   ├── rag/                 # Regulatory retriever, BM25 tokenizer, 15 statutory clauses
-│   ├── schemas/             # Strict Pydantic contracts (analysis.py)
-│   ├── tests/               # Backend unit and contract test suite
+│   ├── simulation/          # What-If Scenario Digital Twin Simulator
+│   ├── services/            # PDF generation, telemetry synthesizers
+│   ├── data/                # Data pipelines, validators, and model artifacts
+│   ├── Dockerfile           # Production container for Railway cloud deployment
 │   └── main.py              # Application entrypoint & middleware configuration
 ├── data/
-│   ├── synthetic/           # 12 Relational normalized datasets (CSV + Parquet)
+│   ├── synthetic/           # 12 Relational normalized datasets (CSV + Parquet, 5,000 works)
 │   ├── generate.py          # 19-Domain parameter-driven synthetic data generator
 │   └── validate.py          # Multi-tier schema and referential integrity validator
+├── frontend/
+│   ├── landing-main/        # 10-Chapter institutional landing page (Hero, Pipeline, Mosaic)
+│   ├── src/                 # React 18 / TypeScript single-page application
+│   │   ├── components/      # Wise design system cards, modals, graphs, sidebar
+│   │   ├── pages/           # District, MP, State, Ministry, Cases, Reports cockpits
+│   │   ├── stores/          # Zustand state stores (role, language, UI)
+│   │   └── services/        # API client with automatic dataset fallback
+│   ├── vercel.json          # Vercel deployment manifest & SPA rewrite rules
+│   └── package.json         # Frontend dependencies & scripts
 ├── docs/                    # Architecture, API contracts, audits, and verification reports
-├── ml/                      # Training scripts, CatBoost/XGBoost feature pipelines
-├── models/                  # Serialized ML model artifacts (joblib/pkl)
-├── reports/                 # Auto-generated JSON/HTML audit and RAG evaluation reports
-├── scripts/                 # Live scenario benchmarks, leakage auditor, RAG evaluate
-├── src/                     # React 18 / TypeScript frontend application
-│   ├── app/                 # Router configuration & view routing
-│   ├── components/          # Domain widgets, ARACHNE matrix, Fund-Lapse simulator
-│   ├── pages/               # 20 Role-based operational dashboards & portals
-│   └── services/            # Axios API clients & live inference providers
-├── tests/                   # 8 Deterministic golden pipeline integration tests
-├── Makefile                 # One-command execution & verification pipeline
-├── pytest.ini               # Test configuration
-└── package.json             # Frontend dependency manifest
+├── railway.toml             # Railway deployment manifest
+└── Makefile                 # One-command execution & verification pipeline
 ```
 
 ---
@@ -444,35 +450,33 @@ mplads-ai-audit/
 ### 2. Clone & Install Dependencies
 ```bash
 # Clone the repository
-git clone https://github.com/SIH-2k26/mplads-ai-audit.git
-cd mplads-ai-audit
+git clone https://github.com/SIH-2k26/sanchay-ai.git
+cd sanchay-ai
 
 # Setup Python Virtual Environment
 python3 -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r backend/requirements.txt
 
 # Install Frontend Dependencies
+cd frontend
 npm install
+cd ..
 ```
 
-### 3. One-Step Verification (`make all`)
-Executes strict data validation, anti-leakage scan, 170+ pytest tests, and Vite build:
-```bash
-make all
-```
-
-### 4. Launch the Application Servers
+### 3. Launch the Application Servers
 
 **Terminal 1 — FastAPI Backend (Port 8000):**
 ```bash
-uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+cd backend
+python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 * Interactive Swagger Docs: `http://localhost:8000/docs`
-* ReDoc API Reference: `http://localhost:8000/redoc`
+* Health Check: `http://localhost:8000/api/v1/health`
 
-**Terminal 2 — React / Vite Frontend (Port 5173):**
+**Terminal 2 — React / Vite Frontend (Port 5173 / 5174):**
 ```bash
+cd frontend
 npm run dev
 ```
 * Web Dashboard: `http://localhost:5173`

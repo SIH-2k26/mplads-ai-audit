@@ -85,6 +85,8 @@ const ROLE_NAV: Record<UserRole, NavGroup[]> = {
         { path: '/contractors', labelKey: 'contractors', icon: Users },
         { path: '/agencies', labelKey: 'agenciesOffice', icon: Briefcase },
         { path: '/compliance', labelKey: 'statutoryCompliance', icon: BarChart2 },
+        { path: '/policies', labelKey: 'policiesRegistry', icon: BookOpen },
+        { path: '/reports', labelKey: 'auditReports', icon: FileText },
       ],
     },
   ],

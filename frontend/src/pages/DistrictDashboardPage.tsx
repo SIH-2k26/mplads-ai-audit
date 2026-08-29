@@ -34,7 +34,7 @@ const AVAILABLE_DISTRICTS = [
 
 export function DistrictDashboardPage() {
   const t = useT();
-  const { selectedDistrict, setDistrict } = useRoleStore();
+  const { selectedDistrict, setDistrict, setRole } = useRoleStore();
 
   const [summary, setSummary] = useState({
     totalCount: 0, criticalCount: 0, totalSanctioned: 0,
@@ -42,6 +42,10 @@ export function DistrictDashboardPage() {
   });
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setRole('DISTRICT_AUTHORITY');
+  }, [setRole]);
 
   useEffect(() => {
     setLoading(true);

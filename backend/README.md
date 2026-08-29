@@ -1,8 +1,8 @@
-# MPLADS Guardian — Part A Backend Architecture & Developer Guide
+# SANCHAY — Backend Architecture & Developer Guide
 
 ## Overview
 
-**Part A** forms the robust, production-grade **Data Platform and Foundational Infrastructure** for **MPLADS Guardian** (AI-Powered Government Risk Assessment System for Smart India Hackathon - SIH).
+The **SANCHAY Backend** forms the robust, production-grade **Risk Intelligence and Audit Platform** for MPLADS oversight (Smart India Hackathon SIH-26102).
 
 Part A is responsible for:
 - Data Ingestion, Validation, Normalization, Entity Resolution & Provenance Tracing
