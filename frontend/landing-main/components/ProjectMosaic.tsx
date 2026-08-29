@@ -177,6 +177,17 @@ interface MosaicTileProps {
   isFading?: boolean;
 }
 
+const CATEGORY_SECTION_MAP: Record<string, string> = {
+  roads: 'directory',
+  sanitation: 'directory',
+  water: 'digital-twin',
+  health: 'rules',
+  community: 'digital-twin',
+  bridges: 'national',
+  inspection: 'early-warning',
+  schools: 'rules',
+};
+
 function MosaicTile({ slot, aspect, featured, isFading }: MosaicTileProps) {
   const [imageError, setImageError] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -186,11 +197,21 @@ function MosaicTile({ slot, aspect, featured, isFading }: MosaicTileProps) {
     setImageError(false);
   }, [slot.imageIndex]);
 
+  const handleTileClick = () => {
+    const targetId = CATEGORY_SECTION_MAP[imgData?.category] || 'directory';
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div
+      onClick={handleTileClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`group relative overflow-hidden rounded-[4px] border border-[#D9DFE3] bg-[#15324A] shadow-card transition-all duration-300 w-full ${aspect} cursor-pointer hover:border-[#15324A] hover:shadow-elevated`}
+      title={`Click to inspect ${slot.defaultTitle} in ${slot.categoryLabel} section`}
+      className={`group relative overflow-hidden rounded-[4px] border border-[#D9DFE3] bg-[#15324A] shadow-card transition-all duration-300 w-full ${aspect} cursor-pointer hover:border-[#15324A] hover:shadow-elevated active:scale-[0.98]`}
     >
       {/* Infrastructure Image */}
       {!imageError ? (

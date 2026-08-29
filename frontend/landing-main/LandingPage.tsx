@@ -70,10 +70,14 @@ export function LandingPage() {
       </div>
 
       {/* CHAPTER 07: From PDF Documents to Structured Intelligence */}
-      <DocumentIntelligenceSection />
+      <div id="document-intelligence">
+        <DocumentIntelligenceSection />
+      </div>
 
       {/* CHAPTER 08: Investigate With Corroborated Evidence */}
-      <InvestigationTimelineSection />
+      <div id="investigation">
+        <InvestigationTimelineSection />
+      </div>
 
       {/* CHAPTER 09: One National View. Thousands of Works. */}
       <div id="national">
