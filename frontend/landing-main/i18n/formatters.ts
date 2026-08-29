@@ -30,7 +30,7 @@ export function formatCurrency(
 
   // Standard Indian comma grouping: 1,00,000
   try {
-    return new Intl.NumberFormat(lang === 'ur' ? 'ur-PK' : 'en-IN', {
+    return new Intl.NumberFormat('en-IN', {
       style: 'currency',
       currency: 'INR',
       maximumFractionDigits: 0,
@@ -49,7 +49,7 @@ export function formatNumber(
 ): string {
   if (isNaN(value)) return '0';
   try {
-    return new Intl.NumberFormat(lang === 'ur' ? 'ur-PK' : 'en-IN').format(value);
+    return new Intl.NumberFormat('en-IN').format(value);
   } catch {
     return value.toLocaleString('en-IN');
   }
@@ -80,7 +80,7 @@ export function formatDate(
   if (isNaN(d.getTime())) return String(dateStr);
 
   try {
-    const localeCode = lang === 'hi' ? 'hi-IN' : lang === 'mr' ? 'mr-IN' : lang === 'bn' ? 'bn-IN' : lang === 'ur' ? 'ur-IN' : 'en-IN';
+    const localeCode = lang === 'hi' ? 'hi-IN' : lang === 'mr' ? 'mr-IN' : lang === 'bn' ? 'bn-IN' : 'en-IN';
     return d.toLocaleDateString(localeCode, {
       day: 'numeric',
       month: 'short',

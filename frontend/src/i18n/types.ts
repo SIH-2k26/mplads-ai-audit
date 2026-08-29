@@ -1,4 +1,4 @@
-export type SupportedLanguage = 'en' | 'hi' | 'mr' | 'pa' | 'te' | 'ta' | 'ur';
+export type SupportedLanguage = 'en' | 'hi' | 'mr' | 'pa' | 'te' | 'ta';
 
 export interface LanguageInfo {
   code: SupportedLanguage;
@@ -14,5 +14,4 @@ export const SUPPORTED_LANGUAGES: LanguageInfo[] = [
   { code: 'pa', name: 'Punjabi', nativeName: 'ਪੰਜਾਬੀ', dir: 'ltr' },
   { code: 'te', name: 'Telugu', nativeName: 'తెలుగు', dir: 'ltr' },
   { code: 'ta', name: 'Tamil', nativeName: 'தமிழ்', dir: 'ltr' },
-  { code: 'ur', name: 'Urdu', nativeName: 'اردو', dir: 'rtl' },
 ];

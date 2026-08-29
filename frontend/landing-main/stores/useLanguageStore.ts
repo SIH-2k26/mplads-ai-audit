@@ -28,9 +28,8 @@ function getInitialLanguage(): SupportedLanguage {
 
 function applyDocumentLanguage(lang: SupportedLanguage) {
   if (typeof document === 'undefined') return;
-  const langInfo = SUPPORTED_LANGUAGES.find((l) => l.code === lang) || SUPPORTED_LANGUAGES[0];
   document.documentElement.lang = lang;
-  document.documentElement.dir = langInfo.dir;
+  document.documentElement.dir = 'ltr';
 }
 
 export const useLanguageStore = create<LanguageState>((set) => {
