@@ -14,7 +14,7 @@ export function LandingFooter() {
               <div className="flex h-8 w-8 items-center justify-center rounded-[4px] bg-[#16324A] text-white border border-[#D89425]/40">
                 <Shield className="h-4 w-4 text-[#E5B45A]" />
               </div>
-              <span className="font-extrabold text-white text-base tracking-wider">AGASTYA</span>
+              <span className="font-extrabold text-white text-base tracking-wider">SANCHAY</span>
             </div>
             <p className="text-[11px] text-gray-400 leading-relaxed">
               AI-Powered Risk Intelligence & Investigation Decision Support for MPLADS.

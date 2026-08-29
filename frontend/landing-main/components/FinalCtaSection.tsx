@@ -21,7 +21,7 @@ export function FinalCtaSection() {
         </h2>
 
         <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
-          From project recommendation to physical completion, AGASTYA helps authorities see risk earlier, understand evidence faster and act with confidence.
+          From project recommendation to physical completion, SANCHAY helps authorities see risk earlier, understand evidence faster and act with confidence.
         </p>
 
         <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
@@ -31,7 +31,7 @@ export function FinalCtaSection() {
               size="lg"
               className="bg-[#D89425] hover:bg-[#C98220] text-[#16202A] text-xs sm:text-sm font-bold flex items-center gap-2 px-7 h-11 shadow-elevated"
             >
-              <span>OPEN AGASTYA DASHBOARD</span>
+              <span>OPEN SANCHAY DASHBOARD</span>
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>

@@ -22,7 +22,7 @@ function makeLocale(overrides: DeepPartial<typeof en>): typeof en {
 export const hi = makeLocale({
   common: {
     brandTagline: 'सांसद स्थानीय क्षेत्र विकास योजना जोखिम विश्लेषण मंच',
-    appName: 'अगस्त्य • एमपीलैड्स एआई ऑडिट',
+    appName: 'संचय • एमपीलैड्स एआई ऑडिट',
     search: 'खोजें...',
     searchPlaceholder: 'परियोजना, जिला, ठेकेदार या नियम खोजें...',
     loading: 'डेटा लोड हो रहा है...',
@@ -88,11 +88,11 @@ export const hi = makeLocale({
     highRiskCount: 'सक्रिय प्रारंभिक चेतावनियां',
     coverageStates: 'शामिल राज्य एवं केंद्र शासित प्रदेश',
     decisionTitle: 'डेटा से निर्णय तक।',
-    decisionSubtitle: 'अगस्त्य परियोजना अभिलेखों, वित्तीय लेनदेन, भौतिक प्रगति, शासन नियमों और साक्ष्यों को एकल विश्लेषण प्रणाली से जोड़ता है।',
+    decisionSubtitle: 'संचय परियोजना अभिलेखों, वित्तीय लेनदेन, भौतिक प्रगति, शासन नियमों और साक्ष्यों को एकल विश्लेषण प्रणाली से जोड़ता है।',
     publicQueryTitle: 'एमपीलैड्स के बारे में पूछें। प्रमाण देखें।',
     publicQuerySubtitle: 'नागरिक, शोधकर्ता और अधिकारी परियोजना खातों, ठेकेदार विवरण और वैधानिक नियमों की जांच कर सकते हैं।',
     suggestedQueries: 'सुझाए गए पारदर्शिता प्रश्न:',
-    askAgastya: 'अगस्त्य से पूछें',
+    askSanchay: 'संचय से पूछें',
     capsulesTitle: 'एमपीलैड्स महत्वपूर्ण जानकारी कैप्सूल',
     capsulesSubtitle: 'संक्षिप्त विवरण के लिए होवर करें • संपूर्ण साक्ष्य देखने के लिए क्लिक करें',
   },
@@ -141,7 +141,7 @@ export const hi = makeLocale({
 export const mr = makeLocale({
   common: {
     brandTagline: 'खासदार स्थानिक क्षेत्र विकास योजना जोखीम विश्लेषण प्रणाली',
-    appName: 'अगस्त्य • एमपीलॅड्स एआय ऑडिट',
+    appName: 'संचय • एमपीलॅड्स एआय ऑडिट',
     search: 'शोधा...',
     searchPlaceholder: 'प्रकल्प, जिल्हा, कंत्राटदार किंवा नियम शोधा...',
     loading: 'माहिती लोड होत आहे...',
@@ -207,11 +207,11 @@ export const mr = makeLocale({
     highRiskCount: 'सक्रिय सतर्कता सूचना',
     coverageStates: 'राज्ये व केंद्रशासित प्रदेश',
     decisionTitle: 'माहितीकडून निर्णयाकडे.',
-    decisionSubtitle: 'अगस्त्य प्रकल्प नोंदी, आर्थिक व्यवहार, प्रत्यक्ष प्रगती, नियम आणि पुरावे यांना एकात्मिक विश्लेषणाने जोडते.',
+    decisionSubtitle: 'संचय प्रकल्प नोंदी, आर्थिक व्यवहार, प्रत्यक्ष प्रगती, नियम आणि पुरावे यांना एकात्मिक विश्लेषणाने जोडते.',
     publicQueryTitle: 'एमपीलॅड्स बद्दल विचारा. पडताळलेले पुरावे पहा.',
     publicQuerySubtitle: 'नागरिक व अधिकारी प्रकल्पांचे हिशोब, कंत्राटदारांची माहिती आणि नियमांची तपासणी करू शकतात.',
     suggestedQueries: 'पारदर्शकता प्रश्न:',
-    askAgastya: 'अगस्त्यला विचारा',
+    askSanchay: 'संचयला विचारा',
     capsulesTitle: 'महत्त्वाचे माहिती संच',
     capsulesSubtitle: 'संक्षिप्त माहितीसाठी कर्सर फिरवा • तपशीलवार पुराव्यांसाठी क्लिक करा',
   },
@@ -299,7 +299,7 @@ export const bn = makeLocale({
 export const ta = makeLocale({
   common: {
     brandTagline: 'எம்பிஎல்ஏடிஎஸ் இடர் நுண்ணறிவு தளம்',
-    appName: 'அகஸ்தியா • எம்பிஎல்ஏடிஎஸ் தணிக்கை',
+    appName: 'சஞ்சய் • எம்பிஎல்ஏடிஎஸ் தணிக்கை',
     search: 'தேடுக...',
     searchPlaceholder: 'திட்டம், மாவட்டம், ஒப்பந்ததாரர் அல்லது விதிகளைத் தேடுக...',
     loading: 'தரவு ஏற்றப்படுகிறது...',
@@ -338,7 +338,7 @@ export const ta = makeLocale({
 export const te = makeLocale({
   common: {
     brandTagline: 'ఎంపీల్యాడ్స్ రిస్క్ ఇంటెలిజెన్స్ ప్లాట్‌ఫారమ్',
-    appName: 'అగస్త్య • ఎంపీల్యాడ్స్ ఆడిట్',
+    appName: 'సంచయ్ • ఎంపీల్యాడ్స్ ఆడిట్',
     search: 'శోధించండి...',
     close: 'మూసివేయి',
     sanctioned: 'మంజూరైనది',
@@ -447,7 +447,7 @@ export const ml = makeLocale({
 export const pa = makeLocale({
   common: {
     brandTagline: 'ਐਮਪੀਲੈਡਸ ਜੋਖਮ ਵਿਸ਼ਲੇਸ਼ਣ ਪਲੇਟਫਾਰਮ',
-    appName: 'ਅਗਸਤਿਆ • ਐਮਪੀਲੈਡਸ ਆਡਿਟ',
+    appName: 'ਸੰਚੈ • ਐਮਪੀਲੈਡਸ ਆਡਿਟ',
     search: 'ਖੋਜੋ...',
     close: 'ਬੰਦ ਕਰੋ',
     sanctioned: 'ਮਨਜ਼ੂਰਸ਼ੁਦਾ',
@@ -602,7 +602,7 @@ export const sd = makeLocale({
 export const sa = makeLocale({
   common: {
     brandTagline: 'सांसद-स्थानविकास-योजना संकट-विश्लेषण-तन्त्रम्',
-    appName: 'अगस्त्यः • सांसदनिधि-परीक्षा',
+    appName: 'संचयः • सांसदनिधि-परीक्षा',
     search: 'अन्विष्यताम्...',
     close: 'पिदधातु',
     sanctioned: 'स्वीकृतम्',
@@ -629,7 +629,7 @@ export const sa = makeLocale({
 export const ne = makeLocale({
   common: {
     brandTagline: 'सांसद कोष जोखिम विश्लेषण प्लेटफर्म',
-    appName: 'अगस्त्य • एमपील्याड्स एआई अडिट',
+    appName: 'संचय • एमपील्याड्स एआई अडिट',
     search: 'खोज्नुहोस्...',
     close: 'बन्द गर्नुहोस्',
     sanctioned: 'स्वीकृत',
@@ -656,7 +656,7 @@ export const ne = makeLocale({
 export const kok = makeLocale({
   common: {
     brandTagline: 'खासदार निधी धोको विश्लेषण माची',
-    appName: 'अगस्त्य • तपासणी',
+    appName: 'संचय • तपासणी',
     search: 'सोदात...',
     close: 'बंद करात',
     sanctioned: 'मंजूर',
@@ -683,7 +683,7 @@ export const kok = makeLocale({
 export const mai = makeLocale({
   common: {
     brandTagline: 'सांसद निधि जोखिम विश्लेषण मंच',
-    appName: 'अगस्त्य • एआई ऑडिट',
+    appName: 'संचय • एआई ऑडिट',
     search: 'खोजू...',
     close: 'बंद करू',
     sanctioned: 'स्वीकृत',
@@ -710,7 +710,7 @@ export const mai = makeLocale({
 export const doi = makeLocale({
   common: {
     brandTagline: 'एमपीलैड्स जोखिम विश्लेषण मंच',
-    appName: 'अगस्त्य • जांच प्रणाली',
+    appName: 'संचय • जांच प्रणाली',
     search: 'तुप्पो...',
     close: 'बंद करो',
     sanctioned: 'मंजूर',
@@ -737,7 +737,7 @@ export const doi = makeLocale({
 export const brx = makeLocale({
   common: {
     brandTagline: 'सांसद अनसुंथाय खैफोद बिजिरनाय',
-    appName: 'अगस्त्य • आनजाद',
+    appName: 'संचय • आनजाद',
     search: 'नायगिर...',
     close: 'बन्द खालाम',
     sanctioned: 'गनायथि मोननाय',

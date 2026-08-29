@@ -265,7 +265,7 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#183B54] border border-[#234D6C] px-3.5 py-2 text-xs font-bold text-gray-200 hover:text-white hover:bg-[#1A415E] transition-colors"
                 >
                   <Search className="h-3.5 w-3.5 text-[#D99018]" />
-                  <span>Ask Follow-Up Query in Agastya AI</span>
+                  <span>Ask Follow-Up Query in Sanchay AI</span>
                 </button>
 
                 {data.actionUrl && (

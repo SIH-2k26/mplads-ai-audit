@@ -10,7 +10,7 @@ interface LanguageState {
   setLanguage: (lang: SupportedLanguage) => void;
 }
 
-const STORAGE_KEY = 'agastya_preferred_language';
+const STORAGE_KEY = 'sanchay_preferred_language';
 
 // Helper to get initial language from storage or default to 'en'
 function getInitialLanguage(): SupportedLanguage {

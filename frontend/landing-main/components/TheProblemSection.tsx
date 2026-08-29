@@ -58,7 +58,7 @@ export function TheProblemSection() {
           </h3>
 
           <p className="text-xs sm:text-sm text-[#667085] leading-relaxed max-w-2xl mx-auto">
-            Traditional administrative oversight examines projects months or years after expenditures have already been settled. Agastya acts as a continuous intelligence layer across the entire lifecycle — identifying cost deviations, milestone deceleration, and contractor cartelization before they mature into irrevocable audit findings.
+            Traditional administrative oversight examines projects months or years after expenditures have already been settled. Sanchay acts as a continuous intelligence layer across the entire lifecycle — identifying cost deviations, milestone deceleration, and contractor cartelization before they mature into irrevocable audit findings.
           </p>
         </div>
       </div>

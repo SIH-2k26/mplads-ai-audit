@@ -61,7 +61,7 @@ export function LandingNavbar() {
             <div>
               <div className="flex items-center gap-1.5 leading-none">
                 <span className="font-extrabold tracking-wider text-sm text-[#15324A] font-sans">
-                  AGASTYA
+                  SANCHAY
                 </span>
                 <span className="rounded bg-[#D99018]/10 px-1.5 py-0.5 text-[8px] font-bold text-[#D99018] border border-[#D99018]/30 font-mono">
                   MPLADS INTELLIGENCE
@@ -110,7 +110,7 @@ export function LandingNavbar() {
                 size="sm"
                 className="group bg-[#15324A] hover:bg-[#0F2638] text-white text-xs flex items-center gap-1.5 shadow-card font-bold h-8 px-3.5 transition-colors"
               >
-                <span>Open Agastya Dashboard</span>
+                <span>Open Sanchay Dashboard</span>
                 <ArrowRight className="h-3.5 w-3.5 text-[#E5B45A] transition-transform duration-200 group-hover:translate-x-1" />
               </Button>
             </Link>

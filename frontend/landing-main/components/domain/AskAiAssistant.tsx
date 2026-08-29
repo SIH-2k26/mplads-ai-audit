@@ -57,7 +57,7 @@ export function AskAiAssistant() {
           className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-[#18324A] text-white px-4 py-3 shadow-elevated border border-[#C98219] hover:bg-[#102A43] transition-all hover:scale-105"
         >
           <Sparkles className="h-4 w-4 text-[#E7A943]" />
-          <span className="text-xs font-bold tracking-wide">Ask AGASTYA Intelligence</span>
+          <span className="text-xs font-bold tracking-wide">Ask SANCHAY Intelligence</span>
         </button>
       )}
 
@@ -69,7 +69,7 @@ export function AskAiAssistant() {
             <div className="flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-[#E7A943]" />
               <h3 className="text-xs font-bold uppercase tracking-wider">
-                AGASTYA Grounded Assistant
+                SANCHAY Grounded Assistant
               </h3>
             </div>
             <div>

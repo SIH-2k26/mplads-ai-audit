@@ -43,7 +43,7 @@ export function LandingPage() {
         <PublicQuerySection />
       </div>
 
-      {/* CHAPTER 04: How AGASTYA Thinks — 7-Stage Intelligence Pipeline */}
+      {/* CHAPTER 04: How SANCHAY Thinks — 7-Stage Intelligence Pipeline */}
       <div id="how-it-thinks">
         <IntelligenceFlowSection />
       </div>

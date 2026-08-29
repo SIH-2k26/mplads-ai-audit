@@ -89,7 +89,7 @@ export function IntelligenceFlowSection() {
             CHAPTER 03 • SYSTEM ARCHITECTURE
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#15324A] tracking-tight uppercase leading-tight font-sans">
-            How AGASTYA Thinks.
+            How SANCHAY Thinks.
           </h2>
           <p className="text-sm sm:text-base text-[#647383] leading-relaxed">
             The end-to-end multi-stage pipeline converting raw administrative transactions into verifiable diagnostic signals. Click any stage to inspect technical logic.

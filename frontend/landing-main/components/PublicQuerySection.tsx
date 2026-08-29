@@ -52,7 +52,7 @@ const PRESET_QUERIES: QueryPreset[] = [
     query: 'Which projects have duplicate similarity?',
     category: 'DUPLICATION INTEL',
     answer:
-      'AGASTYA detected 23 potential cross-scheme duplication clusters in Maharashtra where MPLADS civil proposals exhibit >70% geospatial and semantic overlap with existing Central or State assets.',
+      'SANCHAY detected 23 potential cross-scheme duplication clusters in Maharashtra where MPLADS civil proposals exhibit >70% geospatial and semantic overlap with existing Central or State assets.',
     contributors: [
       { label: 'PMGSY Batch III Asphalt Roads Overlap', score: '12 Clusters', alert: true },
       { label: 'Jal Jeevan Mission Pipeline Overlap', score: '8 Clusters', alert: true },
@@ -97,7 +97,7 @@ export function PublicQuerySection() {
       setActivePreset({
         query: searchQuery,
         category: 'CUSTOM INTELLIGENCE QUERY',
-        answer: `AGASTYA AI query analysis initiated for: "${searchQuery}". Synthesizing real-time project ledgers, PWD Schedule of Rates baselines, and milestone telemetry across authorized government databases.`,
+        answer: `SANCHAY AI query analysis initiated for: "${searchQuery}". Synthesizing real-time project ledgers, PWD Schedule of Rates baselines, and milestone telemetry across authorized government databases.`,
         sources: ['eSAKSHI Public Portal', 'MoSPI Guidelines 2023', 'State PWD SoR'],
       });
     }
@@ -141,7 +141,7 @@ export function PublicQuerySection() {
               type="submit"
               className="absolute right-2 h-10 px-4 rounded-[4px] bg-[#D99018] hover:bg-[#E5B45A] text-[#15324A] font-bold text-xs flex items-center gap-1.5 transition-colors shadow-sm"
             >
-              <span>Ask Agastya</span>
+              <span>Ask Sanchay</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </button>
           </form>

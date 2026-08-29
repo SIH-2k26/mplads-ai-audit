@@ -189,7 +189,7 @@ export const CAPSULE_ITEMS: CapsuleIntelligenceData[] = [
       },
     ],
     aiExplanation:
-      'Historical precedent used to train AGASTYA vector similarity engine to automatically flag identical rate inflation patterns in ongoing road estimates.',
+      'Historical precedent used to train SANCHAY vector similarity engine to automatically flag identical rate inflation patterns in ongoing road estimates.',
     statutoryRule: 'CAG Performance Audit Manual §8.2 & PWD Manual Chapter 4',
     actionUrl: '/reports',
     isPublicAccessible: true,
@@ -234,7 +234,7 @@ export const CAPSULE_ITEMS: CapsuleIntelligenceData[] = [
       },
     ],
     aiExplanation:
-      'All AGASTYA AI risk scores are mathematically bounded by and cited against these authoritative legal provisions, ensuring zero black-box hallucination.',
+      'All SANCHAY AI risk scores are mathematically bounded by and cited against these authoritative legal provisions, ensuring zero black-box hallucination.',
     statutoryRule: 'Ministry of Statistics & Programme Implementation (MoSPI)',
     actionUrl: '/policies',
     isPublicAccessible: true,

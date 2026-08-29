@@ -134,7 +134,7 @@ export const WiseOfficerProfileModal: React.FC = () => {
   const handleLogout = () => {
     onClose();
     toast.success('Logged Out Successfully', {
-      description: 'Redirecting to Agastya Public Portal...',
+      description: 'Redirecting to Sanchay Public Portal...',
     });
     navigate('/');
   };

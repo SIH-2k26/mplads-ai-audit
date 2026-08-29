@@ -100,13 +100,13 @@ export function TopHeader() {
           <ChevronDown className="w-3.5 h-3.5 text-[#6B6B6B] absolute right-2 pointer-events-none" />
         </div>
 
-        {/* Ask Agastya */}
+        {/* Ask Sanchay */}
         <button
           onClick={() => setAiAssistantOpen(true)}
           className="bg-[#16A34A] hover:bg-[#15803D] text-white font-semibold text-xs px-4 py-2 rounded-full transition-colors cursor-pointer flex items-center gap-1.5 shadow-none"
         >
           <Sparkles className="w-3.5 h-3.5 fill-white" />
-          <span>{t.header.askAgastya}</span>
+          <span>{t.header.askSanchay}</span>
         </button>
 
         {/* User Avatar Button */}
