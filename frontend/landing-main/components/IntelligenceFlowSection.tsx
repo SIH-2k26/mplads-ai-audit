@@ -82,7 +82,7 @@ export function IntelligenceFlowSection() {
   ];
 
   return (
-    <section id="how-it-thinks" className="py-20 sm:py-28 bg-white border-b border-[#E5E3DC]">
+    <section id="how-it-thinks" className="py-20 sm:py-28 bg-transparent border-b border-[#E5E3DC]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3 py-1 rounded-full border border-[#002449]/30">
@@ -103,7 +103,7 @@ export function IntelligenceFlowSection() {
               key={st.title}
               type="button"
               onClick={() => setSelectedStage(st)}
-              className="rounded-[16px] border border-[#E5E3DC] bg-[#F1F0EC] p-4 flex flex-col justify-between hover:border-[#002449] hover:bg-white hover:shadow-md transition-all group text-left cursor-pointer hover:-translate-y-0.5"
+              className="rounded-[16px] border border-[#E5E3DC] bg-white p-4 flex flex-col justify-between hover:border-[#002449] hover:shadow-md transition-all group text-left cursor-pointer hover:-translate-y-0.5 shadow-2xs"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">

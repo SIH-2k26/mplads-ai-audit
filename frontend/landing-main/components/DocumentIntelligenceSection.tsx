@@ -14,7 +14,7 @@ export function DocumentIntelligenceSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-white border-b border-[#E5E3DC] font-sans">
+    <section className="py-20 sm:py-28 bg-transparent border-b border-[#E5E3DC] font-sans">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3.5 py-1 rounded-full border border-[#002449]/30 inline-block">
@@ -33,7 +33,7 @@ export function DocumentIntelligenceSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left: Simulated Government PDF Artifact */}
-          <div className="lg:col-span-5 rounded-[20px] border border-[#E5E3DC] bg-[#F1F0EC] p-6 shadow-2xs space-y-3">
+          <div className="lg:col-span-5 rounded-[20px] border border-[#E5E3DC] bg-white p-6 shadow-sm space-y-3">
             <div className="flex items-center justify-between border-b border-[#EAE8E2] pb-3">
               <div className="flex items-center gap-2">
                 <FileText className="h-4 w-4 text-[#002449]" />
@@ -46,7 +46,7 @@ export function DocumentIntelligenceSection() {
               </span>
             </div>
 
-            <div className="space-y-2 text-xs text-[#0E0E0E] font-serif p-4 bg-white rounded-[14px] border border-[#E5E3DC] shadow-2xs">
+            <div className="space-y-2 text-xs text-[#0E0E0E] font-serif p-4 bg-[#F1F0EC] rounded-[14px] border border-[#E5E3DC] shadow-2xs">
               <div className="text-center font-bold text-[#0E0E0E] border-b border-[#EAE8E2] pb-1.5 text-[10px] font-sans">
                 GOVERNMENT OF MAHARASHTRA • DISTRICT COLLECTOR OFFICE PUNE
               </div>
@@ -73,7 +73,7 @@ export function DocumentIntelligenceSection() {
           </div>
 
           {/* Right: Extracted Structured Schema */}
-          <div className="lg:col-span-6 rounded-[20px] border border-[#E5E3DC] bg-[#F1F0EC] p-6 shadow-2xs space-y-3.5">
+          <div className="lg:col-span-6 rounded-[20px] border border-[#E5E3DC] bg-white p-6 shadow-sm space-y-3.5">
             <div className="flex items-center justify-between border-b border-[#EAE8E2] pb-2.5">
               <div className="flex items-center gap-2">
                 <Cpu className="h-4 w-4 text-[#002449]" />

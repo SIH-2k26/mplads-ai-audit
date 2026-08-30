@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { TopHeader } from './TopHeader';
 import { AppSidebar } from './AppSidebar';
@@ -13,10 +13,9 @@ import { cn } from '../../lib/utils';
 import { Toaster } from 'sonner';
 
 export function AppShell() {
-  const { sidebarCollapsed } = useUiStore();
+  const { sidebarCollapsed, platformLoading, platformLoadingTitle } = useUiStore();
   const { setRole } = useRoleStore();
   const location = useLocation();
-  const [isTransitioning, setIsTransitioning] = useState(true);
 
   // Automatically synchronize active role based on the current URL route
   useEffect(() => {
@@ -32,40 +31,17 @@ export function AppShell() {
     }
   }, [location.pathname, setRole]);
 
-  // Loading transition screen between landing page and dashboard routes
-  useEffect(() => {
-    setIsTransitioning(true);
-    const timer = setTimeout(() => {
-      setIsTransitioning(false);
-    }, 1800);
-
-    return () => clearTimeout(timer);
-  }, [location.pathname]);
-
-  const getRoleTitle = (pathname: string) => {
-    if (pathname.startsWith('/district')) return 'District Command Cockpit';
-    if (pathname.startsWith('/mp')) return 'Member of Parliament View';
-    if (pathname.startsWith('/state') || pathname.startsWith('/national')) return 'State Nodal Authority';
-    if (pathname.startsWith('/ministry') || pathname.startsWith('/intelligence')) return 'Ministry DIID National Centre';
-    if (pathname.startsWith('/projects')) return 'National Projects Explorer';
-    if (pathname.startsWith('/cases')) return 'Forensic Investigation Workspace';
-    if (pathname.startsWith('/alerts')) return 'Early Warning Signals Feed';
-    if (pathname.startsWith('/reports')) return 'Audit & Compliance Registry';
-    if (pathname.startsWith('/risk-assessment')) return 'Explainable Risk Simulator';
-    return 'SANCHAY Operational Cockpit';
-  };
-
   return (
     <div className="min-h-screen flex flex-col font-sans bg-white text-[#0E0E0E] relative">
-      {/* Loading Transition Screen (Instant solid mount, zero glimpse) */}
+      {/* Loading Transition Screen (Controlled via useUiStore) */}
       <PlatformLoadingScreen
-        isLoading={isTransitioning}
-        roleTitle={getRoleTitle(location.pathname)}
+        isLoading={platformLoading}
+        roleTitle={platformLoadingTitle}
       />
 
       <Toaster position="top-right" richColors closeButton />
 
-      <div className={`flex flex-col min-h-screen transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+      <div className={`flex flex-col min-h-screen transition-opacity duration-300 ${platformLoading ? 'opacity-0' : 'opacity-100'}`}>
         <TopHeader />
 
         <div className="flex flex-1">

@@ -15,7 +15,7 @@ export function InvestigationTimelineSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-[#F1F0EC] border-b border-[#E5E3DC] font-sans">
+    <section className="py-20 sm:py-28 bg-transparent border-b border-[#E5E3DC] font-sans">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-white px-3.5 py-1 rounded-full border border-[#E5E3DC] shadow-2xs inline-block">

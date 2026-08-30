@@ -294,7 +294,7 @@ export function IntelligenceCapsuleRail() {
               className={`relative overflow-hidden cursor-pointer p-5 flex flex-col justify-between transition-all duration-300 rounded-[20px] border font-sans ${
                 isHovered
                   ? 'bg-white text-[#0E0E0E] border-[#002449] shadow-xl ring-2 ring-[#002449]/15'
-                  : 'bg-white/80 border-[#E5E3DC] text-[#0E0E0E] hover:border-[#002449]/40 hover:bg-white shadow-2xs'
+                  : 'bg-white border-[#E5E3DC] text-[#0E0E0E] hover:border-[#002449]/40 shadow-2xs'
               }`}
             >
               {/* TOP: Category Badge & Status Pill */}

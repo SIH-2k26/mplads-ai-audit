@@ -5,6 +5,7 @@ import { SanchayLogo } from './common/SanchayLogo';
 import { Button } from './ui/button';
 import { CommandPalette } from './ui/command';
 import { cn } from '../utils/utils';
+import { useUiStore } from '../../src/stores/useUiStore';
 
 export function LandingNavbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -101,7 +102,11 @@ export function LandingNavbar() {
               </kbd>
             </button>
 
-            <Link to="/district">
+            <Link
+              to="/district"
+              state={{ fromLanding: true }}
+              onClick={() => useUiStore.getState().startPlatformLoading('District Command Cockpit')}
+            >
               <Button
                 variant="default"
                 size="sm"
@@ -122,7 +127,11 @@ export function LandingNavbar() {
             >
               <Search className="h-4 w-4" />
             </button>
-            <Link to="/district">
+            <Link
+              to="/district"
+              state={{ fromLanding: true }}
+              onClick={() => useUiStore.getState().startPlatformLoading('District Command Cockpit')}
+            >
               <Button variant="default" size="sm" className="text-xs py-1 px-2.5 font-bold h-8 bg-[#002449] rounded-full">
                 Enter
               </Button>

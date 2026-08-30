@@ -6,7 +6,7 @@ import { Badge } from './ui/badge';
 
 export function ProjectDigitalTwinSection() {
   return (
-    <section className="py-20 sm:py-28 bg-[#F1F0EC] border-b border-[#E5E3DC] font-sans">
+    <section className="py-20 sm:py-28 bg-transparent border-b border-[#E5E3DC] font-sans">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
@@ -40,7 +40,7 @@ export function ProjectDigitalTwinSection() {
             </div>
 
             <div className="pt-3">
-              <Link to="/projects/P-1023">
+              <Link to="/projects/P-1023" state={{ fromLanding: true }}>
                 <Button variant="default" size="sm" className="bg-[#002449] hover:bg-[#001B36] rounded-full text-white text-xs font-bold flex items-center gap-1.5 h-11 px-6 shadow-sm transition-colors cursor-pointer">
                   <span>Open Full Project Twin (P-1023)</span>
                   <ArrowRight className="h-3.5 w-3.5 text-white/70" />

@@ -15,6 +15,11 @@ interface UiState {
   profileModalOpen: boolean;
   setProfileModalOpen: (open: boolean) => void;
 
+  platformLoading: boolean;
+  platformLoadingTitle: string;
+  startPlatformLoading: (roleTitle?: string) => void;
+  stopPlatformLoading: () => void;
+
   activeEvidenceDrawerItem: {
     isOpen: boolean;
     title: string;
@@ -65,6 +70,24 @@ export const useUiStore = create<UiState>((set) => ({
   setProfileModalOpen: (open) =>
     set({
       profileModalOpen: open,
+    }),
+
+  platformLoading: false,
+  platformLoadingTitle: 'District Command Cockpit',
+
+  startPlatformLoading: (roleTitle = 'District Command Cockpit') => {
+    set({
+      platformLoading: true,
+      platformLoadingTitle: roleTitle,
+    });
+    setTimeout(() => {
+      set({ platformLoading: false });
+    }, 1800);
+  },
+
+  stopPlatformLoading: () =>
+    set({
+      platformLoading: false,
     }),
 
   activeEvidenceDrawerItem: {

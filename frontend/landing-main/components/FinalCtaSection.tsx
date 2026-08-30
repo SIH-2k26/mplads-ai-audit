@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Landmark, Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
+import { useUiStore } from '../../src/stores/useUiStore';
 
 export function FinalCtaSection() {
   return (
@@ -25,7 +26,11 @@ export function FinalCtaSection() {
         </p>
 
         <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
-          <Link to="/district">
+          <Link
+            to="/district"
+            state={{ fromLanding: true }}
+            onClick={() => useUiStore.getState().startPlatformLoading('District Command Cockpit')}
+          >
             <Button
               variant="default"
               size="lg"

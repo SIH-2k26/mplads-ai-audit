@@ -16,10 +16,15 @@ import { FinalCtaSection } from './components/FinalCtaSection';
 import { LandingFooter } from './components/LandingFooter';
 import { AskAiAssistant } from './components/domain/AskAiAssistant';
 import { ScrollToTop } from './components/layout/ScrollToTop';
+import { ScrollProgressTricolor } from './components/layout/ScrollProgressTricolor';
 import { Toaster } from 'sonner';
 import { useLanguageStore } from '../src/stores/useLanguageStore';
+import { useUiStore } from '../src/stores/useUiStore';
+import { PlatformLoadingScreen } from '../src/components/common/PlatformLoadingScreen';
 
 export function LandingPage() {
+  const { platformLoading, platformLoadingTitle } = useUiStore();
+
   useEffect(() => {
     // Reset to English on public portal landing
     useLanguageStore.getState().setLanguage('en');
@@ -30,6 +35,11 @@ export function LandingPage() {
       id="command-center"
       className="relative min-h-screen text-[#0E0E0E] font-sans antialiased selection:bg-[#002449]/20 selection:text-[#002449] bg-[#FAFAF9]"
     >
+      {/* Platform Loading Screen Transition */}
+      <PlatformLoadingScreen
+        isLoading={platformLoading}
+        roleTitle={platformLoadingTitle}
+      />
       {/* Fixed Full-Screen Background Texture with 94% Solid Tint */}
       <div 
         aria-hidden="true"
@@ -40,10 +50,10 @@ export function LandingPage() {
         <div className="absolute inset-0 bg-[#FAFAF9]/94" />
       </div>
 
-      {/* Full-Screen Ambient Watermark Overlay */}
+      {/* Full-Screen Ambient Watermark Overlay (Placed on background canvas at z-[1] so solid white cards stay 100% clean) */}
       <div
         aria-hidden="true"
-        className="fixed inset-0 w-screen h-screen pointer-events-none z-[25] select-none overflow-hidden"
+        className="fixed inset-0 w-screen h-screen pointer-events-none z-[1] select-none overflow-hidden"
       >
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat bg-fixed opacity-[0.16] mix-blend-multiply"
@@ -54,6 +64,9 @@ export function LandingPage() {
       </div>
 
       <div className="relative z-10">
+        {/* Animated Tricolor Scroll Progress Line */}
+        <ScrollProgressTricolor />
+
         {/* Toast Notification Provider with Close (X) Button */}
         <Toaster position="top-right" richColors closeButton />
 

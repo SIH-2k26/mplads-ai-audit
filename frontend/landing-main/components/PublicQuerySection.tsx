@@ -104,7 +104,7 @@ export function PublicQuerySection() {
   };
 
   return (
-    <section className="bg-[#F1F0EC] text-[#0E0E0E] py-20 sm:py-28 relative overflow-hidden border-b border-[#E5E3DC]">
+    <section className="bg-transparent text-[#0E0E0E] py-20 sm:py-28 relative overflow-hidden border-b border-[#E5E3DC]">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
         {/* SECTION HEADER */}
         <div className="max-w-3xl space-y-3">
@@ -173,7 +173,7 @@ export function PublicQuerySection() {
 
           {/* Dynamic Grounded Query Response Card */}
           {activePreset && (
-            <div className="p-6 rounded-[20px] border border-[#E5E3DC] bg-[#FAFAF9] text-[#0E0E0E] space-y-4 shadow-2xs animate-in fade-in-50 duration-200 font-sans">
+            <div className="p-6 rounded-[20px] border border-[#E5E3DC] bg-white text-[#0E0E0E] space-y-4 shadow-sm animate-in fade-in-50 duration-200 font-sans">
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#EAE8E2] pb-3">
                 <div className="flex items-center gap-2.5 flex-wrap">
                   <span className="rounded-full bg-[#002449]/10 px-2.5 py-0.5 text-[9.5px] font-mono font-bold text-[#002449] border border-[#002449]/20 uppercase">
@@ -203,7 +203,7 @@ export function PublicQuerySection() {
                     {activePreset.contributors.map((c, i) => (
                       <div
                         key={i}
-                        className="p-3.5 rounded-[16px] bg-white border border-[#E5E3DC] space-y-1.5 flex flex-col justify-between shadow-2xs"
+                        className="p-3.5 rounded-[16px] bg-[#F1F0EC] border border-[#E5E3DC] space-y-1.5 flex flex-col justify-between shadow-2xs"
                       >
                         <span className="text-[#0E0E0E] text-[11px] font-sans font-medium">{c.label}</span>
                         <strong

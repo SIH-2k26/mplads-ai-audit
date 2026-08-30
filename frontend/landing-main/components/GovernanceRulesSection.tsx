@@ -54,7 +54,7 @@ export function GovernanceRulesSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-white border-b border-[#E5E3DC] font-sans">
+    <section className="py-20 sm:py-28 bg-transparent border-b border-[#E5E3DC] font-sans">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3.5 py-1 rounded-full border border-[#002449]/30 inline-block">
@@ -77,7 +77,7 @@ export function GovernanceRulesSection() {
             return (
               <div
                 key={r.title}
-                className="rounded-[20px] border border-[#E5E3DC] bg-[#F1F0EC] p-6 shadow-2xs hover:border-[#002449] hover:bg-white hover:shadow-md transition-all flex flex-col justify-between"
+                className="rounded-[20px] border border-[#E5E3DC] bg-white p-6 shadow-sm hover:border-[#002449] hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">

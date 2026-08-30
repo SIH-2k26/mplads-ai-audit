@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown, ShieldCheck } from 'lucide-react';
 import { Button } from './ui/button';
 import { ProjectMosaic } from './ProjectMosaic';
+import { useUiStore } from '../../src/stores/useUiStore';
 
 export function HeroSection() {
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -68,7 +69,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative pt-20 pb-8 lg:pt-24 lg:pb-10 bg-[#FAFAF9] border-b border-[#E5E3DC] overflow-hidden min-h-[75vh] flex flex-col justify-center">
+    <section className="relative pt-20 pb-8 lg:pt-24 lg:pb-10 bg-transparent border-b border-[#E5E3DC] overflow-hidden min-h-[75vh] flex flex-col justify-center">
       {/* Subtle, non-distracting technical grid texture */}
       <div className="absolute inset-0 bg-[radial-gradient(#002449_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
 
@@ -108,7 +109,11 @@ export function HeroSection() {
 
             {/* Two Action CTAs */}
             <div className="pt-2 flex flex-wrap items-center gap-3">
-              <Link to="/district">
+              <Link
+                to="/district"
+                state={{ fromLanding: true }}
+                onClick={() => useUiStore.getState().startPlatformLoading('District Command Cockpit')}
+              >
                 <Button
                   variant="default"
                   size="lg"
