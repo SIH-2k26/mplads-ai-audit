@@ -81,10 +81,10 @@ export function InvestigateModal({ onClose }: InvestigateModalProps) {
   return (
     <div className="space-y-5">
       {/* Project Status Strip */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-[6px] border border-[#234D6C] bg-[#183B54]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-[6px] border border-white/15 bg-white/5">
         <div className="space-y-0.5">
           <div className="flex items-center gap-2">
-            <span className="font-mono text-xs font-bold text-[#E5B45A]">
+            <span className="font-mono text-xs font-bold text-gray-400">
               MPLADS-MH-PUN-2026-1023
             </span>
             <span className="rounded bg-[#C94B4B]/20 text-[#C94B4B] border border-[#C94B4B]/40 px-2 py-0.2 text-[10px] font-mono font-bold">
@@ -98,12 +98,12 @@ export function InvestigateModal({ onClose }: InvestigateModalProps) {
 
         <div className="text-left sm:text-right font-mono text-xs">
           <span className="text-gray-400 block text-[10px] uppercase">Case Status</span>
-          <span className="text-[#E5B45A] font-bold">Pending Investigation (Active)</span>
+          <span className="text-gray-400 font-bold">Pending Investigation (Active)</span>
         </div>
       </div>
 
       {/* Investigation Workspace Tab Navigation */}
-      <div className="flex items-center gap-1 border-b border-[#234D6C] overflow-x-auto pb-1 text-xs font-mono">
+      <div className="flex items-center gap-1 border-b border-white/15 overflow-x-auto pb-1 text-xs font-mono">
         {[
           { id: 'OVERVIEW', label: 'OVERVIEW', icon: FolderKanban },
           { id: 'EVIDENCE', label: 'EVIDENCE (5)', icon: FileText },
@@ -122,8 +122,8 @@ export function InvestigateModal({ onClose }: InvestigateModalProps) {
               onClick={() => setActiveTab(tab.id as InvestigateTab)}
               className={`flex items-center gap-1.5 px-3 py-2 rounded-[4px] transition-colors whitespace-nowrap ${
                 isActive
-                  ? 'bg-[#D99018] text-[#15324A] font-bold shadow-xs'
-                  : 'text-gray-300 hover:bg-[#183B54] hover:text-white'
+                  ? 'bg-white text-[#002449] font-bold shadow-xs'
+                  : 'text-gray-300 hover:bg-white/5 hover:text-white'
               }`}
             >
               <Icon className="h-3.5 w-3.5" />
@@ -136,13 +136,13 @@ export function InvestigateModal({ onClose }: InvestigateModalProps) {
       {/* Tab 1: EVIDENCE (Primary view for quick verification) */}
       {activeTab === 'EVIDENCE' && (
         <div className="space-y-3">
-          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A] block">
+          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 block">
             Corroborated Cross-System Evidence Records
           </span>
 
-          <div className="divide-y divide-[#234D6C] rounded border border-[#234D6C] bg-[#183B54] overflow-hidden text-xs">
+          <div className="divide-y divide-white/15 rounded border border-white/15 bg-white/5 overflow-hidden text-xs">
             {evidenceItems.map((ev, i) => (
-              <div key={i} className="p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 hover:bg-[#1A415E] transition-colors">
+              <div key={i} className="p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 hover:bg-white/10 transition-colors">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-white text-xs">{ev.doc}</span>
@@ -152,14 +152,14 @@ export function InvestigateModal({ onClose }: InvestigateModalProps) {
                           ? 'bg-emerald-950 text-[#2E8064] border border-[#2E8064]/40'
                           : ev.status === 'FLAGGED'
                           ? 'bg-red-950 text-[#C94B4B] border border-[#C94B4B]/40'
-                          : 'bg-amber-950 text-[#D99018] border border-[#D99018]/40'
+                          : 'bg-amber-950 text-white/60 border border-white/20'
                       }`}
                     >
                       {ev.status}
                     </span>
                   </div>
                   <div className="text-[11px] text-gray-300">
-                    Source: <span className="text-[#E5B45A]">{ev.source}</span> • Date: <span className="text-gray-400 font-mono">{ev.date}</span>
+                    Source: <span className="text-gray-400">{ev.source}</span> • Date: <span className="text-gray-400 font-mono">{ev.date}</span>
                   </div>
                   <div className="text-[10px] text-gray-400 font-mono">
                     Relevance: {ev.relevance}
@@ -180,19 +180,19 @@ export function InvestigateModal({ onClose }: InvestigateModalProps) {
       {activeTab === 'OVERVIEW' && (
         <div className="space-y-3 font-mono text-xs">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-            <div className="p-2.5 rounded bg-[#183B54] border border-[#234D6C]">
+            <div className="p-2.5 rounded bg-white/5 border border-white/15">
               <span className="text-gray-400 block text-[9px]">Sanctioned</span>
               <strong className="text-white text-sm">₹68.00 L</strong>
             </div>
-            <div className="p-2.5 rounded bg-[#183B54] border border-[#234D6C]">
+            <div className="p-2.5 rounded bg-white/5 border border-white/15">
               <span className="text-gray-400 block text-[9px]">Disbursed</span>
               <strong className="text-[#C94B4B] text-sm">₹62.90 L (92.5%)</strong>
             </div>
-            <div className="p-2.5 rounded bg-[#183B54] border border-[#234D6C]">
+            <div className="p-2.5 rounded bg-white/5 border border-white/15">
               <span className="text-gray-400 block text-[9px]">Physical Progress</span>
-              <strong className="text-[#D99018] text-sm">31.0% (Verified)</strong>
+              <strong className="text-white/60 text-sm">31.0% (Verified)</strong>
             </div>
-            <div className="p-2.5 rounded bg-[#183B54] border border-[#234D6C]">
+            <div className="p-2.5 rounded bg-white/5 border border-white/15">
               <span className="text-gray-400 block text-[9px]">Executing Agency</span>
               <strong className="text-white text-xs">PMC Building Dept</strong>
             </div>
@@ -202,7 +202,7 @@ export function InvestigateModal({ onClose }: InvestigateModalProps) {
 
       {/* Tab 3: TIMELINE */}
       {activeTab === 'TIMELINE' && (
-        <div className="p-3 bg-[#183B54] rounded border border-[#234D6C] space-y-2 text-xs font-mono">
+        <div className="p-3 bg-white/5 rounded border border-white/15 space-y-2 text-xs font-mono">
           <div className="flex items-center justify-between">
             <span>● 12 Jun 2026: Administrative Sanction Issued</span>
             <span className="text-[#2E8064]">Completed</span>
@@ -213,7 +213,7 @@ export function InvestigateModal({ onClose }: InvestigateModalProps) {
           </div>
           <div className="flex items-center justify-between">
             <span>● 02 Jul 2026: 2nd Installment DBT Disbursed</span>
-            <span className="text-[#D99018]">Disbursed (Ahead of Work)</span>
+            <span className="text-white/60">Disbursed (Ahead of Work)</span>
           </div>
           <div className="flex items-center justify-between">
             <span>● 15 Aug 2026: GFR-12C Stage 2 Due</span>
@@ -224,7 +224,7 @@ export function InvestigateModal({ onClose }: InvestigateModalProps) {
 
       {/* Tab 4: CONTRACTOR */}
       {activeTab === 'CONTRACTOR' && (
-        <div className="p-3.5 bg-[#183B54] rounded border border-[#234D6C] space-y-2 text-xs">
+        <div className="p-3.5 bg-white/5 rounded border border-white/15 space-y-2 text-xs">
           <div className="font-bold text-white">Awarded Vendor: M/s Apex Civil Constructions Ltd</div>
           <div className="text-gray-300 font-mono text-[11px]">
             GSTIN: 27AABCA1234F1Z5 • Active Contracts in Pune: 6 works (₹4.8 Cr) • District Concentration: 48% (High)
@@ -234,7 +234,7 @@ export function InvestigateModal({ onClose }: InvestigateModalProps) {
 
       {/* Tab 5: PAYMENTS */}
       {activeTab === 'PAYMENTS' && (
-        <div className="p-3 bg-[#183B54] rounded border border-[#234D6C] space-y-1.5 text-xs font-mono">
+        <div className="p-3 bg-white/5 rounded border border-white/15 space-y-1.5 text-xs font-mono">
           <div className="flex justify-between text-gray-300">
             <span>Voucher #V-991 (Advance): ₹20.00 L</span>
             <span className="text-[#2E8064]">Cleared</span>
@@ -252,7 +252,7 @@ export function InvestigateModal({ onClose }: InvestigateModalProps) {
 
       {/* Tab 6: DOCUMENTS */}
       {activeTab === 'DOCUMENTS' && (
-        <div className="p-3 bg-[#183B54] rounded border border-[#234D6C] space-y-1 text-xs">
+        <div className="p-3 bg-white/5 rounded border border-white/15 space-y-1 text-xs">
           <div className="text-gray-300 font-mono">TS-MH-PUN-2024-881.pdf (3.4 MB) • Hash SHA-256 Verified</div>
           <div className="text-gray-300 font-mono">Tender-NIT-Pune-881.pdf (1.2 MB) • Hash SHA-256 Verified</div>
         </div>
@@ -260,21 +260,21 @@ export function InvestigateModal({ onClose }: InvestigateModalProps) {
 
       {/* Tab 7: AUDIT TRAIL */}
       {activeTab === 'AUDIT_TRAIL' && (
-        <div className="p-3 bg-[#183B54] rounded border border-[#234D6C] space-y-1.5 text-xs font-mono text-gray-300">
+        <div className="p-3 bg-white/5 rounded border border-white/15 space-y-1.5 text-xs font-mono text-gray-300">
           <div>[2026-08-20 14:15 IST] AI Engine flagged +38.2% cost variance vs PWD SoR</div>
           <div>[2026-08-22 09:30 IST] Case docket compiled for District Collector review</div>
         </div>
       )}
 
       {/* Footer Navigation Action */}
-      <div className="flex items-center justify-between pt-2 border-t border-[#234D6C]">
+      <div className="flex items-center justify-between pt-2 border-t border-white/15">
         <span className="text-[11px] font-mono text-gray-400">
           Inspection Docket: CASE-2026-0182
         </span>
         <Link
           to="/cases/CASE-2026-0182"
           onClick={onClose}
-          className="inline-flex items-center gap-1.5 rounded-[4px] bg-[#D99018] px-3.5 py-1.5 text-xs font-bold text-[#15324A] hover:bg-[#E5B45A] transition-colors shadow-sm"
+          className="inline-flex items-center gap-1.5 rounded-[4px] bg-white px-3.5 py-1.5 text-xs font-bold text-[#002449] hover:bg-gray-100 transition-colors shadow-sm"
         >
           <span>Open Full Investigation Docket</span>
           <ArrowRight className="h-3.5 w-3.5" />

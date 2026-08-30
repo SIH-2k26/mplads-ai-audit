@@ -20,19 +20,19 @@ export function DetectModal({ onClose }: DetectModalProps) {
     <div className="space-y-6">
       {/* A. INTERNAL PROCESS PIPELINE */}
       <div className="space-y-2">
-        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A] block">
+        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 block">
           A. Internal Process Pipeline
         </span>
-        <div className="flex items-center flex-wrap gap-2 font-mono text-xs bg-[#183B54] p-3 rounded-[6px] border border-[#234D6C]">
-          <span className="bg-[#102F45] text-white px-3 py-1 rounded border border-[#234D6C] font-bold">
+        <div className="flex items-center flex-wrap gap-2 font-mono text-xs bg-white/5 p-3 rounded-[6px] border border-white/15">
+          <span className="bg-[#002449] text-white px-3 py-1 rounded border border-white/15 font-bold">
             PROJECT DATA
           </span>
-          <span className="text-[#D99018] font-bold">→</span>
-          <span className="bg-[#102F45] text-[#E5B45A] px-3 py-1 rounded border border-[#234D6C] font-bold">
+          <span className="text-white/60 font-bold">→</span>
+          <span className="bg-[#002449] text-gray-400 px-3 py-1 rounded border border-white/15 font-bold">
             ANOMALY CHECK
           </span>
-          <span className="text-[#D99018] font-bold">→</span>
-          <span className="bg-[#102F45] text-[#C94B4B] px-3 py-1 rounded border border-[#C94B4B]/40 font-bold">
+          <span className="text-white/60 font-bold">→</span>
+          <span className="bg-[#002449] text-[#C94B4B] px-3 py-1 rounded border border-[#C94B4B]/40 font-bold">
             RISK SIGNAL
           </span>
         </div>
@@ -40,14 +40,14 @@ export function DetectModal({ onClose }: DetectModalProps) {
 
       {/* B. SIGNALS CHECKED */}
       <div className="space-y-2">
-        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A] block">
+        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 block">
           B. Continuous Detection Signals Checked
         </span>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
           {signalsChecked.map((sig, idx) => (
             <div
               key={idx}
-              className="flex items-start gap-2.5 bg-[#183B54]/70 p-2.5 rounded-[4px] border border-[#234D6C] text-gray-200"
+              className="flex items-start gap-2.5 bg-white/5/70 p-2.5 rounded-[4px] border border-white/15 text-gray-200"
             >
               <Check className="h-4 w-4 text-[#2E8064] flex-shrink-0 mt-0.5" />
               <span className="leading-snug">{sig}</span>
@@ -57,10 +57,10 @@ export function DetectModal({ onClose }: DetectModalProps) {
       </div>
 
       {/* C. PROJECT SIGNAL (EXAMPLE CASE) */}
-      <div className="rounded-[6px] border border-[#234D6C] bg-[#183B54] p-4 space-y-3">
-        <div className="flex items-center justify-between border-b border-[#234D6C] pb-2">
+      <div className="rounded-[6px] border border-white/15 bg-white/5 p-4 space-y-3">
+        <div className="flex items-center justify-between border-b border-white/15 pb-2">
           <div className="flex items-center gap-2">
-            <Activity className="h-4 w-4 text-[#D99018]" />
+            <Activity className="h-4 w-4 text-white/60" />
             <span className="font-mono text-xs font-bold text-white uppercase">
               C. Sample Project Signal
             </span>
@@ -79,15 +79,15 @@ export function DetectModal({ onClose }: DetectModalProps) {
 
         {/* 3 KPI Cards */}
         <div className="grid grid-cols-3 gap-3 font-mono text-xs">
-          <div className="p-2.5 rounded bg-[#102F45] border border-[#234D6C] text-center">
+          <div className="p-2.5 rounded bg-[#002449] border border-white/15 text-center">
             <span className="text-gray-400 block text-[10px] uppercase">Estimated Cost</span>
             <span className="text-sm font-bold text-white block mt-0.5">₹42.0 L</span>
           </div>
-          <div className="p-2.5 rounded bg-[#102F45] border border-[#234D6C] text-center">
+          <div className="p-2.5 rounded bg-[#002449] border border-white/15 text-center">
             <span className="text-gray-400 block text-[10px] uppercase">Comparable Baseline</span>
             <span className="text-sm font-bold text-gray-300 block mt-0.5">₹30.4 L</span>
           </div>
-          <div className="p-2.5 rounded bg-[#102F45] border border-[#C94B4B]/40 text-center bg-red-950/20">
+          <div className="p-2.5 rounded bg-[#002449] border border-[#C94B4B]/40 text-center bg-red-950/20">
             <span className="text-gray-400 block text-[10px] uppercase">Cost Deviation</span>
             <span className="text-sm font-bold text-[#C94B4B] block mt-0.5">+38.2%</span>
           </div>
@@ -95,11 +95,11 @@ export function DetectModal({ onClose }: DetectModalProps) {
       </div>
 
       {/* D. STATUS & INSTITUTIONAL DISCLAIMER */}
-      <div className="rounded-[6px] border border-[#D99018]/40 bg-[#D99018]/10 p-3.5 flex items-start gap-3 text-xs">
-        <Info className="h-4 w-4 text-[#D99018] flex-shrink-0 mt-0.5" />
+      <div className="rounded-[6px] border border-white/20 bg-white/10 p-3.5 flex items-start gap-3 text-xs">
+        <Info className="h-4 w-4 text-white/60 flex-shrink-0 mt-0.5" />
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <span className="font-mono text-[10px] font-bold text-[#D99018] uppercase">
+            <span className="font-mono text-[10px] font-bold text-white/60 uppercase">
               STATUS: REQUIRES REVIEW
             </span>
           </div>
@@ -110,14 +110,14 @@ export function DetectModal({ onClose }: DetectModalProps) {
       </div>
 
       {/* Footer Navigation Action */}
-      <div className="flex items-center justify-between pt-2 border-t border-[#234D6C]">
+      <div className="flex items-center justify-between pt-2 border-t border-white/15">
         <span className="text-[11px] font-mono text-gray-400">
           Source Engine: PWD Schedule of Rates + eSAKSHI Stream
         </span>
         <Link
           to="/projects/P-1023"
           onClick={onClose}
-          className="inline-flex items-center gap-1.5 rounded-[4px] bg-[#D99018] px-3.5 py-1.5 text-xs font-bold text-[#15324A] hover:bg-[#E5B45A] transition-colors shadow-sm"
+          className="inline-flex items-center gap-1.5 rounded-[4px] bg-white px-3.5 py-1.5 text-xs font-bold text-[#002449] hover:bg-gray-100 transition-colors shadow-sm"
         >
           <span>Open Full Digital Twin</span>
           <ArrowRight className="h-3.5 w-3.5" />

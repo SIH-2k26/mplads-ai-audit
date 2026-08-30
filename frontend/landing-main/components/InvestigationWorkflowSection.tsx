@@ -22,16 +22,16 @@ export function InvestigationWorkflowSection() {
   ];
 
   return (
-    <section id="investigation" className="py-24 bg-white border-b border-[#D9D5CC]">
+    <section id="investigation" className="py-24 bg-white border-b border-[#E5E3DC]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#C98219] bg-[#C98219]/10 px-3 py-1 rounded-full border border-[#C98219]/30">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3 py-1 rounded-full border border-[#002449]/30">
             Due Process & Governance
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#18324A] tracking-tight uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#002449] tracking-tight uppercase">
             The Alert-to-Investigation Protocol
           </h2>
-          <p className="text-sm sm:text-base text-[#667085] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#6B6B6B] leading-relaxed">
             AI never declares fraud as an autonomous conclusion. The platform evidences anomalies and structures rigorous inquiry workflows for human authorities.
           </p>
         </div>
@@ -44,16 +44,16 @@ export function InvestigationWorkflowSection() {
             return (
               <div
                 key={st.name}
-                className="p-4 rounded-[6px] border border-[#D9D5CC] bg-[#FAFAF7] text-center flex flex-col justify-between"
+                className="p-4 rounded-[6px] border border-[#E5E3DC] bg-[#FAFAF9] text-center flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#18324A] text-white mx-auto mb-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#002449] text-white mx-auto mb-2">
                     <Icon className="h-4 w-4 text-[#E7A943]" />
                   </div>
-                  <span className="text-[10px] font-mono text-[#667085] font-bold block">STEP 0{idx + 1}</span>
-                  <h4 className="text-xs font-bold text-[#18324A] mt-0.5">{st.name}</h4>
+                  <span className="text-[10px] font-mono text-[#6B6B6B] font-bold block">STEP 0{idx + 1}</span>
+                  <h4 className="text-xs font-bold text-[#002449] mt-0.5">{st.name}</h4>
                 </div>
-                <p className="text-[10px] text-[#667085] mt-2 pt-2 border-t border-[#EDE8DE]">
+                <p className="text-[10px] text-[#6B6B6B] mt-2 pt-2 border-t border-[#F1F0EC]">
                   {st.label}
                 </p>
               </div>
@@ -62,13 +62,13 @@ export function InvestigationWorkflowSection() {
         </div>
 
         {/* Authoritative Human Verdict Options Strip */}
-        <div className="p-6 sm:p-8 rounded-[8px] border-2 border-[#18324A] bg-[#FAFAF7]">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#EDE8DE] pb-4 mb-6">
+        <div className="p-6 sm:p-8 rounded-[8px] border-2 border-[#002449] bg-[#FAFAF9]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#F1F0EC] pb-4 mb-6">
             <div>
-              <h3 className="text-base font-bold text-[#18324A] uppercase tracking-wider">
+              <h3 className="text-base font-bold text-[#002449] uppercase tracking-wider">
                 Authoritative Human Verdict Options
               </h3>
-              <p className="text-xs text-[#667085]">
+              <p className="text-xs text-[#6B6B6B]">
                 Only designated District Collectors and Vigilance Officers record statutory verdicts
               </p>
             </div>

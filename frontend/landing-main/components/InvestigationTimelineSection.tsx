@@ -15,17 +15,17 @@ export function InvestigationTimelineSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-[#F7F8F6] border-b border-[#DDE2E5]">
+    <section className="py-20 sm:py-28 bg-[#FAFAF9] border-b border-[#E5E3DC]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#D89425] bg-[#D89425]/10 px-3 py-1 rounded-full border border-[#D89425]/30">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3 py-1 rounded-full border border-[#002449]/30">
             CHAPTER 08 • DUE PROCESS PROTOCOL
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16324A] tracking-tight uppercase leading-tight font-sans">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#002449] tracking-tight uppercase leading-tight font-sans">
             Investigate With <br />
             <span className="text-[#D89425]">Corroborated Evidence.</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#66727D] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#6B6B6B] leading-relaxed">
             The platform provides complete traceability from the first anomalous signal to final administrative action.
           </p>
         </div>
@@ -38,28 +38,28 @@ export function InvestigationTimelineSection() {
             return (
               <div
                 key={st.title}
-                className="rounded-[6px] border border-[#DDE2E5] bg-white p-4 shadow-card flex flex-col justify-between"
+                className="rounded-[6px] border border-[#E5E3DC] bg-white p-4 shadow-card flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs font-mono font-extrabold text-[#D89425]">
                       {st.num}
                     </span>
-                    <div className="p-1.5 rounded bg-[#F7F8F6] text-[#16324A] border border-[#DDE2E5]">
+                    <div className="p-1.5 rounded bg-[#FAFAF9] text-[#002449] border border-[#E5E3DC]">
                       <Icon className="h-3.5 w-3.5" />
                     </div>
                   </div>
 
-                  <h4 className="text-xs font-bold text-[#16324A] mb-1 leading-tight">
+                  <h4 className="text-xs font-bold text-[#002449] mb-1 leading-tight">
                     {st.title}
                   </h4>
 
-                  <p className="text-[11px] text-[#66727D] leading-snug">
+                  <p className="text-[11px] text-[#6B6B6B] leading-snug">
                     {st.desc}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-2 border-t border-[#DDE2E5] text-[9px] font-mono text-[#66727D]">
+                <div className="mt-4 pt-2 border-t border-[#E5E3DC] text-[9px] font-mono text-[#6B6B6B]">
                   Step {st.num} of 07
                 </div>
               </div>
@@ -68,20 +68,20 @@ export function InvestigationTimelineSection() {
         </div>
 
         {/* Case CTA Banner */}
-        <div className="rounded-[8px] border-2 border-[#16324A] bg-white p-6 shadow-card flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="rounded-[8px] border-2 border-[#002449] bg-white p-6 shadow-card flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <h3 className="text-sm sm:text-base font-bold text-[#16324A] uppercase tracking-wider">
+            <h3 className="text-sm sm:text-base font-bold text-[#002449] uppercase tracking-wider">
               Explore Active Case Inquiries (CASE-2026-0182)
             </h3>
-            <p className="text-xs text-[#66727D] mt-0.5">
+            <p className="text-xs text-[#6B6B6B] mt-0.5">
               Inspect corroborating evidence, peer rate benchmarks, and the authoritative human verdict panel.
             </p>
           </div>
 
           <Link to="/cases/CASE-2026-0182">
-            <Button variant="default" size="sm" className="bg-[#16324A] text-white text-xs font-bold flex items-center gap-1.5 h-9 px-4 shadow-elevated flex-shrink-0">
+            <Button variant="default" size="sm" className="bg-[#002449] rounded-full text-white text-xs font-bold flex items-center gap-1.5 h-9 px-4 shadow-elevated flex-shrink-0">
               <span>Open Case Docket</span>
-              <ArrowRight className="h-3.5 w-3.5 text-[#E5B45A]" />
+              <ArrowRight className="h-3.5 w-3.5 text-white/70" />
             </Button>
           </Link>
         </div>

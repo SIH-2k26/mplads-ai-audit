@@ -15,16 +15,16 @@ export function ExplainableRiskSection() {
   ];
 
   return (
-    <section className="py-24 bg-white border-b border-[#D9D5CC]">
+    <section className="py-24 bg-white border-b border-[#E5E3DC]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#C98219] bg-[#C98219]/10 px-3 py-1 rounded-full border border-[#C98219]/30">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3 py-1 rounded-full border border-[#002449]/30">
             Explainable AI (XAI)
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#18324A] tracking-tight uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#002449] tracking-tight uppercase">
             Don't Just Show the Risk. Explain It.
           </h2>
-          <p className="text-sm sm:text-base text-[#667085] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#6B6B6B] leading-relaxed">
             The platform never outputs an opaque risk number. Every diagnostic score is accompanied by plain-language rationales, statistical peer percentiles, and auditable documentary evidence.
           </p>
         </div>
@@ -32,11 +32,11 @@ export function ExplainableRiskSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Left: Decomposed 9-Vector Risk Fingerprint */}
           <Card className="flex flex-col justify-between">
-            <CardHeader className="bg-[#FAFAF7]">
+            <CardHeader className="bg-[#FAFAF9]">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Activity className="h-4 w-4 text-[#18324A]" />
-                  <CardTitle className="text-xs uppercase font-bold text-[#18324A]">
+                  <Activity className="h-4 w-4 text-[#002449]" />
+                  <CardTitle className="text-xs uppercase font-bold text-[#002449]">
                     Multi-Vector Risk Deconstruction
                   </CardTitle>
                 </div>
@@ -51,18 +51,18 @@ export function ExplainableRiskSection() {
               {riskBars.map((bar, i) => (
                 <div key={i} className="space-y-1">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="font-semibold text-[#18324A]">{bar.label}</span>
+                    <span className="font-semibold text-[#002449]">{bar.label}</span>
                     <span className="font-mono font-bold text-[#B44343] text-[11px]">
                       {bar.score} / 100
                     </span>
                   </div>
-                  <div className="h-2 w-full bg-[#EDE8DE] rounded-[2px] overflow-hidden">
+                  <div className="h-2 w-full bg-[#F1F0EC] rounded-[2px] overflow-hidden">
                     <div
                       className="h-full bg-[#B44343] rounded-[2px] transition-all duration-500"
                       style={{ width: `${bar.score}%` }}
                     />
                   </div>
-                  <span className="text-[10px] text-[#667085] font-mono block">
+                  <span className="text-[10px] text-[#6B6B6B] font-mono block">
                     {bar.desc}
                   </span>
                 </div>
@@ -71,11 +71,11 @@ export function ExplainableRiskSection() {
           </Card>
 
           {/* Right: "Why Was This Flagged?" Plain Language Explanations */}
-          <Card className="border-l-4 border-l-[#C98219] flex flex-col justify-between">
-            <CardHeader className="bg-[#FAFAF7]">
+          <Card className="border-l-4 border-l-[#002449] flex flex-col justify-between">
+            <CardHeader className="bg-[#FAFAF9]">
               <div className="flex items-center gap-2">
-                <ShieldAlert className="h-5 w-5 text-[#C98219]" />
-                <CardTitle className="text-xs uppercase font-bold text-[#18324A]">
+                <ShieldAlert className="h-5 w-5 text-[#002449]" />
+                <CardTitle className="text-xs uppercase font-bold text-[#002449]">
                   Plain-Language Diagnostic Rationales
                 </CardTitle>
               </div>
@@ -104,12 +104,12 @@ export function ExplainableRiskSection() {
                     text: 'High geospatial coordinate overlap and structural similarity with Zilla Parishad community center sanctioned at Survey 44/1 in 2024.',
                   },
                 ].map((item, idx) => (
-                  <div key={idx} className="p-3.5 rounded bg-[#FAFAF7] border border-[#EDE8DE] space-y-1">
-                    <div className="flex items-center gap-1.5 font-bold text-[#18324A] text-xs">
-                      <ChevronRight className="h-3.5 w-3.5 text-[#C98219] flex-shrink-0" />
+                  <div key={idx} className="p-3.5 rounded bg-[#FAFAF9] border border-[#F1F0EC] space-y-1">
+                    <div className="flex items-center gap-1.5 font-bold text-[#002449] text-xs">
+                      <ChevronRight className="h-3.5 w-3.5 text-[#002449] flex-shrink-0" />
                       <span>{item.title}</span>
                     </div>
-                    <p className="text-[11px] text-[#667085] leading-relaxed pl-5">
+                    <p className="text-[11px] text-[#6B6B6B] leading-relaxed pl-5">
                       {item.text}
                     </p>
                   </div>

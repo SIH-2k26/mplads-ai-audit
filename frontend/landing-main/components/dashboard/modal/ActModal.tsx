@@ -38,8 +38,8 @@ export function ActModal({ onClose }: ActModalProps) {
   return (
     <div className="space-y-6">
       {/* 1. RISK STATUS & RECOMMENDATION */}
-      <div className="rounded-[6px] border border-[#234D6C] bg-[#183B54] p-4 space-y-3">
-        <div className="flex items-center justify-between border-b border-[#234D6C] pb-2">
+      <div className="rounded-[6px] border border-white/15 bg-white/5 p-4 space-y-3">
+        <div className="flex items-center justify-between border-b border-white/15 pb-2">
           <span className="font-mono text-[10px] font-bold text-gray-400 uppercase">
             Human Decision Protocol
           </span>
@@ -49,7 +49,7 @@ export function ActModal({ onClose }: ActModalProps) {
         </div>
 
         <div className="space-y-1">
-          <h4 className="text-xs font-bold font-mono text-[#E5B45A] uppercase tracking-wide">
+          <h4 className="text-xs font-bold font-mono text-gray-400 uppercase tracking-wide">
             Recommended Next Statutory Step:
           </h4>
           <p className="text-xs text-white leading-relaxed font-semibold">
@@ -60,9 +60,9 @@ export function ActModal({ onClose }: ActModalProps) {
 
       {/* 2. CONFIRMATION PROMPT (If an action is clicked) */}
       {confirmingAction && (
-        <div className="p-4 rounded-[6px] border border-[#D99018] bg-[#D99018]/15 space-y-3 animate-in fade-in-50 duration-150">
+        <div className="p-4 rounded-[6px] border border-white/30 bg-white/15 space-y-3 animate-in fade-in-50 duration-150">
           <div className="flex items-center gap-2">
-            <AlertTriangle className="h-4 w-4 text-[#D99018]" />
+            <AlertTriangle className="h-4 w-4 text-white/60" />
             <h4 className="text-xs font-bold text-white uppercase font-mono">
               Confirm Statutory Action: {confirmingAction}
             </h4>
@@ -74,14 +74,14 @@ export function ActModal({ onClose }: ActModalProps) {
             <button
               type="button"
               onClick={handleConfirmAction}
-              className="rounded-[4px] bg-[#D99018] px-3.5 py-1.5 text-xs font-bold text-[#15324A] hover:bg-[#E5B45A] transition-colors"
+              className="rounded-[4px] bg-white px-3.5 py-1.5 text-xs font-bold text-[#002449] hover:bg-gray-100 transition-colors"
             >
               Confirm & Log Action
             </button>
             <button
               type="button"
               onClick={() => setConfirmingAction(null)}
-              className="rounded-[4px] bg-[#102F45] border border-[#234D6C] px-3 py-1.5 text-xs font-semibold text-gray-300 hover:text-white transition-colors"
+              className="rounded-[4px] bg-[#002449] border border-white/15 px-3 py-1.5 text-xs font-semibold text-gray-300 hover:text-white transition-colors"
             >
               Cancel
             </button>
@@ -91,7 +91,7 @@ export function ActModal({ onClose }: ActModalProps) {
 
       {/* 3. AUTHORIZED HUMAN ACTIONS GRID */}
       <div className="space-y-2">
-        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A] block">
+        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 block">
           Authorized Administrative Actions
         </span>
 
@@ -100,9 +100,9 @@ export function ActModal({ onClose }: ActModalProps) {
           <button
             type="button"
             onClick={() => handleActionClick('Review Evidence')}
-            className="p-3 rounded-[4px] border border-[#234D6C] bg-[#183B54] hover:bg-[#1A415E] hover:border-[#D99018] text-left transition-all flex items-start gap-2.5"
+            className="p-3 rounded-[4px] border border-white/15 bg-white/5 hover:bg-white/10 hover:border-white/30 text-left transition-all flex items-start gap-2.5"
           >
-            <FileCheck className="h-4 w-4 text-[#D99018] flex-shrink-0 mt-0.5" />
+            <FileCheck className="h-4 w-4 text-white/60 flex-shrink-0 mt-0.5" />
             <div>
               <strong className="text-white block">Review Evidence Dossier</strong>
               <span className="text-[11px] text-gray-300">
@@ -115,9 +115,9 @@ export function ActModal({ onClose }: ActModalProps) {
           <button
             type="button"
             onClick={() => handleActionClick('Assign Investigation')}
-            className="p-3 rounded-[4px] border border-[#234D6C] bg-[#183B54] hover:bg-[#1A415E] hover:border-[#D99018] text-left transition-all flex items-start gap-2.5"
+            className="p-3 rounded-[4px] border border-white/15 bg-white/5 hover:bg-white/10 hover:border-white/30 text-left transition-all flex items-start gap-2.5"
           >
-            <Briefcase className="h-4 w-4 text-[#E5B45A] flex-shrink-0 mt-0.5" />
+            <Briefcase className="h-4 w-4 text-gray-400 flex-shrink-0 mt-0.5" />
             <div>
               <strong className="text-white block">Assign Field Investigation</strong>
               <span className="text-[11px] text-gray-300">
@@ -130,7 +130,7 @@ export function ActModal({ onClose }: ActModalProps) {
           <button
             type="button"
             onClick={() => handleActionClick('Request Clarification')}
-            className="p-3 rounded-[4px] border border-[#234D6C] bg-[#183B54] hover:bg-[#1A415E] hover:border-[#D99018] text-left transition-all flex items-start gap-2.5"
+            className="p-3 rounded-[4px] border border-white/15 bg-white/5 hover:bg-white/10 hover:border-white/30 text-left transition-all flex items-start gap-2.5"
           >
             <Send className="h-4 w-4 text-[#2E8064] flex-shrink-0 mt-0.5" />
             <div>
@@ -145,7 +145,7 @@ export function ActModal({ onClose }: ActModalProps) {
           <button
             type="button"
             onClick={() => handleActionClick('Open Formal Case')}
-            className="p-3 rounded-[4px] border border-[#C94B4B]/40 bg-[#183B54] hover:bg-[#1A415E] hover:border-[#C94B4B] text-left transition-all flex items-start gap-2.5"
+            className="p-3 rounded-[4px] border border-[#C94B4B]/40 bg-white/5 hover:bg-white/10 hover:border-[#C94B4B] text-left transition-all flex items-start gap-2.5"
           >
             <AlertTriangle className="h-4 w-4 text-[#C94B4B] flex-shrink-0 mt-0.5" />
             <div>
@@ -160,7 +160,7 @@ export function ActModal({ onClose }: ActModalProps) {
           <button
             type="button"
             onClick={() => handleActionClick('Dismiss Alert (False Positive)')}
-            className="p-3 rounded-[4px] border border-[#234D6C] bg-[#183B54] hover:bg-[#1A415E] text-left transition-all flex items-start gap-2.5 sm:col-span-2"
+            className="p-3 rounded-[4px] border border-white/15 bg-white/5 hover:bg-white/10 text-left transition-all flex items-start gap-2.5 sm:col-span-2"
           >
             <XCircle className="h-4 w-4 text-gray-400 flex-shrink-0 mt-0.5" />
             <div>
@@ -174,7 +174,7 @@ export function ActModal({ onClose }: ActModalProps) {
       </div>
 
       {/* 4. GOVERNANCE MANDATE NOTICE */}
-      <div className="rounded-[4px] border border-[#234D6C] bg-[#102F45] p-3 flex items-start gap-2.5 text-[11px] text-gray-300">
+      <div className="rounded-[4px] border border-white/15 bg-[#002449] p-3 flex items-start gap-2.5 text-[11px] text-gray-300">
         <ShieldCheck className="h-4 w-4 text-[#2E8064] flex-shrink-0 mt-0.5" />
         <div>
           <strong className="text-white">Statutory Governance Principle:</strong> AI assists anomaly identification; only designated constitutional authorities (District Collector / Nodal Officer) record official verdicts and enforce administrative actions.
@@ -182,14 +182,14 @@ export function ActModal({ onClose }: ActModalProps) {
       </div>
 
       {/* Footer Navigation Action */}
-      <div className="flex items-center justify-between pt-2 border-t border-[#234D6C]">
+      <div className="flex items-center justify-between pt-2 border-t border-white/15">
         <span className="text-[11px] font-mono text-gray-400">
           Authority: Pune District Collectorate
         </span>
         <button
           type="button"
           onClick={onClose}
-          className="rounded-[4px] bg-[#183B54] border border-[#234D6C] px-3 py-1.5 text-xs font-bold text-gray-300 hover:text-white transition-colors"
+          className="rounded-[4px] bg-white/5 border border-white/15 px-3 py-1.5 text-xs font-bold text-gray-300 hover:text-white transition-colors"
         >
           Close Action Panel
         </button>

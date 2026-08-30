@@ -82,16 +82,16 @@ export function IntelligenceFlowSection() {
   ];
 
   return (
-    <section id="how-it-thinks" className="py-20 sm:py-28 bg-white border-b border-[#D9DFE3]">
+    <section id="how-it-thinks" className="py-20 sm:py-28 bg-white border-b border-[#E5E3DC]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#D99016] bg-[#D99016]/10 px-3 py-1 rounded-full border border-[#D99016]/30">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3 py-1 rounded-full border border-[#002449]/30">
             CHAPTER 03 • SYSTEM ARCHITECTURE
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#15324A] tracking-tight uppercase leading-tight font-sans">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#002449] tracking-tight uppercase leading-tight font-sans">
             How SANCHAY Thinks.
           </h2>
-          <p className="text-sm sm:text-base text-[#647383] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#6B6B6B] leading-relaxed">
             The end-to-end multi-stage pipeline converting raw administrative transactions into verifiable diagnostic signals. Click any stage to inspect technical logic.
           </p>
         </div>
@@ -103,29 +103,29 @@ export function IntelligenceFlowSection() {
               key={st.title}
               type="button"
               onClick={() => setSelectedStage(st)}
-              className="rounded-[6px] border border-[#D9DFE3] bg-[#FAFAF7] p-4 flex flex-col justify-between shadow-subtle hover:border-[#15324A] hover:bg-white transition-all group text-left cursor-pointer hover:translate-y-[-2px]"
+              className="rounded-[6px] border border-[#E5E3DC] bg-[#FAFAF9] p-4 flex flex-col justify-between shadow-subtle hover:border-[#002449] hover:bg-white transition-all group text-left cursor-pointer hover:translate-y-[-2px]"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[11px] font-mono font-bold text-[#D99016]">
+                  <span className="text-[11px] font-mono font-bold text-[#002449]">
                     {st.num}
                   </span>
-                  <div className="p-1.5 rounded bg-white text-[#15324A] border border-[#D9DFE3] group-hover:bg-[#15324A] group-hover:text-white transition-colors">
+                  <div className="p-1.5 rounded bg-white text-[#002449] border border-[#E5E3DC] group-hover:bg-[#002449] rounded-full group-hover:text-white transition-colors">
                     <Info className="h-3.5 w-3.5" />
                   </div>
                 </div>
 
-                <h3 className="text-xs font-bold text-[#15324A] uppercase tracking-wide leading-tight mb-1.5">
+                <h3 className="text-xs font-bold text-[#002449] uppercase tracking-wide leading-tight mb-1.5">
                   {st.title}
                 </h3>
 
-                <p className="text-[11px] text-[#647383] leading-snug">
+                <p className="text-[11px] text-[#6B6B6B] leading-snug">
                   {st.desc}
                 </p>
               </div>
 
-              <div className="mt-4 pt-2 border-t border-[#D9DFE3] text-[9px] font-mono text-[#647383] flex items-center justify-between">
-                <span className="text-[#D99016] font-bold">Inspect Logic</span>
+              <div className="mt-4 pt-2 border-t border-[#E5E3DC] text-[9px] font-mono text-[#6B6B6B] flex items-center justify-between">
+                <span className="text-[#002449] font-bold">Inspect Logic</span>
                 {i < stages.length - 1 && <ChevronRight className="h-3 w-3 text-[#98A2B3] hidden lg:inline" />}
               </div>
             </button>
@@ -141,25 +141,25 @@ export function IntelligenceFlowSection() {
             description={selectedStage.desc}
           >
             <div className="space-y-4 pt-2">
-              <div className="space-y-1.5 bg-[#FAFAF7] p-3 rounded border border-[#D9DFE3]">
-                <span className="text-[10px] font-mono font-bold text-[#15324A] uppercase block">
+              <div className="space-y-1.5 bg-[#FAFAF9] p-3 rounded border border-[#E5E3DC]">
+                <span className="text-[10px] font-mono font-bold text-[#002449] uppercase block">
                   1. Inputs Entering This Stage
                 </span>
-                <ul className="space-y-1 text-xs text-[#647383]">
+                <ul className="space-y-1 text-xs text-[#6B6B6B]">
                   {selectedStage.inputs.map((inp, idx) => (
                     <li key={idx} className="flex items-center gap-1.5">
-                      <span className="text-[#D99016] font-bold">•</span>
+                      <span className="text-[#002449] font-bold">•</span>
                       <span>{inp}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="space-y-1.5 bg-[#FAFAF7] p-3 rounded border border-[#D9DFE3]">
-                <span className="text-[10px] font-mono font-bold text-[#15324A] uppercase block">
+              <div className="space-y-1.5 bg-[#FAFAF9] p-3 rounded border border-[#E5E3DC]">
+                <span className="text-[10px] font-mono font-bold text-[#002449] uppercase block">
                   2. Processing & Deterministic Algorithms
                 </span>
-                <ul className="space-y-1 text-xs text-[#647383]">
+                <ul className="space-y-1 text-xs text-[#6B6B6B]">
                   {selectedStage.processing.map((proc, idx) => (
                     <li key={idx} className="flex items-center gap-1.5">
                       <span className="text-[#2E8064] font-bold">•</span>
@@ -169,23 +169,23 @@ export function IntelligenceFlowSection() {
                 </ul>
               </div>
 
-              <div className="space-y-1.5 bg-[#FAFAF7] p-3 rounded border border-[#D9DFE3]">
-                <span className="text-[10px] font-mono font-bold text-[#15324A] uppercase block">
+              <div className="space-y-1.5 bg-[#FAFAF9] p-3 rounded border border-[#E5E3DC]">
+                <span className="text-[10px] font-mono font-bold text-[#002449] uppercase block">
                   3. Outputs Produced for Downstream Layers
                 </span>
-                <ul className="space-y-1 text-xs text-[#647383]">
+                <ul className="space-y-1 text-xs text-[#6B6B6B]">
                   {selectedStage.outputs.map((out, idx) => (
                     <li key={idx} className="flex items-center gap-1.5">
-                      <span className="text-[#15324A] font-bold">•</span>
+                      <span className="text-[#002449] font-bold">•</span>
                       <span>{out}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="flex items-center justify-between pt-2 border-t border-[#D9DFE3] text-[11px] font-mono text-[#647383]">
+              <div className="flex items-center justify-between pt-2 border-t border-[#E5E3DC] text-[11px] font-mono text-[#6B6B6B]">
                 <span>Statutory Reference:</span>
-                <strong className="text-[#15324A]">{selectedStage.ruleRef}</strong>
+                <strong className="text-[#002449]">{selectedStage.ruleRef}</strong>
               </div>
             </div>
           </Dialog>

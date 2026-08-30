@@ -89,14 +89,14 @@ export function FromDataToDecisionSection() {
   const currentStage = stages.find((s) => s.id === activeModal);
 
   return (
-    <section className="bg-[#102F45] text-white py-20 sm:py-24 relative overflow-hidden border-b border-[#15324B]">
+    <section className="bg-[#002449] text-white py-20 sm:py-24 relative overflow-hidden border-b border-[#001B36]">
       {/* Subtle Grid Background Accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(#D99018_1px,transparent_1px)] [background-size:28px_28px] opacity-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.4)_1px,transparent_1px)] [background-size:28px_28px] opacity-10 pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="max-w-3xl mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#183B54] px-3.5 py-1 text-xs font-mono font-bold text-[#E5B45A] border border-[#234D6C]">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-mono font-bold text-white border border-white/20">
             <ShieldCheck className="h-3.5 w-3.5 text-[#D99018]" />
             <span>OPERATIONAL GOVERNANCE ARCHITECTURE</span>
           </div>
@@ -113,8 +113,8 @@ export function FromDataToDecisionSection() {
 
         {/* Continuous Pipeline Connector Bar */}
         <div className="relative hidden lg:block mb-6 px-10">
-          <div className="relative h-1.5 w-full bg-[#183B54] rounded-full overflow-hidden border border-[#234D6C]">
-            <div className="absolute top-0 bottom-0 left-0 w-full bg-gradient-to-r from-[#D99018]/60 via-[#E5B45A] to-[#D99018]/60 opacity-60 rounded-full" />
+          <div className="relative h-1.5 w-full bg-white/10 rounded-full overflow-hidden border border-white/20">
+            <div className="absolute top-0 bottom-0 left-0 w-full bg-gradient-to-r from-white/30 via-white/60 to-white/30 opacity-60 rounded-full" />
           </div>
 
           {/* 4 Pipeline Node Markers */}
@@ -122,9 +122,9 @@ export function FromDataToDecisionSection() {
             {stages.map((stg) => (
               <div
                 key={stg.num}
-                className="h-4 w-4 rounded-full border-2 bg-[#102F45] border-[#D99018] flex items-center justify-center shadow-xs"
+                className="h-4 w-4 rounded-full border-2 bg-[#002449] border-[#D99018] flex items-center justify-center shadow-xs"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-[#E5B45A]" />
+                <span className="h-1.5 w-1.5 rounded-full bg-white" />
               </div>
             ))}
           </div>
@@ -148,7 +148,7 @@ export function FromDataToDecisionSection() {
                     setActiveModal(stage.id);
                   }
                 }}
-                className="group rounded-[6px] border border-[#234D6C] bg-[#183B54] p-5 flex flex-col justify-between shadow-card hover:border-[#D99018] hover:-translate-y-1 transition-all duration-200 cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-[#D99018]"
+                className="group rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xs p-5 flex flex-col justify-between shadow-md hover:border-white/30 hover:bg-white/10 hover:-translate-y-1 transition-all duration-200 cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <div>
                   {/* CARD HEADER */}
@@ -157,14 +157,14 @@ export function FromDataToDecisionSection() {
                       {stage.num}
                     </span>
 
-                    <div className="p-2 rounded border bg-[#102F45] text-[#E5B45A] border-[#234D6C] group-hover:border-[#D99018] group-hover:bg-[#D99018] group-hover:text-[#15324A] transition-all duration-200">
+                    <div className="p-2 rounded-lg border bg-white/10 text-white border-white/20 group-hover:border-white group-hover:bg-white group-hover:text-[#002449] transition-all duration-200">
                       <Icon className="h-4 w-4" />
                     </div>
                   </div>
 
                   {/* TITLE & DESCRIPTION */}
                   <div className="mt-3 space-y-1">
-                    <span className="text-[9px] font-mono font-bold text-[#E5B45A] uppercase tracking-wider block">
+                    <span className="text-[9px] font-mono font-bold text-gray-400 uppercase tracking-wider block">
                       {stage.subtitle}
                     </span>
                     <h3 className="text-base font-bold text-white tracking-wide uppercase">
@@ -177,7 +177,7 @@ export function FromDataToDecisionSection() {
                 </div>
 
                 {/* CARD FOOTER */}
-                <div className="mt-6 pt-3 border-t border-[#234D6C] text-[10px] font-mono font-bold text-[#E5B45A] flex items-center justify-between">
+                <div className="mt-6 pt-3 border-t border-white/15 text-[10px] font-mono font-bold text-gray-400 flex items-center justify-between">
                   <span className="truncate">{stage.bottomLabel}</span>
                   <span className="flex items-center gap-1 text-[9px] font-sans font-bold uppercase text-gray-300 group-hover:text-white transition-colors flex-shrink-0">
                     <span>Inspect</span>
@@ -192,7 +192,7 @@ export function FromDataToDecisionSection() {
         {/* Explanatory Pipeline Subtitle */}
         <div className="mt-8 text-center">
           <p className="text-[11px] font-mono text-gray-400 tracking-wide">
-            ● CONTINUOUS INTELLIGENCE PIPELINE: <span className="text-[#E5B45A]">DETECT</span> → <span className="text-[#E5B45A]">EXPLAIN</span> → <span className="text-[#E5B45A]">INVESTIGATE</span> → <span className="text-[#E5B45A]">ACT</span> (CLICK ANY CARD TO INSPECT DETAIL DOSSIER)
+            ● CONTINUOUS INTELLIGENCE PIPELINE: <span className="text-white font-bold">DETECT</span> → <span className="text-white font-bold">EXPLAIN</span> → <span className="text-white font-bold">INVESTIGATE</span> → <span className="text-white font-bold">ACT</span> (CLICK ANY CARD TO INSPECT DETAIL DOSSIER)
           </p>
         </div>
       </div>

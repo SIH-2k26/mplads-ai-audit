@@ -26,7 +26,7 @@ export function LandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAFAF7] text-[#172B3A] font-sans antialiased selection:bg-[#D99018]/20 selection:text-[#15324A]">
+    <div className="min-h-screen bg-[#FAFAF9] text-[#0E0E0E] font-sans antialiased selection:bg-[#002449]/20 selection:text-[#002449]">
       {/* Toast Notification Provider with Close (X) Button */}
       <Toaster position="top-right" richColors closeButton />
 

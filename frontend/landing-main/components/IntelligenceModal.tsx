@@ -92,13 +92,13 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-[8px] border border-[#234D6C] bg-[#102F45] text-white shadow-2xl z-10 flex flex-col font-sans"
+            className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-[8px] border border-white/15 bg-[#002449] text-white shadow-2xl z-10 flex flex-col font-sans"
           >
             {/* Header */}
-            <div className="sticky top-0 z-20 flex items-start justify-between border-b border-[#234D6C] bg-[#102F45]/95 backdrop-blur px-6 py-4">
+            <div className="sticky top-0 z-20 flex items-start justify-between border-b border-white/15 bg-[#002449]/95 backdrop-blur px-6 py-4">
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="rounded bg-[#183B54] px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A] border border-[#234D6C]">
+                  <span className="rounded bg-white/5 px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 border border-white/15">
                     {data.category}
                   </span>
                   <span className="font-mono text-xs font-bold text-gray-300">
@@ -118,7 +118,7 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
                 type="button"
                 onClick={onClose}
                 aria-label="Close modal"
-                className="rounded-[4px] p-1.5 text-gray-400 hover:bg-[#183B54] hover:text-white transition-colors border border-transparent hover:border-[#234D6C] focus:outline-none focus:ring-2 focus:ring-[#D99018]"
+                className="rounded-[4px] p-1.5 text-gray-400 hover:bg-white/5 hover:text-white transition-colors border border-transparent hover:border-white/15 focus:outline-none focus:ring-2 focus:ring-[#D99018]"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -127,7 +127,7 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
             {/* Modal Content Body */}
             <div className="p-6 space-y-6 text-xs text-gray-200">
               {/* Top Analytical Status Metric Card */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-[6px] border border-[#234D6C] bg-[#183B54]">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-[6px] border border-white/15 bg-white/5">
                 <div className="space-y-1 text-center sm:text-left">
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400">
                     {data.metricLabel}
@@ -139,7 +139,7 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
 
                 <div className="flex items-center gap-3">
                   {data.riskScore !== undefined && (
-                    <div className="text-center sm:text-right border-r border-[#234D6C] pr-4">
+                    <div className="text-center sm:text-right border-r border-white/15 pr-4">
                       <span className="text-[10px] font-mono text-gray-400 block uppercase">
                         Composite Risk
                       </span>
@@ -148,7 +148,7 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
                           data.riskScore >= 80
                             ? 'text-[#C94B4B]'
                             : data.riskScore >= 60
-                            ? 'text-[#D99018]'
+                            ? 'text-white/60'
                             : 'text-[#2E8064]'
                         }`}
                       >
@@ -163,7 +163,7 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
                         data.statusVariant === 'critical'
                           ? 'bg-red-950/80 text-[#C94B4B] border border-[#C94B4B]/50'
                           : data.statusVariant === 'saffron'
-                          ? 'bg-amber-950/80 text-[#D99018] border border-[#D99018]/50'
+                          ? 'bg-amber-950/80 text-white/60 border border-[#D99018]/50'
                           : 'bg-emerald-950/80 text-[#2E8064] border border-[#2E8064]/50'
                       }`}
                     >
@@ -174,20 +174,20 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
               </div>
 
               {/* Summary Description */}
-              <div className="p-3.5 rounded bg-[#183B54]/70 border border-[#234D6C] text-xs text-gray-200 leading-relaxed">
+              <div className="p-3.5 rounded bg-white/5 border border-white/15 text-xs text-gray-200 leading-relaxed">
                 {data.summary}
               </div>
 
               {/* Why Flagged / Key Signals */}
               <div className="space-y-2">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A] block">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 block">
                   Why Was This Flagged? (Diagnostic Signals)
                 </span>
                 <div className="space-y-1.5">
                   {data.whyFlagged.map((reason, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-2.5 bg-[#183B54] p-2.5 rounded border border-[#234D6C] text-xs text-gray-200"
+                      className="flex items-start gap-2.5 bg-white/5 p-2.5 rounded border border-white/15 text-xs text-gray-200"
                     >
                       <CheckCircle2 className="h-4 w-4 text-[#2E8064] flex-shrink-0 mt-0.5" />
                       <span className="leading-snug">{reason}</span>
@@ -198,24 +198,24 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
 
               {/* Grounded Evidence Sources */}
               <div className="space-y-2">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A] block">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 block">
                   Corroborating Evidence Dossier
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 font-mono text-xs">
                   {data.evidenceSources.map((ev, i) => (
                     <div
                       key={i}
-                      className="p-3 rounded bg-[#183B54] border border-[#234D6C] space-y-1 flex flex-col justify-between"
+                      className="p-3 rounded bg-white/5 border border-white/15 space-y-1 flex flex-col justify-between"
                     >
                       <div>
-                        <span className="text-[9px] text-[#D99018] uppercase font-bold block">
+                        <span className="text-[9px] text-white/60 uppercase font-bold block">
                           {ev.docType}
                         </span>
                         <strong className="text-white text-xs block font-sans mt-0.5">
                           {ev.name}
                         </strong>
                       </div>
-                      <div className="pt-2 border-t border-[#234D6C] text-[10px] text-gray-400">
+                      <div className="pt-2 border-t border-white/15 text-[10px] text-gray-400">
                         Ref: {ev.ref}
                       </div>
                     </div>
@@ -224,10 +224,10 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
               </div>
 
               {/* AI Explanation & Verified Status */}
-              <div className="rounded-[6px] border border-[#234D6C] bg-[#183B54] p-4 space-y-2">
+              <div className="rounded-[6px] border border-white/15 bg-white/5 p-4 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono font-bold text-[#E5B45A] uppercase flex items-center gap-1.5">
-                    <Sparkles className="h-3.5 w-3.5 text-[#D99018]" />
+                  <span className="text-[10px] font-mono font-bold text-gray-400 uppercase flex items-center gap-1.5">
+                    <Sparkles className="h-3.5 w-3.5 text-white/60" />
                     <span>AI Synthesized Diagnostic Assessment</span>
                   </span>
                   <span className="text-[10px] font-mono text-[#2E8064] font-bold">
@@ -246,8 +246,8 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
 
               {/* Public vs Official Boundary Callout */}
               {!data.isPublicAccessible && (
-                <div className="p-3 rounded bg-[#183B54]/40 border border-[#234D6C] flex items-center gap-2.5 text-xs text-gray-300">
-                  <Lock className="h-4 w-4 text-[#D99018] flex-shrink-0" />
+                <div className="p-3 rounded bg-white/5 border border-white/15 flex items-center gap-2.5 text-xs text-gray-300">
+                  <Lock className="h-4 w-4 text-white/60 flex-shrink-0" />
                   <span>
                     Detailed audit sub-ledgers and confidential officer remarks require authorized administrative credentials.
                   </span>
@@ -255,16 +255,16 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
               )}
 
               {/* Bottom Actions */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-[#234D6C]">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-white/15">
                 <button
                   type="button"
                   onClick={() => {
                     onClose();
                     setAiAssistantOpen(true);
                   }}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#183B54] border border-[#234D6C] px-3.5 py-2 text-xs font-bold text-gray-200 hover:text-white hover:bg-[#1A415E] transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-[4px] bg-white/5 border border-white/15 px-3.5 py-2 text-xs font-bold text-gray-200 hover:text-white hover:bg-[#1A415E] transition-colors"
                 >
-                  <Search className="h-3.5 w-3.5 text-[#D99018]" />
+                  <Search className="h-3.5 w-3.5 text-white/60" />
                   <span>Ask Follow-Up Query in Sanchay AI</span>
                 </button>
 
@@ -272,7 +272,7 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
                   <Link
                     to={data.actionUrl}
                     onClick={onClose}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-[4px] bg-[#D99018] px-4 py-2 text-xs font-bold text-[#15324A] hover:bg-[#E5B45A] transition-colors shadow-sm"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-[4px] bg-white px-4 py-2 text-xs font-bold text-[#002449] hover:bg-gray-100 transition-colors shadow-sm"
                   >
                     <span>View Official Workspace</span>
                     <ArrowRight className="h-3.5 w-3.5" />

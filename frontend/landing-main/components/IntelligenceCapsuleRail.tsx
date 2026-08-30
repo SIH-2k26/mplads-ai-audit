@@ -293,8 +293,8 @@ export function IntelligenceCapsuleRail() {
               }}
               className={`relative overflow-hidden cursor-pointer p-5 flex flex-col justify-between transition-all duration-300 rounded-[12px] border ${
                 isHovered
-                  ? 'bg-[#183B54] border-[#D99018] shadow-2xl ring-2 ring-[#D99018]/30'
-                  : 'bg-[#12344D]/80 border-[#234D6C] hover:border-[#D99018]/60'
+                  ? 'bg-white/5 border-white/30 shadow-2xl ring-2 ring-white/30/30'
+                  : 'bg-white/5/80 border-white/15 hover:border-white/30/60'
               }`}
             >
               {/* TOP: Category Badge & Status Pill */}
@@ -303,14 +303,14 @@ export function IntelligenceCapsuleRail() {
                   <div
                     className={`p-2 rounded border transition-colors ${
                       isHovered
-                        ? 'bg-[#D99018] text-[#15324A] border-[#E5B45A]'
-                        : 'bg-[#102F45] text-[#E5B45A] border-[#234D6C]'
+                        ? 'bg-white text-[#002449] border-white'
+                        : 'bg-[#002449] text-white/60 border-white/15'
                     }`}
                   >
                     <Icon className="h-4 w-4" />
                   </div>
                   {isHovered && (
-                    <span className="font-mono text-[10px] font-bold text-[#E5B45A] uppercase tracking-wider bg-[#102F45] px-2 py-0.5 rounded border border-[#234D6C]">
+                    <span className="font-mono text-[10px] font-bold text-white/60 uppercase tracking-wider bg-[#002449] px-2 py-0.5 rounded border border-white/15">
                       {item.category}
                     </span>
                   )}
@@ -321,7 +321,7 @@ export function IntelligenceCapsuleRail() {
                     item.statusVariant === 'critical'
                       ? 'bg-red-950/80 text-[#C94B4B] border border-[#C94B4B]/40'
                       : item.statusVariant === 'saffron'
-                      ? 'bg-amber-950/80 text-[#D99018] border border-[#D99018]/40'
+                      ? 'bg-amber-950/80 text-white/60 border border-white/30/40'
                       : 'bg-emerald-950/80 text-[#2E8064] border border-[#2E8064]/40'
                   }`}
                 >
@@ -349,7 +349,7 @@ export function IntelligenceCapsuleRail() {
                     transition={{ duration: 0.2 }}
                     className="space-y-2 text-xs pt-1"
                   >
-                    <div className="p-2.5 rounded bg-[#102F45] border border-[#234D6C] font-mono flex items-center justify-between text-[11px]">
+                    <div className="p-2.5 rounded bg-[#002449] border border-white/15 font-mono flex items-center justify-between text-[11px]">
                       <span className="text-gray-400">{item.metricLabel}:</span>
                       <strong className="text-white font-bold">{item.metricValue}</strong>
                     </div>
@@ -365,11 +365,11 @@ export function IntelligenceCapsuleRail() {
               </div>
 
               {/* BOTTOM: Action Trigger */}
-              <div className="pt-3 border-t border-[#234D6C] flex items-center justify-between text-[11px] font-mono font-bold">
-                <span className="text-[#E5B45A]">{isHovered ? 'Click to Inspect Dossier' : item.category}</span>
+              <div className="pt-3 border-t border-white/15 flex items-center justify-between text-[11px] font-mono font-bold">
+                <span className="text-white/60">{isHovered ? 'Click to Inspect Dossier' : item.category}</span>
                 <span className="flex items-center gap-1 text-[10px] text-white font-sans uppercase">
                   <span>View</span>
-                  <ArrowRight className="h-3.5 w-3.5 text-[#D99018]" />
+                  <ArrowRight className="h-3.5 w-3.5 text-white/60" />
                 </span>
               </div>
             </motion.div>

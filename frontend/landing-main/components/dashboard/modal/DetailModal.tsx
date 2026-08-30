@@ -67,17 +67,17 @@ export function DetailModal({
             exit={{ opacity: 0, scale: 0.96, y: 8 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-[8px] border border-[#234D6C] bg-[#102F45] text-white shadow-2xl z-10 flex flex-col font-sans"
+            className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-[8px] border border-white/15 bg-[#002449] text-white shadow-2xl z-10 flex flex-col font-sans"
           >
             {/* Modal Header */}
-            <div className="sticky top-0 z-20 flex items-start justify-between border-b border-[#234D6C] bg-[#102F45]/95 backdrop-blur px-6 py-4">
+            <div className="sticky top-0 z-20 flex items-start justify-between border-b border-white/15 bg-[#002449]/95 backdrop-blur px-6 py-4">
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-extrabold text-[#D99018]">
+                  <span className="font-mono text-xs font-extrabold text-white/60">
                     {categoryNumber}
                   </span>
                   <span className="h-3 w-[1px] bg-[#234D6C]" />
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A]">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400">
                     {categoryLabel}
                   </span>
                 </div>
@@ -96,7 +96,7 @@ export function DetailModal({
                 type="button"
                 onClick={onClose}
                 aria-label="Close dialog"
-                className="rounded-[4px] p-1.5 text-gray-400 hover:bg-[#183B54] hover:text-white transition-colors border border-transparent hover:border-[#234D6C] focus:outline-none focus:ring-2 focus:ring-[#D99018] flex-shrink-0"
+                className="rounded-[4px] p-1.5 text-gray-400 hover:bg-white/5 hover:text-white transition-colors border border-transparent hover:border-white/15 focus:outline-none focus:ring-2 focus:ring-white/30 flex-shrink-0"
               >
                 <X className="h-5 w-5" />
               </button>

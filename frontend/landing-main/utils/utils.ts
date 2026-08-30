@@ -53,9 +53,9 @@ export function getRiskColorClass(score: number): {
     case 'HIGH':
       return {
         bg: 'bg-orange-50',
-        text: 'text-[#C98219]',
-        border: 'border-[#C98219]',
-        badgeBg: 'bg-[#C98219]/10 text-[#C98219] border-[#C98219]/30',
+        text: 'text-[#002449]',
+        border: 'border-[#002449]',
+        badgeBg: 'bg-[#002449]/10 text-[#002449] border-[#002449]/30',
         label: 'HIGH RISK',
       };
     case 'MEDIUM':

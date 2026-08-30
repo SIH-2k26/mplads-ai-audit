@@ -14,14 +14,14 @@ export function TheProblemSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-[#F7F5F0] border-b border-[#D9D5CC]">
+    <section className="py-20 sm:py-28 bg-[#F7F5F0] border-b border-[#E5E3DC]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-3 max-w-3xl mx-auto">
-          <span className="inline-block text-xs font-mono font-bold uppercase tracking-widest text-[#C98219] bg-[#C98219]/10 px-3 py-1 rounded-full border border-[#C98219]/30">
+          <span className="inline-block text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3 py-1 rounded-full border border-[#002449]/30">
             The Governance Challenge
           </span>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#18324A] tracking-tight uppercase leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#002449] tracking-tight uppercase leading-tight">
             Public development generates an enormous amount of data.
           </h2>
         </div>
@@ -31,12 +31,12 @@ export function TheProblemSection() {
           {lifecycleWords.map((item, i) => (
             <div
               key={item.label}
-              className="bg-white rounded-[4px] border border-[#D9D5CC] p-3 text-center shadow-subtle hover:border-[#18324A] transition-all flex flex-col justify-between h-24"
+              className="bg-white rounded-[4px] border border-[#E5E3DC] p-3 text-center shadow-subtle hover:border-[#002449] transition-all flex flex-col justify-between h-24"
             >
-              <span className="text-[10px] font-mono font-bold text-[#C98219] block">
+              <span className="text-[10px] font-mono font-bold text-[#002449] block">
                 {item.num}
               </span>
-              <span className="text-xs font-bold text-[#18324A] leading-tight">
+              <span className="text-xs font-bold text-[#002449] leading-tight">
                 {item.label}
               </span>
               <div className="flex justify-center text-[#98A2B3] pt-1">
@@ -51,13 +51,13 @@ export function TheProblemSection() {
         </div>
 
         {/* The Core Insight Punchline */}
-        <div className="mt-12 max-w-3xl mx-auto p-6 sm:p-8 rounded-[8px] border-2 border-[#18324A] bg-white shadow-card text-center space-y-3">
-          <h3 className="text-xl sm:text-2xl font-bold text-[#18324A]">
+        <div className="mt-12 max-w-3xl mx-auto p-6 sm:p-8 rounded-[8px] border-2 border-[#002449] bg-white shadow-card text-center space-y-3">
+          <h3 className="text-xl sm:text-2xl font-bold text-[#002449]">
             The challenge isn't collecting data. <br />
-            <span className="text-[#C98219]">It's connecting the signals in real time.</span>
+            <span className="text-[#002449]">It's connecting the signals in real time.</span>
           </h3>
 
-          <p className="text-xs sm:text-sm text-[#667085] leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-[#6B6B6B] leading-relaxed max-w-2xl mx-auto">
             Traditional administrative oversight examines projects months or years after expenditures have already been settled. Sanchay acts as a continuous intelligence layer across the entire lifecycle — identifying cost deviations, milestone deceleration, and contractor cartelization before they mature into irrevocable audit findings.
           </p>
         </div>

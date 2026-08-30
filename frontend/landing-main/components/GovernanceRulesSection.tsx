@@ -55,17 +55,17 @@ export function GovernanceRulesSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-white border-b border-[#DDE2E5]">
+    <section className="py-20 sm:py-28 bg-white border-b border-[#E5E3DC]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#D89425] bg-[#D89425]/10 px-3 py-1 rounded-full border border-[#D89425]/30">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3 py-1 rounded-full border border-[#002449]/30">
             CHAPTER 05 • STATUTORY CODIFICATION
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16324A] tracking-tight uppercase leading-tight font-sans">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#002449] tracking-tight uppercase leading-tight font-sans">
             Rules Should Become <br />
             <span className="text-[#D89425]">Machine-Readable.</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#66727D] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#6B6B6B] leading-relaxed">
             Codifying the MPLADS Revised Guidelines 2023, General Financial Rules (GFR 2017), and CVC circulars into deterministic evaluation logic.
           </p>
         </div>
@@ -78,28 +78,28 @@ export function GovernanceRulesSection() {
             return (
               <div
                 key={r.title}
-                className="rounded-[6px] border border-[#DDE2E5] bg-[#F7F8F6] p-5 shadow-subtle hover:border-[#16324A] hover:bg-white transition-all flex flex-col justify-between"
+                className="rounded-[6px] border border-[#E5E3DC] bg-[#FAFAF9] p-5 shadow-subtle hover:border-[#002449] hover:bg-white transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-mono font-bold text-[#D89425] bg-[#D89425]/10 px-2 py-0.5 rounded border border-[#D89425]/30">
+                    <span className="text-xs font-mono font-bold text-[#002449] bg-[#002449]/10 px-2 py-0.5 rounded border border-[#002449]/30">
                       {r.ruleCode}
                     </span>
-                    <div className="p-1.5 rounded bg-white border border-[#DDE2E5] text-[#16324A]">
+                    <div className="p-1.5 rounded bg-white border border-[#E5E3DC] text-[#002449]">
                       <Icon className="h-4 w-4" />
                     </div>
                   </div>
 
-                  <h3 className="text-sm font-bold text-[#16324A] uppercase tracking-wide mb-1.5">
+                  <h3 className="text-sm font-bold text-[#002449] uppercase tracking-wide mb-1.5">
                     {r.title}
                   </h3>
 
-                  <p className="text-xs text-[#66727D] leading-relaxed">
+                  <p className="text-xs text-[#6B6B6B] leading-relaxed">
                     {r.desc}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-[#DDE2E5] flex items-center justify-between">
+                <div className="mt-5 pt-3 border-t border-[#E5E3DC] flex items-center justify-between">
                   <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded ${
                     r.statusType === 'danger'
                       ? 'bg-red-50 text-[#C74747] border border-[#C74747]/30'
@@ -109,7 +109,7 @@ export function GovernanceRulesSection() {
                   }`}>
                     {r.status}
                   </span>
-                  <span className="text-[10px] text-[#66727D] font-mono">Codified Logic</span>
+                  <span className="text-[10px] text-[#6B6B6B] font-mono">Codified Logic</span>
                 </div>
               </div>
             );

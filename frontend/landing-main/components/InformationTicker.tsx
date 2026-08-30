@@ -14,11 +14,11 @@ export function InformationTicker() {
   ];
 
   return (
-    <div id="intelligence-ticker" className="w-full bg-[#102F45] text-white border-y border-[#15324B] py-2.5 overflow-hidden select-none">
+    <div id="intelligence-ticker" className="w-full bg-[#002449] text-white border-y border-[#001B36] py-2.5 overflow-hidden select-none">
       <div className="flex items-center">
         {/* Left Fixed Live Intelligence Badge */}
-        <div className="hidden sm:flex items-center gap-1.5 bg-[#0F2638] px-3.5 py-1 text-[10px] font-mono font-bold text-[#E5B45A] border-r border-[#214C68] flex-shrink-0 z-10">
-          <span className="flex h-2 w-2 rounded-full bg-[#D99018] animate-pulse" />
+        <div className="hidden sm:flex items-center gap-1.5 bg-[#001B36] px-3.5 py-1 text-[10px] font-mono font-bold text-white border-r border-white/20 flex-shrink-0 z-10">
+          <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="tracking-wider">LIVE INTELLIGENCE</span>
         </div>
 
@@ -33,7 +33,7 @@ export function InformationTicker() {
                 <strong className="text-white font-bold">{item.state}</strong>
                 <span className="text-gray-400 mx-1.5">·</span>
                 <span className="text-gray-300">{item.text}</span>
-                <ArrowRight className="h-3 w-3 text-[#D99018] ml-4 opacity-75 inline" />
+                <ArrowRight className="h-3 w-3 text-white/50 ml-4 inline" />
               </div>
             ))}
           </div>

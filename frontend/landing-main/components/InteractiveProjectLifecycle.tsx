@@ -74,16 +74,16 @@ export function InteractiveProjectLifecycle() {
   const current = stages[selectedStage];
 
   return (
-    <section id="lifecycle" className="py-24 bg-[#F7F5F0] border-b border-[#D9D5CC]">
+    <section id="lifecycle" className="py-24 bg-[#F7F5F0] border-b border-[#E5E3DC]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#C98219] bg-[#C98219]/10 px-3 py-1 rounded-full border border-[#C98219]/30">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3 py-1 rounded-full border border-[#002449]/30">
             Project Digital Twin Cockpit
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#18324A] tracking-tight uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#002449] tracking-tight uppercase">
             Every Project Has a Story.
           </h2>
-          <p className="text-sm sm:text-base text-[#667085] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#6B6B6B] leading-relaxed">
             From the initial parliamentary recommendation to physical asset handover, Sanchay continuously monitors checkpoints at every lifecycle milestone.
           </p>
         </div>
@@ -101,12 +101,12 @@ export function InteractiveProjectLifecycle() {
                 onClick={() => setSelectedStage(idx)}
                 className={`p-3 rounded-[4px] border text-left transition-all relative ${
                   isSelected
-                    ? 'bg-[#18324A] text-white border-[#18324A] shadow-elevated'
-                    : 'bg-white border-[#D9D5CC] hover:border-[#18324A] text-[#1D2939]'
+                    ? 'bg-[#002449] text-white border-[#002449] shadow-elevated'
+                    : 'bg-white border-[#E5E3DC] hover:border-[#002449] text-[#1D2939]'
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className={`text-[9px] font-mono font-bold ${isSelected ? 'text-gray-300' : 'text-[#667085]'}`}>
+                  <span className={`text-[9px] font-mono font-bold ${isSelected ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
                     {st.step.split('.')[0]}
                   </span>
                   {isFlagged && (
@@ -116,7 +116,7 @@ export function InteractiveProjectLifecycle() {
                 <div className="text-xs font-bold mt-1 leading-snug truncate">
                   {st.title}
                 </div>
-                <div className={`text-[10px] font-mono mt-1 truncate ${isSelected ? 'text-[#E7A943]' : 'text-[#667085]'}`}>
+                <div className={`text-[10px] font-mono mt-1 truncate ${isSelected ? 'text-[#E7A943]' : 'text-[#6B6B6B]'}`}>
                   {st.status}
                 </div>
               </button>
@@ -125,28 +125,28 @@ export function InteractiveProjectLifecycle() {
         </div>
 
         {/* Selected Stage Real-time Telemetry Showcase */}
-        <div className="rounded-[8px] border-2 border-[#18324A] bg-white p-6 sm:p-8 shadow-card">
-          <div className="flex flex-col lg:flex-row items-start justify-between gap-6 border-b border-[#EDE8DE] pb-6">
+        <div className="rounded-[8px] border-2 border-[#002449] bg-white p-6 sm:p-8 shadow-card">
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-6 border-b border-[#F1F0EC] pb-6">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-mono font-bold text-[#C98219] uppercase">
+                <span className="text-xs font-mono font-bold text-[#002449] uppercase">
                   {current.step}
                 </span>
                 <Badge variant={current.status === 'CRITICAL' || current.status === 'DELAYED' ? 'critical' : 'success'}>
                   {current.status}
                 </Badge>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#18324A]">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#002449]">
                 {current.title} — Multipurpose Community Hall (P-1023)
               </h3>
-              <p className="text-xs text-[#667085] mt-1 font-mono">
+              <p className="text-xs text-[#6B6B6B] mt-1 font-mono">
                 Hadapsar Extension, Pune District • Implementing Agency: Pune Zilla Parishad
               </p>
             </div>
 
             <div className="text-right">
-              <span className="text-[10px] text-[#667085] uppercase tracking-wider block">Milestone Metric</span>
-              <span className="text-lg font-mono font-bold text-[#18324A]">
+              <span className="text-[10px] text-[#6B6B6B] uppercase tracking-wider block">Milestone Metric</span>
+              <span className="text-lg font-mono font-bold text-[#002449]">
                 {current.metrics}
               </span>
             </div>
@@ -154,10 +154,10 @@ export function InteractiveProjectLifecycle() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
             <div className="space-y-3">
-              <span className="text-xs font-bold text-[#18324A] uppercase tracking-wider block">
+              <span className="text-xs font-bold text-[#002449] uppercase tracking-wider block">
                 Milestone Execution Record
               </span>
-              <p className="text-xs text-[#1D2939] leading-relaxed bg-[#FAFAF7] p-3.5 rounded border border-[#EDE8DE]">
+              <p className="text-xs text-[#1D2939] leading-relaxed bg-[#FAFAF9] p-3.5 rounded border border-[#F1F0EC]">
                 {current.details}
               </p>
               <div className="flex items-center gap-2 text-xs text-[#2F7658] font-medium">
@@ -167,7 +167,7 @@ export function InteractiveProjectLifecycle() {
             </div>
 
             <div className="space-y-3">
-              <span className="text-xs font-bold text-[#18324A] uppercase tracking-wider block">
+              <span className="text-xs font-bold text-[#002449] uppercase tracking-wider block">
                 AI Diagnostic Telemetry
               </span>
               {current.flag ? (
@@ -189,9 +189,9 @@ export function InteractiveProjectLifecycle() {
             </div>
           </div>
 
-          <div className="mt-8 pt-4 border-t border-[#EDE8DE] flex flex-wrap items-center justify-between gap-3">
-            <span className="text-xs text-[#667085]">
-              Project ID: <strong className="text-[#18324A] font-mono">MPLADS-MH-PUN-2026-1023</strong>
+          <div className="mt-8 pt-4 border-t border-[#F1F0EC] flex flex-wrap items-center justify-between gap-3">
+            <span className="text-xs text-[#6B6B6B]">
+              Project ID: <strong className="text-[#002449] font-mono">MPLADS-MH-PUN-2026-1023</strong>
             </span>
             <Link to="/projects/P-1023">
               <Button variant="default" size="sm" className="text-xs flex items-center gap-1.5 font-bold">

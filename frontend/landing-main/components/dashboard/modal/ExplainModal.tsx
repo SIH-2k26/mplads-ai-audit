@@ -27,14 +27,14 @@ export function ExplainModal({ onClose }: ExplainModalProps) {
       title: 'Duplicate Similarity Overlap',
       detail: '74% coordinate & polygon similarity with PMGSY road asset',
       pts: '+15 pts',
-      color: 'text-[#D99018]',
+      color: 'text-white/60',
     },
     {
       num: '4',
       title: 'Procurement Anomaly',
       detail: 'Single-bid qualified tender with 8-day compressed notice',
       pts: '+12 pts',
-      color: 'text-[#D99018]',
+      color: 'text-white/60',
     },
   ];
 
@@ -64,7 +64,7 @@ export function ExplainModal({ onClose }: ExplainModalProps) {
   return (
     <div className="space-y-6">
       {/* 1. RISK SCORE CARD */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-[6px] border border-[#234D6C] bg-[#183B54]">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-[6px] border border-white/15 bg-white/5">
         <div className="space-y-1 text-center sm:text-left">
           <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400">
             Explainable Risk Score
@@ -78,7 +78,7 @@ export function ExplainModal({ onClose }: ExplainModalProps) {
           </div>
         </div>
 
-        <div className="text-xs text-gray-300 font-mono text-center sm:text-right border-t sm:border-t-0 sm:border-l border-[#234D6C] pt-2 sm:pt-0 sm:pl-4">
+        <div className="text-xs text-gray-300 font-mono text-center sm:text-right border-t sm:border-t-0 sm:border-l border-white/15 pt-2 sm:pt-0 sm:pl-4">
           <div>Confidence: <strong className="text-[#2E8064]">94.2% (Grounded)</strong></div>
           <div className="text-gray-400 text-[10px] mt-0.5">Model: XAI Decomposition v1.4</div>
         </div>
@@ -86,23 +86,23 @@ export function ExplainModal({ onClose }: ExplainModalProps) {
 
       {/* 2. TOP CONTRIBUTING FACTORS */}
       <div className="space-y-2.5">
-        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A] block">
+        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 block">
           Top Contributing Factors (SHAP Risk Attribution)
         </span>
         <div className="space-y-2">
           {topContributors.map((c) => (
             <div
               key={c.num}
-              className="flex items-center justify-between p-3 rounded-[4px] border border-[#234D6C] bg-[#183B54]/70 text-xs"
+              className="flex items-center justify-between p-3 rounded-[4px] border border-white/15 bg-white/5/70 text-xs"
             >
               <div className="space-y-0.5">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-[#E5B45A]">{c.num}.</span>
+                  <span className="font-mono text-xs font-bold text-gray-400">{c.num}.</span>
                   <strong className="text-white text-xs">{c.title}</strong>
                 </div>
                 <p className="text-[11px] text-gray-300 pl-4">{c.detail}</p>
               </div>
-              <span className={`font-mono text-xs font-bold ${c.color} px-2 py-1 rounded bg-[#102F45] border border-[#234D6C]`}>
+              <span className={`font-mono text-xs font-bold ${c.color} px-2 py-1 rounded bg-[#002449] border border-white/15`}>
                 {c.pts}
               </span>
             </div>
@@ -112,8 +112,8 @@ export function ExplainModal({ onClose }: ExplainModalProps) {
 
       {/* 3. AI EXPLANATION & WHY THIS MATTERS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-        <div className="p-3.5 rounded-[6px] border border-[#234D6C] bg-[#183B54] space-y-1.5">
-          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#D99018] block">
+        <div className="p-3.5 rounded-[6px] border border-white/15 bg-white/5 space-y-1.5">
+          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white/60 block">
             AI Glass-Box Explanation
           </span>
           <p className="text-gray-200 text-xs leading-relaxed italic">
@@ -121,7 +121,7 @@ export function ExplainModal({ onClose }: ExplainModalProps) {
           </p>
         </div>
 
-        <div className="p-3.5 rounded-[6px] border border-[#234D6C] bg-[#183B54] space-y-1.5">
+        <div className="p-3.5 rounded-[6px] border border-white/15 bg-white/5 space-y-1.5">
           <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#2E8064] block">
             Why This Matters for Governance
           </span>
@@ -133,20 +133,20 @@ export function ExplainModal({ onClose }: ExplainModalProps) {
 
       {/* 4. GROUNDED EVIDENCE SOURCES */}
       <div className="space-y-2">
-        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A] block">
+        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 block">
           Authoritative Evidence Sources Grounding This Score
         </span>
-        <div className="divide-y divide-[#234D6C] rounded border border-[#234D6C] bg-[#183B54]">
+        <div className="divide-y divide-white/15 rounded border border-white/15 bg-white/5">
           {evidenceSources.map((ev, idx) => (
-            <div key={idx} className="p-2.5 flex items-center justify-between text-xs hover:bg-[#1A415E] transition-colors">
+            <div key={idx} className="p-2.5 flex items-center justify-between text-xs hover:bg-white/10 transition-colors">
               <div className="flex items-center gap-2">
-                <FileText className="h-3.5 w-3.5 text-[#D99018]" />
+                <FileText className="h-3.5 w-3.5 text-white/60" />
                 <div>
                   <span className="font-bold text-white block text-xs">{ev.name}</span>
                   <span className="text-[10px] text-gray-400">{ev.ref}</span>
                 </div>
               </div>
-              <span className="text-[10px] font-mono text-[#2E8064] font-semibold bg-[#102F45] px-2 py-0.5 rounded border border-[#234D6C]">
+              <span className="text-[10px] font-mono text-[#2E8064] font-semibold bg-[#002449] px-2 py-0.5 rounded border border-white/15">
                 {ev.type}
               </span>
             </div>
@@ -155,14 +155,14 @@ export function ExplainModal({ onClose }: ExplainModalProps) {
       </div>
 
       {/* Footer Navigation Action */}
-      <div className="flex items-center justify-between pt-2 border-t border-[#234D6C]">
+      <div className="flex items-center justify-between pt-2 border-t border-white/15">
         <span className="text-[11px] font-mono text-gray-400">
           Statutory Reference: MPLADS Revised Guidelines 2023 §5.4
         </span>
         <Link
           to="/projects/P-1023"
           onClick={onClose}
-          className="inline-flex items-center gap-1.5 rounded-[4px] bg-[#D99018] px-3.5 py-1.5 text-xs font-bold text-[#15324A] hover:bg-[#E5B45A] transition-colors shadow-sm"
+          className="inline-flex items-center gap-1.5 rounded-[4px] bg-white px-3.5 py-1.5 text-xs font-bold text-[#002449] hover:bg-gray-100 transition-colors shadow-sm"
         >
           <span>Inspect Project Risk Passport</span>
           <ArrowRight className="h-3.5 w-3.5" />

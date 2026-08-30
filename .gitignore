@@ -149,3 +149,6 @@ __pycache__/
 catboost_info/
 .pytest_cache/
 .venv/
+*.db
+*.sqlite
+*.sqlite3

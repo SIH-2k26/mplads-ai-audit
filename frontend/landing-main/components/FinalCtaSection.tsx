@@ -5,12 +5,12 @@ import { Button } from './ui/button';
 
 export function FinalCtaSection() {
   return (
-    <section className="py-20 sm:py-28 bg-[#132B3D] text-white relative overflow-hidden border-t border-[#214C68]">
+    <section className="py-20 sm:py-28 bg-[#002449] text-white relative overflow-hidden border-t border-white/20">
       {/* Engineering Dots Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#D89425_1px,transparent_1px)] [background-size:28px_28px] opacity-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.4)_1px,transparent_1px)] [background-size:28px_28px] opacity-10 pointer-events-none" />
 
       <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
-        <div className="inline-flex items-center gap-2 rounded-full bg-[#1C3B52] px-3.5 py-1 text-xs font-mono font-bold text-[#E5B45A] border border-[#2A5372]">
+        <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-mono font-bold text-white border border-white/20">
           <Landmark className="h-3.5 w-3.5" />
           <span>SMART INDIA HACKATHON 2026 • PROBLEM STATEMENT PS-26102</span>
         </div>
@@ -29,10 +29,10 @@ export function FinalCtaSection() {
             <Button
               variant="default"
               size="lg"
-              className="bg-[#D89425] hover:bg-[#C98220] text-[#16202A] text-xs sm:text-sm font-bold flex items-center gap-2 px-7 h-11 shadow-elevated"
+              className="bg-white hover:bg-white/90 text-[#002449] rounded-full text-xs sm:text-sm font-bold flex items-center gap-2 px-7 h-11 shadow-elevated"
             >
               <span>OPEN SANCHAY DASHBOARD</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 text-[#002449]/70" />
             </Button>
           </Link>
 
@@ -40,7 +40,7 @@ export function FinalCtaSection() {
             <Button
               variant="outline"
               size="lg"
-              className="bg-transparent hover:bg-white/10 text-white border-white/40 text-xs sm:text-sm font-semibold px-6 h-11"
+              className="bg-transparent hover:bg-white/10 text-white border-white/40 rounded-full text-xs sm:text-sm font-semibold px-6 h-11"
             >
               EXPLORE THE SYSTEM
             </Button>

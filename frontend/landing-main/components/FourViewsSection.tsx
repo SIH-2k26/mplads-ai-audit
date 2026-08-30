@@ -15,7 +15,7 @@ export function FourViewsSection() {
       icon: Landmark,
       metrics: ['128 Works Sanctioned', '76.4% Fund Utilised', '13 Needs Attention'],
       previewLabel: 'Pune Parliamentary Constituency',
-      color: 'border-l-[#C98219]',
+      color: 'border-l-[#002449]',
     },
     {
       role: '02. DISTRICT AUTHORITY / COLLECTOR',
@@ -25,7 +25,7 @@ export function FourViewsSection() {
       icon: Activity,
       metrics: ['21 Require Decision', '3 SLA Breaches', '12 Pending Sanctions'],
       previewLabel: 'Pune District Command Centre',
-      color: 'border-l-[#18324A]',
+      color: 'border-l-[#002449]',
     },
     {
       role: '03. STATE NODAL AUTHORITY (SNA)',
@@ -50,16 +50,16 @@ export function FourViewsSection() {
   ];
 
   return (
-    <section id="views" className="py-24 bg-white border-b border-[#D9D5CC]">
+    <section id="views" className="py-24 bg-white border-b border-[#E5E3DC]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#C98219] bg-[#C98219]/10 px-3 py-1 rounded-full border border-[#C98219]/30">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3 py-1 rounded-full border border-[#002449]/30">
             Four Governance Lenses
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#18324A] tracking-tight uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#002449] tracking-tight uppercase">
             Tailored Cockpits for Every Level of Authority
           </h2>
-          <p className="text-sm sm:text-base text-[#667085] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#6B6B6B] leading-relaxed">
             Different statutory roles have distinct mandates. Sanchay delivers role-specific intelligence lenses over the same unified data foundation.
           </p>
         </div>
@@ -73,19 +73,19 @@ export function FourViewsSection() {
                 key={v.role}
                 className={`flex flex-col justify-between border-l-4 ${v.color} hover:shadow-elevated transition-all`}
               >
-                <CardHeader className="bg-[#FAFAF7] pb-4">
+                <CardHeader className="bg-[#FAFAF9] pb-4">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-mono font-bold tracking-wider text-[#667085]">
+                    <span className="text-[10px] font-mono font-bold tracking-wider text-[#6B6B6B]">
                       {v.role}
                     </span>
-                    <div className="p-1.5 rounded bg-[#EDE8DE] text-[#18324A]">
+                    <div className="p-1.5 rounded bg-[#F1F0EC] text-[#002449]">
                       <Icon className="h-4 w-4" />
                     </div>
                   </div>
-                  <CardTitle className="text-xl font-bold text-[#18324A]">
+                  <CardTitle className="text-xl font-bold text-[#002449]">
                     {v.headline}
                   </CardTitle>
-                  <CardDescription className="text-xs text-[#667085] leading-relaxed mt-1.5">
+                  <CardDescription className="text-xs text-[#6B6B6B] leading-relaxed mt-1.5">
                     {v.subtext}
                   </CardDescription>
                 </CardHeader>
@@ -95,15 +95,15 @@ export function FourViewsSection() {
                     {v.metrics.map((m, idx) => (
                       <span
                         key={idx}
-                        className="rounded bg-[#FAFAF7] border border-[#D9D5CC] px-2.5 py-1 text-[11px] font-mono font-semibold text-[#18324A]"
+                        className="rounded bg-[#FAFAF9] border border-[#E5E3DC] px-2.5 py-1 text-[11px] font-mono font-semibold text-[#002449]"
                       >
                         {m}
                       </span>
                     ))}
                   </div>
 
-                  <div className="pt-3 border-t border-[#EDE8DE] flex items-center justify-between">
-                    <span className="text-[10px] text-[#667085] font-mono">
+                  <div className="pt-3 border-t border-[#F1F0EC] flex items-center justify-between">
+                    <span className="text-[10px] text-[#6B6B6B] font-mono">
                       {v.previewLabel}
                     </span>
                     <Link to={v.path}>
