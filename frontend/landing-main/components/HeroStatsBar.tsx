@@ -44,7 +44,7 @@ export function HeroStatsBar() {
                     {stat.label}
                   </span>
                 </div>
-                <div className="text-3xl sm:text-4xl font-extrabold font-mono text-[#002449] tracking-tight">
+                <div className={`text-3xl sm:text-4xl font-extrabold font-mono tracking-tight ${i === 1 ? 'text-[#15803D]' : 'text-[#002449]'}`}>
                   {stat.value}
                 </div>
                 <p className="text-xs text-[#6B6B6B] mt-1 font-normal">

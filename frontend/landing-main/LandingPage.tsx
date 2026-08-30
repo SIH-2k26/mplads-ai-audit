@@ -26,78 +26,106 @@ export function LandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAFAF9] text-[#0E0E0E] font-sans antialiased selection:bg-[#002449]/20 selection:text-[#002449]">
-      {/* Toast Notification Provider with Close (X) Button */}
-      <Toaster position="top-right" richColors closeButton />
-
-      {/* Sticky Streamlined Institutional Navbar */}
-      <LandingNavbar />
-
-      {/* CHAPTER 01: Hero with Editorial Statement & Living Infrastructure Mosaic */}
-      <HeroSection />
-
-      {/* CONTINUOUS LIVE INTELLIGENCE TICKER BAND */}
-      <InformationTicker />
-
-      {/* CHAPTER 02: Dark Navy Section — From Data to Decision */}
-      <div id="from-data-to-decision">
-        <FromDataToDecisionSection />
+    <div 
+      id="command-center"
+      className="relative min-h-screen text-[#0E0E0E] font-sans antialiased selection:bg-[#002449]/20 selection:text-[#002449] bg-[#FAFAF9]"
+    >
+      {/* Fixed Full-Screen Background Texture with 94% Solid Tint */}
+      <div 
+        aria-hidden="true"
+        className="fixed inset-0 pointer-events-none z-[1] overflow-hidden select-none bg-cover bg-fixed bg-center"
+        style={{ backgroundImage: "url('/gov_watermark.jpg')" }}
+      >
+        {/* Soft Overlay Tint — 94% solid tint to preserve high contrast */}
+        <div className="absolute inset-0 bg-[#FAFAF9]/94" />
       </div>
 
-      {/* CHAPTER 03: Public Query & Transparency Capsule Rail */}
-      <div id="public-query">
-        <PublicQuerySection />
+      {/* Full-Screen Ambient Watermark Overlay */}
+      <div
+        aria-hidden="true"
+        className="fixed inset-0 w-screen h-screen pointer-events-none z-[25] select-none overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat bg-fixed opacity-[0.16] mix-blend-multiply"
+          style={{
+            backgroundImage: "url('/gov_watermark_display.png')",
+          }}
+        />
       </div>
 
-      {/* CHAPTER 04: How SANCHAY Thinks — 7-Stage Intelligence Pipeline */}
-      <div id="how-it-thinks">
-        <IntelligenceFlowSection />
+      <div className="relative z-10">
+        {/* Toast Notification Provider with Close (X) Button */}
+        <Toaster position="top-right" richColors closeButton />
+
+        {/* Sticky Streamlined Institutional Navbar */}
+        <LandingNavbar />
+
+        {/* CHAPTER 01: Hero with Editorial Statement & Living Infrastructure Mosaic */}
+        <HeroSection />
+
+        {/* CONTINUOUS LIVE INTELLIGENCE TICKER BAND */}
+        <InformationTicker />
+
+        {/* CHAPTER 02: Dark Navy Section — From Data to Decision */}
+        <div id="from-data-to-decision">
+          <FromDataToDecisionSection />
+        </div>
+
+        {/* CHAPTER 03: Public Query & Transparency Capsule Rail */}
+        <div id="public-query">
+          <PublicQuerySection />
+        </div>
+
+        {/* CHAPTER 04: How SANCHAY Thinks — 7-Stage Intelligence Pipeline */}
+        <div id="how-it-thinks">
+          <IntelligenceFlowSection />
+        </div>
+
+        {/* CHAPTER 04: Every Project. One Digital Twin. */}
+        <div id="digital-twin">
+          <ProjectDigitalTwinSection />
+        </div>
+
+        {/* CHAPTER 05: Rules Should Become Machine-Readable */}
+        <div id="rules">
+          <GovernanceRulesSection />
+        </div>
+
+        {/* CHAPTER 06: Warn Before The Loss Occurs */}
+        <div id="early-warning">
+          <EarlyWarningSection />
+        </div>
+
+        {/* CHAPTER 07: From PDF Documents to Structured Intelligence */}
+        <div id="document-intelligence">
+          <DocumentIntelligenceSection />
+        </div>
+
+        {/* CHAPTER 08: Investigate With Corroborated Evidence */}
+        <div id="investigation">
+          <InvestigationTimelineSection />
+        </div>
+
+        {/* CHAPTER 09: One National View. Thousands of Works. */}
+        <div id="national">
+          <NationalCoverageSection />
+        </div>
+
+        {/* INTERACTIVE AUDIT DIRECTORY TABLE */}
+        <div id="directory">
+          <ProjectDataTableSection />
+        </div>
+
+        {/* CHAPTER 10: Final Institutional Call to Action */}
+        <FinalCtaSection />
+
+        {/* Institutional Footer */}
+        <LandingFooter />
+
+        {/* Persistent AI Query Modal & Scroll-to-top */}
+        <AskAiAssistant />
+        <ScrollToTop />
       </div>
-
-      {/* CHAPTER 04: Every Project. One Digital Twin. */}
-      <div id="digital-twin">
-        <ProjectDigitalTwinSection />
-      </div>
-
-      {/* CHAPTER 05: Rules Should Become Machine-Readable */}
-      <div id="rules">
-        <GovernanceRulesSection />
-      </div>
-
-      {/* CHAPTER 06: Warn Before The Loss Occurs */}
-      <div id="early-warning">
-        <EarlyWarningSection />
-      </div>
-
-      {/* CHAPTER 07: From PDF Documents to Structured Intelligence */}
-      <div id="document-intelligence">
-        <DocumentIntelligenceSection />
-      </div>
-
-      {/* CHAPTER 08: Investigate With Corroborated Evidence */}
-      <div id="investigation">
-        <InvestigationTimelineSection />
-      </div>
-
-      {/* CHAPTER 09: One National View. Thousands of Works. */}
-      <div id="national">
-        <NationalCoverageSection />
-      </div>
-
-      {/* INTERACTIVE AUDIT DIRECTORY TABLE */}
-      <div id="directory">
-        <ProjectDataTableSection />
-      </div>
-
-      {/* CHAPTER 10: Final Institutional Call to Action */}
-      <FinalCtaSection />
-
-      {/* Institutional Footer */}
-      <LandingFooter />
-
-      {/* Persistent AI Query Modal & Scroll-to-top */}
-      <AskAiAssistant />
-      <ScrollToTop />
     </div>
   );
 }

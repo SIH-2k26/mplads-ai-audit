@@ -188,43 +188,43 @@ export function ProjectDataTableSection() {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-[#FAFAF9] border-b border-[#E5E3DC]">
+    <section className="py-20 sm:py-28 bg-white border-b border-[#E5E3DC] font-sans">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3 py-1 rounded-full border border-[#002449]/30">
-              NATIONAL PROJECT AUDIT DIRECTORY
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3.5 py-1 rounded-full border border-[#002449]/30 inline-block">
+              CHAPTER 10 • NATIONAL PROJECT AUDIT DIRECTORY
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#002449] tracking-tight uppercase mt-2 font-sans">
               Monitored Works Explorer
             </h2>
-            <p className="text-xs sm:text-sm text-[#6B6B6B] mt-1">
+            <p className="text-xs sm:text-sm text-[#6B6B6B] mt-1 font-sans">
               Search and filter across live parliamentary recommendations, technical sanction milestones, and explainable risk scores.
             </p>
           </div>
 
           {/* Search & Filter Bar */}
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2.5">
             <div className="relative">
-              <Search className="h-3.5 w-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[#6B6B6B]" />
+              <Search className="h-4 w-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#6B6B6B]" />
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search by ID, title, district..."
-                className="pl-8 pr-3 py-1.5 rounded-[4px] border border-[#E5E3DC] bg-white text-xs text-[#0E0E0E] placeholder-[#6B6B6B] outline-none focus:border-[#002449] w-64"
+                className="pl-10 pr-4 py-2 rounded-full border border-[#E5E3DC] bg-[#F1F0EC] text-xs text-[#0E0E0E] placeholder-[#6B6B6B] outline-none focus:border-[#002449] focus:bg-white w-64 transition-all"
               />
             </div>
 
-            <div className="flex rounded-[4px] border border-[#E5E3DC] bg-white p-0.5">
+            <div className="flex rounded-full border border-[#E5E3DC] bg-[#F1F0EC] p-1">
               {(['ALL', 'HIGH', 'MEDIUM', 'LOW'] as const).map((f) => (
                 <button
                   key={f}
                   type="button"
                   onClick={() => setSelectedFilter(f)}
-                  className={`px-2.5 py-1 rounded-[3px] text-[10px] font-mono font-bold transition-colors ${
+                  className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold transition-all cursor-pointer ${
                     selectedFilter === f
-                      ? 'bg-[#002449] text-white'
+                      ? 'bg-[#002449] text-white shadow-xs'
                       : 'text-[#6B6B6B] hover:text-[#0E0E0E]'
                   }`}
                 >
@@ -236,7 +236,7 @@ export function ProjectDataTableSection() {
         </div>
 
         {/* Structured Table Card */}
-        <div className="rounded-[8px] border-2 border-[#002449] bg-white shadow-2xl overflow-hidden">
+        <div className="rounded-[20px] border border-[#E5E3DC] bg-white shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>

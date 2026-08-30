@@ -44,7 +44,7 @@ export const WiseCardsRow: React.FC<WiseCardsRowProps> = ({
             <div className="absolute top-2 left-1 right-1 h-3 bg-[#E8A338] rounded-t-xl" />
 
             {/* Front Wise Signature Green Card */}
-            <div className="relative mt-3 bg-[#16A34A] text-white rounded-xl p-3 flex items-center justify-between shadow-xs">
+            <div className="relative mt-3 bg-[#15803D] text-white rounded-xl p-3 flex items-center justify-between shadow-xs">
               <button
                 onClick={onOpenCardDetails}
                 className="bg-white/20 hover:bg-white/30 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1.5 transition-colors cursor-pointer"
@@ -191,7 +191,7 @@ export const WiseCardsRow: React.FC<WiseCardsRowProps> = ({
           {/* Wise Signature Green Circular Action Button */}
           <button
             onClick={onOpenDoMoreAction}
-            className="w-14 h-14 rounded-full bg-[#16A34A] hover:bg-[#15803D] flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-xs mt-4"
+            className="w-14 h-14 rounded-full bg-[#15803D] hover:bg-[#166534] flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-xs mt-4"
             title="Launch Continuous Vigilance Scan"
           >
             <Plus className="w-7 h-7 stroke-[2.5]" />

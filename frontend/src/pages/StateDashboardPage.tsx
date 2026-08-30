@@ -69,7 +69,7 @@ export function StateDashboardPage() {
             <CardTitle className="text-xs font-bold uppercase tracking-wider text-[#6B6B6B]">Average State Utilisation</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold font-mono text-[#16A34A]">{overallUtilisation.toFixed(1)}%</div>
+            <div className="text-2xl font-bold font-mono text-[#15803D]">{overallUtilisation.toFixed(1)}%</div>
             <p className="text-[11px] text-[#6B6B6B] mt-1">
               ₹{totalExpendedCr.toLocaleString()} Cr spent nationwide
             </p>
@@ -119,12 +119,12 @@ export function StateDashboardPage() {
                   <TableCell className="font-semibold text-xs text-[#0E0E0E]">{row.state}</TableCell>
                   <TableCell className="text-xs font-mono">{row.works} works</TableCell>
                   <TableCell className="text-xs font-medium">{row.sanctioned}</TableCell>
-                  <TableCell className="text-xs font-semibold text-[#16A34A]">{row.util}</TableCell>
+                  <TableCell className="text-xs font-semibold text-[#15803D]">{row.util}</TableCell>
                   <TableCell className={row.critical >= 30 ? 'text-red-600 font-bold text-xs' : 'text-orange-600 font-bold text-xs'}>
                     {row.critical}
                   </TableCell>
                   <TableCell>
-                    <span className="bg-[#16A34A] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+                    <span className="bg-[#15803D] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
                       ACTIVE MONITORING
                     </span>
                   </TableCell>

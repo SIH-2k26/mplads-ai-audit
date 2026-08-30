@@ -119,8 +119,8 @@ export function MinistryDashboardPage() {
         <Card>
           <CardHeader className="pb-2"><CardTitle className="text-xs font-bold uppercase tracking-wider text-[#6B6B6B]">{t.ministry.cards.utilisation}</CardTitle></CardHeader>
           <CardContent>
-            <div className="text-2xl font-extrabold font-mono text-[#16A34A]">{overallUtilisation.toFixed(1)}%</div>
-            <p className="text-[11px] text-[#6B6B6B] mt-1">₹{totalExpendedCr.toLocaleString()} Cr expended nationwide</p>
+            <div className="text-2xl font-extrabold font-mono text-[#15803D]">{overallUtilisation.toFixed(1)}%</div>
+            <p className="text-[11px] text-[#6B6B6B] mt-1">{t.ministry.cards.utilisationDesc || 'Expended nationwide'}</p>
           </CardContent>
         </Card>
         <Card>
@@ -154,7 +154,7 @@ export function MinistryDashboardPage() {
                 <Tooltip
                   contentStyle={{ backgroundColor: '#0E0E0E', borderColor: 'transparent', borderRadius: '12px' }}
                   labelStyle={{ color: '#FFFFFF', fontSize: '11px', fontWeight: 'bold' }}
-                  itemStyle={{ color: '#16A34A', fontSize: '11px' }}
+                  itemStyle={{ color: '#15803D', fontSize: '11px' }}
                 />
                 <Bar dataKey="sanctioned" radius={[8, 8, 0, 0]}>
                   {stateChartData.map((entry: any, i: number) => (
@@ -188,12 +188,12 @@ export function MinistryDashboardPage() {
                   <TableCell className="font-semibold text-xs text-[#0E0E0E]">{row.state}</TableCell>
                   <TableCell className="text-xs font-mono">{row.works} works</TableCell>
                   <TableCell className="text-xs font-medium">{row.sanctioned}</TableCell>
-                  <TableCell className="text-xs font-semibold text-[#16A34A]">{row.util}</TableCell>
+                  <TableCell className="text-xs font-semibold text-[#15803D]">{row.util}</TableCell>
                   <TableCell className={row.critical >= 30 ? 'text-red-600 font-bold text-xs' : 'text-orange-600 font-bold text-xs'}>
                     {row.critical}
                   </TableCell>
                   <TableCell>
-                    <span className="bg-[#16A34A] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+                    <span className="bg-[#15803D] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
                       {t.ministry.table.activeMonitoring}
                     </span>
                   </TableCell>

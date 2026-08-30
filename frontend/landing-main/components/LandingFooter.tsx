@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield } from 'lucide-react';
+import { SanchayLogo } from './common/SanchayLogo';
 
 export function LandingFooter() {
   return (
@@ -11,10 +11,10 @@ export function LandingFooter() {
           {/* Brand Column */}
           <div className="space-y-3 md:col-span-1">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-[4px] bg-[#002449] text-white border border-white/30">
-                <Shield className="h-4 w-4 text-white" />
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white border border-white/20 p-1.5">
+                <SanchayLogo className="h-full w-full" variant="light" />
               </div>
-              <span className="font-extrabold text-white text-base tracking-wider">SANCHAY</span>
+              <span className="font-extrabold text-white text-base tracking-wider font-sans">SANCHAY</span>
             </div>
             <p className="text-[11px] text-gray-400 leading-relaxed">
               AI-Powered Risk Intelligence & Investigation Decision Support for MPLADS.

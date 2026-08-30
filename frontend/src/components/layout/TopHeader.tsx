@@ -16,6 +16,8 @@ import { SUPPORTED_LANGUAGES } from '../../i18n/types';
 import { useT } from '../../i18n/useT';
 import { UserRole } from '../../types';
 
+import { SanchayLogo } from '../common/SanchayLogo';
+
 const ROLE_DASHBOARD_MAP: Record<UserRole, string> = {
   DISTRICT_AUTHORITY: '/district',
   MP: '/mp',
@@ -54,9 +56,12 @@ export function TopHeader() {
         <Link
           to="/"
           title="Return to National Sanchay Portal"
-          className="font-bold text-lg tracking-tight text-[#0E0E0E] lowercase leading-none hover:opacity-75 transition-opacity cursor-pointer flex items-center gap-2"
+          className="font-bold text-lg tracking-tight text-[#0E0E0E] leading-none hover:opacity-75 transition-opacity cursor-pointer flex items-center gap-2"
         >
-          <span>{t.brand}</span>
+          <div className="w-7 h-7 rounded-full bg-[#002449] flex items-center justify-center p-1">
+            <SanchayLogo className="w-full h-full" variant="light" />
+          </div>
+          <span className="font-extrabold tracking-tight uppercase text-base text-[#002449]">{t.brand}</span>
         </Link>
       </div>
 
@@ -107,7 +112,7 @@ export function TopHeader() {
         {/* Ask Sanchay */}
         <button
           onClick={() => setAiAssistantOpen(true)}
-          className="bg-[#16A34A] hover:bg-[#15803D] text-white font-semibold text-xs px-4 py-2 rounded-full transition-colors cursor-pointer flex items-center gap-1.5 shadow-none"
+          className="bg-[#15803D] hover:bg-[#166534] text-white font-semibold text-xs px-4 py-2 rounded-full transition-colors cursor-pointer flex items-center gap-1.5 shadow-none"
         >
           <Sparkles className="w-3.5 h-3.5 fill-white" />
           <span>{t.header.askSanchay}</span>

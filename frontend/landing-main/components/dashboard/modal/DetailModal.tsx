@@ -57,27 +57,27 @@ export function DetailModal({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/65 backdrop-blur-[2px]"
+            className="fixed inset-0 bg-black/50 backdrop-blur-[2px]"
           />
 
-          {/* Centered Modal Window */}
+          {/* Centered Modal Window — light body like real dashboard */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 8 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-[8px] border border-white/15 bg-[#002449] text-white shadow-2xl z-10 flex flex-col font-sans"
+            className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-[20px] border border-[#E5E3DC] bg-white text-[#0E0E0E] shadow-2xl z-10 flex flex-col font-sans"
           >
-            {/* Modal Header */}
-            <div className="sticky top-0 z-20 flex items-start justify-between border-b border-white/15 bg-[#002449]/95 backdrop-blur px-6 py-4">
+            {/* Modal Header — navy brand strip */}
+            <div className="sticky top-0 z-20 flex items-start justify-between bg-[#002449] px-6 py-4 rounded-t-[20px]">
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-xs font-extrabold text-white/60">
                     {categoryNumber}
                   </span>
-                  <span className="h-3 w-[1px] bg-[#234D6C]" />
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400">
+                  <span className="h-3 w-[1px] bg-white/20" />
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white/60">
                     {categoryLabel}
                   </span>
                 </div>
@@ -85,7 +85,7 @@ export function DetailModal({
                   {title}
                 </h2>
                 {subtitle && (
-                  <p className="text-xs text-gray-300 font-normal leading-relaxed max-w-xl">
+                  <p className="text-xs text-white/70 font-normal leading-relaxed max-w-xl">
                     {subtitle}
                   </p>
                 )}
@@ -96,14 +96,14 @@ export function DetailModal({
                 type="button"
                 onClick={onClose}
                 aria-label="Close dialog"
-                className="rounded-[4px] p-1.5 text-gray-400 hover:bg-white/5 hover:text-white transition-colors border border-transparent hover:border-white/15 focus:outline-none focus:ring-2 focus:ring-white/30 flex-shrink-0"
+                className="rounded-full p-1.5 text-white/60 hover:bg-white/10 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 flex-shrink-0"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
 
-            {/* Modal Body Content */}
-            <div className="p-6 space-y-6 text-xs text-gray-200">{children}</div>
+            {/* Modal Body Content — light dashboard theme */}
+            <div className="p-6 space-y-5 text-sm text-[#0E0E0E]">{children}</div>
           </motion.div>
         </div>
       )}

@@ -102,7 +102,7 @@ export function HeroSection() {
 
             {/* Human-in-the-loop Trust Statement */}
             <div className="flex items-center gap-2 text-[11px] font-mono font-semibold text-[#6B6B6B] pt-0.5">
-              <ShieldCheck className="h-3.5 w-3.5 text-[#2E8064]" />
+              <ShieldCheck className="h-3.5 w-3.5 text-[#15803D]" />
               <span>AI-ASSISTED • EVIDENCE-BACKED • HUMAN VERIFIED</span>
             </div>
 

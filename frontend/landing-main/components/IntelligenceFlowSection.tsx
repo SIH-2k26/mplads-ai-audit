@@ -103,28 +103,28 @@ export function IntelligenceFlowSection() {
               key={st.title}
               type="button"
               onClick={() => setSelectedStage(st)}
-              className="rounded-[6px] border border-[#E5E3DC] bg-[#FAFAF9] p-4 flex flex-col justify-between shadow-subtle hover:border-[#002449] hover:bg-white transition-all group text-left cursor-pointer hover:translate-y-[-2px]"
+              className="rounded-[16px] border border-[#E5E3DC] bg-[#F1F0EC] p-4 flex flex-col justify-between hover:border-[#002449] hover:bg-white hover:shadow-md transition-all group text-left cursor-pointer hover:-translate-y-0.5"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[11px] font-mono font-bold text-[#002449]">
+                  <span className="text-xs font-mono font-extrabold text-[#002449]">
                     {st.num}
                   </span>
-                  <div className="p-1.5 rounded bg-white text-[#002449] border border-[#E5E3DC] group-hover:bg-[#002449] rounded-full group-hover:text-white transition-colors">
+                  <div className="w-7 h-7 rounded-full bg-white text-[#002449] border border-[#E5E3DC] group-hover:bg-[#002449] group-hover:text-white group-hover:border-[#002449] flex items-center justify-center transition-colors">
                     <Info className="h-3.5 w-3.5" />
                   </div>
                 </div>
 
-                <h3 className="text-xs font-bold text-[#002449] uppercase tracking-wide leading-tight mb-1.5">
+                <h3 className="text-xs font-bold text-[#0E0E0E] uppercase tracking-wide leading-tight mb-1.5 font-sans">
                   {st.title}
                 </h3>
 
-                <p className="text-[11px] text-[#6B6B6B] leading-snug">
+                <p className="text-[11px] text-[#6B6B6B] leading-snug font-sans">
                   {st.desc}
                 </p>
               </div>
 
-              <div className="mt-4 pt-2 border-t border-[#E5E3DC] text-[9px] font-mono text-[#6B6B6B] flex items-center justify-between">
+              <div className="mt-4 pt-2 border-t border-[#EAE8E2] text-[9px] font-mono text-[#6B6B6B] flex items-center justify-between">
                 <span className="text-[#002449] font-bold">Inspect Logic</span>
                 {i < stages.length - 1 && <ChevronRight className="h-3 w-3 text-[#98A2B3] hidden lg:inline" />}
               </div>

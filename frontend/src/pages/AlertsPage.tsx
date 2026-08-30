@@ -191,7 +191,7 @@ export function AlertsPage() {
                     </button>
                     <button
                       onClick={() => handleUpdateStatus(alert.id, 'RESOLVED')}
-                      className="bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-semibold px-4 py-1.5 rounded-full cursor-pointer transition-colors"
+                      className="bg-[#15803D] hover:bg-[#166534] text-white text-xs font-semibold px-4 py-1.5 rounded-full cursor-pointer transition-colors"
                     >
                       {t.alerts.resolveHold}
                     </button>

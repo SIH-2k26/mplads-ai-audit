@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, ArrowRight, Search, Menu, X } from 'lucide-react';
+import { SanchayLogo } from './common/SanchayLogo';
 import { Button } from './ui/button';
 import { CommandPalette } from './ui/command';
 import { cn } from '../utils/utils';
@@ -54,8 +55,8 @@ export function LandingNavbar() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between gap-6">
           {/* Brand & Emblem */}
           <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#002449] text-white shadow-xs border border-[#002449] group-hover:bg-[#001B36] transition-colors">
-              <Shield className="h-4 w-4 text-white" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#002449] text-white shadow-xs border border-[#002449] group-hover:bg-[#001B36] transition-colors p-1.5">
+              <SanchayLogo className="h-full w-full" variant="light" />
             </div>
             <div className="flex flex-col justify-center">
               <div className="flex items-center gap-1.5 leading-tight">

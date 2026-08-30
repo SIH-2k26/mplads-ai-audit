@@ -182,7 +182,7 @@ const ROLE_NAV: Record<UserRole, NavGroup[]> = {
 // Role badge colours
 const ROLE_BADGE_STYLE: Record<UserRole, string> = {
   MP: 'bg-blue-100 text-blue-800',
-  DISTRICT_AUTHORITY: 'bg-[#16A34A] text-white',
+  DISTRICT_AUTHORITY: 'bg-[#15803D] text-white',
   STATE_NODAL: 'bg-purple-100 text-purple-800',
   MINISTRY_DIID: 'bg-[#002449] text-white font-bold tracking-wider',
   AUDITOR: 'bg-red-100 text-red-700',
@@ -289,7 +289,7 @@ export function AppSidebar() {
           <Link to="/" title="Return to Landing Page" className="hover:text-[#0E0E0E] transition-colors cursor-pointer">
             {t.sidebarFooter}
           </Link>
-          <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" title="System Live" />
+          <span className="w-2 h-2 rounded-full bg-[#15803D] animate-pulse" title="System Live" />
         </div>
       )}
     </aside>
