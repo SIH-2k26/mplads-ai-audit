@@ -1,3 +1,4 @@
+import * as React from "react";
 import { localPoint } from "@visx/event";
 import { ParentSize } from "@visx/responsive";
 import { scaleLinear, scaleTime } from "@visx/scale";

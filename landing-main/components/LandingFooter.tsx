@@ -11,8 +11,8 @@ export function LandingFooter() {
           {/* Brand Column */}
           <div className="space-y-3 md:col-span-1">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white border border-white/20 p-1.5">
-                <SanchayLogo className="h-full w-full" variant="light" />
+              <div className="flex h-9 w-9 items-center justify-center">
+                <SanchayLogo className="h-full w-full object-contain" variant="light" />
               </div>
               <span className="font-extrabold text-white text-base tracking-wider font-sans">SANCHAY</span>
             </div>

@@ -64,7 +64,7 @@ export function LandingNavbar() {
                 <span className="font-extrabold tracking-wider text-[14px] text-[#0E0E0E] font-sans">
                   SANCHAY
                 </span>
-                <span className="rounded bg-[#002449]/10 px-1.5 py-0.5 text-[8.5px] font-bold text-[#002449] border border-[#002449]/30 font-mono tracking-tight">
+                <span className="rounded bg-[#F1F0EC] px-1.5 py-0.5 text-[8.5px] font-bold text-[#0E0E0E] border border-[#E5E3DC] font-mono tracking-tight">
                   MPLADS INTELLIGENCE
                 </span>
               </div>

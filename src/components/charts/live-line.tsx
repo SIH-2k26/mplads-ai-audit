@@ -125,15 +125,15 @@ export function LiveLine({
   return (
     <>
       <defs>
-        <linearGradient id={gradientId} x1="0" x2="0" y1="0" x2="1">
+        <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor={resolvedStroke} stopOpacity={1} />
           <stop offset="100%" stopColor={resolvedStroke} stopOpacity={0.8} />
         </linearGradient>
-        <linearGradient id={areaGradientId} x1="0" x2="0" y1="0" x2="1">
+        <linearGradient id={areaGradientId} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor={resolvedStroke} stopOpacity={0.15} />
           <stop offset="100%" stopColor={resolvedStroke} stopOpacity={0.0} />
         </linearGradient>
-        <linearGradient id={fadeId} x1="0" x2="1" y1="0" x2="0">
+        <linearGradient id={fadeId} x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="white" stopOpacity={0} />
           <stop offset="4%" stopColor="white" stopOpacity={1} />
           {liveDotX < innerWidth - 1 ? (

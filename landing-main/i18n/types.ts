@@ -1,4 +1,5 @@
 export type SupportedLanguage =
+  | 'ur' // Urdu (اردو - RTL)
   | 'en' // English (Default)
   | 'hi' // Hindi (हिन्दी)
   | 'mr' // Marathi (मराठी)
@@ -32,6 +33,7 @@ export interface LanguageInfo {
 }
 
 export const SUPPORTED_LANGUAGES: LanguageInfo[] = [
+  { code: 'ur', nativeName: 'اردو', englishName: 'Urdu', script: 'Perso-Arabic', dir: 'rtl', region: 'All-India / Official' },
   { code: 'en', nativeName: 'English', englishName: 'English', script: 'Latin', dir: 'ltr', region: 'National / Official' },
   { code: 'hi', nativeName: 'हिन्दी', englishName: 'Hindi', script: 'Devanagari', dir: 'ltr', region: 'Northern / Central India' },
   { code: 'mr', nativeName: 'मराठी', englishName: 'Marathi', script: 'Devanagari', dir: 'ltr', region: 'Maharashtra / Western India' },

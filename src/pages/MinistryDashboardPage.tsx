@@ -120,7 +120,7 @@ export function MinistryDashboardPage() {
           <CardHeader className="pb-2"><CardTitle className="text-xs font-bold uppercase tracking-wider text-[#6B6B6B]">{t.ministry.cards.utilisation}</CardTitle></CardHeader>
           <CardContent>
             <div className="text-2xl font-extrabold font-mono text-[#15803D]">{overallUtilisation.toFixed(1)}%</div>
-            <p className="text-[11px] text-[#6B6B6B] mt-1">{t.ministry.cards.utilisationDesc || 'Expended nationwide'}</p>
+            <p className="text-[11px] text-[#6B6B6B] mt-1">{(t.ministry.cards as any).utilisationDesc || "Expended nationwide" || 'Expended nationwide'}</p>
           </CardContent>
         </Card>
         <Card>

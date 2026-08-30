@@ -1,6 +1,0 @@
-{
-  "name": "MPLADS Sentinel",
-  "description": "AI-powered government risk intelligence and audit dashboard for monitoring MPLADS scheme project compliance, fund disbursals, delays, and fraud anomalies across India.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
