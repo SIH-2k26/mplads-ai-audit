@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MessageSquare, Sparkles, X, ArrowRight, BookOpen, ShieldCheck, Bot } from "lucide-react";
 import { useRoleStore } from "../../stores/useRoleStore";
-import { useUiStore } from "../../../src/stores/useUiStore";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 import { askGemini } from "../../../src/services/geminiService";
@@ -62,7 +61,7 @@ function FormattedMessage({ text }: { text: string }) {
 }
 
 export function AskAiAssistant() {
-  const { aiAssistantOpen: isOpen, setAiAssistantOpen: setIsOpen } = useUiStore();
+  const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isThinking, setIsThinking] = useState(false);
@@ -142,22 +141,18 @@ export function AskAiAssistant() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-[60] flex items-center gap-2.5 rounded-full bg-[#002449] text-white px-4.5 py-3.5 shadow-2xl border-2 border-white/30 hover:bg-[#001B36] transition-all hover:scale-105 cursor-pointer ring-4 ring-[#002449]/20"
+          className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-[#002449] text-white px-4 py-3 shadow-elevated border border-[#002449] hover:bg-[#001B36] transition-all hover:scale-105"
         >
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#15803D] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#15803D]"></span>
-          </span>
           <Sparkles className="h-4 w-4 text-[#15803D]" />
-          <span className="text-xs font-bold tracking-wide">Ask SANCHAY AI</span>
+          <span className="text-xs font-bold tracking-wide">Ask SANCHAY Intelligence</span>
         </button>
       )}
 
       {/* Floating Assistant Popover */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-[60] w-96 rounded-[10px] border-2 border-[#002449] bg-white shadow-2xl animate-in slide-in-from-bottom-5 duration-200 font-sans">
+        <div className="fixed bottom-6 right-6 z-50 w-96 rounded-[8px] border-2 border-[#002449] bg-white shadow-2xl animate-in slide-in-from-bottom-5 duration-200 font-sans">
           {/* Header */}
-          <div className="flex items-center justify-between bg-[#002449] px-4 py-3 text-white rounded-t-[8px]">
+          <div className="flex items-center justify-between bg-[#002449] px-4 py-3 text-white rounded-t-[6px]">
             <div className="flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-[#15803D]" />
               <h3 className="text-xs font-bold uppercase tracking-wider">
