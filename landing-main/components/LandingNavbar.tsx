@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, ArrowRight, Search, Menu, X } from 'lucide-react';
+import { Shield, ArrowRight, Search, Menu, X, Sparkles } from 'lucide-react';
 import { SanchayLogo } from './common/SanchayLogo';
 import { Button } from './ui/button';
 import { CommandPalette } from './ui/command';
@@ -93,13 +93,23 @@ export function LandingNavbar() {
             <button
               type="button"
               onClick={() => setCommandOpen(true)}
-              className="inline-flex items-center gap-2 rounded-full border border-[#E5E3DC] bg-white px-3 h-8.5 text-xs text-[#6B6B6B] hover:border-[#002449] hover:text-[#002449] transition-colors shadow-2xs"
+              className="inline-flex items-center gap-2 rounded-full border border-[#E5E3DC] bg-white px-3 h-8.5 text-xs text-[#6B6B6B] hover:border-[#002449] hover:text-[#002449] transition-colors shadow-2xs cursor-pointer"
             >
               <Search className="h-3.5 w-3.5" />
               <span className="font-sans text-[11px] font-medium">Search</span>
               <kbd className="rounded border border-[#E5E3DC] bg-[#FAFAF9] px-1.5 py-0.5 text-[9px] font-mono leading-none">
                 ⌘K
               </kbd>
+            </button>
+
+            {/* Direct Ask SANCHAY AI Trigger */}
+            <button
+              type="button"
+              onClick={() => useUiStore.getState().setAiAssistantOpen(true)}
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#15803D]/40 bg-[#15803D]/10 hover:bg-[#15803D] text-[#15803D] hover:text-white px-3 h-8.5 text-xs transition-all shadow-2xs font-bold cursor-pointer"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              <span className="font-sans text-[11px]">Ask SANCHAY</span>
             </button>
 
             <Link
