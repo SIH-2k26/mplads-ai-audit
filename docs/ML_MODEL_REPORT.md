@@ -1,50 +1,49 @@
-# MPLADS AI Audit — Comprehensive Machine Learning & Risk Model Report
+# Sanchay AI — Machine Learning & Statutory Risk Model Report
 
 ## 1. Executive Summary
-The **AGASTYA Machine Learning Risk Engine** classifies project risk into **LOW, MEDIUM, HIGH, and CRITICAL** tiers and independently predicts multi-label anomaly vectors across 8 operational domains.
+The **Sanchay Machine Learning Risk Engine** classifies project risk into **LOW, MEDIUM, HIGH, and CRITICAL** tiers and predicts multi-label anomaly vectors across 7 operational domains.
 
-The model stack features **CatBoost, XGBoost, LightGBM, Random Forest, and Isolation Forest**, calibrated with Isotonic Regression to output reliable posterior probabilities without artificial boundary memorization.
+The model stack features **Random Forest, CatBoost, XGBoost, LightGBM, and Isolation Forest**, calibrated with Platt Scaling (3-Fold Sigmoid Calibration) to output reliable posterior probabilities.
 
 ---
 
-## 2. Model Benchmark & Comparison
+## 2. Model Benchmark & 5-Fold Cross-Validation Comparison
 
-| Model | Accuracy | Precision | Recall | F1 Score | PR-AUC | Balanced Acc | MCC |
-|---|---|---|---|---|---|---|---|
-| **CatBoost** | 93.41% | 79.64% | 93.33% | 85.94% | `0.9672` | 93.38% | 0.8211 |
-| **XGBoost** | 93.12% | 78.91% | 92.95% | 85.36% | `0.9563` | 93.06% | 0.8136 |
-| **Gradient Boosting** | 95.44% | 98.48% | 80.1% | 88.34% | `0.9552` | 89.88% | 0.8625 |
-| **HistGradientBoosting** | 92.99% | 78.5% | 92.95% | 85.12% | `0.9542` | 92.97% | 0.8106 |
-| **LightGBM** | 93.28% | 79.41% | 92.95% | 85.65% | `0.954` | 93.16% | 0.8173 |
-| **Random Forest** | 93.95% | 83.37% | 89.86% | 86.5% | `0.9533` | 92.47% | 0.827 |
-| **Extra Trees** | 93.89% | 93.03% | 77.5% | 84.56% | `0.9455` | 87.95% | 0.8131 |
-| **Logistic Regression** | 93.79% | 84.37% | 87.39% | 85.85% | `0.9353` | 91.47% | 0.8189 |
-
+| Model | Split | PR-AUC | ROC-AUC | F1 Score | Brier Score | ECE |
+|---|---|---|---|---|---|---|
+| **CatBoost** | 5-Fold OOF CV | `0.9269` | `0.9467` | `0.8745` | `0.0362` | `0.0156` |
+| **XGBoost** | 5-Fold OOF CV | `0.923` | `0.945` | `0.8767` | `0.0379` | `0.0195` |
+| **LightGBM** | 5-Fold OOF CV | `0.9228` | `0.9448` | `0.8722` | `0.0384` | `0.0151` |
+| **RandomForest** | 5-Fold OOF CV | `0.9313` | `0.9502` | `0.8904` | `0.0329` | `0.0278` |
+| **HistGradientBoosting** | 5-Fold OOF CV | `0.9247` | `0.9467` | `0.8818` | `0.0371` | `0.0317` |
+| **LogisticRegression** | 5-Fold OOF CV | `0.8564` | `0.8954` | `0.564` | `0.2023` | `0.3581` |
+| **RandomForest (Calibrated)** | Held-Out Internal Test | `0.9182` | `0.9323` | `0.8857` | `0.0341` | `0.0095` |
+| **RandomForest (Calibrated)** | Generator B External Holdout | `0.1871` | `0.4733` | `0.0` | `0.1857` | `0.0` |
 
 ---
 
 ## 3. Held-Out Test Evaluation
-- **Total Test Samples:** `3,750` (Stratified 15% holdout)
-- **Accuracy:** `95.97%`
-- **ROC-AUC:** `0.9902`
-- **PR-AUC:** `0.9713`
-- **Confusion Matrix:** TN=`2922`, FP=`19`, FN=`132`, TP=`677`
+- **Total Test Samples:** `750` (Stratified 15% holdout)
+- **Accuracy:** `95.73%`
+- **ROC-AUC:** `0.9323`
+- **PR-AUC:** `0.9182`
+- **Confusion Matrix:** TN=`594`, FP=`9`, FN=`23`, TP=`124`
 
 ---
 
 ## 4. Top Predictive Risk Drivers
 | Rank | Feature Name | Domain | Description |
 |---|---|---|---|
-| 1 | `financial_progress` | Risk Signal | Relative weight: 18.4760 |
-| 2 | `total_rule_violation_count` | Risk Signal | Relative weight: 12.1605 |
-| 3 | `velocity_mismatch` | Risk Signal | Relative weight: 8.8420 |
-| 4 | `rule_risk_score` | Risk Signal | Relative weight: 7.5059 |
-| 5 | `financial_velocity` | Risk Signal | Relative weight: 5.7739 |
-| 6 | `expenditure_to_sanction_ratio` | Risk Signal | Relative weight: 4.2669 |
-| 7 | `physical_velocity` | Risk Signal | Relative weight: 4.0075 |
-| 8 | `payment_to_work_order_ratio` | Risk Signal | Relative weight: 3.6636 |
-| 9 | `actual_to_tender_ratio` | Risk Signal | Relative weight: 3.3137 |
-| 10 | `release_to_sanction_ratio` | Risk Signal | Relative weight: 3.2885 |
+| 1 | `total_rule_violation_count` | Statutory Signal | Relative weight: 0.1204 |
+| 2 | `progress_acceleration` | Statutory Signal | Relative weight: 0.0577 |
+| 3 | `payment_violation_count` | Statutory Signal | Relative weight: 0.0532 |
+| 4 | `project_velocity` | Statutory Signal | Relative weight: 0.0476 |
+| 5 | `physical_velocity` | Statutory Signal | Relative weight: 0.0475 |
+| 6 | `financial_physical_gap` | Statutory Signal | Relative weight: 0.0435 |
+| 7 | `velocity_mismatch` | Statutory Signal | Relative weight: 0.0429 |
+| 8 | `progress_deceleration` | Statutory Signal | Relative weight: 0.0416 |
+| 9 | `physical_progress` | Statutory Signal | Relative weight: 0.0387 |
+| 10 | `financial_velocity` | Statutory Signal | Relative weight: 0.0251 |
 
 
 ---

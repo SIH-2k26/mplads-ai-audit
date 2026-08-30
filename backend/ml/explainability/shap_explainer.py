@@ -1,7 +1,7 @@
 """
 ml/explainability/shap_explainer.py
 SHAP Explainability Engine for ML model predictions.
-Decomposes predictions into directional feature contributions.
+Decomposes predictions into directional feature contributions with human-readable audit explanations.
 """
 from __future__ import annotations
 from dataclasses import dataclass
@@ -14,10 +14,33 @@ try:
 except (ImportError, Exception):
     HAS_SHAP = False
 
-from app.utils.logging import get_logger
-from ml.features.feature_engineer import FEATURE_NAMES
+try:
+    from app.utils.logging import get_logger
+except ImportError:
+    try:
+        from backend.app.utils.logging import get_logger
+    except ImportError:
+        import logging
+        def get_logger(name: str):
+            return logging.getLogger(name)
+
+from ml.features.schema import CANONICAL_FEATURES
 
 logger = get_logger("shap_explainer")
+
+HUMAN_FEATURE_MAPPING = {
+    "financial_physical_gap": "Financial expenditure significantly leads verified physical progress on site.",
+    "cost_to_sanction_ratio": "Actual expenditure exceeds the approved administrative sanction ceiling.",
+    "single_bid_flag": "Contract was awarded under a single-bid tender with zero competitive spread.",
+    "missing_mb_flag": "Mandatory physical Measurement Book (MB) record is missing from the audit file.",
+    "missing_uc_flag": "Statutory Utilization Certificate (UC) has not been submitted for disbursed funds.",
+    "missing_geotag_flag": "Mandatory geo-tagged site verification photographs are absent from asset registry.",
+    "contractor_past_irregularity_rate": "Assigned contractor exhibits a high historical rate of audit irregularities.",
+    "delay_days": "Project duration exceeds sanctioned completion timeline.",
+    "payment_concentration_index": "Unusual payment concentration in a single tranche disbursement.",
+    "procurement_risk_score": "Procurement price discovery score indicates lack of competitive bidding.",
+    "contractor_capacity_strain": "Contractor holds active commitments exceeding certified execution capacity.",
+}
 
 
 @dataclass
@@ -27,6 +50,7 @@ class SHAPFeatureContribution:
     shap_value: float           # Directional impact on risk (+ increases risk, - decreases risk)
     direction: str              # "INCREASES_RISK" | "DECREASES_RISK"
     importance_rank: int
+    human_explanation: str = ""
 
 
 @dataclass
@@ -40,7 +64,7 @@ class SHAPExplanation:
 class SHAPExplainer:
     """
     Computes SHAP explanations for tree-based risk models.
-    Falls back gracefully to model feature importances if SHAP/numba is unavailable.
+    Maps technical feature contributions to plain-language statutory explanations.
     """
 
     def __init__(self, model: Any):
@@ -62,9 +86,8 @@ class SHAPExplainer:
         """
         Explains a single feature vector of shape (n_features,).
         """
-        names = feature_names or FEATURE_NAMES
+        names = feature_names or CANONICAL_FEATURES
         if self._explainer is None:
-            # Fallback heuristic explanation if TreeExplainer is unavailable
             return self._heuristic_explanation(feature_vector, names)
 
         try:
@@ -83,22 +106,23 @@ class SHAPExplainer:
 
             base_val = float(self._explainer.expected_value[1] if isinstance(self._explainer.expected_value, (list, np.ndarray)) else self._explainer.expected_value)
 
-            # Sort by magnitude of shap value
             sorted_indices = np.argsort(np.abs(values))[::-1]
             contributions = []
 
             for rank, idx in enumerate(sorted_indices[:8]):
                 sv = float(values[idx])
-                fv = float(feature_vector[idx])
+                fv = float(feature_vector[idx]) if idx < len(feature_vector) else 0.0
                 fname = names[idx] if idx < len(names) else f"feature_{idx}"
                 direction = "INCREASES_RISK" if sv > 0 else "DECREASES_RISK"
+                human_exp = HUMAN_FEATURE_MAPPING.get(fname, f"Variation in {fname.replace('_', ' ')}.")
                 
                 contributions.append(SHAPFeatureContribution(
                     feature_name=fname,
-                    feature_value=fv,
+                    feature_value=round(fv, 4),
                     shap_value=round(sv, 4),
                     direction=direction,
                     importance_rank=rank + 1,
+                    human_explanation=human_exp,
                 ))
 
             top_drivers = [c.feature_name.replace("_", " ").title() for c in contributions if c.direction == "INCREASES_RISK"][:2]
@@ -119,17 +143,20 @@ class SHAPExplainer:
         contributions = []
         for idx, fname in enumerate(names[:6]):
             val = float(feature_vector[idx]) if idx < len(feature_vector) else 0.0
-            sv = 0.15 if ("gap" in fname or "overdue" in fname) and val > 0 else -0.05
+            sv = 0.15 if ("gap" in fname or "overdue" in fname or "single_bid" in fname) and val > 0 else -0.05
+            direction = "INCREASES_RISK" if sv > 0 else "DECREASES_RISK"
+            human_exp = HUMAN_FEATURE_MAPPING.get(fname, f"Impact from {fname.replace('_', ' ')}.")
             contributions.append(SHAPFeatureContribution(
                 feature_name=fname,
-                feature_value=val,
+                feature_value=round(val, 4),
                 shap_value=round(sv, 4),
-                direction="INCREASES_RISK" if sv > 0 else "DECREASES_RISK",
+                direction=direction,
                 importance_rank=idx + 1,
+                human_explanation=human_exp,
             ))
         return SHAPExplanation(
             base_value=0.5,
             predicted_probability=0.6,
             contributions=contributions,
-            summary_statement="Estimated feature importance based on domain risk heuristics.",
+            summary_statement="Estimated feature importance based on statutory risk heuristics.",
         )

@@ -1,42 +1,42 @@
 [
   {
-    "feature": "financial_progress",
-    "importance": 18.475960024568263
-  },
-  {
     "feature": "total_rule_violation_count",
-    "importance": 12.160535877563584
+    "importance": 0.120416740571437
   },
   {
-    "feature": "velocity_mismatch",
-    "importance": 8.841957487579457
+    "feature": "progress_acceleration",
+    "importance": 0.0576643383144344
   },
   {
-    "feature": "rule_risk_score",
-    "importance": 7.505947134615422
+    "feature": "payment_violation_count",
+    "importance": 0.05321159560754896
   },
   {
-    "feature": "financial_velocity",
-    "importance": 5.773877612118399
-  },
-  {
-    "feature": "expenditure_to_sanction_ratio",
-    "importance": 4.266859901211189
+    "feature": "project_velocity",
+    "importance": 0.047616112763624416
   },
   {
     "feature": "physical_velocity",
-    "importance": 4.007471924000466
+    "importance": 0.04750373617440951
   },
   {
-    "feature": "payment_to_work_order_ratio",
-    "importance": 3.6635871835324756
+    "feature": "financial_physical_gap",
+    "importance": 0.04346714097159334
   },
   {
-    "feature": "actual_to_tender_ratio",
-    "importance": 3.313745960453761
+    "feature": "velocity_mismatch",
+    "importance": 0.04292931155702036
   },
   {
-    "feature": "release_to_sanction_ratio",
-    "importance": 3.2884688086174303
+    "feature": "progress_deceleration",
+    "importance": 0.04159514148103173
+  },
+  {
+    "feature": "physical_progress",
+    "importance": 0.03867709729221698
+  },
+  {
+    "feature": "financial_velocity",
+    "importance": 0.02505262002085012
   }
 ]

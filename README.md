@@ -137,29 +137,20 @@ CONTINUOUS LEARNING (Active Feedback Loop Calibrating Model Weights)
 
 ## 3. Key Innovations & Technical Capabilities
 
-### A. 19 AI Multi-Agent Risk Swarm
-The backend executes a 19-agent swarm coordinated via LangGraph:
-* **Part A (Data & Structural Compliance Agents):**
-  1. `DataQualityAgent`: Analyzes schema completeness, telemetry confidence, and missing fields.
-  2. `EligibilityAgent`: Validates work category against permissible MPLADS Schedule I/II works.
-  3. `BudgetAgent`: Assesses cost ceilings, SoR estimates, and contingency fund allocations.
-  4. `DeadlineAgent`: Monitors 45-day sanction SLAs (Para 3.11) and 18-month completion mandates.
-  5. `DocumentationAgent`: Verifies presence of Administrative Sanction, DPR, Measurement Book (MB), and UC.
-  6. `ProcurementAgent`: Flags single-bid tenders, short publication windows (<7 days), and GeM bypass.
-  7. `ContractorIntelligenceAgent`: Evaluates vendor concentration, pan-district share, and default records.
-  8. `GeographicIntelligenceAgent`: Cross-references boundary bounding boxes and demographic priority areas.
-  9. `DuplicateGhostWorkAgent`: S-BERT semantic title similarity + 500m geospatial clustering.
-* **Part B (Risk, ML & RAG Agents):**
-  10. `PaymentAgent`: Monitors tranche velocity and March fiscal rush spending (>40% in Q4).
-  11. `FinancialProgressAgent`: Evaluates disbursement speed vs. milestones.
-  12. `PhysicalProgressAgent`: Computes discrepancy with ISRO Cartosat-3 elevation / optical progress.
-  13. `AssetCompletionAgent`: Assesses geotagged completion certificate validity.
-  14. `CostIntelligenceAgent`: Tracks Schedule of Rates (SoR) deviations against regional benchmarks.
-  15. `AnomalyAgent`: Runs unsupervised Isolation Forest anomaly scoring on multi-dimensional vectors.
-  16. `DelayPredictionAgent`: Survival analysis predicting multi-month milestone stagnation.
-  17. `TrendBenchmarkAgent`: Evaluates district pacing against state and national peer baselines.
-  18. `FraudArchetypeAgent`: Matches behavioral patterns against known corruption archetypes (cover bidding, split orders).
-  19. `RagAgent`: Queries date-aware statutory guidelines and GFR rules for precise regulatory citations.
+### A. LangGraph Multi-Agent Stateful Orchestration Pipeline
+SANCHAY implements a **LangGraph-based stateful multi-agent orchestration layer**, utilizing LangChain for LLM, tool, and RAG abstractions. Execution flows through a strongly typed supervisor-governed StateGraph:
+
+* **Stateful Supervisor & Domain Specialization:**
+  - `Supervisor Node`: Dynamically routes execution across specialist domain agents (`Financial`, `Compliance`, `Procurement`, `Contractor`, `Progress`).
+  - `Deterministic Tool Layer`: LangChain structured tools wrap ML inference (`run_ml_risk_models`, `compute_shap_attributions`), statutory checks (`evaluate_statutory_compliance`), and documentation verification (`verify_document_records`).
+* **Hybrid Risk Fusion Engine (Policy v1.0.0):**
+  - Fuses supervised machine learning probabilities (35%), rule compliance penalties (25%), unsupervised Isolation Forest anomaly scores (20%), contractor past irregularity rates (10%), and documentation gaps (10%) into a calibrated 0–100 risk score.
+* **Human-in-the-Loop (HITL) Checkpoint Pause:**
+  - If a project exhibits critical risk (`risk_score >= 70.0`), the LangGraph state machine automatically halts execution with `workflow_status: awaiting_human_review`.
+  - Authorized District Collectors / State Vigilance Officers review findings and resume the graph via `POST /api/v1/risk/analyze/{request_id}/review` with verdicts (`APPROVE`, `REJECT`, `ESCALATE`).
+* **Full Architecture & Inventory Docs:**
+  - 📖 Complete Architecture & Flowchart: [docs/LANGGRAPH_ARCHITECTURE.md](docs/LANGGRAPH_ARCHITECTURE.md)
+  - 📋 Complete 19-Agent Catalog & Taxonomy: [docs/AGENT_INVENTORY.md](docs/AGENT_INVENTORY.md)
 
 ---
 
