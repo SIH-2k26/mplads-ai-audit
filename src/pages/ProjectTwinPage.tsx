@@ -120,7 +120,7 @@ function FinancialVsPhysicalProgress({
               <span className="font-mono">{physical}%</span>
             </div>
             <div className="w-full h-2 rounded-full bg-black/5 overflow-hidden">
-              <div className="h-full bg-[#9FE870] rounded-full" style={{ width: `${physical}%` }} />
+              <div className="h-full bg-[#15803D] rounded-full" style={{ width: `${physical}%` }} />
             </div>
           </div>
         </div>
@@ -179,7 +179,7 @@ function ProjectTimelineVisualizer({ milestones }: { milestones: Project['timeli
           return (
             <div key={m.id} className="relative pl-6 border-l border-[#E5E3DC] pb-4 last:pb-0 select-none">
               <div className={`absolute -left-1.5 top-1.5 w-3 h-3 rounded-full border-2 border-white ${
-                m.status === 'COMPLETED' ? 'bg-[#9FE870]' : m.status === 'DELAYED' ? 'bg-red-500' : 'bg-gray-400'
+                m.status === 'COMPLETED' ? 'bg-[#15803D]' : m.status === 'DELAYED' ? 'bg-red-500' : 'bg-gray-400'
               }`} />
               
               <div className="text-xs">
@@ -308,9 +308,9 @@ export function ProjectTwinPage() {
                 project,
               })
             }
-            className="bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E] text-xs font-semibold px-4 py-2 rounded-full cursor-pointer transition-all flex items-center gap-1 shadow-2xs"
+            className="bg-[#15803D] hover:bg-[#166534] text-white text-xs font-semibold px-4 py-2 rounded-full cursor-pointer transition-all flex items-center gap-1.5 shadow-2xs"
           >
-            <Sparkles className="w-3.5 h-3.5 fill-[#0E0E0E]" />
+            <Sparkles className="w-3.5 h-3.5 fill-white" />
             <span>Open Evidence Dossier</span>
           </button>
           

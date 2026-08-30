@@ -135,7 +135,7 @@ export function ProjectMosaic() {
 
           {/* Wireframe Caption Text */}
           <div className="pt-1 px-1">
-            <p className="text-[11px] font-sans text-[#647383] leading-snug">
+            <p className="text-[11px] font-sans text-[#6B6B6B] leading-snug">
               Continuous telemetry and explainable risk scoring across all sanctioned civil and social public assets.
             </p>
           </div>
@@ -177,6 +177,17 @@ interface MosaicTileProps {
   isFading?: boolean;
 }
 
+const CATEGORY_SECTION_MAP: Record<string, string> = {
+  roads: 'directory',
+  sanitation: 'directory',
+  water: 'digital-twin',
+  health: 'rules',
+  community: 'digital-twin',
+  bridges: 'national',
+  inspection: 'early-warning',
+  schools: 'rules',
+};
+
 function MosaicTile({ slot, aspect, featured, isFading }: MosaicTileProps) {
   const [imageError, setImageError] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -186,11 +197,21 @@ function MosaicTile({ slot, aspect, featured, isFading }: MosaicTileProps) {
     setImageError(false);
   }, [slot.imageIndex]);
 
+  const handleTileClick = () => {
+    const targetId = CATEGORY_SECTION_MAP[imgData?.category] || 'directory';
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div
+      onClick={handleTileClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`group relative overflow-hidden rounded-[4px] border border-[#D9DFE3] bg-[#15324A] shadow-card transition-all duration-300 w-full ${aspect} cursor-pointer hover:border-[#15324A] hover:shadow-elevated`}
+      title={`Click to inspect ${slot.defaultTitle} in ${slot.categoryLabel} section`}
+      className={`group relative overflow-hidden rounded-[4px] border border-[#E5E3DC] bg-[#002449] shadow-card transition-all duration-300 w-full ${aspect} cursor-pointer hover:border-[#002449] hover:shadow-elevated active:scale-[0.98]`}
     >
       {/* Infrastructure Image */}
       {!imageError ? (
@@ -205,28 +226,28 @@ function MosaicTile({ slot, aspect, featured, isFading }: MosaicTileProps) {
         />
       ) : (
         /* Reliable Engineering Fallback Graphic */
-        <div className="h-full w-full bg-[#15324A] flex flex-col items-center justify-center p-2 text-center text-white/80">
-          <div className="h-6 w-6 rounded bg-[#D99018]/20 border border-[#D99018]/40 flex items-center justify-center mb-1 text-[#E5B45A]">
+        <div className="h-full w-full bg-[#002449] flex flex-col items-center justify-center p-2 text-center text-white/80">
+          <div className="h-6 w-6 rounded bg-white/10 border-white/20 flex items-center justify-center mb-1 text-white/70">
             <Activity className="h-3.5 w-3.5" />
           </div>
-          <span className="text-[8px] font-mono font-bold text-[#E5B45A] uppercase tracking-wider">
+          <span className="text-[8px] font-mono font-bold text-white/70 uppercase tracking-wider">
             {slot.categoryLabel}
           </span>
         </div>
       )}
 
       {/* Dark Gradient Overlay for High Contrast */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0F2638]/90 via-[#0F2638]/30 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#001B36]/90 via-[#001B36]/30 to-transparent pointer-events-none" />
 
       {/* Bottom Category Label Tag */}
       <div className="absolute bottom-1.5 left-1.5 right-1.5 text-white pointer-events-none flex flex-col justify-end">
         <div className="flex items-center justify-between">
-          <span className="inline-block rounded-[2px] bg-[#15324A]/90 px-1.5 py-0.5 text-[8px] font-mono font-bold tracking-wider text-[#E5B45A] border border-[#D99018]/40 uppercase backdrop-blur-xs">
+          <span className="inline-block rounded-[2px] bg-[#002449]/90 px-1.5 py-0.5 text-[8px] font-mono font-bold tracking-wider text-white/70 border border-white/30 uppercase backdrop-blur-xs">
             {slot.categoryLabel}
           </span>
 
           {isHovered && (
-            <span className="text-[8px] font-mono text-[#E5B45A] flex items-center gap-0.5 animate-in fade-in duration-150">
+            <span className="text-[8px] font-mono text-white/70 flex items-center gap-0.5 animate-in fade-in duration-150">
               <ArrowUpRight className="h-2.5 w-2.5" />
             </span>
           )}
@@ -239,7 +260,7 @@ function MosaicTile({ slot, aspect, featured, isFading }: MosaicTileProps) {
               {slot.defaultTitle}
             </div>
             <div className="flex items-center gap-0.5 text-[8px] text-gray-300 font-mono mt-0.5 truncate">
-              <MapPin className="h-2 w-2 text-[#D99018] flex-shrink-0" />
+              <MapPin className="h-2 w-2 text-white/60 flex-shrink-0" />
               <span className="truncate">{slot.defaultLocation}</span>
             </div>
           </div>

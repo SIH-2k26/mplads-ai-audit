@@ -20,7 +20,7 @@ const badgeVariants = cva(
         critical:
           "border-[#B44343]/30 bg-[#B44343]/10 text-[#B44343]",
         saffron:
-          "border-[#9FE870]/40 bg-[#9FE870]/20 text-[#0E0E0E]",
+          "border-[#002449]/40 bg-[#002449]/20 text-[#002449]",
       },
     },
     defaultVariants: {

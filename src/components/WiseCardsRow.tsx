@@ -44,7 +44,7 @@ export const WiseCardsRow: React.FC<WiseCardsRowProps> = ({
             <div className="absolute top-2 left-1 right-1 h-3 bg-[#E8A338] rounded-t-xl" />
 
             {/* Front Wise Signature Green Card */}
-            <div className="relative mt-3 bg-[#16A34A] text-white rounded-xl p-3 flex items-center justify-between shadow-xs">
+            <div className="relative mt-3 bg-[#15803D] text-white rounded-xl p-3 flex items-center justify-between shadow-xs">
               <button
                 onClick={onOpenCardDetails}
                 className="bg-white/20 hover:bg-white/30 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1.5 transition-colors cursor-pointer"
@@ -120,7 +120,9 @@ export const WiseCardsRow: React.FC<WiseCardsRowProps> = ({
                     <span className="text-xs sm:text-sm font-semibold text-[#0E0E0E] block">
                       ₹<NumberTicker value={flaggedRiskCr} decimalPlaces={2} /> Cr
                     </span>
-                    <span className="text-[10px] text-red-600 font-medium">Flagged at Risk (8.3%)</span>
+                    <span className="text-[10px] text-red-600 font-medium">
+                      Flagged at Risk ({totalOutlayCr > 0 ? ((flaggedRiskCr / totalOutlayCr) * 100).toFixed(1) : '7.4'}%)
+                    </span>
                   </div>
                 </div>
                 <ChevronRight className="w-3.5 h-3.5 text-[#6B6B6B] group-hover:text-[#0E0E0E]" />
@@ -139,16 +141,22 @@ export const WiseCardsRow: React.FC<WiseCardsRowProps> = ({
                     <span className="text-xs sm:text-sm font-semibold text-[#0E0E0E] block">
                       ₹<NumberTicker value={reconciledCr} decimalPlaces={2} /> Cr
                     </span>
-                    <span className="text-[10px] text-emerald-700 font-medium">Physical Reconciled (89.2%)</span>
+                    <span className="text-[10px] text-emerald-700 font-medium">
+                      Physical Reconciled ({totalOutlayCr > 0 ? ((reconciledCr / totalOutlayCr) * 100).toFixed(1) : '67.1'}%)
+                    </span>
                   </div>
                 </div>
                 <ChevronRight className="w-3.5 h-3.5 text-[#6B6B6B] group-hover:text-[#0E0E0E]" />
               </button>
             </div>
 
-            {/* Animated Graph Beside National Scheme Account */}
+            {/* Animated Graph Beside Scheme Account */}
             <div className="w-full">
-              <AnimatedSchemeGraph onOpenDetails={onOpenCardDetails} />
+              <AnimatedSchemeGraph
+                onOpenDetails={onOpenCardDetails}
+                disbursedCr={disbursedCr}
+                riskCr={flaggedRiskCr}
+              />
             </div>
           </div>
         </div>
@@ -183,7 +191,7 @@ export const WiseCardsRow: React.FC<WiseCardsRowProps> = ({
           {/* Wise Signature Green Circular Action Button */}
           <button
             onClick={onOpenDoMoreAction}
-            className="w-14 h-14 rounded-full bg-[#16A34A] hover:bg-[#15803D] flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-xs mt-4"
+            className="w-14 h-14 rounded-full bg-[#15803D] hover:bg-[#166534] flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-xs mt-4"
             title="Launch Continuous Vigilance Scan"
           >
             <Plus className="w-7 h-7 stroke-[2.5]" />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   FolderKanban,
   Building,
@@ -189,7 +189,7 @@ export const CAPSULE_ITEMS: CapsuleIntelligenceData[] = [
       },
     ],
     aiExplanation:
-      'Historical precedent used to train AGASTYA vector similarity engine to automatically flag identical rate inflation patterns in ongoing road estimates.',
+      'Historical precedent used to train SANCHAY vector similarity engine to automatically flag identical rate inflation patterns in ongoing road estimates.',
     statutoryRule: 'CAG Performance Audit Manual §8.2 & PWD Manual Chapter 4',
     actionUrl: '/reports',
     isPublicAccessible: true,
@@ -234,7 +234,7 @@ export const CAPSULE_ITEMS: CapsuleIntelligenceData[] = [
       },
     ],
     aiExplanation:
-      'All AGASTYA AI risk scores are mathematically bounded by and cited against these authoritative legal provisions, ensuring zero black-box hallucination.',
+      'All SANCHAY AI risk scores are mathematically bounded by and cited against these authoritative legal provisions, ensuring zero black-box hallucination.',
     statutoryRule: 'Ministry of Statistics & Programme Implementation (MoSPI)',
     actionUrl: '/policies',
     isPublicAccessible: true,
@@ -262,9 +262,9 @@ export function IntelligenceCapsuleRail() {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 font-sans">
       {/* Interactive Capsule Rail Container */}
-      <div className="flex flex-col lg:flex-row items-stretch gap-3 min-h-[360px] select-none">
+      <div className="flex flex-col lg:flex-row items-stretch gap-3.5 min-h-[380px] select-none">
         {CAPSULE_ITEMS.map((item, idx) => {
           const isHovered = hoveredIndex === idx;
           const Icon = getCategoryIcon(item.category);
@@ -284,45 +284,43 @@ export function IntelligenceCapsuleRail() {
                 }
               }}
               animate={{
-                flex: isHovered ? 2.5 : 1,
+                flex: isHovered ? 2.4 : 1,
               }}
               transition={{
                 type: 'spring',
-                stiffness: 280,
-                damping: 30,
+                stiffness: 260,
+                damping: 26,
               }}
-              className={`relative overflow-hidden cursor-pointer p-5 flex flex-col justify-between transition-all duration-300 rounded-[12px] border ${
+              className={`relative overflow-hidden cursor-pointer p-5 flex flex-col justify-between transition-all duration-300 rounded-[20px] border font-sans ${
                 isHovered
-                  ? 'bg-[#183B54] border-[#D99018] shadow-2xl ring-2 ring-[#D99018]/30'
-                  : 'bg-[#12344D]/80 border-[#234D6C] hover:border-[#D99018]/60'
+                  ? 'bg-white text-[#0E0E0E] border-[#002449] shadow-xl ring-2 ring-[#002449]/15'
+                  : 'bg-white border-[#E5E3DC] text-[#0E0E0E] hover:border-[#002449]/40 shadow-2xs'
               }`}
             >
               {/* TOP: Category Badge & Status Pill */}
               <div className="flex items-start justify-between gap-2">
                 <div className="flex items-center gap-2">
                   <div
-                    className={`p-2 rounded border transition-colors ${
+                    className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
                       isHovered
-                        ? 'bg-[#D99018] text-[#15324A] border-[#E5B45A]'
-                        : 'bg-[#102F45] text-[#E5B45A] border-[#234D6C]'
+                        ? 'bg-[#002449] text-white shadow-xs'
+                        : 'bg-[#F1F0EC] text-[#002449] border border-[#E5E3DC]'
                     }`}
                   >
                     <Icon className="h-4 w-4" />
                   </div>
-                  {isHovered && (
-                    <span className="font-mono text-[10px] font-bold text-[#E5B45A] uppercase tracking-wider bg-[#102F45] px-2 py-0.5 rounded border border-[#234D6C]">
-                      {item.category}
-                    </span>
-                  )}
+                  <span className="font-mono text-[9.5px] font-bold text-[#002449] uppercase tracking-wider bg-[#002449]/10 px-2.5 py-0.5 rounded-full border border-[#002449]/20">
+                    {item.category}
+                  </span>
                 </div>
 
                 <span
-                  className={`px-2 py-0.5 rounded text-[9px] font-mono font-bold whitespace-nowrap ${
+                  className={`px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold whitespace-nowrap ${
                     item.statusVariant === 'critical'
-                      ? 'bg-red-950/80 text-[#C94B4B] border border-[#C94B4B]/40'
+                      ? 'bg-red-100 text-red-700 border border-red-200'
                       : item.statusVariant === 'saffron'
-                      ? 'bg-amber-950/80 text-[#D99018] border border-[#D99018]/40'
-                      : 'bg-emerald-950/80 text-[#2E8064] border border-[#2E8064]/40'
+                      ? 'bg-orange-100 text-orange-800 border border-orange-200'
+                      : 'bg-emerald-100 text-emerald-800 border border-emerald-200'
                   }`}
                 >
                   {isHovered ? item.statusLabel : item.tag}
@@ -330,15 +328,17 @@ export function IntelligenceCapsuleRail() {
               </div>
 
               {/* CENTER: Title & Informational Expansion */}
-              <div className="my-auto space-y-2 py-2">
+              <div className="my-auto space-y-2 py-3">
                 <div>
-                  <span className="text-[10px] font-mono text-gray-400 block font-bold">
+                  <span className="text-[10px] font-mono block font-bold uppercase tracking-wider text-[#6B6B6B]">
                     {item.tag}
                   </span>
-                  <h3 className="text-sm font-bold text-white leading-tight font-sans mt-0.5">
+                  <h3 className="text-sm sm:text-[15px] font-bold leading-snug font-sans mt-0.5 text-[#0E0E0E]">
                     {item.title}
                   </h3>
-                  <p className="text-[11px] text-gray-300 font-sans mt-0.5">{item.location}</p>
+                  <p className="text-[11px] font-sans mt-0.5 text-[#6B6B6B]">
+                    {item.location}
+                  </p>
                 </div>
 
                 {/* Expanded Details when active/hovered */}
@@ -347,29 +347,29 @@ export function IntelligenceCapsuleRail() {
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="space-y-2 text-xs pt-1"
+                    className="space-y-2 text-xs pt-1.5 font-sans"
                   >
-                    <div className="p-2.5 rounded bg-[#102F45] border border-[#234D6C] font-mono flex items-center justify-between text-[11px]">
-                      <span className="text-gray-400">{item.metricLabel}:</span>
-                      <strong className="text-white font-bold">{item.metricValue}</strong>
+                    <div className="p-3 rounded-[14px] bg-[#F1F0EC] border border-[#E5E3DC] font-mono flex items-center justify-between text-xs">
+                      <span className="text-[#6B6B6B] text-[11px] font-medium">{item.metricLabel}:</span>
+                      <strong className="text-[#0E0E0E] font-bold text-xs">{item.metricValue}</strong>
                     </div>
-                    <p className="text-[11px] text-gray-300 leading-snug line-clamp-2">
+                    <p className="text-[11px] text-[#6B6B6B] leading-relaxed line-clamp-2 font-normal font-sans">
                       {item.summary}
                     </p>
                   </motion.div>
                 ) : (
-                  <div className="text-[10px] font-mono text-gray-400 pt-1">
-                    Hover to preview evidence
+                  <div className="text-[10px] font-mono text-[#6B6B6B] pt-1">
+                    Hover to preview dossier
                   </div>
                 )}
               </div>
 
               {/* BOTTOM: Action Trigger */}
-              <div className="pt-3 border-t border-[#234D6C] flex items-center justify-between text-[11px] font-mono font-bold">
-                <span className="text-[#E5B45A]">{isHovered ? 'Click to Inspect Dossier' : item.category}</span>
-                <span className="flex items-center gap-1 text-[10px] text-white font-sans uppercase">
+              <div className="pt-3 border-t border-[#EAE8E2] flex items-center justify-between text-[11px] font-mono font-bold text-[#002449]">
+                <span>{isHovered ? 'Click to Inspect Dossier' : 'Inspect'}</span>
+                <span className="flex items-center gap-1.5 text-[10px] font-sans font-semibold uppercase text-[#002449]">
                   <span>View</span>
-                  <ArrowRight className="h-3.5 w-3.5 text-[#D99018]" />
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </span>
               </div>
             </motion.div>

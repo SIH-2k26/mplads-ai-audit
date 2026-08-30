@@ -100,8 +100,8 @@ export const ProjectDossierModal: React.FC<ProjectDossierModalProps> = ({
 
         {/* Notification Banner */}
         {actionSuccessMsg && (
-          <div className="px-6 py-2.5 bg-[#9FE870] text-[#0E0E0E] text-xs font-medium flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#0E0E0E]" />
+          <div className="px-6 py-2.5 bg-[#15803D] text-white text-xs font-medium flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-white" />
             <span>{actionSuccessMsg}</span>
           </div>
         )}
@@ -305,7 +305,7 @@ export const ProjectDossierModal: React.FC<ProjectDossierModalProps> = ({
               onClick={() => onToggleFreeze(project.id)}
               className={`px-5 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                 isFrozen
-                  ? 'bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E]'
+                  ? 'bg-[#15803D] hover:bg-[#166534] text-white'
                   : 'bg-red-600 hover:bg-red-700 text-white'
               }`}
             >

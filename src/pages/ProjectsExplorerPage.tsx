@@ -154,7 +154,7 @@ export function ProjectsExplorerPage() {
                       <div className="flex items-center gap-2">
                         <span className="font-mono text-xs font-semibold">{p.physicalProgressPercentage}%</span>
                         <div className="w-16 h-1.5 rounded-full bg-black/5 overflow-hidden hidden sm:block">
-                          <div className="h-full bg-[#9FE870] rounded-full" style={{ width: `${p.physicalProgressPercentage}%` }} />
+                          <div className="h-full bg-[#15803D] rounded-full" style={{ width: `${p.physicalProgressPercentage}%` }} />
                         </div>
                       </div>
                     </TableCell>

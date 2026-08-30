@@ -69,7 +69,7 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Wise Green Pill Button (Exact Earn US$115 equivalent) */}
         <button
           onClick={onOpenDesignSpec}
-          className="bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E] font-medium text-xs sm:text-sm px-4 py-1.5 rounded-full transition-colors cursor-pointer flex items-center gap-1.5 shadow-none"
+          className="bg-[#15803D] hover:bg-[#166534] text-white font-medium text-xs sm:text-sm px-4 py-1.5 rounded-full transition-colors cursor-pointer flex items-center gap-1.5 shadow-none"
         >
           <span>Allocation Live ₹4,950 Cr</span>
         </button>

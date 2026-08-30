@@ -8,7 +8,7 @@ export const translations = {
     "header": {
       "context": "Context",
       "role": "Role",
-      "askAgastya": "Ask Agastya"
+      "askSanchay": "Ask Sanchay"
     },
     "roles": {
       "MP": "MP (Lok Sabha)",
@@ -217,7 +217,7 @@ export const translations = {
     "header": {
       "context": "संदर्भ",
       "role": "भूमिका",
-      "askAgastya": "अगस्त्या को पूछें"
+      "askSanchay": "संचय को पूछें"
     },
     "roles": {
       "MP": "सांसद (लोक सभा)",
@@ -426,7 +426,7 @@ export const translations = {
     "header": {
       "context": "संदर्भ",
       "role": "भूमिका",
-      "askAgastya": "अगस्त्याला विचारा"
+      "askSanchay": "संचयला विचारा"
     },
     "roles": {
       "MP": "खासदार (लोकसभा)",
@@ -635,7 +635,7 @@ export const translations = {
     "header": {
       "context": "ਸੰਦਰਭ",
       "role": "ਭੂਮਿਕਾ",
-      "askAgastya": "ਅਗਸਤਿਆ ਤੋਂ ਪੁੱਛੋ"
+      "askSanchay": "ਸੰਚੈ ਤੋਂ ਪੁੱਛੋ"
     },
     "roles": {
       "MP": "ਐਮ.ਪੀ. (ਲੋਕ ਸਭਾ)",
@@ -844,7 +844,7 @@ export const translations = {
     "header": {
       "context": "సందర్భం",
       "role": "పాత్ర",
-      "askAgastya": "అగస్త్యను అడగండి"
+      "askSanchay": "సంచయ్ను అడగండి"
     },
     "roles": {
       "MP": "ఎంపీ (లోక్‌సభ)",
@@ -1053,7 +1053,7 @@ export const translations = {
     "header": {
       "context": "சூழல்",
       "role": "பங்கு",
-      "askAgastya": "அகஸ்தியாவிடம் கேளுங்கள்"
+      "askSanchay": "சஞ்சய்விடம் கேளுங்கள்"
     },
     "roles": {
       "MP": "எம்பி (மக்களவை)",
@@ -1262,7 +1262,7 @@ export const translations = {
     "header": {
       "context": "سیاق و سباق",
       "role": "کردار",
-      "askAgastya": "اگستیہ سے پوچھیں"
+      "askSanchay": "سنچے سے پوچھیں"
     },
     "roles": {
       "MP": "ایم پی (لوک سبھا)",

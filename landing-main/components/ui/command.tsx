@@ -69,33 +69,33 @@ export function CommandPalette({ open, onOpenChange }: CommandDialogProps) {
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 p-4">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-[#0F2638]/60 backdrop-blur-xs transition-opacity"
+        className="fixed inset-0 bg-[#001B36]/60 backdrop-blur-xs transition-opacity"
         onClick={() => onOpenChange(false)}
       />
 
       {/* Palette Box */}
-      <div className="relative z-50 w-full max-w-xl rounded-[8px] border-2 border-[#15324A] bg-white shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      <div className="relative z-50 w-full max-w-xl rounded-[8px] border-2 border-[#002449] bg-white shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
         {/* Search Header */}
-        <div className="flex items-center gap-2.5 border-b border-[#D9DFE3] px-4 py-3 bg-[#FAFAF7]">
+        <div className="flex items-center gap-2.5 border-b border-[#E5E3DC] px-4 py-3 bg-[#FAFAF9]">
           <Search className="h-4 w-4 text-[#D99016]" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search projects, risk signals, states, rules, or navigation (e.g. 'Pune', 'P-1023', 'SoR')..."
-            className="flex-1 bg-transparent text-xs text-[#172B3A] placeholder-[#647383] outline-none font-sans"
+            className="flex-1 bg-transparent text-xs text-[#0E0E0E] placeholder-[#6B6B6B] outline-none font-sans"
             autoFocus
           />
-          <kbd className="hidden sm:inline-block rounded border border-[#D9DFE3] bg-white px-1.5 py-0.5 text-[10px] font-mono text-[#647383]">
+          <kbd className="hidden sm:inline-block rounded border border-[#E5E3DC] bg-white px-1.5 py-0.5 text-[10px] font-mono text-[#6B6B6B]">
             ESC
           </kbd>
         </div>
 
         {/* Results List */}
-        <div className="max-h-80 overflow-y-auto p-2 divide-y divide-[#F3F5F4]">
+        <div className="max-h-80 overflow-y-auto p-2 divide-y divide-[#F1F0EC]">
           {filteredItems.length === 0 ? (
-            <div className="py-8 text-center text-xs text-[#647383]">
-              No results found for "<span className="font-semibold text-[#172B3A]">{query}</span>"
+            <div className="py-8 text-center text-xs text-[#6B6B6B]">
+              No results found for "<span className="font-semibold text-[#0E0E0E]">{query}</span>"
             </div>
           ) : (
             filteredItems.map((item) => (
@@ -103,22 +103,22 @@ export function CommandPalette({ open, onOpenChange }: CommandDialogProps) {
                 key={item.id}
                 type="button"
                 onClick={() => handleSelect(item.path)}
-                className="w-full flex items-center justify-between p-2.5 rounded-[4px] hover:bg-[#F3F5F4] text-left transition-colors group"
+                className="w-full flex items-center justify-between p-2.5 rounded-[4px] hover:bg-[#F1F0EC] text-left transition-colors group"
               >
                 <div className="flex items-start gap-2.5 min-w-0">
-                  <div className="mt-0.5 p-1 rounded bg-white border border-[#D9DFE3] text-[#15324A] group-hover:bg-[#15324A] group-hover:text-white transition-colors">
+                  <div className="mt-0.5 p-1 rounded bg-white border border-[#E5E3DC] text-[#002449] group-hover:bg-[#002449] group-hover:text-white transition-colors">
                     {item.category === 'Projects' ? <FolderKanban className="h-3.5 w-3.5" /> :
                      item.category === 'Risks' ? <ShieldAlert className="h-3.5 w-3.5 text-[#C94B4B]" /> :
                      item.category === 'Rules' ? <BookOpen className="h-3.5 w-3.5 text-[#D99016]" /> :
                      item.category === 'States' ? <Map className="h-3.5 w-3.5 text-[#2E8064]" /> :
-                     <ArrowRight className="h-3.5 w-3.5 text-[#15324A]" />}
+                     <ArrowRight className="h-3.5 w-3.5 text-[#002449]" />}
                   </div>
                   <div className="min-w-0">
-                    <div className="text-xs font-bold text-[#172B3A] truncate group-hover:text-[#15324A]">
+                    <div className="text-xs font-bold text-[#0E0E0E] truncate group-hover:text-[#002449]">
                       {item.title}
                     </div>
                     {item.subtitle && (
-                      <div className="text-[10px] text-[#647383] truncate">
+                      <div className="text-[10px] text-[#6B6B6B] truncate">
                         {item.subtitle}
                       </div>
                     )}
@@ -126,7 +126,7 @@ export function CommandPalette({ open, onOpenChange }: CommandDialogProps) {
                 </div>
 
                 {item.badge && (
-                  <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-[#FAFAF7] border border-[#D9DFE3] text-[#172B3A] flex-shrink-0 ml-2">
+                  <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-[#FAFAF9] border border-[#E5E3DC] text-[#0E0E0E] flex-shrink-0 ml-2">
                     {item.badge}
                   </span>
                 )}
@@ -136,7 +136,7 @@ export function CommandPalette({ open, onOpenChange }: CommandDialogProps) {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between border-t border-[#D9DFE3] bg-[#FAFAF7] px-4 py-2 text-[10px] text-[#647383] font-mono">
+        <div className="flex items-center justify-between border-t border-[#E5E3DC] bg-[#FAFAF9] px-4 py-2 text-[10px] text-[#6B6B6B] font-mono">
           <span>Global Search Palette</span>
           <span>Use ↑ ↓ to navigate, ↵ to select</span>
         </div>

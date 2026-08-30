@@ -1,0 +1,184 @@
+import { AnimatePresence, motion } from "motion/react";
+import { memo, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { useChartStable } from "./chart-context";
+
+function pickNiceInterval(
+  valRange: number,
+  chartHeight: number,
+  minGap: number,
+  prevInterval: number
+): number {
+  if (valRange <= 0 || chartHeight <= 0) return 1;
+  const pxPerUnit = chartHeight / valRange;
+
+  if (prevInterval > 0) {
+    const px = prevInterval * pxPerUnit;
+    if (px >= minGap * 0.5 && px <= minGap * 3) {
+      return prevInterval;
+    }
+  }
+
+  const divisorSets = [
+    [2, 2.5, 2],
+    [2, 2, 2.5],
+    [2.5, 2, 2],
+  ];
+  let best = Number.POSITIVE_INFINITY;
+  for (const divs of divisorSets) {
+    let span = 10 ** Math.ceil(Math.log10(valRange));
+    let i = 0;
+    let d = divs[i % 3] ?? 2;
+    while ((span / d) * pxPerUnit >= minGap) {
+      span /= d;
+      i++;
+      d = divs[i % 3] ?? 2;
+    }
+    if (span < best) best = span;
+  }
+  return best === Number.POSITIVE_INFINITY ? valRange / 5 : best;
+}
+
+const EDGE_FADE_PX = 20;
+
+function edgeOpacity(y: number, chartHeight: number): number {
+  const fromEdge = Math.min(y, chartHeight - y);
+  if (fromEdge >= EDGE_FADE_PX) return 1;
+  if (fromEdge <= 0) return 0;
+  return fromEdge / EDGE_FADE_PX;
+}
+
+export interface LiveYAxisProps {
+  minGap?: number;
+  position?: "left" | "right";
+  formatValue?: (v: number) => string;
+  allowDecimals?: boolean;
+}
+
+const tickSpring = { type: "spring" as const, stiffness: 180, damping: 24 };
+
+export function LiveYAxis(props: LiveYAxisProps) {
+  const { containerRef } = useChartStable();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const container = containerRef.current;
+  if (!(mounted && container)) return null;
+
+  return <LiveYAxisInner {...props} container={container} />;
+}
+
+const LiveYAxisInner = memo(function LiveYAxisInner({
+  minGap = 32,
+  position = "left",
+  formatValue = (v: number) => v.toFixed(1),
+  allowDecimals = true,
+  container,
+}: LiveYAxisProps & { container: HTMLDivElement }) {
+  const { yScale, margin, innerHeight } = useChartStable();
+  const intervalRef = useRef(0);
+
+  const domain = yScale.domain() as [number, number];
+  const minVal = domain[0];
+  const maxVal = domain[1];
+  const valRange = maxVal - minVal;
+
+  const interval = useMemo(() => {
+    const next = pickNiceInterval(
+      valRange,
+      innerHeight,
+      minGap,
+      intervalRef.current
+    );
+    intervalRef.current = next;
+    return next;
+  }, [valRange, innerHeight, minGap]);
+
+  const quantizedMin = interval > 0 ? Math.floor(minVal / interval) : 0;
+  const quantizedMax = interval > 0 ? Math.ceil(maxVal / interval) : 0;
+
+  const stableTickValues = useMemo(() => {
+    if (interval <= 0 || valRange <= 0) return [];
+    const expandedMin = minVal - interval * 0.5;
+    const expandedMax = maxVal + interval * 0.5;
+    const first = Math.ceil(expandedMin / interval) * interval;
+    const values: number[] = [];
+    for (let v = first; v <= expandedMax; v += interval) {
+      const rounded = Math.round(v * 1e10) / 1e10;
+      const isDecimal = !Number.isInteger(rounded);
+      if (isDecimal && !allowDecimals) continue;
+      values.push(rounded);
+    }
+    return values;
+  }, [
+    quantizedMin,
+    quantizedMax,
+    interval,
+    minVal,
+    maxVal,
+    valRange,
+    allowDecimals,
+  ]);
+
+  const tickData = useMemo(
+    () =>
+      stableTickValues
+        .map((value) => {
+          const y = yScale(value) ?? 0;
+          return {
+            value,
+            y,
+            label: formatValue(value),
+            key: value.toPrecision(10),
+            edgeAlpha: edgeOpacity(y, innerHeight),
+          };
+        })
+        .filter((t) => t.y >= -10 && t.y <= innerHeight + 10),
+    [stableTickValues, yScale, innerHeight, formatValue]
+  );
+
+  const isLeft = position === "left";
+
+  return createPortal(
+    <div className="pointer-events-none absolute inset-0">
+      <div
+        className="absolute overflow-hidden"
+        style={{
+          top: margin.top,
+          height: innerHeight,
+          ...(isLeft
+            ? { left: 0, width: margin.left }
+            : { right: 0, width: margin.right }),
+        }}
+      >
+        <AnimatePresence initial={false}>
+          {tickData.map((tick) => (
+            <motion.div
+              animate={{ opacity: tick.edgeAlpha, y: tick.y }}
+              className="absolute w-full"
+              exit={{ opacity: 0 }}
+              initial={{ opacity: 0, y: tick.y }}
+              key={tick.key}
+              style={{
+                ...(isLeft
+                  ? { right: 0, paddingRight: 6, textAlign: "right" }
+                  : { left: 0, paddingLeft: 6, textAlign: "left" }),
+              }}
+              transition={tickSpring}
+            >
+              <span className="whitespace-nowrap font-mono text-[10px] text-[#6B6B6B]">
+                {tick.label}
+              </span>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+    </div>,
+    container
+  );
+});
+
+LiveYAxis.displayName = "LiveYAxis";

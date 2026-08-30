@@ -8,7 +8,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[#9FE870] text-[#0E0E0E] hover:bg-[#8EE05C] active:bg-[#82cc52] shadow-subtle border border-[#8EE05C]/20",
+          "bg-[#002449] text-white hover:bg-[#001B36] active:bg-[#001B36] shadow-subtle border border-[#002449]/20",
         secondary:
           "bg-[#EAE8E2] text-[#0E0E0E] hover:bg-[#DDDCD5] active:bg-[#CFCEC7]",
         dark:
@@ -18,7 +18,7 @@ const buttonVariants = cva(
         critical:
           "bg-[#B44343] text-white hover:bg-[#993939] active:bg-[#803030] shadow-subtle border border-[#993939]/20",
         saffron:
-          "bg-[#9FE870] text-[#0E0E0E] hover:bg-[#8EE05C] active:bg-[#82cc52] shadow-subtle border border-[#8EE05C]/20",
+          "bg-[#002449] text-white hover:bg-[#001B36] active:bg-[#001B36] shadow-subtle border border-[#002449]/20",
         ghost:
           "text-[#0E0E0E] hover:bg-[#EAE8E2]/60",
         link:

@@ -56,8 +56,8 @@ export const EvidencePanel: React.FC<EvidencePanelProps> = ({ evidenceItems }) =
 
             <div className="flex flex-col items-end gap-1.5 shrink-0">
               {item.verified ? (
-                <span className="bg-[#9FE870] text-[#0E0E0E] text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-2xs">
-                  <ShieldCheck className="w-3 h-3" />
+                <span className="bg-[#15803D]/15 text-[#15803D] text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 border border-[#15803D]/30 shadow-2xs">
+                  <ShieldCheck className="w-3 h-3 text-[#15803D]" />
                   <span>Verified</span>
                 </span>
               ) : (

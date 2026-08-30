@@ -86,8 +86,8 @@ export const RiskTrendChartCard: React.FC<RiskTrendChartCardProps> = ({ onOpenAu
         >
           <defs>
             <linearGradient id="wiseGreenGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#9FE870" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#9FE870" stopOpacity="0.02" />
+              <stop offset="0%" stopColor="#15803D" stopOpacity={0.4} />
+              <stop offset="100%" stopColor="#15803D" stopOpacity={0.0} />
             </linearGradient>
           </defs>
 
@@ -115,7 +115,7 @@ export const RiskTrendChartCard: React.FC<RiskTrendChartCardProps> = ({ onOpenAu
                 cx={pt.x}
                 cy={pt.y}
                 r={hoveredPoint === idx ? 5 : 3}
-                fill={hoveredPoint === idx ? '#9FE870' : '#0E0E0E'}
+                fill={hoveredPoint === idx ? '#15803D' : '#0E0E0E'}
                 stroke="#FFFFFF"
                 strokeWidth={hoveredPoint === idx ? 2 : 1}
                 className="cursor-pointer transition-all"

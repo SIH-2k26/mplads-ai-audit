@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '../components/ui/table';
@@ -7,6 +7,7 @@ import { Users, ShieldAlert, CheckCircle2, ChevronRight } from 'lucide-react';
 import { Contractor } from '../types';
 import { formatCurrencyINR } from '../lib/utils';
 import { Link } from 'react-router-dom';
+import { getContractors } from '../services/api';
 
 const MOCK_CONTRACTORS: Contractor[] = [
   {
@@ -48,7 +49,17 @@ const MOCK_CONTRACTORS: Contractor[] = [
 ];
 
 export function ContractorsPage() {
-  const [contractors] = useState<Contractor[]>(MOCK_CONTRACTORS);
+  const [contractors, setContractors] = useState<Contractor[]>(MOCK_CONTRACTORS);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getContractors().then(({ data, error }) => {
+      if (data && !error && Array.isArray(data) && data.length > 0) {
+        setContractors(data as Contractor[]);
+      }
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <div className="space-y-6">

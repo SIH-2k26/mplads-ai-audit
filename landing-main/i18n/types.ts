@@ -11,7 +11,6 @@ export type SupportedLanguage =
   | 'pa' // Punjabi (ਪੰਜਾਬੀ)
   | 'or' // Odia (ଓଡ଼ିଆ)
   | 'as' // Assamese (অসমীয়া)
-  | 'ur' // Urdu (اردو - RTL)
   | 'sd' // Sindhi (سنڌي - RTL)
   | 'sa' // Sanskrit (संस्कृतम्)
   | 'ne' // Nepali (नेपाली)
@@ -45,8 +44,7 @@ export const SUPPORTED_LANGUAGES: LanguageInfo[] = [
   { code: 'pa', nativeName: 'ਪੰਜਾਬੀ', englishName: 'Punjabi', script: 'Gurmukhi', dir: 'ltr', region: 'Punjab / Northern India' },
   { code: 'or', nativeName: 'ଓଡ଼ିଆ', englishName: 'Odia', script: 'Odia', dir: 'ltr', region: 'Odisha / Eastern India' },
   { code: 'as', nativeName: 'অসমীয়া', englishName: 'Assamese', script: 'Assamese', dir: 'ltr', region: 'Assam / North-East India' },
-  { code: 'ur', nativeName: 'اردو', englishName: 'Urdu', script: 'Perso-Arabic', dir: 'rtl', region: 'All-India / Official' },
-  { code: 'sd', nativeName: 'سنڌي', englishName: 'Sindhi', script: 'Perso-Arabic', dir: 'rtl', region: 'Western / All-India' },
+  { code: 'sd', nativeName: 'سنڌي', englishName: 'Sindhi', script: 'Perso-Arabic', dir: 'ltr', region: 'Western / All-India' },
   { code: 'sa', nativeName: 'संस्कृतम्', englishName: 'Sanskrit', script: 'Devanagari', dir: 'ltr', region: 'Classical / All-India' },
   { code: 'ne', nativeName: 'नेपाली', englishName: 'Nepali', script: 'Devanagari', dir: 'ltr', region: 'Sikkim / Northern Bengal' },
   { code: 'kok', nativeName: 'कोंकणी', englishName: 'Konkani', script: 'Devanagari', dir: 'ltr', region: 'Goa / Konkan Coast' },
@@ -54,6 +52,6 @@ export const SUPPORTED_LANGUAGES: LanguageInfo[] = [
   { code: 'doi', nativeName: 'डोगरी', englishName: 'Dogri', script: 'Devanagari', dir: 'ltr', region: 'Jammu & Kashmir' },
   { code: 'brx', nativeName: 'बड़ो', englishName: 'Bodo', script: 'Devanagari', dir: 'ltr', region: 'Assam / Bodoland' },
   { code: 'mni', nativeName: 'মৈতৈলোন', englishName: 'Manipuri / Meitei', script: 'Meitei / Bengali', dir: 'ltr', region: 'Manipur / North-East' },
-  { code: 'ks', nativeName: 'کٲشُر', englishName: 'Kashmiri', script: 'Perso-Arabic', dir: 'rtl', region: 'Jammu & Kashmir' },
+  { code: 'ks', nativeName: 'کٲشُر', englishName: 'Kashmiri', script: 'Perso-Arabic', dir: 'ltr', region: 'Jammu & Kashmir' },
   { code: 'sat', nativeName: 'ᱥᱟᱱᱛᱟᱲᱤ', englishName: 'Santali', script: 'Ol Chiki', dir: 'ltr', region: 'Jharkhand / Odisha' },
 ];

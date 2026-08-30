@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card'
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '../components/ui/table';
 import { Button } from '../components/ui/button';
 import { projectService } from '../services/projectService';
+import { getDashboardSummary } from '../services/api';
 import { useRoleStore } from '../stores/useRoleStore';
 import { useT } from '../i18n/useT';
 import { formatCurrencyINR } from '../lib/utils';
@@ -19,9 +20,21 @@ const STATUS_COLORS: Record<string, string> = {
   RECOMMENDED: '#C2C0B8',
 };
 
+const AVAILABLE_DISTRICTS = [
+  { name: 'Pune', state: 'Maharashtra' },
+  { name: 'Varanasi', state: 'Uttar Pradesh' },
+  { name: 'Nagpur', state: 'Maharashtra' },
+  { name: 'Thane', state: 'Maharashtra' },
+  { name: 'Patna', state: 'Bihar' },
+  { name: 'Ahmedabad', state: 'Gujarat' },
+  { name: 'Chennai', state: 'Tamil Nadu' },
+  { name: 'Bellary', state: 'Karnataka' },
+  { name: 'Jodhpur', state: 'Rajasthan' },
+];
+
 export function DistrictDashboardPage() {
   const t = useT();
-  const { selectedDistrict } = useRoleStore();
+  const { selectedDistrict, setDistrict, setRole } = useRoleStore();
 
   const [summary, setSummary] = useState({
     totalCount: 0, criticalCount: 0, totalSanctioned: 0,
@@ -31,7 +44,18 @@ export function DistrictDashboardPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setRole('DISTRICT_AUTHORITY');
+  }, [setRole]);
+
+  useEffect(() => {
     setLoading(true);
+    // Fetch from backend API for dashboard summary
+    getDashboardSummary({ district: selectedDistrict }).then(({ data, error }) => {
+      if (data && !error) {
+        console.log('[DistrictDashboard] Backend API responded:', data.data_source, 'projects:', data.total_projects);
+      }
+    });
+    // Fetch from local mock service
     projectService.getProjectsSummary(selectedDistrict).then(setSummary);
     projectService.getProjects({ district: selectedDistrict }).then((data) => {
       setProjects(data);
@@ -54,7 +78,7 @@ export function DistrictDashboardPage() {
 
     if (computed.length < 3) {
       return [
-        { name: 'Completed', value: 42, color: '#9FE870' },
+        { name: 'Completed', value: 42, color: '#15803D' },
         { name: 'Work in Progress', value: 35, color: '#0E0E0E' },
         { name: 'Sanctioned', value: 15, color: '#E5E3DC' },
         { name: 'Halted / Delayed', value: 8, color: '#EF4444' },
@@ -84,6 +108,22 @@ export function DistrictDashboardPage() {
           { label: t.common.home, path: '/' },
           { label: t.nav.districtCommand },
         ]}
+        badge={
+          <div className="flex items-center gap-2 bg-white border border-[#E5E3DC] rounded-xl px-3 py-1.5 shadow-2xs">
+            <span className="text-[11px] font-semibold text-[#6B6B6B]">Select District:</span>
+            <select
+              value={selectedDistrict}
+              onChange={(e) => setDistrict(e.target.value)}
+              className="text-xs font-bold text-[#0E0E0E] bg-transparent outline-none cursor-pointer pr-1 hover:text-[#15324A] transition-colors"
+            >
+              {AVAILABLE_DISTRICTS.map((d) => (
+                <option key={d.name} value={d.name}>
+                  {d.name} ({d.state})
+                </option>
+              ))}
+            </select>
+          </div>
+        }
       />
 
       {/* District Collector Metric cards */}
@@ -198,7 +238,7 @@ export function DistrictDashboardPage() {
               <div className="p-3.5 bg-emerald-50/60 rounded-2xl border border-emerald-200">
                 <span className="text-[10px] text-emerald-800 block uppercase tracking-wider font-bold">Low Risk</span>
                 <span className="text-xl font-bold text-emerald-800 block mt-1 font-mono">
-                  {projects.filter((p) => p.currentRiskScore <= 29).length || 18}
+                  {projects.filter((p) => p.currentRiskScore <= 29).length}
                 </span>
                 <span className="text-[10px] text-emerald-700">Score ≤ 29</span>
               </div>
@@ -206,7 +246,7 @@ export function DistrictDashboardPage() {
               <div className="p-3.5 bg-amber-50/60 rounded-2xl border border-amber-200">
                 <span className="text-[10px] text-amber-800 block uppercase tracking-wider font-bold">Medium Risk</span>
                 <span className="text-xl font-bold text-amber-800 block mt-1 font-mono">
-                  {projects.filter((p) => p.currentRiskScore >= 30 && p.currentRiskScore <= 59).length || 12}
+                  {projects.filter((p) => p.currentRiskScore >= 30 && p.currentRiskScore <= 59).length}
                 </span>
                 <span className="text-[10px] text-amber-700">Score 30-59</span>
               </div>
@@ -214,7 +254,7 @@ export function DistrictDashboardPage() {
               <div className="p-3.5 bg-orange-50/60 rounded-2xl border border-orange-200">
                 <span className="text-[10px] text-orange-800 block uppercase tracking-wider font-bold">High Risk</span>
                 <span className="text-xl font-bold text-orange-800 block mt-1 font-mono">
-                  {projects.filter((p) => p.currentRiskScore >= 60 && p.currentRiskScore <= 79).length || 8}
+                  {projects.filter((p) => p.currentRiskScore >= 60 && p.currentRiskScore <= 79).length}
                 </span>
                 <span className="text-[10px] text-orange-700">Score 60-79</span>
               </div>
@@ -222,7 +262,7 @@ export function DistrictDashboardPage() {
               <div className="p-3.5 bg-red-50/60 rounded-2xl border border-red-200">
                 <span className="text-[10px] text-red-800 block uppercase tracking-wider font-bold">Critical Risk</span>
                 <span className="text-xl font-bold text-red-700 block mt-1 font-mono">
-                  {projects.filter((p) => p.currentRiskScore >= 80).length || 3}
+                  {projects.filter((p) => p.currentRiskScore >= 80).length}
                 </span>
                 <span className="text-[10px] text-red-600">Score ≥ 80</span>
               </div>

@@ -9,45 +9,55 @@ interface DataPoint {
   milestone: string;
 }
 
-const DATA_TIMEFRAMES: Record<string, DataPoint[]> = {
-  '1M': [
-    { date: 'Aug 01', disbursed: 3720, risk: 360, milestone: 'Tranche 4A Release' },
-    { date: 'Aug 07', disbursed: 3755, risk: 372, milestone: 'UP Rural Audits' },
-    { date: 'Aug 14', disbursed: 3790, risk: 388, milestone: 'Radar Pass #104' },
-    { date: 'Aug 21', disbursed: 3815, risk: 401, milestone: 'Zilla Disbursal' },
-    { date: 'Aug 27', disbursed: 3840.5, risk: 412.8, milestone: 'Current Sentinel Log' },
-  ],
-  '3M': [
-    { date: 'Jun', disbursed: 3410, risk: 280, milestone: 'Q1 Close' },
-    { date: 'Jul', disbursed: 3620, risk: 340, milestone: 'Monsoon Works Tranche' },
-    { date: 'Aug', disbursed: 3840.5, risk: 412.8, milestone: 'Live Radar Stream' },
-  ],
-  '6M': [
-    { date: 'Mar', disbursed: 2950, risk: 180, milestone: 'Annual Sanctions' },
-    { date: 'Apr', disbursed: 3120, risk: 215, milestone: 'FY25-26 Kickoff' },
-    { date: 'May', disbursed: 3300, risk: 250, milestone: 'Lok Sabha Phase II' },
-    { date: 'Jun', disbursed: 3480, risk: 310, milestone: 'Q1 Review' },
-    { date: 'Jul', disbursed: 3690, risk: 365, milestone: 'ISRO SAR Verification' },
-    { date: 'Aug', disbursed: 3840.5, risk: 412.8, milestone: 'Current Status' },
-  ],
-  '1Y': [
-    { date: 'Q3 24', disbursed: 2100, risk: 95, milestone: 'Initial Allocations' },
-    { date: 'Q4 24', disbursed: 2750, risk: 140, milestone: 'Mid-term Audits' },
-    { date: 'Q1 25', disbursed: 3200, risk: 220, milestone: 'CAG Phase 1' },
-    { date: 'Q2 25', disbursed: 3840.5, risk: 412.8, milestone: 'Sentinel Live Vigilance' },
-  ],
-};
-
 interface AnimatedSchemeGraphProps {
   onOpenDetails?: () => void;
+  disbursedCr?: number;
+  riskCr?: number;
 }
 
-export const AnimatedSchemeGraph: React.FC<AnimatedSchemeGraphProps> = ({ onOpenDetails }) => {
+const TIMEFRAME_CONFIG = {
+  '1M': {
+    dates: ['Aug 01', 'Aug 07', 'Aug 14', 'Aug 21', 'Aug 27'],
+    milestones: ['Tranche 4A Release', 'Constituency Audits', 'Radar Pass #104', 'Zilla Disbursal', 'Current Sentinel Log'],
+    disbursedRatios: [0.959, 0.968, 0.978, 0.989, 1.000],
+    riskRatios: [0.796, 0.852, 0.907, 0.961, 1.000],
+  },
+  '3M': {
+    dates: ['Jun', 'Jul', 'Aug'],
+    milestones: ['Q1 Close', 'Monsoon Works Tranche', 'Live Radar Stream'],
+    disbursedRatios: [0.887, 0.942, 1.000],
+    riskRatios: [0.678, 0.824, 1.000],
+  },
+  '6M': {
+    dates: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+    milestones: ['Annual Sanctions', 'FY25-26 Kickoff', 'Lok Sabha Phase II', 'Q1 Review', 'ISRO SAR Verification', 'Current Status'],
+    disbursedRatios: [0.768, 0.812, 0.859, 0.906, 0.961, 1.000],
+    riskRatios: [0.436, 0.521, 0.605, 0.751, 0.872, 1.000],
+  },
+  '1Y': {
+    dates: ['Q3 24', 'Q4 24', 'Q1 25', 'Q2 25'],
+    milestones: ['Initial Allocations', 'Mid-term Audits', 'CAG Phase 1', 'Sentinel Live Vigilance'],
+    disbursedRatios: [0.547, 0.716, 0.833, 1.000],
+    riskRatios: [0.230, 0.339, 0.533, 1.000],
+  },
+};
+
+export const AnimatedSchemeGraph: React.FC<AnimatedSchemeGraphProps> = ({
+  onOpenDetails,
+  disbursedCr = 18.25,
+  riskCr = 1.82,
+}) => {
   const [timeframe, setTimeframe] = useState<'1M' | '3M' | '6M' | '1Y'>('1M');
   const [activeMetric, setActiveMetric] = useState<'disbursed' | 'risk'>('disbursed');
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const currentData = DATA_TIMEFRAMES[timeframe];
+  const tfConfig = TIMEFRAME_CONFIG[timeframe];
+  const currentData: DataPoint[] = tfConfig.dates.map((date, idx) => ({
+    date,
+    disbursed: Math.round(disbursedCr * tfConfig.disbursedRatios[idx] * 100) / 100,
+    risk: Math.round(riskCr * tfConfig.riskRatios[idx] * 100) / 100,
+    milestone: tfConfig.milestones[idx],
+  }));
   
   // Graph bounds math
   const width = 280;

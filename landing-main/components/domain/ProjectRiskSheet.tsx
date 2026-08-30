@@ -74,10 +74,10 @@ export function ProjectRiskSheet({ open, onOpenChange, project }: ProjectRiskShe
       onOpenChange={onOpenChange}
       title={
         <div className="flex items-center gap-2">
-          <span className="text-xs font-mono font-extrabold text-[#D99018] bg-[#D99018]/10 px-2 py-0.5 rounded border border-[#D99018]/30">
+          <span className="text-xs font-mono font-extrabold text-[#002449] bg-[#002449]/10 px-2 py-0.5 rounded border border-[#002449]/30">
             {project.id}
           </span>
-          <span className="text-xs font-bold text-[#15324A] uppercase">Project Risk Dossier</span>
+          <span className="text-xs font-bold text-[#002449] uppercase">Project Risk Dossier</span>
         </div>
       }
       description={`${project.district} District · ${project.state} • ${project.category}`}
@@ -86,20 +86,20 @@ export function ProjectRiskSheet({ open, onOpenChange, project }: ProjectRiskShe
       <div className="space-y-5 text-xs">
         
         {/* Top Risk Header Card */}
-        <div className="p-4 rounded-[6px] border border-[#D9DFE3] bg-[#FAFAF7] space-y-3">
+        <div className="p-4 rounded-[6px] border border-[#E5E3DC] bg-[#FAFAF9] space-y-3">
           <div className="flex items-start justify-between">
             <div>
-              <h4 className="text-sm font-bold text-[#15324A] leading-snug">
+              <h4 className="text-sm font-bold text-[#002449] leading-snug">
                 {project.title}
               </h4>
-              <div className="flex items-center gap-1.5 text-[11px] text-[#647383] mt-1 font-mono">
-                <MapPin className="h-3 w-3 text-[#D99018]" />
+              <div className="flex items-center gap-1.5 text-[11px] text-[#6B6B6B] mt-1 font-mono">
+                <MapPin className="h-3 w-3 text-[#002449]" />
                 <span>{project.location}</span>
               </div>
             </div>
 
             <div className="text-right flex-shrink-0">
-              <span className="text-[9px] font-mono text-[#647383] uppercase block">AI RISK INDEX</span>
+              <span className="text-[9px] font-mono text-[#6B6B6B] uppercase block">AI RISK INDEX</span>
               <span
                 className={`text-xl font-mono font-extrabold px-2 py-0.5 rounded inline-block ${
                   project.riskScore >= 80
@@ -115,24 +115,24 @@ export function ProjectRiskSheet({ open, onOpenChange, project }: ProjectRiskShe
           </div>
 
           {/* Key Financial & Milestone Metrics Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-[#D9DFE3] font-mono text-[10px]">
-            <div className="p-2 rounded bg-white border border-[#D9DFE3]">
-              <span className="text-[#647383] block">Sanctioned:</span>
-              <strong className="text-xs text-[#15324A]">{project.sanctionedAmount}</strong>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-[#E5E3DC] font-mono text-[10px]">
+            <div className="p-2 rounded bg-white border border-[#E5E3DC]">
+              <span className="text-[#6B6B6B] block">Sanctioned:</span>
+              <strong className="text-xs text-[#002449]">{project.sanctionedAmount}</strong>
             </div>
 
-            <div className="p-2 rounded bg-white border border-[#D9DFE3]">
-              <span className="text-[#647383] block">Disbursed:</span>
-              <strong className="text-xs text-[#15324A]">{project.expenditure}</strong>
+            <div className="p-2 rounded bg-white border border-[#E5E3DC]">
+              <span className="text-[#6B6B6B] block">Disbursed:</span>
+              <strong className="text-xs text-[#002449]">{project.expenditure}</strong>
             </div>
 
-            <div className="p-2 rounded bg-white border border-[#D9DFE3]">
-              <span className="text-[#647383] block">Physical:</span>
+            <div className="p-2 rounded bg-white border border-[#E5E3DC]">
+              <span className="text-[#6B6B6B] block">Physical:</span>
               <strong className="text-xs text-[#2E8064]">{project.physicalProgress}%</strong>
             </div>
 
-            <div className="p-2 rounded bg-white border border-[#D9DFE3]">
-              <span className="text-[#647383] block">Financial:</span>
+            <div className="p-2 rounded bg-white border border-[#E5E3DC]">
+              <span className="text-[#6B6B6B] block">Financial:</span>
               <strong className="text-xs text-[#C94B4B]">{project.financialProgress}%</strong>
             </div>
           </div>
@@ -141,8 +141,8 @@ export function ProjectRiskSheet({ open, onOpenChange, project }: ProjectRiskShe
         {/* Section: WHY THIS PROJECT WAS FLAGGED (Explainable Reasoning) */}
         <div className="space-y-2">
           <div className="flex items-center gap-1.5">
-            <Sparkles className="h-3.5 w-3.5 text-[#D99018]" />
-            <h5 className="text-[11px] font-mono font-bold text-[#15324A] uppercase tracking-wider">
+            <Sparkles className="h-3.5 w-3.5 text-[#002449]" />
+            <h5 className="text-[11px] font-mono font-bold text-[#002449] uppercase tracking-wider">
               Why Was This Project Flagged? (Explainable Anomaly Triggers)
             </h5>
           </div>
@@ -154,7 +154,7 @@ export function ProjectRiskSheet({ open, onOpenChange, project }: ProjectRiskShe
                 className="p-2.5 rounded bg-red-50/70 border border-[#C94B4B]/30 flex items-start gap-2 text-xs"
               >
                 <span className="text-[#C94B4B] font-bold mt-0.5">•</span>
-                <span className="text-[#172B3A] leading-snug">{reason}</span>
+                <span className="text-[#0E0E0E] leading-snug">{reason}</span>
               </div>
             ))}
           </div>
@@ -163,25 +163,25 @@ export function ProjectRiskSheet({ open, onOpenChange, project }: ProjectRiskShe
         {/* Section: CORROBORATING EVIDENCE DOSSIER */}
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <h5 className="text-[11px] font-mono font-bold text-[#15324A] uppercase tracking-wider flex items-center gap-1.5">
-              <FileText className="h-3.5 w-3.5 text-[#15324A]" />
+            <h5 className="text-[11px] font-mono font-bold text-[#002449] uppercase tracking-wider flex items-center gap-1.5">
+              <FileText className="h-3.5 w-3.5 text-[#002449]" />
               <span>Corroborating Evidence Dossier ({project.evidenceDocuments.length} Records)</span>
             </h5>
             <span className="text-[10px] font-mono text-[#2E8064]">● Cryptographically Verified</span>
           </div>
 
-          <div className="rounded border border-[#D9DFE3] bg-white divide-y divide-[#D9DFE3] overflow-hidden">
+          <div className="rounded border border-[#E5E3DC] bg-white divide-y divide-[#E5E3DC] overflow-hidden">
             {project.evidenceDocuments.map((doc, idx) => (
               <div
                 key={idx}
                 onClick={() => handleDocumentClick(doc.name)}
-                className="p-2.5 flex items-center justify-between hover:bg-[#FAFAF7] transition-colors cursor-pointer"
+                className="p-2.5 flex items-center justify-between hover:bg-[#FAFAF9] transition-colors cursor-pointer"
               >
                 <div className="flex items-center gap-2">
-                  <FileText className="h-3.5 w-3.5 text-[#647383]" />
+                  <FileText className="h-3.5 w-3.5 text-[#6B6B6B]" />
                   <div>
-                    <strong className="text-xs text-[#172B3A] block hover:text-[#D99018]">{doc.name}</strong>
-                    <span className="text-[10px] text-[#647383] font-mono">{doc.type} • {doc.date}</span>
+                    <strong className="text-xs text-[#0E0E0E] block hover:text-[#002449]">{doc.name}</strong>
+                    <span className="text-[10px] text-[#6B6B6B] font-mono">{doc.type} • {doc.date}</span>
                   </div>
                 </div>
 
@@ -205,25 +205,25 @@ export function ProjectRiskSheet({ open, onOpenChange, project }: ProjectRiskShe
         </div>
 
         {/* Section: RECOMMENDED REVIEW ACTION */}
-        <div className="p-3.5 rounded bg-[#FAFAF7] border border-[#D9DFE3] space-y-1">
-          <span className="text-[10px] font-mono font-bold text-[#15324A] uppercase block">
+        <div className="p-3.5 rounded bg-[#FAFAF9] border border-[#E5E3DC] space-y-1">
+          <span className="text-[10px] font-mono font-bold text-[#002449] uppercase block">
             Mandated Administrative Action:
           </span>
-          <p className="text-xs text-[#172B3A] font-medium leading-relaxed">
+          <p className="text-xs text-[#0E0E0E] font-medium leading-relaxed">
             {project.recommendedAction}
           </p>
-          <span className="text-[10px] font-mono text-[#647383] block pt-1">
+          <span className="text-[10px] font-mono text-[#6B6B6B] block pt-1">
             Human Decision-Maker Mandate: System provides risk decision support; authorized officials verify on-site.
           </span>
         </div>
 
         {/* Footer Actions */}
-        <div className="pt-3 border-t border-[#D9DFE3] flex items-center justify-between gap-3">
+        <div className="pt-3 border-t border-[#E5E3DC] flex items-center justify-between gap-3">
           <Button
             variant="outline"
             size="sm"
             onClick={handleAssignOfficer}
-            className="text-xs font-semibold h-8 border-[#D9DFE3] hover:border-[#15324A]"
+            className="text-xs font-semibold h-8 border-[#E5E3DC] hover:border-[#002449]"
           >
             Assign Investigating Officer
           </Button>
@@ -232,10 +232,10 @@ export function ProjectRiskSheet({ open, onOpenChange, project }: ProjectRiskShe
             <Button
               variant="default"
               size="sm"
-              className="bg-[#15324A] hover:bg-[#0F2638] text-white text-xs font-bold h-8 px-3.5 shadow-card flex items-center gap-1"
+              className="bg-[#002449] hover:bg-[#001B36] text-white text-xs font-bold h-8 px-3.5 shadow-card flex items-center gap-1"
             >
               <span>Inspect Digital Twin</span>
-              <ArrowRight className="h-3.5 w-3.5 text-[#E5B45A]" />
+              <ArrowRight className="h-3.5 w-3.5 text-white/70" />
             </Button>
           </Link>
         </div>

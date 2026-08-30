@@ -56,7 +56,7 @@ export function CompliancePage() {
                   <span className="text-emerald-700">92.4%</span>
                 </div>
                 <div className="w-full h-2 rounded-full bg-[#E5E3DC] overflow-hidden">
-                  <div className="h-full bg-[#9FE870] rounded-full" style={{ width: '92.4%' }} />
+                  <div className="h-full bg-[#15803D] rounded-full" style={{ width: '92.4%' }} />
                 </div>
               </div>
 
@@ -66,7 +66,7 @@ export function CompliancePage() {
                   <span className="text-emerald-700">88.5%</span>
                 </div>
                 <div className="w-full h-2 rounded-full bg-[#E5E3DC] overflow-hidden">
-                  <div className="h-full bg-[#9FE870] rounded-full" style={{ width: '88.5%' }} />
+                  <div className="h-full bg-[#15803D] rounded-full" style={{ width: '88.5%' }} />
                 </div>
               </div>
 

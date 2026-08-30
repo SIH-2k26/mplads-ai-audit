@@ -70,7 +70,7 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
       <div className="bg-[#0E0E0E] text-white p-3 rounded-xl shadow-xl border border-white/10 text-xs space-y-1.5 min-w-[200px] z-50">
         <div className="flex items-center justify-between border-b border-white/15 pb-1.5">
           <span className="font-semibold text-white/90 flex items-center gap-1">
-            <Calendar className="w-3 h-3 text-[#9FE870]" />
+            <Calendar className="w-3 h-3 text-[#15803D]" />
             {data.displayDate}
           </span>
           <span className="text-[10px] text-white/60">{data.date}</span>
@@ -78,7 +78,7 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
 
         <div className="flex items-center justify-between pt-0.5">
           <span className="text-white/70">Compliance Reliability:</span>
-          <span className="font-bold text-[#9FE870] text-sm">
+          <span className="font-bold text-[#15803D] text-sm">
             {data.reliabilityScore.toFixed(1)}%
           </span>
         </div>
@@ -132,7 +132,7 @@ export const ComplianceTrendlineChart: React.FC<ComplianceTrendlineChartProps> =
       {/* Top Header Row with Title, Badges and Filters */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full bg-[#9FE870]/20 border border-[#9FE870] flex items-center justify-center text-[#0E0E0E]">
+          <div className="w-8 h-8 rounded-full bg-[#15803D]/15 border border-[#15803D]/30 flex items-center justify-center text-[#0E0E0E]">
             <Activity className="w-4 h-4 text-[#0E0E0E]" />
           </div>
           <div>
@@ -140,8 +140,8 @@ export const ComplianceTrendlineChart: React.FC<ComplianceTrendlineChartProps> =
               <h3 className="text-xs sm:text-sm font-bold text-[#0E0E0E]">
                 30-Day Compliance Reliability Trendline
               </h3>
-              <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#9FE870] text-[#0E0E0E]">
-                <ShieldCheck className="w-3 h-3" />
+              <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#15803D]/15 text-[#15803D] border border-[#15803D]/30">
+                <ShieldCheck className="w-3 h-3 text-[#15803D]" />
                 {stats.delta >= 0 ? `+${stats.delta.toFixed(1)}%` : `${stats.delta.toFixed(1)}%`} MoM
               </span>
             </div>
@@ -205,8 +205,8 @@ export const ComplianceTrendlineChart: React.FC<ComplianceTrendlineChartProps> =
           >
             <defs>
               <linearGradient id="reliabilityGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#9FE870" stopOpacity={0.5} />
-                <stop offset="95%" stopColor="#9FE870" stopOpacity={0.0} />
+                <stop offset="5%" stopColor="#15803D" stopOpacity={0.4} />
+                <stop offset="95%" stopColor="#15803D" stopOpacity={0.0} />
               </linearGradient>
               <linearGradient id="riskGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#EF4444" stopOpacity={0.4} />
@@ -257,7 +257,7 @@ export const ComplianceTrendlineChart: React.FC<ComplianceTrendlineChartProps> =
                 type="monotone"
                 dataKey="reliabilityScore"
                 name="Compliance Reliability"
-                stroke="#0E0E0E"
+                stroke="#002449"
                 strokeWidth={2.5}
                 fillOpacity={1}
                 fill="url(#reliabilityGradient)"
@@ -286,8 +286,8 @@ export const ComplianceTrendlineChart: React.FC<ComplianceTrendlineChartProps> =
                         cx={cx}
                         cy={cy}
                         r={3.5}
-                        fill="#0E0E0E"
-                        stroke="#9FE870"
+                        fill="#002449"
+                        stroke="#15803D"
                         strokeWidth={1.5}
                       />
                     );
@@ -296,8 +296,8 @@ export const ComplianceTrendlineChart: React.FC<ComplianceTrendlineChartProps> =
                 }}
                 activeDot={{
                   r: 6,
-                  fill: '#0E0E0E',
-                  stroke: '#9FE870',
+                  fill: '#002449',
+                  stroke: '#15803D',
                   strokeWidth: 2,
                 }}
               />
@@ -352,7 +352,7 @@ export const ComplianceTrendlineChart: React.FC<ComplianceTrendlineChartProps> =
           <span className="text-[10px] text-[#6B6B6B] block">Current Baseline</span>
           <span className="font-bold text-[#0E0E0E] text-xs sm:text-sm flex items-center gap-1">
             <NumberTicker value={currentScore} decimalPlaces={1} />%
-            <span className="w-2 h-2 rounded-full bg-[#9FE870] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#15803D] animate-pulse" />
           </span>
         </div>
       </div>

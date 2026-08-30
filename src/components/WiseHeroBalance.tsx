@@ -72,7 +72,7 @@ export const WiseHeroBalance: React.FC<WiseHeroBalanceProps> = ({
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.97 }}
           onClick={onAuditScan}
-          className="bg-[#16A34A] hover:bg-[#15803D] text-white font-medium text-sm px-6 py-2 rounded-full transition-all cursor-pointer shadow-none"
+          className="bg-[#15803D] hover:bg-[#166534] text-white font-medium text-sm px-6 py-2 rounded-full transition-all cursor-pointer shadow-none"
         >
           Audit scan
         </motion.button>

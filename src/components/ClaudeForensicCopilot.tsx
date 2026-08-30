@@ -18,6 +18,56 @@ import {
 } from 'lucide-react';
 import { FLAGGED_PROJECTS } from '../data/mockData';
 import { MPLADSProject } from '../types';
+import { askGemini } from '../services/geminiService';
+
+
+function FormattedMessage({ text }: { text: string }) {
+  const lines = text.split("\n");
+  return (
+    <div className="space-y-1.5 font-sans leading-relaxed text-xs">
+      {lines.map((line, idx) => {
+        if (!line.trim()) return <div key={idx} className="h-1" />;
+
+        const isHeader = line.startsWith("#");
+        const isBullet = line.trim().startsWith("•") || line.trim().startsWith("-") || line.trim().startsWith("* ");
+        const cleanLine = isHeader
+          ? line.replace(/^#+\s*/, "")
+          : isBullet
+          ? line.replace(/^[•\-*]\s*/, "• ")
+          : line;
+
+        const parts = cleanLine.split(/(\*[^*]+\*)/g);
+
+        return (
+          <p
+            key={idx}
+            className={`${isHeader ? "font-bold text-[#002449] text-xs pt-1" : ""} ${
+              isBullet ? "pl-2 text-[#0E0E0E]" : ""
+            }`}
+          >
+            {parts.map((part, pIdx) => {
+              if (part.startsWith("**") && part.endsWith("**")) {
+                return (
+                  <strong key={pIdx} className="font-bold text-[#0E0E0E]">
+                    {part.slice(2, -2)}
+                  </strong>
+                );
+              }
+              if (part.startsWith("*") && part.endsWith("*") && !part.startsWith("**")) {
+                return (
+                  <em key={pIdx} className="italic text-[#0E0E0E]">
+                    {part.slice(1, -1)}
+                  </em>
+                );
+              }
+              return part;
+            })}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
 
 interface Message {
   id: string;
@@ -79,7 +129,7 @@ export const ClaudeForensicCopilot: React.FC<ClaudeForensicCopilotProps> = ({
   const [isThinking, setIsThinking] = useState<boolean>(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  const handleSend = (textToSend?: string) => {
+  const handleSend = async (textToSend?: string) => {
     const query = textToSend || inputVal;
     if (!query.trim()) return;
 
@@ -94,46 +144,33 @@ export const ClaudeForensicCopilot: React.FC<ClaudeForensicCopilotProps> = ({
     setInputVal('');
     setIsThinking(true);
 
-    // Generate context-aware AI synthesis
-    setTimeout(() => {
-      let responseText = '';
-      let actionRec: Message['actionRecommendation'] = undefined;
-      let citations: string[] = ['PFMS Central Ledger', 'CAG Statutory Report'];
-
-      const q = query.toLowerCase();
-
-      if (q.includes('synthesize') || q.includes('case brief') || q.includes('varanasi') || q.includes('docket')) {
-        responseText = `**STATUTORY FORENSIC DOCKET: UP-VNS-2024-001**\n\n- **Implementing Scheme:** MPLADS Central Outlay (Tranche 4)\n- **Executing Agency:** DRDA Varanasi / Zilla Parishad\n- **Target Entity:** Vindhya Infracon Ltd (GSTIN: 09AAACV1298K1ZX)\n- **Financial Discrepancy:** ₹48.50 Cr sanctioned (100% disbursed within 14 days) vs 22.4% physical earthwork confirmed by Cartosat-3 SAR radar.\n- **Statutory Violation:** Section 14(1) of CAG DPC Act (Misappropriation of Public Funds) and Rule 212 of General Financial Rules (GFR) 2017.\n\n**Forensic Recommendation:** Immediate disbursal freeze on linked sister escrow accounts and issuance of Section 14 show-cause summons to the Superintending Engineer.`;
-        actionRec = { type: 'freeze', label: 'Execute Disbursal Freeze' };
-        citations.push('ISRO SAR Pass #104', 'GFR Rule 212');
-      } else if (q.includes('pan') || q.includes('collusion') || q.includes('cover-bid')) {
-        responseText = `**CROSS-ENTITY DIRECTOR NEXUS ANALYSIS**\n\nForensic graph analysis has uncovered a high-confidence bid-rigging ring:\n\n1. **Director PAN ABCDP8841M (R.K. Agarwal)** holds a 99.4% equity stake in *Vindhya Infracon Ltd* and serves as Managing Director of *Apex Infraworks Pvt*.\n2. In tender **UP-RUR-2024-88**, Vindhya Infracon was selected as L1 (₹48.50 Cr) while Apex Infraworks submitted an identical formatted cover bid as L2 (+1.2% delta) from the same static IP subnet in Lucknow.\n3. Win rate in this cluster is **94.2%**, representing an anomalous statutory monopoly over Eastern UP rural drainage contracts.`;
-        actionRec = { type: 'subpoena', label: 'Issue Section 14 Subpoena' };
-        citations.push('MCA-21 Director Master Data', 'e-Procurement Portal IP Logs');
-      } else if (q.includes('optical') || q.includes('radar') || q.includes('bellary') || q.includes('satellite')) {
-        responseText = `**ISRO CARTOSAT-3 SAR OPTICAL RECONNAISSANCE REPORT**\n\n- **Coordinates:** 15.1394° N, 76.9214° E (Bellary bypass, Karnataka)\n- **Claimed Milestone:** Phase 3 Completion (65% Physical Progress certified by PWD)\n- **Sensor Findings:** Synthetic Aperture Radar (SAR) dual-polarization volumetric backscatter indicates zero soil displacement and raw unpaved terrain.\n- **Discrepancy Severity:** 91.2% Optical Divergence (Grade A Critical Anomaly).`;
-        actionRec = { type: 'satellite', label: 'Task High-Res Optical Pass' };
-        citations.push('Cartosat-3 SAR PolSAR Mode', 'Bhuvan Geoportal');
-      } else if (q.includes('shap') || q.includes('feature')) {
-        responseText = `**SHAP EXPLAINABILITY BREAKDOWN (MODEL VIGILANCE-XGB)**\n\n1. **Satellite SAR Soil Delta:** +0.42 SHAP (Highest Risk Driver)\n2. **Common Director PAN Overlap:** +0.28 SHAP\n3. **Tranche Disbursal Velocity (<48h):** +0.19 SHAP\n4. **Contractor Age < 120 Days:** +0.14 SHAP\n5. **Cumulative Composite Risk Score:** **94.2 / 100 (Extreme Severity)**`;
-        citations.push('Vigilance XGBoost Model v3.1', 'SHAP Attributions Matrix');
-      } else {
-        responseText = `Based on forensic synthesis across current MPLADS records, **${query}** touches upon 38 flagged project nodes with aggregate exposure of ₹412.80 Cr. Real-time telemetry indicates high confidence in physical ground divergence and shared-director tender syndicates. Would you like me to prepare an exportable statutory notice or lock tranche releases?`;
-        actionRec = { type: 'freeze', label: 'Review Risk Controls' };
-      }
+    try {
+      const res = await askGemini(query, {
+        projectCode: selectedProject?.code,
+      });
 
       const aiMsg: Message = {
         id: `ai-${Date.now()}`,
         sender: 'ai',
-        text: responseText,
+        text: res.answer,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        actionRecommendation: actionRec,
-        citations,
+        citations: res.citations,
+        actionRecommendation: res.suggestedActions?.[0] as any,
       };
 
       setMessages((prev) => [...prev, aiMsg]);
+    } catch {
+      const aiMsg: Message = {
+        id: `ai-${Date.now()}`,
+        sender: 'ai',
+        text: `Based on forensic synthesis across current MPLADS records, "${query}" touches upon 38 flagged project nodes with aggregate exposure of ₹412.80 Cr. Real-time telemetry indicates high confidence in physical ground divergence and shared-director tender syndicates.`,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        citations: ['PFMS Central Ledger', 'CAG Statutory Report'],
+      };
+      setMessages((prev) => [...prev, aiMsg]);
+    } finally {
       setIsThinking(false);
-    }, 600);
+    }
   };
 
   const handleCopy = (id: string, text: string) => {
@@ -156,7 +193,7 @@ export const ClaudeForensicCopilot: React.FC<ClaudeForensicCopilotProps> = ({
         {/* Header */}
         <div className="px-6 py-4 bg-[#F1F0EC] border-b border-[#E5E3DC] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-[#9FE870] flex items-center justify-center text-[#0E0E0E] shadow-2xs">
+            <div className="w-9 h-9 rounded-full bg-[#15803D] flex items-center justify-center text-white shadow-2xs">
               <Sparkles className="w-5 h-5 stroke-[2.2]" />
             </div>
             <div>
@@ -199,11 +236,7 @@ export const ClaudeForensicCopilot: React.FC<ClaudeForensicCopilotProps> = ({
                 }`}
               >
                 {/* Message Content */}
-                <div className="whitespace-pre-wrap font-sans text-xs space-y-2">
-                  {msg.text.split('\n\n').map((paragraph, i) => (
-                    <p key={i}>{paragraph}</p>
-                  ))}
-                </div>
+                <FormattedMessage text={msg.text} />
 
                 {/* Citations Footer */}
                 {msg.citations && msg.citations.length > 0 && (
@@ -225,7 +258,7 @@ export const ClaudeForensicCopilot: React.FC<ClaudeForensicCopilotProps> = ({
                         onTriggerAction(msg.actionRecommendation!.type);
                         onClose();
                       }}
-                      className="bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E] text-[11px] font-bold px-3 py-1.5 rounded-full transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs"
+                      className="bg-[#15803D] hover:bg-[#166534] text-white text-[11px] font-bold px-3 py-1.5 rounded-full transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs"
                     >
                       <Zap className="w-3 h-3 fill-current" />
                       <span>{msg.actionRecommendation.label}</span>

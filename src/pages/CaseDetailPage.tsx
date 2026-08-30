@@ -6,7 +6,9 @@ import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '.
 import { Button } from '../components/ui/button';
 import { ArrowLeft, Landmark, ShieldCheck, ClipboardCheck, Sparkles } from 'lucide-react';
 import { MOCK_CASES } from './CasesPage';
+import { mockProjects } from '../data/mock-projects';
 import { CaseInvestigation, CaseStatus } from '../types';
+import { getCaseDetails } from '../services/api';
 import { toast } from 'sonner';
 
 export function CaseDetailPage() {
@@ -17,12 +19,116 @@ export function CaseDetailPage() {
   const [timeline, setTimeline] = useState<CaseInvestigation['timeline']>([]);
 
   useEffect(() => {
-    const found = MOCK_CASES.find((c) => c.id === id || c.caseNumber === id);
+    // 1. Try local mock cases
+    const found = MOCK_CASES.find(
+      (c) =>
+        c.id.toLowerCase() === id?.toLowerCase() ||
+        c.caseNumber.toLowerCase() === id?.toLowerCase() ||
+        c.projectId.toLowerCase() === id?.toLowerCase()
+    );
+
     if (found) {
       setCaseItem(found);
       setStatus(found.status);
       setVerdictNotes(found.verdictNotes || '');
       setTimeline(found.timeline);
+      return;
+    }
+
+    // 2. Try fetching from real backend API
+    if (id) {
+      getCaseDetails(id).then(({ data, error }) => {
+        if (data && !error) {
+          const apiCase: CaseInvestigation = {
+            id: data.case_id || id,
+            caseNumber: data.case_id || id,
+            projectId: data.project_id || 'P-1023',
+            projectCode: data.project_id || 'P-1023',
+            projectTitle: data.project_title || `Investigation Docket ${id}`,
+            district: data.district || 'Pune',
+            state: data.state || 'Maharashtra',
+            riskScore: Math.round(data.risk_score_at_creation || 88),
+            priority: (data.priority || 'CRITICAL') as any,
+            status: (data.status === 'VERDICT_RECORDED' ? 'CLOSED' : 'UNDER_INVESTIGATION') as any,
+            createdDate: data.created_at ? data.created_at.slice(0, 10) : '2025-02-23',
+            lastUpdated: '2025-02-26',
+            assignedInvestigator: 'Senior Vigilance & Forensic Audit Officer',
+            whyFlagged: data.trigger_signals?.[0] || '+38.2% cost anomaly detected above PWD SoR baseline and GFR-12C compliance gap.',
+            evidenceCount: 4,
+            applicableRule: {
+              ruleId: 'R-54',
+              title: 'MPLADS Revised Guidelines 2023 Section 5.4',
+              section: 'Section 5.4',
+              page: 42,
+              documentUrl: 'https://mospi.gov.in',
+            },
+            peerComparison: {
+              expectedRange: '₹28.5 L - ₹32.0 L',
+              actualAmount: '₹42.0 Lakhs',
+              peerDeviation: '+38.2% above baseline',
+              sampleSize: 18,
+            },
+            evidenceList: [
+              { title: 'Volumetric Satellite Divergence', type: 'DATA', reference: 'SAR Pass #104', timestamp: '2025-02-23', source: 'ISRO' },
+              { title: 'Treasury DBT Drawdown vs Physical Log Discrepancy', type: 'FINANCIAL', reference: 'PFMS DBT Vouchers V-991 to V-994', timestamp: '2025-02-24', source: 'PFMS' },
+            ],
+            timeline: [
+              { id: '1', timestamp: '2025-02-23 11:00 AM', user: 'System Sentinel', role: 'VIGILANCE_ENGINE', action: 'CASE_INITIALIZED', notes: 'Auto-initialized following critical risk flag trigger.' },
+            ],
+          };
+          setCaseItem(apiCase);
+          setStatus(apiCase.status);
+          setTimeline(apiCase.timeline);
+          return;
+        }
+
+        // 3. Fallback: match from mockProjects
+        const relatedProject = mockProjects.find((p) => p.id === id || p.code === id) || mockProjects[0];
+        const synthesizedCase: CaseInvestigation = {
+          id: id || 'CASE-2026-0182',
+          caseNumber: 'CAG-2024-117',
+          projectId: relatedProject.id,
+          projectCode: relatedProject.code,
+          projectTitle: relatedProject.title,
+          district: relatedProject.district,
+          state: relatedProject.state,
+          riskScore: relatedProject.currentRiskScore || 88,
+          priority: relatedProject.currentRiskScore >= 80 ? 'CRITICAL' : 'HIGH',
+          status: 'UNDER_INVESTIGATION',
+          createdDate: '2025-02-23',
+          lastUpdated: '2025-02-26',
+          assignedInvestigator: 'Vigilance Officer S. Patil, IA&AS',
+          whyFlagged: '+38.2% cost deviation above State PWD SoR baseline, 92.5% fund disbursement vs 31% verified physical completion (61.5% discrepancy gap), and missing GFR-12C Utilization Certificate Stage 2.',
+          evidenceCount: 4,
+          applicableRule: {
+            ruleId: 'R-54',
+            title: 'MPLADS Revised Guidelines 2023 Section 5.4 & GFR-12C',
+            section: 'Section 5.4',
+            page: 42,
+            documentUrl: 'https://mospi.gov.in',
+          },
+          peerComparison: {
+            expectedRange: '₹28.5 L - ₹32.0 L',
+            actualAmount: '₹42.0 Lakhs',
+            peerDeviation: '+38.2% above baseline',
+            sampleSize: 18,
+          },
+          evidenceList: [
+            { title: 'Volumetric Satellite Divergence (ISRO Cartosat-3)', type: 'DATA', reference: 'SAR Pass #104 (18.5204° N, 73.8567° E)', timestamp: '2025-02-23', source: 'ISRO' },
+            { title: 'Treasury DBT Drawdown vs Physical Log Discrepancy', type: 'FINANCIAL', reference: 'PFMS DBT Vouchers V-991 to V-994', timestamp: '2025-02-24', source: 'PFMS' },
+            { title: 'IP Bid Linkage & Cartel Network Graph', type: 'MODEL', reference: 'MCA-21 Subnet Match #882', timestamp: '2025-02-21', source: 'MCA-21' },
+            { title: 'Overdue GFR-12C Utilization Certificate', type: 'STATUTORY', reference: 'Stage 2 UC-02 Mandate Outstanding', timestamp: '2025-02-25', source: 'CAG Audit Core' },
+          ],
+          timeline: [
+            { id: '1', timestamp: '2025-02-23 11:00 AM', user: 'System Sentinel', role: 'VIGILANCE_ENGINE', action: 'CASE_INITIALIZED', notes: 'Auto-initialized following +38.2% cost anomaly and 61.5% progress gap flag.' },
+            { id: '2', timestamp: '2025-02-24 02:30 PM', user: 'Director Nodal Office', role: 'STATE_NODAL', action: 'ASSIGNED_INVESTIGATOR', notes: 'Assigned to Senior Vigilance Officer for field verification directive.' },
+          ],
+        };
+
+        setCaseItem(synthesizedCase);
+        setStatus(synthesizedCase.status);
+        setTimeline(synthesizedCase.timeline);
+      });
     }
   }, [id]);
 
@@ -127,8 +233,8 @@ export function CaseDetailPage() {
                       </div>
                       <p className="text-[11px] text-[#6B6B6B]">Reference ID: {item.reference} • Timestamp: {item.timestamp}</p>
                     </div>
-                    <span className="bg-[#9FE870] text-[#0E0E0E] text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-2xs">
-                      <ShieldCheck className="w-3 h-3" />
+                    <span className="bg-[#15803D]/15 text-[#15803D] text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 border border-[#15803D]/30 shadow-2xs">
+                      <ShieldCheck className="w-3 h-3 text-[#15803D]" />
                       <span>Verified ({item.source})</span>
                     </span>
                   </div>
@@ -207,7 +313,7 @@ export function CaseDetailPage() {
                 onClick={handleSaveVerdict}
                 className="w-full py-2.5 rounded-full bg-[#0E0E0E] text-white text-xs font-semibold hover:bg-black cursor-pointer transition-colors flex items-center justify-center gap-1.5 shadow-none"
               >
-                <ClipboardCheck className="w-4 h-4 text-[#9FE870]" />
+                <ClipboardCheck className="w-4 h-4 text-[#15803D]" />
                 <span>Log Statutory Verdict</span>
               </button>
             </CardContent>

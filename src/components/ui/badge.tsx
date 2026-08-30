@@ -13,7 +13,7 @@ export function Badge({ className, variant = 'default', children, ...props }: Ba
     secondary: 'bg-[#EAE8E2] text-[#0E0E0E] border-transparent',
     destructive: 'bg-red-100 text-red-700 border-red-200',
     outline: 'border border-[#E5E3DC] text-[#0E0E0E] bg-white',
-    success: 'bg-[#9FE870] text-[#0E0E0E] border-transparent',
+    success: 'bg-[#15803D]/15 text-[#15803D] border-[#15803D]/30',
   };
 
   return (

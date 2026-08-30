@@ -14,17 +14,17 @@ export function DocumentIntelligenceSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-white border-b border-[#DDE2E5]">
+    <section className="py-20 sm:py-28 bg-transparent border-b border-[#E5E3DC] font-sans">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#D89425] bg-[#D89425]/10 px-3 py-1 rounded-full border border-[#D89425]/30">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3.5 py-1 rounded-full border border-[#002449]/30 inline-block">
             CHAPTER 07 • MULTIMODAL INGESTION
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16324A] tracking-tight uppercase leading-tight font-sans">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#002449] tracking-tight uppercase leading-tight font-sans">
             From PDF Documents to <br />
-            <span className="text-[#D89425]">Structured Intelligence.</span>
+            <span className="text-[#D99018]">Structured Intelligence.</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#66727D] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#6B6B6B] leading-relaxed font-sans font-normal">
             Unstructured sanction letters, measurement books, and treasury vouchers are automatically digitized into verified audit entities.
           </p>
         </div>
@@ -33,78 +33,78 @@ export function DocumentIntelligenceSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left: Simulated Government PDF Artifact */}
-          <div className="lg:col-span-5 rounded-[6px] border border-[#DDE2E5] bg-[#F7F8F6] p-5 shadow-card space-y-3">
-            <div className="flex items-center justify-between border-b border-[#DDE2E5] pb-3">
+          <div className="lg:col-span-5 rounded-[20px] border border-[#E5E3DC] bg-white p-6 shadow-sm space-y-3">
+            <div className="flex items-center justify-between border-b border-[#EAE8E2] pb-3">
               <div className="flex items-center gap-2">
-                <FileText className="h-4 w-4 text-[#D89425]" />
-                <span className="text-xs font-bold font-mono text-[#16324A]">
+                <FileText className="h-4 w-4 text-[#002449]" />
+                <span className="text-xs font-bold font-mono text-[#002449]">
                   SANCTION_ORDER_441.PDF
                 </span>
               </div>
-              <span className="text-[10px] font-mono text-[#287A5A] font-bold bg-emerald-50 px-2 py-0.5 rounded border border-[#287A5A]/30">
+              <span className="text-[10px] font-mono text-emerald-700 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
                 ● OCR Parsed
               </span>
             </div>
 
-            <div className="space-y-2 text-[11px] text-[#66727D] font-serif p-4 bg-white rounded border border-[#DDE2E5] shadow-xs">
-              <div className="text-center font-bold text-black border-b pb-1 text-[10px]">
+            <div className="space-y-2 text-xs text-[#0E0E0E] font-serif p-4 bg-[#F1F0EC] rounded-[14px] border border-[#E5E3DC] shadow-2xs">
+              <div className="text-center font-bold text-[#0E0E0E] border-b border-[#EAE8E2] pb-1.5 text-[10px] font-sans">
                 GOVERNMENT OF MAHARASHTRA • DISTRICT COLLECTOR OFFICE PUNE
               </div>
-              <p className="italic">
+              <p className="italic text-[11px] text-[#6B6B6B] leading-relaxed">
                 "Sanction is hereby accorded under MPLADS Scheme 2023 for the work of Construction of Community Hall & Skill Centre at Hadapsar Ward 17 for an amount of ₹42,00,000/- to be executed by Pune Zilla Parishad..."
               </p>
-              <div className="pt-2 text-[9px] font-mono text-[#98A2B3] flex justify-between">
+              <div className="pt-2 text-[9px] font-mono text-[#6B6B6B] flex justify-between border-t border-[#EAE8E2]">
                 <span>Ref: PUN/MPLADS/2025/441-A</span>
                 <span>Date: 18/06/2025</span>
               </div>
             </div>
 
-            <div className="flex items-center justify-between text-[11px] text-[#66727D] font-mono pt-1">
+            <div className="flex items-center justify-between text-[11px] text-[#6B6B6B] font-mono pt-1">
               <span>Layout & Table Detection</span>
-              <span>100% Deterministic Extraction</span>
+              <span className="font-semibold text-[#002449]">100% Deterministic Extraction</span>
             </div>
           </div>
 
           {/* Center Connector */}
           <div className="hidden lg:flex lg:col-span-1 justify-center">
-            <div className="h-10 w-10 rounded-full bg-[#16324A] text-white flex items-center justify-center shadow-card">
-              <ArrowRight className="h-5 w-5 text-[#E5B45A]" />
+            <div className="h-10 w-10 rounded-full bg-[#002449] text-white flex items-center justify-center shadow-md">
+              <ArrowRight className="h-5 w-5 text-white/90" />
             </div>
           </div>
 
           {/* Right: Extracted Structured Schema */}
-          <div className="lg:col-span-6 rounded-[8px] border-2 border-[#16324A] bg-white p-5 shadow-2xl space-y-3">
-            <div className="flex items-center justify-between border-b border-[#DDE2E5] pb-2.5">
+          <div className="lg:col-span-6 rounded-[20px] border border-[#E5E3DC] bg-white p-6 shadow-sm space-y-3.5">
+            <div className="flex items-center justify-between border-b border-[#EAE8E2] pb-2.5">
               <div className="flex items-center gap-2">
-                <Cpu className="h-4 w-4 text-[#D89425]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#16324A]">
+                <Cpu className="h-4 w-4 text-[#002449]" />
+                <span className="text-xs font-bold uppercase tracking-wider text-[#002449] font-sans">
                   Extracted Project Schema
                 </span>
               </div>
-              <span className="text-[10px] font-mono text-[#66727D]">
+              <span className="text-[10px] font-mono text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
                 Confidence: 99.4%
               </span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
               {extractedEntities.map((e, idx) => (
-                <div key={idx} className="p-2 rounded bg-[#F7F8F6] border border-[#DDE2E5]">
-                  <span className="text-[9px] text-[#66727D] uppercase font-mono block">
+                <div key={idx} className="p-3 rounded-[12px] bg-white border border-[#E5E3DC] shadow-2xs">
+                  <span className="text-[9px] text-[#6B6B6B] uppercase font-mono block font-bold">
                     {e.label}
                   </span>
-                  <strong className="text-xs text-[#16324A] font-semibold block truncate">
+                  <strong className="text-xs text-[#002449] font-semibold block truncate mt-0.5">
                     {e.value}
                   </strong>
                 </div>
               ))}
             </div>
 
-            <div className="pt-2 border-t border-[#DDE2E5] flex items-center justify-between text-[11px] text-[#287A5A] font-semibold">
-              <span className="flex items-center gap-1">
+            <div className="pt-2 border-t border-[#EAE8E2] flex items-center justify-between text-[11px] text-emerald-700 font-semibold">
+              <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5" />
                 Validated against District Treasury Ledgers
               </span>
-              <span className="font-mono text-[#66727D] text-[10px]">SHA-256 Ledger Hash Verified</span>
+              <span className="font-mono text-[#6B6B6B] text-[10px]">SHA-256 Verified</span>
             </div>
           </div>
 

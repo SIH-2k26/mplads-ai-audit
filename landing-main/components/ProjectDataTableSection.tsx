@@ -188,44 +188,44 @@ export function ProjectDataTableSection() {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-[#FAFAF7] border-b border-[#D9DFE3]">
+    <section className="py-20 sm:py-28 bg-transparent border-b border-[#E5E3DC] font-sans">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#D99018] bg-[#D99018]/10 px-3 py-1 rounded-full border border-[#D99018]/30">
-              NATIONAL PROJECT AUDIT DIRECTORY
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#002449] bg-[#002449]/10 px-3.5 py-1 rounded-full border border-[#002449]/30 inline-block">
+              CHAPTER 10 • NATIONAL PROJECT AUDIT DIRECTORY
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#15324A] tracking-tight uppercase mt-2 font-sans">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#002449] tracking-tight uppercase mt-2 font-sans">
               Monitored Works Explorer
             </h2>
-            <p className="text-xs sm:text-sm text-[#647383] mt-1">
+            <p className="text-xs sm:text-sm text-[#6B6B6B] mt-1 font-sans">
               Search and filter across live parliamentary recommendations, technical sanction milestones, and explainable risk scores.
             </p>
           </div>
 
           {/* Search & Filter Bar */}
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2.5">
             <div className="relative">
-              <Search className="h-3.5 w-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[#647383]" />
+              <Search className="h-4 w-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#6B6B6B]" />
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search by ID, title, district..."
-                className="pl-8 pr-3 py-1.5 rounded-[4px] border border-[#D9DFE3] bg-white text-xs text-[#172B3A] placeholder-[#647383] outline-none focus:border-[#15324A] w-64"
+                className="pl-10 pr-4 py-2 rounded-full border border-[#E5E3DC] bg-[#F1F0EC] text-xs text-[#0E0E0E] placeholder-[#6B6B6B] outline-none focus:border-[#002449] focus:bg-white w-64 transition-all"
               />
             </div>
 
-            <div className="flex rounded-[4px] border border-[#D9DFE3] bg-white p-0.5">
+            <div className="flex rounded-full border border-[#E5E3DC] bg-[#F1F0EC] p-1">
               {(['ALL', 'HIGH', 'MEDIUM', 'LOW'] as const).map((f) => (
                 <button
                   key={f}
                   type="button"
                   onClick={() => setSelectedFilter(f)}
-                  className={`px-2.5 py-1 rounded-[3px] text-[10px] font-mono font-bold transition-colors ${
+                  className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold transition-all cursor-pointer ${
                     selectedFilter === f
-                      ? 'bg-[#15324A] text-white'
-                      : 'text-[#647383] hover:text-[#172B3A]'
+                      ? 'bg-[#002449] text-white shadow-xs'
+                      : 'text-[#6B6B6B] hover:text-[#0E0E0E]'
                   }`}
                 >
                   {f}
@@ -236,18 +236,18 @@ export function ProjectDataTableSection() {
         </div>
 
         {/* Structured Table Card */}
-        <div className="rounded-[8px] border-2 border-[#15324A] bg-white shadow-2xl overflow-hidden">
+        <div className="rounded-[20px] border border-[#E5E3DC] bg-white shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
-                <TableRow className="bg-[#FAFAF7] text-[11px] font-mono uppercase tracking-wider">
-                  <TableHead className="font-bold text-[#15324A]">Project & Ref ID</TableHead>
-                  <TableHead className="font-bold text-[#15324A]">State & District</TableHead>
-                  <TableHead className="font-bold text-[#15324A]">Sector</TableHead>
-                  <TableHead className="font-bold text-[#15324A]">Outlay</TableHead>
-                  <TableHead className="font-bold text-[#15324A]">Progress (Phy / Fin)</TableHead>
-                  <TableHead className="font-bold text-[#15324A]">Risk Index</TableHead>
-                  <TableHead className="font-bold text-[#15324A] text-right">Actions</TableHead>
+                <TableRow className="bg-[#FAFAF9] text-[11px] font-mono uppercase tracking-wider">
+                  <TableHead className="font-bold text-[#002449]">Project & Ref ID</TableHead>
+                  <TableHead className="font-bold text-[#002449]">State & District</TableHead>
+                  <TableHead className="font-bold text-[#002449]">Sector</TableHead>
+                  <TableHead className="font-bold text-[#002449]">Outlay</TableHead>
+                  <TableHead className="font-bold text-[#002449]">Progress (Phy / Fin)</TableHead>
+                  <TableHead className="font-bold text-[#002449]">Risk Index</TableHead>
+                  <TableHead className="font-bold text-[#002449] text-right">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -255,30 +255,30 @@ export function ProjectDataTableSection() {
                   <TableRow
                     key={p.id}
                     onClick={() => handleOpenRiskSheet(p)}
-                    className="hover:bg-[#F3F5F4]/60 transition-colors cursor-pointer"
+                    className="hover:bg-[#F1F0EC]/60 transition-colors cursor-pointer"
                   >
                     <TableCell>
                       <div>
-                        <span className="font-bold text-xs text-[#172B3A] block hover:text-[#D99018] transition-colors">
+                        <span className="font-bold text-xs text-[#0E0E0E] block hover:text-[#002449] transition-colors">
                           {p.title}
                         </span>
-                        <span className="text-[10px] font-mono text-[#647383]">
+                        <span className="text-[10px] font-mono text-[#6B6B6B]">
                           Ref: {p.id}
                         </span>
                       </div>
                     </TableCell>
 
                     <TableCell>
-                      <span className="text-xs text-[#172B3A] block">{p.district}</span>
-                      <span className="text-[10px] text-[#647383]">{p.state}</span>
+                      <span className="text-xs text-[#0E0E0E] block">{p.district}</span>
+                      <span className="text-[10px] text-[#6B6B6B]">{p.state}</span>
                     </TableCell>
 
                     <TableCell>
-                      <span className="text-xs text-[#647383]">{p.category}</span>
+                      <span className="text-xs text-[#6B6B6B]">{p.category}</span>
                     </TableCell>
 
                     <TableCell>
-                      <span className="text-xs font-mono font-bold text-[#15324A]">{p.amount}</span>
+                      <span className="text-xs font-mono font-bold text-[#002449]">{p.amount}</span>
                     </TableCell>
 
                     <TableCell>
@@ -287,9 +287,9 @@ export function ProjectDataTableSection() {
                           <span className="text-[#2E8064] font-semibold">{p.physicalProgress}% Phy</span>
                           <span className="text-[#C94B4B] font-semibold">{p.financialProgress}% Fin</span>
                         </div>
-                        <div className="h-1.5 w-28 bg-[#D9DFE3] rounded-full overflow-hidden">
+                        <div className="h-1.5 w-28 bg-[#E5E3DC] rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-[#15324A] rounded-full"
+                            className="h-full bg-[#002449] rounded-full"
                             style={{ width: `${p.physicalProgress}%` }}
                           />
                         </div>
@@ -309,7 +309,7 @@ export function ProjectDataTableSection() {
                         >
                           {p.riskScore}
                         </span>
-                        <span className="text-[10px] font-mono text-[#647383] font-bold">
+                        <span className="text-[10px] font-mono text-[#6B6B6B] font-bold">
                           {p.riskStatus}
                         </span>
                       </div>
@@ -321,10 +321,10 @@ export function ProjectDataTableSection() {
                           variant="ghost"
                           size="sm"
                           onClick={() => handleOpenRiskSheet(p)}
-                          className="h-7 px-2 text-[10px] font-semibold text-[#15324A] hover:bg-[#D9DFE3]/50"
+                          className="h-7 px-2 text-[10px] font-semibold text-[#002449] hover:bg-[#E5E3DC]/50"
                           title="Open Risk Drawer"
                         >
-                          <ShieldAlert className="h-3 w-3 mr-1 text-[#D99018]" />
+                          <ShieldAlert className="h-3 w-3 mr-1 text-[#002449]" />
                           Inspect Risk
                         </Button>
 
@@ -332,7 +332,7 @@ export function ProjectDataTableSection() {
                           <Button
                             variant="outline"
                             size="sm"
-                            className="h-7 px-2 text-[10px] font-bold border-[#15324A] text-[#15324A] hover:bg-[#15324A] hover:text-white"
+                            className="h-7 px-2 text-[10px] font-bold border-[#002449] text-[#002449] hover:bg-[#002449] rounded-full hover:text-white"
                           >
                             <Eye className="h-3 w-3 mr-1" /> View Twin
                           </Button>
@@ -345,9 +345,9 @@ export function ProjectDataTableSection() {
             </Table>
           </div>
 
-          <div className="p-3 border-t border-[#D9DFE3] bg-[#FAFAF7] flex items-center justify-between text-xs text-[#647383]">
+          <div className="p-3 border-t border-[#E5E3DC] bg-[#FAFAF9] flex items-center justify-between text-xs text-[#6B6B6B]">
             <span>Showing {filtered.length} of {projects.length} sample works (Click any row to open Risk Sheet)</span>
-            <Link to="/projects" className="font-bold text-[#15324A] hover:underline flex items-center gap-1">
+            <Link to="/projects" className="font-bold text-[#002449] hover:underline flex items-center gap-1">
               Explore All 7,842 Projects <ChevronRight className="h-3.5 w-3.5" />
             </Link>
           </div>

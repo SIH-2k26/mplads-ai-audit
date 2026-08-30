@@ -8,13 +8,15 @@ import {
   Sparkles,
   Globe
 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useUiStore } from '../../stores/useUiStore';
 import { useRoleStore } from '../../stores/useRoleStore';
 import { useLanguageStore } from '../../stores/useLanguageStore';
 import { SUPPORTED_LANGUAGES } from '../../i18n/types';
 import { useT } from '../../i18n/useT';
 import { UserRole } from '../../types';
+
+import { SanchayLogo } from '../common/SanchayLogo';
 
 const ROLE_DASHBOARD_MAP: Record<UserRole, string> = {
   DISTRICT_AUTHORITY: '/district',
@@ -51,9 +53,16 @@ export function TopHeader() {
         >
           <Menu className="w-5 h-5" />
         </button>
-        <span className="font-bold text-lg tracking-tight text-[#0E0E0E] lowercase leading-none">
-          {t.brand}
-        </span>
+        <Link
+          to="/"
+          title="Return to National Sanchay Portal"
+          className="font-bold text-lg tracking-tight text-[#0E0E0E] leading-none hover:opacity-75 transition-opacity cursor-pointer flex items-center gap-2"
+        >
+          <div className="w-8 h-8 flex items-center justify-center">
+            <SanchayLogo className="w-full h-full object-contain" variant="auto" />
+          </div>
+          <span className="font-extrabold tracking-tight uppercase text-base text-[#0E0E0E]">{t.brand}</span>
+        </Link>
       </div>
 
       {/* Middle: Role & Jurisdiction Context */}
@@ -100,22 +109,32 @@ export function TopHeader() {
           <ChevronDown className="w-3.5 h-3.5 text-[#6B6B6B] absolute right-2 pointer-events-none" />
         </div>
 
-        {/* Ask Agastya */}
+        {/* Ask Sanchay */}
         <button
           onClick={() => setAiAssistantOpen(true)}
-          className="bg-[#16A34A] hover:bg-[#15803D] text-white font-semibold text-xs px-4 py-2 rounded-full transition-colors cursor-pointer flex items-center gap-1.5 shadow-none"
+          className="bg-[#15803D] hover:bg-[#166534] text-white font-semibold text-xs px-4 py-2 rounded-full transition-colors cursor-pointer flex items-center gap-1.5 shadow-none"
         >
           <Sparkles className="w-3.5 h-3.5 fill-white" />
-          <span>{t.header.askAgastya}</span>
+          <span>{t.header.askSanchay}</span>
         </button>
 
         {/* User Avatar Button */}
         <button
           onClick={() => setProfileModalOpen(true)}
-          title="Officer Profile & Clearance Dossier"
-          className="w-8 h-8 rounded-full bg-[#002449] text-white font-bold text-xs flex items-center justify-center relative shadow-2xs hover:bg-[#001B36] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-[#002449]/30"
+          title={`${userTitle} — Profile & Statutory Clearance`}
+          className="w-8 h-8 rounded-full bg-[#002449] text-white font-bold text-xs flex items-center justify-center relative shadow-2xs hover:bg-[#001B36] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-[#002449]/30 font-mono"
         >
-          <span>AS</span>
+          <span>
+            {currentRole === 'DISTRICT_AUTHORITY'
+              ? 'DM'
+              : currentRole === 'MP'
+              ? 'MP'
+              : currentRole === 'STATE_NODAL'
+              ? 'SN'
+              : currentRole === 'MINISTRY_DIID'
+              ? 'DG'
+              : 'AG'}
+          </span>
           <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 border-2 border-white rounded-full" title="Online & Verified" />
         </button>
       </div>

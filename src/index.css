@@ -48,7 +48,7 @@
 }
 
 .bg-wise-green {
-  background-color: #16A34A;
+  background-color: #15803D;
 }
 
 .bg-wise-navy {
@@ -76,7 +76,7 @@
 }
 
 .btn-wise-primary {
-  background-color: #16A34A;
+  background-color: #15803D;
   color: #FFFFFF;
   font-weight: 600;
   border-radius: 9999px;
@@ -84,7 +84,7 @@
 }
 
 .btn-wise-primary:hover {
-  background-color: #15803D;
+  background-color: #166534;
 }
 
 .btn-wise-navy {
@@ -114,4 +114,18 @@
 .wise-card {
   background-color: #F1F0EC;
   border-radius: 20px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  animation: marquee 35s linear infinite;
 }

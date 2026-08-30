@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import {
   X,
   ShieldCheck,
@@ -9,9 +10,12 @@ import {
   Download,
   FileCheck2,
   Activity,
+  LogOut,
 } from 'lucide-react';
 import { useUiStore } from '../stores/useUiStore';
 import { useRoleStore } from '../stores/useRoleStore';
+import { useLanguageStore } from '../stores/useLanguageStore';
+import { SanchayLogo } from './common/SanchayLogo';
 import { toast } from 'sonner';
 
 export const WiseOfficerProfileModal: React.FC = () => {
@@ -112,6 +116,7 @@ export const WiseOfficerProfileModal: React.FC = () => {
     }
   };
 
+  const navigate = useNavigate();
   const details = getRoleDetails();
 
   const handleCopyToken = () => {
@@ -120,7 +125,7 @@ export const WiseOfficerProfileModal: React.FC = () => {
   };
 
   const handleLockSession = () => {
-    toast.info('Session locked. Click Done to resume.');
+    toast.info('Session locked.');
     onClose();
   };
 
@@ -128,10 +133,25 @@ export const WiseOfficerProfileModal: React.FC = () => {
     toast.success(`Dossier PDF for ${details.name} generated successfully.`);
   };
 
+  const handleLogout = () => {
+    useLanguageStore.getState().setLanguage('en');
+    try {
+      localStorage.removeItem('sanchay_preferred_language');
+    } catch {
+      // ignore
+    }
+
+    onClose();
+    toast.success('Logged Out Successfully', {
+      description: 'Redirecting to Sanchay Public Portal...',
+    });
+    navigate('/');
+  };
+
   return (
     <AnimatePresence>
       {profileModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 select-none">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 select-none font-sans">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -143,155 +163,136 @@ export const WiseOfficerProfileModal: React.FC = () => {
 
           {/* Modal Container */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 12 }}
+            initial={{ opacity: 0, scale: 0.97, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: 12 }}
-            transition={{ type: 'spring', duration: 0.35, bounce: 0.15 }}
-            className="relative w-full max-w-lg bg-white rounded-[24px] shadow-2xl overflow-hidden border border-[#E5E3DC] z-10 font-sans"
+            exit={{ opacity: 0, scale: 0.97, y: 8 }}
+            transition={{ type: 'spring', duration: 0.3, bounce: 0.1 }}
+            className="relative w-full max-w-lg bg-white rounded-[20px] shadow-2xl overflow-hidden border border-[#E5E3DC] z-10"
           >
-            {/* Header / Sub-banner with Exact User-Uploaded Indian Emblem */}
-            <div className="bg-[#002449] text-white px-6 py-4 flex items-center justify-between shadow-xs">
+            {/* Header */}
+            <div className="bg-[#002449] text-white px-6 py-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                {/* Official State Emblem Image Badge */}
-                <div className="p-1 rounded-xl bg-white border border-blue-200 shrink-0 flex items-center justify-center">
-                  <img src="/emblem.png" alt="State Emblem of India" className="h-7 w-auto object-contain" />
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center p-1.5 border border-white/20">
+                  <SanchayLogo className="w-full h-full" variant="light" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold tracking-widest text-emerald-400 uppercase block">
-                    GOVERNMENT OF INDIA • GOV-SSO DOSSIER
-                  </span>
-                  <h2 className="text-sm font-bold tracking-tight text-white flex items-center gap-2">
-                    <span>Officer Credentials & Clearance</span>
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <h2 className="text-sm font-bold tracking-tight text-white">
+                    Officer Credentials & Clearance
                   </h2>
+                  <span className="text-[10px] text-white/70 font-mono block">
+                    GOVERNMENT OF INDIA • MoSPI SSO
+                  </span>
                 </div>
               </div>
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-full text-blue-200 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                className="p-1.5 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            {/* Scrollable Content Body */}
-            <div className="p-6 space-y-5 max-h-[80vh] overflow-y-auto no-scrollbar">
-              
-              {/* Official Credential Badge Card */}
-              <div className="relative p-5 rounded-2xl bg-gradient-to-br from-[#FAF9F5] via-[#F5F3EB] to-[#F1F0EC] border border-[#E5E3DC] space-y-3 overflow-hidden shadow-2xs">
-                {/* Background Emblem Watermark */}
-                <img
-                  src="/emblem.png"
-                  alt=""
-                  className="w-36 h-auto opacity-[0.08] pointer-events-none absolute right-2 top-1"
-                />
-
-                <div className="flex items-start justify-between gap-4 relative z-10">
-                  <div className="flex items-center gap-3.5">
-                    {/* Avatar Initials Circle */}
-                    <div className="w-14 h-14 rounded-2xl bg-[#002449] text-white font-bold text-lg flex items-center justify-center shrink-0 shadow-md border-2 border-amber-400/60 relative">
-                      <span>AS</span>
-                      <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#16A34A] opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-[#16A34A]"></span>
-                      </span>
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <h3 className="text-base font-bold text-[#0E0E0E] leading-tight">{details.name}</h3>
-                        <span className="text-[10px]" title="Government of India Verified">🇮🇳</span>
-                      </div>
-                      <p className="text-xs text-[#6B6B6B] font-medium mt-0.5">{details.designation}</p>
-                      <p className="text-[10px] font-mono text-gray-500 mt-0.5">{details.cadre}</p>
-                    </div>
+            {/* Content Body */}
+            <div className="p-6 space-y-4 max-h-[75vh] overflow-y-auto">
+              {/* Profile Card */}
+              <div className="p-5 rounded-[16px] bg-[#F1F0EC] border border-[#E5E3DC] space-y-3">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-12 h-12 rounded-full bg-[#002449] text-white font-extrabold text-base flex items-center justify-center shrink-0 shadow-sm border border-[#002449]">
+                    <span>AS</span>
                   </div>
-
-                  {/* Top Right Official Indian Emblem Image */}
-                  <div className="flex flex-col items-center shrink-0 hidden sm:flex">
-                    <img src="/emblem.png" alt="State Emblem of India" className="h-12 w-auto object-contain" />
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-bold text-[#0E0E0E] truncate">
+                      {details.name}
+                    </h3>
+                    <p className="text-xs text-[#6B6B6B] mt-0.5">{details.designation}</p>
+                    <p className="text-[11px] font-mono text-[#6B6B6B]">{details.cadre}</p>
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-[#E5E3DC]/60 flex flex-wrap items-center justify-between gap-2 relative z-10 text-xs">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px]">
+                <div className="pt-3 border-t border-[#E5E3DC] flex items-center justify-between gap-2 flex-wrap text-xs">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#15803D]/10 text-[#15803D] font-bold text-[10px] border border-[#15803D]/20">
                     <ShieldCheck className="w-3.5 h-3.5" />
-                    {details.clearance}
+                    <span>{details.clearance}</span>
                   </span>
-                  <span className="font-mono text-[10px] font-bold text-[#6B6B6B] bg-white px-2.5 py-0.5 rounded-md border border-[#E5E3DC]">
+                  <span className="font-mono text-[10px] font-bold text-[#002449] bg-white px-2.5 py-1 rounded-full border border-[#E5E3DC]">
                     ID: {details.idNumber}
                   </span>
                 </div>
               </div>
 
-              {/* Telemetry & Security Grid */}
+              {/* Telemetry & Security Row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 {/* Node info */}
-                <div className="p-3.5 rounded-2xl bg-[#F1F0EC] border border-[#E5E3DC] space-y-1">
-                  <span className="text-[9px] font-bold text-[#6B6B6B] uppercase tracking-wider block">
-                    GovCloud Telemetry Core
+                <div className="p-3.5 rounded-[14px] bg-[#F1F0EC] border border-[#E5E3DC] space-y-1">
+                  <span className="text-[9.5px] font-mono font-bold text-[#6B6B6B] uppercase tracking-wider block">
+                    Telemetry Gateway
                   </span>
-                  <span className="font-semibold text-[#0E0E0E] block truncate">{details.node}</span>
-                  <div className="flex items-center gap-1.5 text-[10px] text-emerald-700 font-medium pt-1">
-                    <Activity className="w-3 h-3" />
+                  <span className="font-semibold text-[#0E0E0E] block truncate text-xs">
+                    {details.node}
+                  </span>
+                  <div className="flex items-center gap-1.5 text-[10px] text-[#15803D] font-medium pt-0.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#15803D] animate-pulse" />
                     <span>Latency: {details.latency} • Online</span>
                   </div>
                 </div>
 
                 {/* Session Token */}
-                <div className="p-3.5 rounded-2xl bg-[#F1F0EC] border border-[#E5E3DC] space-y-1">
-                  <span className="text-[9px] font-bold text-[#6B6B6B] uppercase tracking-wider block">
+                <div className="p-3.5 rounded-[14px] bg-[#F1F0EC] border border-[#E5E3DC] space-y-1">
+                  <span className="text-[9.5px] font-mono font-bold text-[#6B6B6B] uppercase tracking-wider block">
                     SSO Cryptographic Token
                   </span>
                   <div className="flex items-center justify-between">
-                    <span className="font-mono font-bold text-[#0E0E0E] text-[11px] truncate">
+                    <span className="font-mono font-semibold text-[#0E0E0E] text-[11px] truncate">
                       {details.token}
                     </span>
                     <button
                       onClick={handleCopyToken}
-                      className="p-1 hover:bg-[#EAE8E2] rounded-md transition-colors cursor-pointer shrink-0 ml-1"
+                      className="p-1 hover:bg-white rounded-md transition-colors cursor-pointer shrink-0 ml-1 border border-transparent hover:border-[#E5E3DC]"
                       title="Copy Token"
                     >
                       <Copy className="w-3.5 h-3.5 text-[#6B6B6B]" />
                     </button>
                   </div>
-                  <div className="flex items-center gap-1 text-[10px] text-emerald-700 font-medium pt-1">
+                  <div className="flex items-center gap-1 text-[10px] text-[#15803D] font-medium pt-0.5">
                     <CheckCircle2 className="w-3 h-3" />
-                    <span>CAG Vigilance Verified</span>
+                    <span>CAG Verified</span>
                   </div>
                 </div>
               </div>
 
               {/* Recent Audit & Sanction Log Trail */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold text-[#6B6B6B] uppercase tracking-wider flex items-center gap-1">
-                    <FileCheck2 className="w-3.5 h-3.5" />
-                    Recent Vigilance Audit Log Trail
-                  </span>
-                  <span className="text-[10px] text-gray-400 font-mono">Live Audit Feed</span>
-                </div>
+              <div className="space-y-2 pt-1">
+                <span className="text-[10px] font-mono font-bold text-[#6B6B6B] uppercase tracking-wider block">
+                  Recent Audit Actions
+                </span>
 
                 <div className="space-y-1.5">
                   {details.logs.map((log, index) => (
                     <div
                       key={index}
-                      className="p-3 rounded-xl bg-white border border-[#E5E3DC] flex items-center justify-between gap-3 text-xs"
+                      className="p-3 rounded-[12px] bg-white border border-[#E5E3DC] flex items-center justify-between gap-3 text-xs shadow-2xs"
                     >
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#0E0E0E] shrink-0" />
-                        <span className="font-medium text-[#0E0E0E] truncate">{log.action}</span>
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#002449] shrink-0" />
+                        <span className="font-medium text-[#0E0E0E] truncate text-xs">{log.action}</span>
                       </div>
                       <span className="text-[10px] font-mono text-[#6B6B6B] shrink-0">{log.time}</span>
                     </div>
                   ))}
                 </div>
               </div>
-
             </div>
 
-            {/* Modal Footer Actions */}
-            <div className="px-6 py-4 border-t border-[#F1F0EC] bg-[#FAF9F5] flex items-center justify-between flex-wrap gap-2">
+            {/* Footer Actions */}
+            <div className="px-6 py-3.5 border-t border-[#E5E3DC] bg-[#FAF9F5] flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
+                <button
+                  onClick={handleLogout}
+                  className="px-3.5 py-1.5 rounded-full border border-red-200 bg-red-50 text-red-700 text-xs font-bold hover:bg-red-100 transition-colors cursor-pointer flex items-center gap-1.5"
+                >
+                  <LogOut className="w-3.5 h-3.5 text-red-600" />
+                  <span>Log Out</span>
+                </button>
                 <button
                   onClick={handleDownloadDossier}
                   className="px-3.5 py-1.5 rounded-full border border-[#E5E3DC] bg-white text-[#0E0E0E] text-xs font-semibold hover:bg-[#F1F0EC] transition-colors cursor-pointer flex items-center gap-1.5"
@@ -299,18 +300,11 @@ export const WiseOfficerProfileModal: React.FC = () => {
                   <Download className="w-3.5 h-3.5 text-[#6B6B6B]" />
                   <span>Export Dossier</span>
                 </button>
-                <button
-                  onClick={handleLockSession}
-                  className="px-3.5 py-1.5 rounded-full border border-[#E5E3DC] bg-white text-[#0E0E0E] text-xs font-semibold hover:bg-[#F1F0EC] transition-colors cursor-pointer flex items-center gap-1.5"
-                >
-                  <Lock className="w-3.5 h-3.5 text-[#6B6B6B]" />
-                  <span>Lock Session</span>
-                </button>
               </div>
 
               <button
                 onClick={onClose}
-                className="px-6 py-1.5 rounded-full bg-[#002449] text-white text-xs font-bold hover:bg-[#001B36] transition-colors cursor-pointer"
+                className="px-6 py-1.5 rounded-full bg-[#002449] hover:bg-[#001B36] text-white text-xs font-bold transition-colors cursor-pointer"
               >
                 Done
               </button>

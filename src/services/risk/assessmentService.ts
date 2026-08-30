@@ -4,7 +4,7 @@ import {
 } from '../../types/riskAssessment';
 
 const STORAGE_KEY =
-  'agastya_saved_risk_assessments';
+  'sanchay_saved_risk_assessments';
 
 export class AssessmentService {
   private inMemoryAssessments:

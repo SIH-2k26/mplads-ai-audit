@@ -8,6 +8,8 @@ import { AlertCircle, CheckCircle2, RotateCcw, Play, Sparkles, Activity, ShieldC
 import { ProjectAssessmentInput, RiskAssessmentResult } from '../types/riskAssessment';
 import { mockRiskInferenceProvider } from '../services/risk/mockRiskInferenceProvider';
 import { assessmentService } from '../services/risk/assessmentService';
+import { analyzeProject } from '../services/api';
+import { toBackendProjectInput, fromBackendAnalysisResponse } from '../services/backendTransforms';
 import { formatCurrencyINR } from '../lib/utils';
 import { toast } from 'sonner';
 
@@ -108,7 +110,7 @@ function AnalysisPipelineAnimation({ onComplete }: { onComplete: () => void }) {
 
   return (
     <Card className="max-w-md mx-auto p-8 select-none text-center space-y-6">
-      <div className="w-12 h-12 rounded-full bg-[#9FE870]/20 border border-[#9FE870] flex items-center justify-center mx-auto text-[#0E0E0E]">
+      <div className="w-12 h-12 rounded-full bg-[#15803D]/15 border border-[#15803D]/30 flex items-center justify-center mx-auto text-[#0E0E0E]">
         <Activity className="w-6 h-6 animate-spin text-[#0E0E0E]" />
       </div>
       <div className="space-y-2">
@@ -315,7 +317,7 @@ function AssessmentResultsView({
           onClick={handleSave}
           className="bg-[#0E0E0E] hover:bg-black text-white text-xs font-semibold px-6 py-2.5 rounded-full cursor-pointer transition-colors flex items-center gap-1.5"
         >
-          <ShieldCheck className="w-4 h-4 text-[#9FE870]" />
+          <ShieldCheck className="w-4 h-4 text-[#15803D]" />
           <span>Save Simulation Log</span>
         </button>
       </div>
@@ -367,11 +369,40 @@ export function RiskAssessmentPage() {
     setAssessmentResult(null);
 
     try {
-      const result = await mockRiskInferenceProvider.evaluateProject(formData);
-      setPendingResult(result);
+      // Try real backend API first
+      const backendPayload = toBackendProjectInput(formData);
+      const { data: backendResponse, error: backendError } = await analyzeProject(backendPayload);
+
+      if (backendResponse && !backendError) {
+        // Backend succeeded — transform response to frontend shape
+        const result = fromBackendAnalysisResponse(backendResponse, formData);
+        setPendingResult(result);
+        toast.success('Backend Analysis Complete', {
+          description: `ML pipeline returned risk score ${backendResponse.risk_score}/100 (${backendResponse.ml_status})`
+        });
+      } else {
+        // Backend unreachable — graceful fallback to local mock inference
+        console.warn('Backend unavailable, falling back to mock inference:', backendError);
+        const result = await mockRiskInferenceProvider.evaluateProject(formData);
+        setPendingResult(result);
+        toast.info('Using Local Simulation', {
+          description: 'Backend unreachable — results generated from rule-based prototype.'
+        });
+      }
     } catch (err) {
-      setIsProcessing(false);
-      toast.error('Inference Error');
+      // Unexpected error — still try mock as last resort
+      try {
+        const result = await mockRiskInferenceProvider.evaluateProject(formData);
+        setPendingResult(result);
+        toast.info('Using Local Simulation', {
+          description: 'Backend error — results generated from rule-based prototype.'
+        });
+      } catch {
+        setIsProcessing(false);
+        toast.error('Inference Error', {
+          description: 'Both backend and local simulation failed.'
+        });
+      }
     }
   };
 
@@ -624,7 +655,7 @@ export function RiskAssessmentPage() {
               onClick={handleRunAssessment}
               className="bg-[#0E0E0E] hover:bg-black text-white text-xs font-semibold px-6 py-2.5 rounded-full cursor-pointer transition-colors flex items-center gap-1.5"
             >
-              <Play className="w-4 h-4 text-[#9FE870]" />
+              <Play className="w-4 h-4 text-[#15803D]" />
               <span>Simulate Risk Profile</span>
             </button>
           </div>

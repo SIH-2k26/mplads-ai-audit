@@ -3,14 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   X,
   ShieldAlert,
-  FileText,
   CheckCircle2,
-  AlertTriangle,
-  ArrowRight,
-  ExternalLink,
+  FileText,
   Lock,
+  ArrowRight,
   Sparkles,
   Search,
+  BookOpen,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useUiStore } from '../stores/useUiStore';
@@ -75,40 +74,40 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
           aria-label={data.title}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
         >
-          {/* Dark Backdrop with Subtle Blur */}
+          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/70 backdrop-blur-[2px]"
+            className="fixed inset-0 bg-black/50 backdrop-blur-[2px]"
           />
 
           {/* Centered Modal Window */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            initial={{ opacity: 0, scale: 0.96, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+            exit={{ opacity: 0, scale: 0.96, y: 8 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-[8px] border border-[#234D6C] bg-[#102F45] text-white shadow-2xl z-10 flex flex-col font-sans"
+            className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-[20px] border border-[#E5E3DC] bg-white text-[#0E0E0E] shadow-2xl z-10 flex flex-col font-sans"
           >
             {/* Header */}
-            <div className="sticky top-0 z-20 flex items-start justify-between border-b border-[#234D6C] bg-[#102F45]/95 backdrop-blur px-6 py-4">
+            <div className="sticky top-0 z-20 flex items-start justify-between bg-[#002449] px-6 py-4 rounded-t-[20px]">
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="rounded bg-[#183B54] px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A] border border-[#234D6C]">
+                  <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider text-white border border-white/20">
                     {data.category}
                   </span>
-                  <span className="font-mono text-xs font-bold text-gray-300">
+                  <span className="font-mono text-xs font-bold text-white/70">
                     {data.tag}
                   </span>
                 </div>
                 <h2 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-white font-sans">
                   {data.title}
                 </h2>
-                <p className="text-xs text-gray-300 font-normal leading-relaxed">
+                <p className="text-xs text-white/70 font-normal leading-relaxed">
                   {data.location} • {data.subtitle}
                 </p>
               </div>
@@ -118,38 +117,38 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
                 type="button"
                 onClick={onClose}
                 aria-label="Close modal"
-                className="rounded-[4px] p-1.5 text-gray-400 hover:bg-[#183B54] hover:text-white transition-colors border border-transparent hover:border-[#234D6C] focus:outline-none focus:ring-2 focus:ring-[#D99018]"
+                className="rounded-full p-1.5 text-white/60 hover:bg-white/10 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/30"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
 
             {/* Modal Content Body */}
-            <div className="p-6 space-y-6 text-xs text-gray-200">
+            <div className="p-6 space-y-4 text-xs text-[#0E0E0E]">
               {/* Top Analytical Status Metric Card */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-[6px] border border-[#234D6C] bg-[#183B54]">
-                <div className="space-y-1 text-center sm:text-left">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-[20px] border border-[#E5E3DC] bg-[#F1F0EC]">
+                <div className="space-y-0.5 text-center sm:text-left">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#6B6B6B]">
                     {data.metricLabel}
                   </span>
-                  <div className="text-2xl font-extrabold font-mono text-white">
+                  <div className="text-2xl font-extrabold font-mono text-[#0E0E0E]">
                     {data.metricValue}
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                   {data.riskScore !== undefined && (
-                    <div className="text-center sm:text-right border-r border-[#234D6C] pr-4">
-                      <span className="text-[10px] font-mono text-gray-400 block uppercase">
+                    <div className="text-center sm:text-right border-r border-[#E5E3DC] pr-4">
+                      <span className="text-[10px] font-mono text-[#6B6B6B] block uppercase font-bold">
                         Composite Risk
                       </span>
                       <strong
                         className={`text-2xl font-mono font-extrabold ${
                           data.riskScore >= 80
-                            ? 'text-[#C94B4B]'
+                            ? 'text-red-600'
                             : data.riskScore >= 60
-                            ? 'text-[#D99018]'
-                            : 'text-[#2E8064]'
+                            ? 'text-orange-600'
+                            : 'text-emerald-700'
                         }`}
                       >
                         {data.riskScore}/100
@@ -159,12 +158,12 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
 
                   <div className="text-left">
                     <span
-                      className={`inline-block px-2.5 py-1 rounded text-[11px] font-mono font-bold ${
+                      className={`inline-block px-3 py-1 rounded-full text-[11px] font-mono font-bold ${
                         data.statusVariant === 'critical'
-                          ? 'bg-red-950/80 text-[#C94B4B] border border-[#C94B4B]/50'
+                          ? 'bg-red-100 text-red-700 border border-red-200'
                           : data.statusVariant === 'saffron'
-                          ? 'bg-amber-950/80 text-[#D99018] border border-[#D99018]/50'
-                          : 'bg-emerald-950/80 text-[#2E8064] border border-[#2E8064]/50'
+                          ? 'bg-amber-100 text-amber-800 border border-amber-200'
+                          : 'bg-emerald-100 text-emerald-800 border border-emerald-200'
                       }`}
                     >
                       {data.statusLabel}
@@ -174,22 +173,22 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
               </div>
 
               {/* Summary Description */}
-              <div className="p-3.5 rounded bg-[#183B54]/70 border border-[#234D6C] text-xs text-gray-200 leading-relaxed">
+              <div className="p-3.5 rounded-[16px] bg-[#F1F0EC] border border-[#E5E3DC] text-xs text-[#0E0E0E] leading-relaxed">
                 {data.summary}
               </div>
 
               {/* Why Flagged / Key Signals */}
               <div className="space-y-2">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A] block">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#6B6B6B] block">
                   Why Was This Flagged? (Diagnostic Signals)
                 </span>
                 <div className="space-y-1.5">
                   {data.whyFlagged.map((reason, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-2.5 bg-[#183B54] p-2.5 rounded border border-[#234D6C] text-xs text-gray-200"
+                      className="flex items-start gap-2.5 bg-[#F1F0EC] p-3 rounded-[12px] border border-[#E5E3DC] text-xs text-[#0E0E0E]"
                     >
-                      <CheckCircle2 className="h-4 w-4 text-[#2E8064] flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0 mt-0.5" />
                       <span className="leading-snug">{reason}</span>
                     </div>
                   ))}
@@ -198,24 +197,24 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
 
               {/* Grounded Evidence Sources */}
               <div className="space-y-2">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5B45A] block">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#6B6B6B] block">
                   Corroborating Evidence Dossier
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 font-mono text-xs">
                   {data.evidenceSources.map((ev, i) => (
                     <div
                       key={i}
-                      className="p-3 rounded bg-[#183B54] border border-[#234D6C] space-y-1 flex flex-col justify-between"
+                      className="p-3 rounded-[16px] bg-[#F1F0EC] border border-[#E5E3DC] space-y-1 flex flex-col justify-between"
                     >
                       <div>
-                        <span className="text-[9px] text-[#D99018] uppercase font-bold block">
+                        <span className="text-[9px] text-[#6B6B6B] uppercase font-bold block">
                           {ev.docType}
                         </span>
-                        <strong className="text-white text-xs block font-sans mt-0.5">
+                        <strong className="text-[#0E0E0E] text-xs block font-sans mt-0.5">
                           {ev.name}
                         </strong>
                       </div>
-                      <div className="pt-2 border-t border-[#234D6C] text-[10px] text-gray-400">
+                      <div className="pt-2 border-t border-[#EAE8E2] text-[10px] text-[#6B6B6B]">
                         Ref: {ev.ref}
                       </div>
                     </div>
@@ -224,30 +223,30 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
               </div>
 
               {/* AI Explanation & Verified Status */}
-              <div className="rounded-[6px] border border-[#234D6C] bg-[#183B54] p-4 space-y-2">
+              <div className="rounded-[16px] border border-[#E5E3DC] bg-[#F1F0EC] p-4 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono font-bold text-[#E5B45A] uppercase flex items-center gap-1.5">
-                    <Sparkles className="h-3.5 w-3.5 text-[#D99018]" />
+                  <span className="text-[10px] font-mono font-bold text-[#6B6B6B] uppercase flex items-center gap-1.5">
+                    <Sparkles className="h-3.5 w-3.5 text-[#0E0E0E]" />
                     <span>AI Synthesized Diagnostic Assessment</span>
                   </span>
-                  <span className="text-[10px] font-mono text-[#2E8064] font-bold">
+                  <span className="text-[10px] font-mono text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
                     ✓ Evidence Verified
                   </span>
                 </div>
-                <p className="text-xs text-gray-200 leading-relaxed italic">
+                <p className="text-xs text-[#0E0E0E] leading-relaxed italic">
                   "{data.aiExplanation}"
                 </p>
                 {data.statutoryRule && (
-                  <p className="text-[10px] text-gray-400 font-mono pt-1">
-                    Statutory Rule Reference: <strong>{data.statutoryRule}</strong>
+                  <p className="text-[10px] text-[#6B6B6B] font-mono pt-1">
+                    Statutory Rule Reference: <strong className="text-[#0E0E0E]">{data.statutoryRule}</strong>
                   </p>
                 )}
               </div>
 
               {/* Public vs Official Boundary Callout */}
               {!data.isPublicAccessible && (
-                <div className="p-3 rounded bg-[#183B54]/40 border border-[#234D6C] flex items-center gap-2.5 text-xs text-gray-300">
-                  <Lock className="h-4 w-4 text-[#D99018] flex-shrink-0" />
+                <div className="p-3 rounded-[12px] bg-[#FAFAF9] border border-[#E5E3DC] flex items-center gap-2.5 text-xs text-[#6B6B6B]">
+                  <Lock className="h-4 w-4 text-[#6B6B6B] flex-shrink-0" />
                   <span>
                     Detailed audit sub-ledgers and confidential officer remarks require authorized administrative credentials.
                   </span>
@@ -255,24 +254,24 @@ export function IntelligenceModal({ isOpen, onClose, data }: Props) {
               )}
 
               {/* Bottom Actions */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-[#234D6C]">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-[#EAE8E2]">
                 <button
                   type="button"
                   onClick={() => {
                     onClose();
                     setAiAssistantOpen(true);
                   }}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#183B54] border border-[#234D6C] px-3.5 py-2 text-xs font-bold text-gray-200 hover:text-white hover:bg-[#1A415E] transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-white border border-[#E5E3DC] px-4 py-2 text-xs font-semibold text-[#0E0E0E] hover:bg-[#F1F0EC] transition-colors shadow-2xs"
                 >
-                  <Search className="h-3.5 w-3.5 text-[#D99018]" />
-                  <span>Ask Follow-Up Query in Agastya AI</span>
+                  <Search className="h-3.5 w-3.5 text-[#6B6B6B]" />
+                  <span>Ask Follow-Up Query in Sanchay AI</span>
                 </button>
 
                 {data.actionUrl && (
                   <Link
                     to={data.actionUrl}
                     onClick={onClose}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-[4px] bg-[#D99018] px-4 py-2 text-xs font-bold text-[#15324A] hover:bg-[#E5B45A] transition-colors shadow-sm"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-full bg-[#0E0E0E] px-4 py-2 text-xs font-semibold text-white hover:bg-black transition-colors shadow-2xs"
                   >
                     <span>View Official Workspace</span>
                     <ArrowRight className="h-3.5 w-3.5" />

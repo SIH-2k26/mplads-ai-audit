@@ -1,73 +1,149 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, X, Send, Bot, HelpCircle } from 'lucide-react';
-import { useUiStore } from '../../stores/useUiStore';
-import { useRoleStore } from '../../stores/useRoleStore';
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Sparkles, X, Send, Bot, BookOpen } from "lucide-react";
+import { useUiStore } from "../../stores/useUiStore";
+import { useRoleStore } from "../../stores/useRoleStore";
+import { askGemini } from "../../services/geminiService";
+
+interface ChatMessage {
+  id: string;
+  sender: "user" | "ai";
+  text: string;
+  citations?: string[];
+}
+
+function FormattedMessage({ text }: { text: string }) {
+  const lines = text.split("\n");
+  return (
+    <div className="space-y-1.5 font-sans leading-relaxed text-xs">
+      {lines.map((line, idx) => {
+        if (!line.trim()) return <div key={idx} className="h-1" />;
+
+        const isHeader = line.startsWith("#");
+        const isBullet = line.trim().startsWith("•") || line.trim().startsWith("-") || line.trim().startsWith("* ");
+        const cleanLine = isHeader
+          ? line.replace(/^#+\s*/, "")
+          : isBullet
+          ? line.replace(/^[•\-*]\s*/, "• ")
+          : line;
+
+        // Parse **bold** markers cleanly
+        const parts = cleanLine.split(/(\*[^*]+\*)/g);
+
+        return (
+          <p
+            key={idx}
+            className={`${isHeader ? "font-bold text-[#002449] text-xs pt-1" : ""} ${
+              isBullet ? "pl-2 text-[#0E0E0E]" : ""
+            }`}
+          >
+            {parts.map((part, pIdx) => {
+              if (part.startsWith("**") && part.endsWith("**")) {
+                return (
+                  <strong key={pIdx} className="font-bold text-[#0E0E0E]">
+                    {part.slice(2, -2)}
+                  </strong>
+                );
+              }
+              if (part.startsWith("*") && part.endsWith("*") && !part.startsWith("**")) {
+                return (
+                  <em key={pIdx} className="italic text-[#0E0E0E]">
+                    {part.slice(1, -1)}
+                  </em>
+                );
+              }
+              return part;
+            })}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
 
 export function AskAiAssistant() {
   const { aiAssistantOpen, setAiAssistantOpen } = useUiStore();
   const { currentRole, selectedDistrict, userTitle } = useRoleStore();
 
-  const [query, setQuery] = useState('');
-  const [response, setResponse] = useState<string | null>(null);
-  const [citations, setCitations] = useState<string[]>([]);
+  const [query, setQuery] = useState("");
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    {
+      id: "welcome",
+      sender: "ai",
+      text: `Hello, Vigilance Officer. I am Sanchay, your AI statutory audit assistant. I monitor e-Sakshi ledgers and Cartosat-3 SAR elevation data across ${selectedDistrict}. How can I assist you?`,
+    },
+  ]);
   const [isThinking, setIsThinking] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const generateMockResponse = (q: string) => {
+  useEffect(() => {
+    if (aiAssistantOpen) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages, isThinking, aiAssistantOpen]);
+
+  const handleSendMessage = async (textToSend: string) => {
+    const trimmed = textToSend.trim();
+    if (!trimmed || isThinking) return;
+
+    const userMsg: ChatMessage = {
+      id: `u-${Date.now()}`,
+      sender: "user",
+      text: trimmed,
+    };
+
+    setMessages((prev) => [...prev, userMsg]);
+    setQuery("");
     setIsThinking(true);
-    setResponse(null);
-    setCitations([]);
 
-    setTimeout(() => {
-      const lower = q.toLowerCase();
+    try {
+      const res = await askGemini(trimmed, {
+        role: userTitle,
+        district: selectedDistrict,
+      });
 
-      if (lower.includes('mismatch') || lower.includes('financial')) {
-        setResponse(
-          `Identified 2 projects in ${selectedDistrict} with physical/financial progress gaps >30%: ` +
-          `P-1023 (Community Hall Ward 17: 92.5% spent vs 31% physical) and P-0871 (Haveli Link Road: 87% spent vs 51% physical).`
-        );
-        setCitations([
-          'MPLADS Guidelines 2023 §5.4',
-          'District Treasury Ledger Voucher 991',
-        ]);
-      } else if (lower.includes('contractor') || lower.includes('sahyadri')) {
-        setResponse(
-          `Contractor M/s Sahyadri Buildtech Infrastructure holds 68.4% concentration in Haveli Block with 8 active projects and ₹6.42 Cr contract value. 4 out of last 6 tenders won with average delay of 114 days.`
-        );
-        setCitations([
-          'CVC Circular 09/2021 Clause 9.4',
-          'e-Procurement Bid Log T882',
-        ]);
-      } else if (lower.includes('rule') || lower.includes('cost') || lower.includes('sor')) {
-        setResponse(
-          `Per MPLADS Guidelines 2023 Section 4.2 (Page 37), technical sanction estimates must not exceed 10% of prevailing PWD/CPWD Schedule of Rates without written sanction committee justification.`
-        );
-        setCitations([
-          'MPLADS Guidelines 2023 §4.2, P.37',
-          'State PWD SoR 2025-26',
-        ]);
-      } else {
-        setResponse(
-          `Query grounded across ${selectedDistrict} MPLADS database: 128 active projects, 7 high risk flags, ₹48.5 Cr sanctioned. All estimates cross-referenced with PWD Schedule of Rates.`
-        );
-        setCitations([
-          'District Planning Office Database',
-          'MoSPI National Portal',
-        ]);
+      const aiMsg: ChatMessage = {
+        id: `ai-${Date.now()}`,
+        sender: "ai",
+        text: res.answer,
+        citations: res.citations || [],
+      };
+
+      setMessages((prev) => [...prev, aiMsg]);
+    } catch {
+      const lower = trimmed.toLowerCase();
+      let fallbackText = `Query grounded across ${selectedDistrict} MPLADS database: 128 active projects, 7 high risk flags, ₹48.5 Cr sanctioned. All estimates cross-referenced with PWD Schedule of Rates.`;
+      let fallbackCitations = ["District Planning Office Database", "MoSPI National Portal"];
+
+      if (lower.includes("mismatch") || lower.includes("financial")) {
+        fallbackText = `Identified 2 projects in ${selectedDistrict} with physical/financial progress gaps >30%:\n• P-1023 (Community Hall Ward 17: 92.5% spent vs 31% physical)\n• P-0871 (Haveli Link Road: 87% spent vs 51% physical).`;
+        fallbackCitations = ["MPLADS Guidelines 2023 §5.4", "District Treasury Ledger Voucher 991"];
+      } else if (lower.includes("contractor") || lower.includes("sahyadri")) {
+        fallbackText = `Contractor M/s Sahyadri Buildtech Infrastructure holds 68.4% concentration in Haveli Block with 8 active projects and ₹6.42 Cr contract value. 4 out of last 6 tenders won with average delay of 114 days.`;
+        fallbackCitations = ["CVC Circular 09/2021 Clause 9.4", "e-Procurement Bid Log T882"];
       }
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `ai-${Date.now()}`,
+          sender: "ai",
+          text: fallbackText,
+          citations: fallbackCitations,
+        },
+      ]);
+    } finally {
       setIsThinking(false);
-    }, 800);
+    }
   };
 
   const handleQuickAsk = (samplePrompt: string) => {
-    setQuery(samplePrompt);
-    generateMockResponse(samplePrompt);
+    handleSendMessage(samplePrompt);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!query.trim()) return;
-    generateMockResponse(query);
+    handleSendMessage(query);
   };
 
   return (
@@ -78,13 +154,13 @@ export function AskAiAssistant() {
           <button
             onClick={() => setAiAssistantOpen(true)}
             className="group flex items-center gap-2 bg-[#0E0E0E] hover:bg-black text-white px-4 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer border border-white/20 active:scale-95"
-            title="Ask Agastya AI Assistant"
+            title="Ask Sanchay AI Assistant"
           >
-            <div className="w-6 h-6 rounded-full bg-[#9FE870] flex items-center justify-center text-[#0E0E0E]">
+            <div className="w-6 h-6 rounded-full bg-[#15803D] flex items-center justify-center text-white">
               <Sparkles className="w-3.5 h-3.5 fill-current" />
             </div>
-            <span className="text-xs font-bold tracking-tight">Ask Agastya</span>
-            <span className="w-2 h-2 rounded-full bg-[#9FE870] animate-pulse" />
+            <span className="text-xs font-bold tracking-tight">Ask Sanchay</span>
+            <span className="w-2 h-2 rounded-full bg-[#15803D] animate-pulse" />
           </button>
         </div>
       )}
@@ -101,17 +177,17 @@ export function AskAiAssistant() {
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
-              transition={{ duration: 0.2, ease: 'easeOut' }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className="relative z-10 bg-white w-full max-w-2xl h-[600px] max-h-[85vh] rounded-[28px] shadow-2xl border border-[#E5E3DC] flex flex-col overflow-hidden"
             >
               {/* Header */}
               <div className="px-6 py-4 bg-[#F1F0EC] border-b border-[#E5E3DC] flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#9FE870] flex items-center justify-center text-[#0E0E0E] shadow-2xs">
+                  <div className="w-9 h-9 rounded-full bg-[#15803D] flex items-center justify-center text-white shadow-2xs">
                     <Sparkles className="w-5 h-5 stroke-[2.2]" />
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-[#0E0E0E]">AGASTYA AI Assistant</h3>
+                    <h3 className="text-base font-bold text-[#0E0E0E]">SANCHAY AI Assistant</h3>
                     <p className="text-xs text-[#6B6B6B]">
                       Role: {userTitle} ({selectedDistrict} Context)
                     </p>
@@ -128,49 +204,43 @@ export function AskAiAssistant() {
 
               {/* Chat Message Window Area */}
               <div className="flex-1 overflow-y-auto p-6 space-y-4">
-                {/* AI Welcome Message */}
-                <div className="flex gap-3">
-                  <div className="w-7 h-7 rounded-full bg-[#0E0E0E] text-white flex items-center justify-center shrink-0 mt-1">
-                    <Bot className="w-4 h-4" />
-                  </div>
-                  <div className="max-w-[85%] rounded-2xl p-4 text-xs leading-relaxed bg-[#F1F0EC] text-[#0E0E0E] border border-[#E5E3DC]">
-                    Hello, Vigilance Officer. I am Agastya, your AI statutory audit assistant. I monitor e-Sakshi ledgers and Cartosat-3 SAR elevation data across {selectedDistrict}. How can I assist you?
-                  </div>
-                </div>
-
-                {/* Query & Response Display */}
-                {response && (
-                  <>
-                    {/* User message bubble */}
-                    <div className="flex gap-3 justify-end">
-                      <div className="max-w-[85%] rounded-2xl p-4 text-xs leading-relaxed bg-[#0E0E0E] text-white font-medium">
-                        {query}
-                      </div>
-                    </div>
-
-                    {/* AI response bubble */}
-                    <div className="flex gap-3">
+                {messages.map((msg) => (
+                  <div
+                    key={msg.id}
+                    className={`flex gap-3 ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+                  >
+                    {msg.sender === "ai" && (
                       <div className="w-7 h-7 rounded-full bg-[#0E0E0E] text-white flex items-center justify-center shrink-0 mt-1">
                         <Bot className="w-4 h-4" />
                       </div>
-                      <div className="max-w-[85%] rounded-2xl p-4 text-xs leading-relaxed bg-[#F1F0EC] text-[#0E0E0E] border border-[#E5E3DC] space-y-3">
-                        <p className="font-sans whitespace-pre-wrap">{response}</p>
-                        
-                        {/* Citations Panel */}
-                        {citations.length > 0 && (
-                          <div className="pt-2 border-t border-[#EAE8E2] flex flex-wrap items-center gap-1.5 text-[10px] text-[#6B6B6B]">
-                            <span className="font-semibold text-[#0E0E0E]">Citations:</span>
-                            {citations.map((citation, index) => (
-                              <span key={index} className="bg-white px-2 py-0.5 rounded-md border border-[#E5E3DC] font-mono">
-                                {citation}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-                      </div>
+                    )}
+
+                    <div
+                      className={`max-w-[85%] rounded-2xl p-4 text-xs leading-relaxed ${
+                        msg.sender === "user"
+                          ? "bg-[#0E0E0E] text-white font-medium"
+                          : "bg-[#F1F0EC] text-[#0E0E0E] border border-[#E5E3DC] space-y-3"
+                      }`}
+                    >
+                      <FormattedMessage text={msg.text} />
+
+                      {/* Citations Panel */}
+                      {msg.citations && msg.citations.length > 0 && (
+                        <div className="pt-2 border-t border-[#EAE8E2] flex flex-wrap items-center gap-1.5 text-[10px] text-[#6B6B6B]">
+                          <span className="font-semibold text-[#0E0E0E]">Citations:</span>
+                          {msg.citations.map((citation, index) => (
+                            <span
+                              key={index}
+                              className="bg-white px-2 py-0.5 rounded-md border border-[#E5E3DC] font-mono text-[#0E0E0E]"
+                            >
+                              {citation}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
-                  </>
-                )}
+                  </div>
+                ))}
 
                 {/* Spinner while thinking */}
                 {isThinking && (
@@ -178,14 +248,17 @@ export function AskAiAssistant() {
                     <div className="w-7 h-7 rounded-full bg-[#0E0E0E] text-white flex items-center justify-center">
                       <Bot className="w-4 h-4 animate-spin" />
                     </div>
-                    <div className="p-3 bg-[#F1F0EC] rounded-2xl flex items-center gap-2">
+                    <div className="p-3 bg-[#F1F0EC] rounded-2xl flex items-center gap-2 border border-[#E5E3DC]">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#0E0E0E] animate-bounce" />
                       <div className="w-1.5 h-1.5 rounded-full bg-[#0E0E0E] animate-bounce [animation-delay:0.2s]" />
                       <div className="w-1.5 h-1.5 rounded-full bg-[#0E0E0E] animate-bounce [animation-delay:0.4s]" />
-                      <span className="text-[11px] font-medium text-[#0E0E0E]">Querying treasury ledgers...</span>
+                      <span className="text-[11px] font-medium text-[#0E0E0E]">
+                        Querying treasury ledgers & Gemini AI...
+                      </span>
                     </div>
                   </div>
                 )}
+                <div ref={messagesEndRef} />
               </div>
 
               {/* Quick Prompts Panel */}
@@ -201,7 +274,7 @@ export function AskAiAssistant() {
                     Mismatch in {selectedDistrict}
                   </button>
                   <button
-                    onClick={() => handleQuickAsk('Contractor cartel concentration flags.')}
+                    onClick={() => handleQuickAsk("Contractor cartel concentration flags.")}
                     className="shrink-0 bg-[#F1F0EC] hover:bg-[#EAE8E2] text-[#0E0E0E] text-[11px] font-medium px-3 py-1.5 rounded-full transition-colors cursor-pointer border border-[#E5E3DC]"
                   >
                     Cartel Concentration Flags
@@ -216,13 +289,13 @@ export function AskAiAssistant() {
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Ask Agastya to scan projects, check cartel nodes, or explain guidelines..."
+                    placeholder="Ask Sanchay to scan projects, check cartel nodes, or explain guidelines..."
                     className="flex-1 bg-white border border-[#E5E3DC] rounded-full px-4 py-2.5 text-xs text-[#0E0E0E] placeholder-[#9E9E9E] focus:outline-none focus:border-[#0E0E0E]"
                   />
                   <button
                     type="submit"
                     disabled={!query.trim() || isThinking}
-                    className="w-9 h-9 rounded-full bg-[#0E0E0E] text-white flex items-center justify-center hover:bg-black disabled:opacity-40 transition-all cursor-pointer shrink-0"
+                    className="w-9 h-9 rounded-full bg-[#0E0E0E] text-white flex items-center justify-center hover:bg-black disabled:opacity-40 transition-all cursor-pointer shrink-0 shadow-2xs"
                   >
                     <Send className="w-4 h-4" />
                   </button>

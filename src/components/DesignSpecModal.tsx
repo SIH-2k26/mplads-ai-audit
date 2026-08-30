@@ -18,7 +18,7 @@ export const DesignSpecModal: React.FC<DesignSpecModalProps> = ({ isOpen, onClos
         {/* Header */}
         <div className="px-6 py-5 border-b border-[#F1F0EC] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#9FE870] text-[#0E0E0E] flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-full bg-[#15803D] text-white flex items-center justify-center font-bold">
               7
             </div>
             <div>
@@ -60,9 +60,9 @@ export const DesignSpecModal: React.FC<DesignSpecModalProps> = ({ isOpen, onClos
               </div>
 
               <div className="p-3 rounded-2xl bg-[#F1F0EC] space-y-1">
-                <div className="w-full h-8 rounded-xl bg-[#9FE870]" />
-                <span className="font-semibold text-[#0E0E0E] block">Signature Green</span>
-                <span className="text-[11px] text-[#6B6B6B]">#9FE870 (Primary Action)</span>
+                <div className="w-full h-8 rounded-xl bg-[#15803D]" />
+                <span className="font-semibold text-[#0E0E0E] block">Institutional Green</span>
+                <span className="text-[11px] text-[#6B6B6B]">#15803D (Verified Action)</span>
               </div>
 
               <div className="p-3 rounded-2xl bg-[#F1F0EC] space-y-1">

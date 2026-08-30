@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card'
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '../components/ui/table';
 import { Button } from '../components/ui/button';
 import { projectService } from '../services/projectService';
+import { getDashboardSummary } from '../services/api';
 import { useT } from '../i18n/useT';
 import { useUiStore } from '../stores/useUiStore';
 import { useRoleStore } from '../stores/useRoleStore';
@@ -22,6 +23,13 @@ export function MpDashboardPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Fetch from backend API for dashboard summary
+    getDashboardSummary().then(({ data, error }) => {
+      if (data && !error) {
+        console.log('[MpDashboard] Backend API responded:', data.data_source);
+      }
+    });
+    // Fetch projects from local service
     projectService.getProjects().then((data) => {
       setProjects(data);
       setLoading(false);

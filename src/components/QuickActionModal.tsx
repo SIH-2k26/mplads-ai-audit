@@ -97,7 +97,7 @@ export const QuickActionModal: React.FC<QuickActionModalProps> = ({ actionType, 
         <div className="p-6">
           {executed ? (
             <div className="text-center py-6 space-y-3">
-              <div className="w-12 h-12 rounded-full bg-[#9FE870] text-[#0E0E0E] flex items-center justify-center mx-auto">
+              <div className="w-12 h-12 rounded-full bg-[#15803D] text-white flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-semibold text-[#0E0E0E]">
@@ -142,7 +142,7 @@ export const QuickActionModal: React.FC<QuickActionModalProps> = ({ actionType, 
                   type="checkbox"
                   checked={confirmed}
                   onChange={(e) => setConfirmed(e.target.checked)}
-                  className="mt-0.5 rounded accent-[#9FE870] cursor-pointer w-4 h-4"
+                  className="mt-0.5 rounded accent-[#15803D] cursor-pointer w-4 h-4"
                 />
                 <span className="text-xs text-[#0E0E0E] leading-snug">
                   I certify that this administrative action is authorized under the official oversight mandate of the Chief Vigilance Officer.
@@ -161,7 +161,7 @@ export const QuickActionModal: React.FC<QuickActionModalProps> = ({ actionType, 
                 <button
                   type="submit"
                   disabled={!confirmed || isSubmitting}
-                  className="px-6 py-2 rounded-full bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E] text-xs font-semibold disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer flex items-center gap-1.5"
+                  className="px-6 py-2 rounded-full bg-[#15803D] hover:bg-[#166534] text-white text-xs font-semibold disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer flex items-center gap-1.5"
                 >
                   {isSubmitting ? 'Dispatching...' : 'Confirm & Dispatch'}
                 </button>

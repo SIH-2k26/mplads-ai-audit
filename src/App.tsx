@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
 import { WiseHeroBalance } from './components/WiseHeroBalance';
@@ -16,6 +16,7 @@ import { InteractiveEntityGraph } from './components/InteractiveEntityGraph';
 import { InteractiveConstituencyExplorer } from './components/InteractiveConstituencyExplorer';
 import { ComplianceTrendlineChart } from './components/ComplianceTrendlineChart';
 import { FLAGGED_PROJECTS, SYSTEM_METRICS } from './data/mockData';
+import { getDashboardSummary } from './services/api';
 import { MPLADSProject } from './types';
 import { Landmark, ShieldAlert, Users, Plus, ArrowLeft, Sparkles, Bot } from 'lucide-react';
 
@@ -31,14 +32,77 @@ export default function App() {
   const [showAnalyticsChart, setShowAnalyticsChart] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
+  // Real backend metrics state (falls back to mock if backend offline)
+  const [systemMetrics, setSystemMetrics] = useState(SYSTEM_METRICS);
   // Mutable projects state for interactive freezing
   const [projectsList, setProjectsList] = useState<MPLADSProject[]>(FLAGGED_PROJECTS);
 
-  const handleRefresh = () => {
+  const fetchDashboardData = async () => {
+    const { data, error } = await getDashboardSummary();
+    if (data && !error) {
+      setSystemMetrics((prev) => ({
+        ...prev,
+        totalSanctionedCr: data.total_sanctioned_cr,
+        totalExpendedCr: data.total_expended_cr,
+        utilizationRate: data.overall_utilisation_percentage,
+        totalMonitoredProjects: data.total_projects,
+        flaggedOutlayCr: data.flagged_outlay_cr,
+        flaggedProjectsCount: data.flagged_projects_count,
+        activeCriticalAlerts: data.critical_count,
+        nationalCompositeTrustScore: data.composite_trust_score,
+        trustScoreDelta: data.trust_score_delta,
+        riskDistribution: {
+          low: { count: data.risk_distribution.low.count, percent: data.risk_distribution.low.percent, label: data.risk_distribution.low.label },
+          medium: { count: data.risk_distribution.medium.count, percent: data.risk_distribution.medium.percent, label: data.risk_distribution.medium.label },
+          high: { count: data.risk_distribution.high.count, percent: data.risk_distribution.high.percent, label: data.risk_distribution.high.label },
+          critical: { count: data.risk_distribution.critical.count, percent: data.risk_distribution.critical.percent, label: data.risk_distribution.critical.label },
+        },
+      }));
+
+      if (data.top_flagged_projects && data.top_flagged_projects.length > 0) {
+        const mappedTop: MPLADSProject[] = data.top_flagged_projects.map((p: any) => ({
+          id: p.id,
+          code: p.code,
+          title: p.title,
+          category: 'Rural Roads',
+          state: p.state,
+          constituency: `${p.district} Constituency`,
+          constituencyType: 'Lok Sabha' as const,
+          mpName: `Hon. Member ${p.district}`,
+          implementingAgency: 'District Rural Development Agency',
+          contractorName: 'Registered Infra Vendor',
+          contractorGstin: '27AAAAA0000A1Z5',
+          sanctionedAmountCr: p.sanctioned_amount_cr,
+          disbursedAmountCr: p.expended_amount_cr,
+          expendedAmountCr: p.expended_amount_cr,
+          sanctionDate: '2024-03-12',
+          targetCompletionDate: '2024-12-30',
+          physicalProgressPercent: p.physical_progress,
+          reportedFinancialProgressPercent: p.financial_progress,
+          discrepancyPercent: p.discrepancy_percent,
+          trustScore: Math.round(100 - p.risk_score),
+          riskTier: p.risk_tier as any,
+          primaryAnomaly: p.top_signals[0] || 'ELEVATED_RISK_SIGNAL',
+          anomalyCategory: 'Vendor Collusion' as const,
+          satelliteAuditStatus: 'Verified' as const,
+          status: p.risk_tier === 'critical' ? 'Disbursal Frozen' : 'Under Forensic Review',
+          flaggedDate: '2025-02-23',
+        }));
+        setProjectsList(mappedTop);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchDashboardData();
+  }, []);
+
+  const handleRefresh = async () => {
     setIsRefreshing(true);
+    await fetchDashboardData();
     setTimeout(() => {
       setIsRefreshing(false);
-    }, 1000);
+    }, 600);
   };
 
   const handleToggleFreeze = (projectId: string) => {
@@ -118,8 +182,8 @@ export default function App() {
                 onFreezeTranche={() => setQuickActionType('freeze')}
                 onSelectDirective={(directive) => setQuickActionType(directive)}
                 onToggleAnalytics={() => setShowAnalyticsChart(!showAnalyticsChart)}
-                trustScore={SYSTEM_METRICS.nationalCompositeTrustScore}
-                totalOutlayCr={SYSTEM_METRICS.totalSanctionedCr}
+                trustScore={systemMetrics.nationalCompositeTrustScore}
+                totalOutlayCr={systemMetrics.totalSanctionedCr}
               />
 
               {/* Optional Inline Scheme Analytics Card (when toggled via chart icon) */}
@@ -140,16 +204,16 @@ export default function App() {
                     setQuickActionType('freeze');
                   }
                 }}
-                totalOutlayCr={SYSTEM_METRICS.totalSanctionedCr}
-                disbursedCr={SYSTEM_METRICS.totalExpendedCr}
-                flaggedRiskCr={SYSTEM_METRICS.flaggedOutlayCr}
-                reconciledCr={SYSTEM_METRICS.totalExpendedCr - SYSTEM_METRICS.flaggedOutlayCr}
+                totalOutlayCr={systemMetrics.totalSanctionedCr}
+                disbursedCr={systemMetrics.totalExpendedCr}
+                flaggedRiskCr={systemMetrics.flaggedOutlayCr}
+                reconciledCr={systemMetrics.totalExpendedCr - systemMetrics.flaggedOutlayCr}
                 activeFreezesCount={activeFreezesCount}
               />
 
               {/* 30-Day Compliance Reliability Animated Recharts Trendline below National Scheme Account */}
               <ComplianceTrendlineChart
-                currentScore={SYSTEM_METRICS.nationalCompositeTrustScore}
+                currentScore={systemMetrics.nationalCompositeTrustScore}
                 onOpenAuditLog={() => setShowAnalyticsChart(!showAnalyticsChart)}
               />
 
@@ -186,7 +250,7 @@ export default function App() {
 
                 <button
                   onClick={() => setQuickActionType('freeze')}
-                  className="bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E] text-xs font-semibold px-4 py-2 rounded-full cursor-pointer"
+                  className="bg-[#15803D] hover:bg-[#166534] text-white text-xs font-semibold px-4 py-2 rounded-full cursor-pointer"
                 >
                   Freeze Disbursals
                 </button>
@@ -216,7 +280,7 @@ export default function App() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-[#F1F0EC] p-6 rounded-[20px] space-y-4">
-                  <div className="w-full h-36 bg-[#9FE870] rounded-2xl p-4 flex flex-col justify-between text-[#0E0E0E] shadow-sm">
+                  <div className="w-full h-36 bg-[#15803D] rounded-2xl p-4 flex flex-col justify-between text-white shadow-sm">
                     <div className="flex justify-between items-start">
                       <span className="text-xs font-bold uppercase tracking-wider">MPLADS Central Tranche Card</span>
                       <span className="text-base font-bold">7</span>
@@ -229,16 +293,16 @@ export default function App() {
 
                   <div className="space-y-2 text-xs text-[#6B6B6B]">
                     <div className="flex justify-between py-1 border-b border-[#EAE8E2]">
-                      <span>Scheme Outlay:</span>
-                      <span className="font-semibold text-[#0E0E0E]">₹4,950.00 Cr</span>
+                      <span>Issued Authority:</span>
+                      <span className="font-semibold text-[#0E0E0E]">MoSPI Central Division</span>
                     </div>
                     <div className="flex justify-between py-1 border-b border-[#EAE8E2]">
-                      <span>Disbursed to Date:</span>
-                      <span className="font-semibold text-[#0E0E0E]">₹3,840.50 Cr (77.6%)</span>
+                      <span>Reconciled Outflow:</span>
+                      <span className="font-semibold text-[#0E0E0E]">₹3,840.50 Cr (77.58%)</span>
                     </div>
                     <div className="flex justify-between py-1">
-                      <span>Forensic Hold / Frozen:</span>
-                      <span className="font-semibold text-red-600">₹412.80 Cr</span>
+                      <span>Forensic Security Status:</span>
+                      <span className="font-semibold text-emerald-700">Audit Lock Enforced</span>
                     </div>
                   </div>
                 </div>
@@ -261,8 +325,8 @@ export default function App() {
             </div>
           )}
 
-          {/* 1. VIEW: Entity Analytics (Network & Shell nexus) */}
-          {currentView === 'entity-analytics' && (
+          {/* SECONDARY VIEW: Recipients & Contractor Entity Analytics */}
+          {currentView === 'recipients' && (
             <div className="space-y-6 animate-in fade-in duration-150">
               <div className="flex items-center justify-between pb-2 border-b border-[#F1F0EC]">
                 <div>
@@ -270,9 +334,9 @@ export default function App() {
                     onClick={() => setCurrentView('overview')}
                     className="text-xs text-[#6B6B6B] hover:text-[#0E0E0E] flex items-center gap-1 mb-1 cursor-pointer"
                   >
-                    <ArrowLeft className="w-3.5 h-3.5" /> Back to Overview
+                    <ArrowLeft className="w-3.5 h-3.5" /> Back to Home
                   </button>
-                  <h1 className="text-2xl font-semibold text-[#0E0E0E]">Entity Analytics & Collusion Nexus</h1>
+                  <h1 className="text-2xl font-semibold text-[#0E0E0E]">Recipients & Contractor Entity Network</h1>
                   <p className="text-xs text-[#6B6B6B]">
                     Cross-entity PAN linkages, shared auditor credentials, and shell company bid-rigging rings
                   </p>
@@ -283,12 +347,12 @@ export default function App() {
                     onClick={() => setIsCopilotOpen(true)}
                     className="bg-[#0E0E0E] hover:bg-black text-white text-xs font-semibold px-4 py-2 rounded-full cursor-pointer flex items-center gap-1.5"
                   >
-                    <Sparkles className="w-3.5 h-3.5 text-[#9FE870]" />
+                    <Sparkles className="w-3.5 h-3.5 text-[#15803D]" />
                     <span>AI Forensic Copilot</span>
                   </button>
                   <button
                     onClick={() => setQuickActionType('subpoena')}
-                    className="bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E] text-xs font-semibold px-4 py-2 rounded-full cursor-pointer"
+                    className="bg-[#15803D] hover:bg-[#166534] text-white text-xs font-semibold px-4 py-2 rounded-full cursor-pointer"
                   >
                     Issue Nexus Subpoena
                   </button>
@@ -437,7 +501,7 @@ export default function App() {
 
                 <button
                   onClick={() => setQuickActionType('satellite')}
-                  className="bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E] text-xs font-semibold px-4 py-2 rounded-full cursor-pointer"
+                  className="bg-[#15803D] hover:bg-[#166534] text-white text-xs font-semibold px-4 py-2 rounded-full cursor-pointer"
                 >
                   Task Orbital Radar
                 </button>
@@ -593,7 +657,7 @@ export default function App() {
                     { feature: 'Director PAN Overlap Across Bidding Entities', impact: '+0.28 SHAP (High Risk Driver)', width: '56%', color: 'bg-orange-500' },
                     { feature: 'Tranche Disbursal Velocity (< 48hr turnaround)', impact: '+0.19 SHAP (Moderate Risk)', width: '38%', color: 'bg-amber-500' },
                     { feature: 'Contractor Age Under 120 Days at Tender Award', impact: '+0.14 SHAP (Moderate Risk)', width: '28%', color: 'bg-amber-500' },
-                    { feature: 'Executing Agency Prior Audit Compliance History', impact: '-0.21 SHAP (Mitigating Factor)', width: '42%', color: 'bg-[#9FE870]' },
+                    { feature: 'Executing Agency Prior Audit Compliance History', impact: '-0.21 SHAP (Mitigating Factor)', width: '42%', color: 'bg-[#15803D]' },
                   ].map((item, i) => (
                     <div key={i} className="p-3.5 bg-white rounded-xl space-y-1.5">
                       <div className="flex justify-between font-medium">
@@ -632,7 +696,7 @@ export default function App() {
                     onClick={() => setIsCopilotOpen(true)}
                     className="bg-[#0E0E0E] hover:bg-black text-white text-xs font-semibold px-4 py-2 rounded-full cursor-pointer flex items-center gap-1.5"
                   >
-                    <Sparkles className="w-3.5 h-3.5 text-[#9FE870]" />
+                    <Sparkles className="w-3.5 h-3.5 text-[#15803D]" />
                     <span>AI Regional Scan</span>
                   </button>
                 </div>
@@ -668,9 +732,9 @@ export default function App() {
                 <h3 className="text-base font-semibold text-[#0E0E0E]">Top Performing States (Integrity Index)</h3>
                 <div className="space-y-2 text-xs">
                   {[
-                    { rank: 1, name: 'Kerala', score: 94.2, compliance: '99.1% Reconciled', badge: 'bg-[#9FE870]' },
-                    { rank: 2, name: 'Himachal Pradesh', score: 91.8, compliance: '97.4% Reconciled', badge: 'bg-[#9FE870]' },
-                    { rank: 3, name: 'Tamil Nadu', score: 89.5, compliance: '95.8% Reconciled', badge: 'bg-[#9FE870]' },
+                    { rank: 1, name: 'Kerala', score: 94.2, compliance: '99.1% Reconciled', badge: 'bg-[#15803D] text-white' },
+                    { rank: 2, name: 'Himachal Pradesh', score: 91.8, compliance: '97.4% Reconciled', badge: 'bg-[#15803D] text-white' },
+                    { rank: 3, name: 'Tamil Nadu', score: 89.5, compliance: '95.8% Reconciled', badge: 'bg-[#15803D] text-white' },
                     { rank: 4, name: 'Andhra Pradesh', score: 83.2, compliance: '91.2% Reconciled', badge: 'bg-white' },
                     { rank: 5, name: 'Gujarat', score: 81.0, compliance: '88.6% Reconciled', badge: 'bg-white' },
                   ].map((item) => (
@@ -711,7 +775,7 @@ export default function App() {
 
                 <button
                   onClick={() => setQuickActionType('export')}
-                  className="bg-[#9FE870] hover:bg-[#8ee05c] text-[#0E0E0E] text-xs font-semibold px-4 py-2 rounded-full cursor-pointer"
+                  className="bg-[#15803D] hover:bg-[#166534] text-white text-xs font-semibold px-4 py-2 rounded-full cursor-pointer"
                 >
                   Apply Simulated Policy
                 </button>
@@ -796,11 +860,11 @@ export default function App() {
           className="group flex items-center gap-2.5 bg-[#0E0E0E] hover:bg-black text-white px-4 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer border border-white/20 active:scale-95"
           title="Open AI Forensic Copilot"
         >
-          <div className="w-6 h-6 rounded-full bg-[#9FE870] flex items-center justify-center text-[#0E0E0E]">
+          <div className="w-6 h-6 rounded-full bg-[#15803D] flex items-center justify-center text-white">
             <Sparkles className="w-3.5 h-3.5 fill-current" />
           </div>
           <span className="text-xs font-bold tracking-tight">AI Copilot</span>
-          <span className="w-2 h-2 rounded-full bg-[#9FE870] animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-[#15803D] animate-pulse" />
         </button>
       </div>
 
