@@ -10,11 +10,18 @@ export function LandingFooter() {
           
           {/* Brand Column */}
           <div className="space-y-3 md:col-span-1">
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center">
-                <SanchayLogo className="h-full w-full object-contain" variant="light" />
+            <div className="flex items-center gap-3">
+              <img
+                src="/indian_flag.png"
+                alt="National Flag of India"
+                className="h-6 w-auto rounded-[2px] shadow-sm object-cover border border-white/20"
+              />
+              <div className="flex items-center gap-2">
+                <div className="flex h-7 w-7 items-center justify-center">
+                  <SanchayLogo className="h-full w-full object-contain" variant="light" />
+                </div>
+                <span className="font-extrabold text-white text-base tracking-wider font-sans">SANCHAY</span>
               </div>
-              <span className="font-extrabold text-white text-base tracking-wider font-sans">SANCHAY</span>
             </div>
             <p className="text-[11px] text-gray-400 leading-relaxed">
               AI-Powered Risk Intelligence & Investigation Decision Support for MPLADS.
