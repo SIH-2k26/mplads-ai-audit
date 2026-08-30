@@ -36,6 +36,11 @@
     "vite": "^6.2.3",
     "zustand": "^5.0.15"
   },
+  "allowScripts": {
+    "@google/genai": true,
+    "esbuild": true,
+    "protobufjs": true
+  },
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
