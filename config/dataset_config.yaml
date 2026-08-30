@@ -1,0 +1,39 @@
+# config/dataset_config.yaml
+# Configuration for Relational Synthetic Dataset Generation
+
+dataset_version: "v2.4-relational-extended"
+random_seed: 42
+
+generation:
+  total_projects: 10000
+  total_contractors: 2500
+  total_agencies: 800
+  total_districts: 619
+  total_states: 18
+
+class_distribution:
+  legitimate_rate: 0.78
+  suspicious_rate: 0.12
+  high_risk_rate: 0.07
+  critical_rate: 0.03
+
+scenario_distribution:
+  LEGITIMATE: 0.65
+  HIGH_VALUE_LEGITIMATE: 0.13
+  COST_OVERRUN: 0.04
+  PAYMENT_PROGRESS_MISMATCH: 0.04
+  DELAYED_PROJECT: 0.03
+  ABANDONED_PROJECT: 0.02
+  DUPLICATE_PROJECT: 0.02
+  GHOST_WORK: 0.02
+  SUSPICIOUS_CONTRACTOR: 0.02
+  CONTRACTOR_MONOPOLY: 0.01
+  SUSPICIOUS_PROCUREMENT: 0.01
+  DOCUMENTATION_ANOMALY: 0.01
+
+data_paths:
+  relational_dir: "data/synthetic/relational"
+  processed_dir: "data/processed"
+  training_parquet: "data/processed/project_risk_training.parquet"
+  training_csv: "data/processed/project_risk_training.csv"
+  metadata_path: "data/dataset_metadata.json"

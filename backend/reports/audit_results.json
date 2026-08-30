@@ -1,0 +1,922 @@
+{
+  "audit_timestamp": "2026-08-27T18:49:20.742640+00:00",
+  "summary": {
+    "VERIFIED": 125,
+    "ENVIRONMENT_BLOCKED": 27
+  },
+  "total": 152,
+  "results": [
+    {
+      "component": "pkg:fastapi",
+      "status": "VERIFIED",
+      "detail": "v0.141.1",
+      "duration_ms": 199.9
+    },
+    {
+      "component": "pkg:uvicorn",
+      "status": "VERIFIED",
+      "detail": "v0.52.0",
+      "duration_ms": 41.9
+    },
+    {
+      "component": "pkg:sqlalchemy",
+      "status": "VERIFIED",
+      "detail": "v2.0.51",
+      "duration_ms": 132.4
+    },
+    {
+      "component": "pkg:alembic",
+      "status": "VERIFIED",
+      "detail": "v1.19.1",
+      "duration_ms": 83.0
+    },
+    {
+      "component": "pkg:pydantic",
+      "status": "VERIFIED",
+      "detail": "v2.13.4",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "pkg:pydantic-settings",
+      "status": "VERIFIED",
+      "detail": "v2.14.2",
+      "duration_ms": 14.6
+    },
+    {
+      "component": "pkg:bcrypt",
+      "status": "VERIFIED",
+      "detail": "v5.0.0",
+      "duration_ms": 344.9
+    },
+    {
+      "component": "pkg:asyncpg",
+      "status": "VERIFIED",
+      "detail": "v0.31.0",
+      "duration_ms": 14.4
+    },
+    {
+      "component": "pkg:scikit-learn",
+      "status": "VERIFIED",
+      "detail": "v1.7.2",
+      "duration_ms": 876.4
+    },
+    {
+      "component": "pkg:xgboost",
+      "status": "VERIFIED",
+      "detail": "v3.4.1",
+      "duration_ms": 14.1
+    },
+    {
+      "component": "pkg:lightgbm",
+      "status": "VERIFIED",
+      "detail": "v4.7.0",
+      "duration_ms": 31.0
+    },
+    {
+      "component": "pkg:shap",
+      "status": "VERIFIED",
+      "detail": "v0.52.0",
+      "duration_ms": 461.7
+    },
+    {
+      "component": "pkg:mlflow",
+      "status": "VERIFIED",
+      "detail": "v3.15.2",
+      "duration_ms": 545.9
+    },
+    {
+      "component": "pkg:langchain-core",
+      "status": "VERIFIED",
+      "detail": "v1.6.0",
+      "duration_ms": 1.9
+    },
+    {
+      "component": "pkg:langgraph",
+      "status": "VERIFIED",
+      "detail": "vunknown",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "pkg:reportlab",
+      "status": "VERIFIED",
+      "detail": "v5.0.0",
+      "duration_ms": 0.5
+    },
+    {
+      "component": "pkg:structlog",
+      "status": "VERIFIED",
+      "detail": "v26.1.0",
+      "duration_ms": 12.2
+    },
+    {
+      "component": "pkg:rank-bm25",
+      "status": "VERIFIED",
+      "detail": "vunknown",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "pkg:neo4j",
+      "status": "VERIFIED",
+      "detail": "v6.2.0",
+      "duration_ms": 72.6
+    },
+    {
+      "component": "pkg:pgvector",
+      "status": "VERIFIED",
+      "detail": "vunknown",
+      "duration_ms": 2.2
+    },
+    {
+      "component": "pkg:numpy",
+      "status": "VERIFIED",
+      "detail": "v2.2.6",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "pkg:pandas",
+      "status": "VERIFIED",
+      "detail": "v2.3.3",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "pkg:scipy",
+      "status": "VERIFIED",
+      "detail": "v1.18.0",
+      "duration_ms": 0.8
+    },
+    {
+      "component": "pkg:rapidfuzz",
+      "status": "VERIFIED",
+      "detail": "v3.14.5",
+      "duration_ms": 10.4
+    },
+    {
+      "component": "pkg:factory-boy",
+      "status": "VERIFIED",
+      "detail": "v3.3.3",
+      "duration_ms": 95.3
+    },
+    {
+      "component": "pkg:python-jose",
+      "status": "VERIFIED",
+      "detail": "jose.jwt encode/decode OK",
+      "duration_ms": 30.4
+    },
+    {
+      "component": "pkg:sentence-transformers[optional]",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "optional: pip install sentence-transformers",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "pkg:faiss-cpu[optional]",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "optional: pip install faiss-cpu",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "pkg:FlagEmbedding[optional]",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "optional: pip install FlagEmbedding",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "pkg:ragas[optional]",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "optional: pip install ragas",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "pkg:PyMuPDF[optional]",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "optional: pip install PyMuPDF",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "pkg:pytesseract[optional]",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "optional: pip install pytesseract",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "pkg:opencv-python-headless[optional]",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "optional: pip install opencv-python-headless",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "pkg:paddleocr[optional]",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "optional: pip install paddleocr",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "pkg:unstructured[optional]",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "optional: pip install unstructured",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "module:Settings",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 3.6
+    },
+    {
+      "component": "module:DigitalTwin",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 60.5
+    },
+    {
+      "component": "module:AgentModels",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "module:Enums",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "module:ProjectModels",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "module:BudgetAgent",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 1.3
+    },
+    {
+      "component": "module:DeadlineAgent",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "module:EligibilityAgent",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "module:DocumentationAgent",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 1.0
+    },
+    {
+      "component": "module:ProcurementAgent",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "module:DataQualityAgent",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "module:ContractorIntelligenceAgent",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "module:GeographicIntelligenceAgent",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "module:DuplicateGhostWorkAgent",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "module:PartBPackage",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 4.4
+    },
+    {
+      "component": "module:EvidenceFusionEngine",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 2.3
+    },
+    {
+      "component": "module:DynamicWeightEngine",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "module:Orchestrator",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 4.7
+    },
+    {
+      "component": "module:PolicyEngine",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "module:InvestigationService",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "module:ModelTrainer",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 3.4
+    },
+    {
+      "component": "module:FeatureEngineer",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "module:SHAPExplainer",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 1.0
+    },
+    {
+      "component": "module:SyntheticGenerator",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "module:DriftMonitor",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 1.5
+    },
+    {
+      "component": "module:RollbackManager",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 1.1
+    },
+    {
+      "component": "module:NLPExplanation",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "module:PDFService",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 52.5
+    },
+    {
+      "component": "module:WhatIfSimulator",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.5
+    },
+    {
+      "component": "module:RAGRetriever",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "module:BM25Retriever",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 0.4
+    },
+    {
+      "component": "module:JWTHandler",
+      "status": "VERIFIED",
+      "detail": "loaded",
+      "duration_ms": 3.0
+    },
+    {
+      "component": "JWT: create + decode",
+      "status": "VERIFIED",
+      "detail": "Token OK. sub=audit@test.com",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "JWT: expired token rejected",
+      "status": "VERIFIED",
+      "detail": "Expired token correctly rejected (returned None)",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "JWT: none-algorithm attack rejected",
+      "status": "VERIFIED",
+      "detail": "none-alg attack correctly rejected (returned None)",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "JWT: tampered signature rejected",
+      "status": "VERIFIED",
+      "detail": "Tampered token correctly rejected (returned None)",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "Auth: bcrypt hash + verify",
+      "status": "VERIFIED",
+      "detail": "bcrypt hash + verify: OK (rounds=12)",
+      "duration_ms": 511.2
+    },
+    {
+      "component": "agent:data_quality_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=30.0, high_risk=55.0, minimal=80.0",
+      "duration_ms": 0.8
+    },
+    {
+      "component": "agent:eligibility_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=0.0, minimal=0.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:budget_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=25.0, minimal=0.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:deadline_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=0.0, minimal=0.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:documentation_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=20.0, minimal=10.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:procurement_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=40.0, high_risk=60.0, minimal=0.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:contractor_intelligence_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=0.0, minimal=0.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:geographic_intelligence_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=0.0, minimal=0.0",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "agent:duplicate_ghost_work_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=0.0, minimal=0.0",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "agent:payment_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=55.0, high_risk=55.0, minimal=55.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:financial_progress_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=50.0, minimal=0.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:physical_progress_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=0.0, minimal=0.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:asset_completion_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=0.0, minimal=0.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:cost_intelligence_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=0.0, minimal=0.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:anomaly_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=35.1, high_risk=36.4, minimal=45.2",
+      "duration_ms": 43.7
+    },
+    {
+      "component": "agent:delay_prediction_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=55.0, high_risk=55.0, minimal=0.0",
+      "duration_ms": 0.4
+    },
+    {
+      "component": "agent:trend_benchmark_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=0.0, minimal=0.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:fraud_archetype_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=0.0, minimal=54.0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "agent:rag_agent",
+      "status": "VERIFIED",
+      "detail": "3 scenarios: normal=0.0, high_risk=0.0, minimal=0.0",
+      "duration_ms": 26.4
+    },
+    {
+      "component": "Pipeline: agent failure isolation",
+      "status": "VERIFIED",
+      "detail": "Total=19, COMPLETED=18, FAILED=0. Risk always produced.",
+      "duration_ms": 512.2
+    },
+    {
+      "component": "EvidenceFusion: normal fuse_evidence",
+      "status": "VERIFIED",
+      "detail": "overall=35.92, level=RiskLevel.MEDIUM, 3D=(46.6/42.7/0.0)",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "EvidenceFusion: empty evidence list",
+      "status": "VERIFIED",
+      "detail": "Empty evidence: score=0.0",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "EvidenceFusion: fingerprint differentiation",
+      "status": "VERIFIED",
+      "detail": "Pattern A: cost=0.800, doc=0.050 | Pattern B: cost=0.050, doc=0.800 | Different=True",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "EvidenceFusion: 3D risk dimensions",
+      "status": "VERIFIED",
+      "detail": "3D: current=70.0, future=73.2, systemic=0.0",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "EvidenceFusion: 8D fingerprint present",
+      "status": "VERIFIED",
+      "detail": "All 8 fingerprint dims present. Values: ['cost_inflation=0.600', 'payment_progress_mismatch=0.350', 'repeated_delay=0.000', 'contractor_pattern=0.000']",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "DynamicWeight: normalization",
+      "status": "VERIFIED",
+      "detail": "Weights sum=1.000000. Keys=['budget_agent', 'payment_agent', 'anomaly_agent']",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "DynamicWeight: context sensitivity",
+      "status": "VERIFIED",
+      "detail": "Financial top=budget_agent(0.350), Geo top=duplicate_ghost_work_agent(0.600)",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "DynamicWeight: empty evidence safety",
+      "status": "VERIFIED",
+      "detail": "Empty evidence: returns empty dict as designed (no active agents)",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "PolicyEngine: evaluate (normal project)",
+      "status": "VERIFIED",
+      "detail": "PolicyEngine.evaluate: PolicyEvaluationResult",
+      "duration_ms": 5.9
+    },
+    {
+      "component": "PolicyEngine: evaluate (missing documents)",
+      "status": "VERIFIED",
+      "detail": "Policy eval (no docs): PolicyEvaluationResult, violations=0",
+      "duration_ms": 5.6
+    },
+    {
+      "component": "PolicyEngine: evaluate (budget overrun)",
+      "status": "VERIFIED",
+      "detail": "Policy eval (budget overrun): PolicyEvaluationResult",
+      "duration_ms": 5.6
+    },
+    {
+      "component": "PolicyEngine: policy version selection",
+      "status": "VERIFIED",
+      "detail": "v2016=PolicyEvaluationResult, v2023=PolicyEvaluationResult",
+      "duration_ms": 6.0
+    },
+    {
+      "component": "ML: synthetic data generation",
+      "status": "VERIFIED",
+      "detail": "200 samples, 20 features, 73.5% fraud",
+      "duration_ms": 8.5
+    },
+    {
+      "component": "ML: feature engineering (no NaN/Inf)",
+      "status": "VERIFIED",
+      "detail": "X.shape=(200, 20), no NaN/Inf. (Features pre-engineered by SyntheticDatasetGenerator)",
+      "duration_ms": 8.5
+    },
+    {
+      "component": "ML: model training (train_risk_classifier)",
+      "status": "VERIFIED",
+      "detail": "Trained. AUC=0.568, model=mplads_risk_classifier",
+      "duration_ms": 80.0
+    },
+    {
+      "component": "ML: predict_proba",
+      "status": "VERIFIED",
+      "detail": "predict_proba(20): min=0.712, max=0.974",
+      "duration_ms": 56.3
+    },
+    {
+      "component": "ML: SHAP explanation",
+      "status": "VERIFIED",
+      "detail": "SHAP explanation OK: SHAPExplanation, contributions=8",
+      "duration_ms": 60.2
+    },
+    {
+      "component": "ML: no data leakage (temporal split)",
+      "status": "VERIFIED",
+      "detail": "No leakage: train=140, test=60, pred_std=0.0921",
+      "duration_ms": 47.6
+    },
+    {
+      "component": "MLflow: log and retrieve run",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "[WinError 32] The process cannot access the file because it is being used by another process: 'C:\\\\Users\\\\sushr\\\\AppData\\\\Local\\\\Temp\\\\tmpgizrvt8n\\\\mlflow.db'",
+      "duration_ms": 1494.3
+    },
+    {
+      "component": "ML: model rollback manager",
+      "status": "VERIFIED",
+      "detail": "RollbackManager init OK. Audit entries: 0",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "DriftMonitor: stable data (no drift)",
+      "status": "VERIFIED",
+      "detail": "Stable: status=DriftStatus.GREEN, drifted_features=[]",
+      "duration_ms": 1.5
+    },
+    {
+      "component": "DriftMonitor: severe drift detected (YELLOW/RED)",
+      "status": "VERIFIED",
+      "detail": "Drift detected: status=DriftStatus.RED, PSI=10.000",
+      "duration_ms": 0.6
+    },
+    {
+      "component": "DriftMonitor: prediction drift",
+      "status": "VERIFIED",
+      "detail": "Prediction drift: DriftStatus.RED, KS p=0.0000",
+      "duration_ms": 1.2
+    },
+    {
+      "component": "RAG: BM25 retrieval",
+      "status": "VERIFIED",
+      "detail": "BM25: 2 results. Top: doc=doc1, score=1.632",
+      "duration_ms": 1.2
+    },
+    {
+      "component": "RAG: BM25 small corpus (TF-overlap fallback)",
+      "status": "VERIFIED",
+      "detail": "Small-corpus BM25 fallback: 1 results (score=2.0)",
+      "duration_ms": 0.5
+    },
+    {
+      "component": "RAG: BM25 irrelevant query (no false positive)",
+      "status": "VERIFIED",
+      "detail": "Irrelevant query: 0 results (expected 0 or near-zero)",
+      "duration_ms": 0.4
+    },
+    {
+      "component": "NLP: generate_explanation + false positive check",
+      "status": "VERIFIED",
+      "detail": "NLP explanation: 2490 chars. No forbidden language.",
+      "duration_ms": 0.3
+    },
+    {
+      "component": "Investigation: create case + add evidence",
+      "status": "VERIFIED",
+      "detail": "Case created (id=0179d4e5...). Evidence added.",
+      "duration_ms": 0.2
+    },
+    {
+      "component": "Investigation: record verdict",
+      "status": "VERIFIED",
+      "detail": "Verdict recorded: InvestigationStatus.ESCALATED",
+      "duration_ms": 0.1
+    },
+    {
+      "component": "WhatIf: simulate_what_if (correct args)",
+      "status": "VERIFIED",
+      "detail": "WhatIf result keys: ['project_id', 'baseline', 'simulated', 'deltas', 'parameters_applied', 'risk_transition']",
+      "duration_ms": 141.0
+    },
+    {
+      "component": "WhatIf: no-change scenario",
+      "status": "VERIFIED",
+      "detail": "WhatIf no-change: dict",
+      "duration_ms": 133.0
+    },
+    {
+      "component": "Pipeline:S01_Healthy",
+      "status": "VERIFIED",
+      "detail": "score=15.0, level=RiskLevel.LOW, agents=19, 3D=(12.3/22.7/7.5)",
+      "duration_ms": 67.8
+    },
+    {
+      "component": "Pipeline:S02_BudgetOverrun",
+      "status": "VERIFIED",
+      "detail": "score=20.8, level=RiskLevel.LOW, agents=19, 3D=(25.3/22.7/7.5)",
+      "duration_ms": 65.0
+    },
+    {
+      "component": "Pipeline:S03_PaymentProgressMismatch",
+      "status": "VERIFIED",
+      "detail": "score=67.5, level=RiskLevel.HIGH, agents=19, 3D=(36.0/24.1/7.5)",
+      "duration_ms": 62.8
+    },
+    {
+      "component": "Pipeline:S04_SevereDelay",
+      "status": "VERIFIED",
+      "detail": "score=15.0, level=RiskLevel.LOW, agents=19, 3D=(12.3/22.7/7.5)",
+      "duration_ms": 75.7
+    },
+    {
+      "component": "Pipeline:S05_NoDocuments",
+      "status": "VERIFIED",
+      "detail": "score=16.4, level=RiskLevel.LOW, agents=19, 3D=(13.9/22.7/11.3)",
+      "duration_ms": 63.3
+    },
+    {
+      "component": "Pipeline:S06_MultiAnomaly",
+      "status": "VERIFIED",
+      "detail": "score=20.0, level=RiskLevel.LOW, agents=19, 3D=(21.8/22.7/11.3)",
+      "duration_ms": 73.1
+    },
+    {
+      "component": "Pipeline:S07_ContractorMonopoly",
+      "status": "VERIFIED",
+      "detail": "score=15.0, level=RiskLevel.LOW, agents=19, 3D=(12.3/22.7/7.5)",
+      "duration_ms": 60.2
+    },
+    {
+      "component": "Pipeline:S08_MinimalData",
+      "status": "VERIFIED",
+      "detail": "score=20.0, level=RiskLevel.LOW, agents=19, 3D=(21.4/23.1/11.3)",
+      "duration_ms": 62.4
+    },
+    {
+      "component": "Pipeline:S09_Geographic",
+      "status": "VERIFIED",
+      "detail": "score=15.0, level=RiskLevel.LOW, agents=19, 3D=(12.3/22.7/7.5)",
+      "duration_ms": 77.1
+    },
+    {
+      "component": "Pipeline:S10_Legitimate",
+      "status": "VERIFIED",
+      "detail": "score=15.0, level=RiskLevel.LOW, agents=19, 3D=(12.3/22.7/7.5)",
+      "duration_ms": 59.4
+    },
+    {
+      "component": "Pipeline: false-positive protection",
+      "status": "VERIFIED",
+      "detail": "Healthy project: RiskLevel.LOW (score=15.0) — Not false positive",
+      "duration_ms": 59.5
+    },
+    {
+      "component": "Performance: 100 projects pipeline",
+      "status": "VERIFIED",
+      "detail": "100 projects: avg=66.2ms, p95=80.1ms, p99=84.4ms",
+      "duration_ms": 6633.0
+    },
+    {
+      "component": "Docker",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "docker not installed",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "PostgreSQL",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "No Docker: cannot connect to localhost:5432",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "pgvector",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "No Docker: pgvector not running",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "Neo4j",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "No Docker: cannot connect to localhost:7687",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "Alembic migrations",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "PostgreSQL not running",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "PostgreSQL repository tests",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "PostgreSQL not running",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "Neo4j graph integration tests",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "Neo4j not running",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "Tesseract OCR",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "tesseract not installed (choco install tesseract)",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "PaddleOCR",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "paddleocr not installed",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "Document OCR pipeline",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "Tesseract not installed",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "sentence-transformers",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "not installed: pip install sentence-transformers",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "FAISS",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "not installed: pip install faiss-cpu",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "BGE-M3 embeddings",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "sentence-transformers not available",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "BGE reranker",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "FlagEmbedding not installed",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "Dense RAG retrieval",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "sentence-transformers + pgvector not available",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "Hybrid RAG + reranker",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "FlagEmbedding not installed",
+      "duration_ms": 0.0
+    },
+    {
+      "component": "RAGAS evaluation",
+      "status": "ENVIRONMENT_BLOCKED",
+      "detail": "ragas not installed",
+      "duration_ms": 0.0
+    }
+  ]
+}

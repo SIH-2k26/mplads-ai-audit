@@ -1,0 +1,9 @@
+model,split,pr_auc,roc_auc,f1_score,precision,recall,specificity,balanced_accuracy,brier_score,expected_calibration_error,tp,fp,tn,fn,mean_cv_pr_auc,std_cv_pr_auc,mean_cv_f1,cv_latency_sec
+CatBoost,5-Fold OOF CV,0.9269,0.9467,0.8745,0.9072,0.8441,0.9789,0.9115,0.0362,0.0156,704,72,3344,130,0.927,0.0131,0.8745,2.67
+XGBoost,5-Fold OOF CV,0.923,0.945,0.8767,0.922,0.8357,0.9827,0.9092,0.0379,0.0195,697,59,3357,137,0.9241,0.0131,0.8766,1.37
+LightGBM,5-Fold OOF CV,0.9228,0.9448,0.8722,0.9134,0.8345,0.9807,0.9076,0.0384,0.0151,696,66,3350,138,0.9235,0.0127,0.8721,2.36
+RandomForest,5-Fold OOF CV,0.9313,0.9502,0.8904,0.9436,0.8429,0.9877,0.9153,0.0329,0.0278,703,42,3374,131,0.9321,0.0117,0.8906,1.44
+HistGradientBoosting,5-Fold OOF CV,0.9247,0.9467,0.8818,0.9439,0.8273,0.988,0.9077,0.0371,0.0317,690,41,3375,144,0.9256,0.0137,0.8817,12.04
+LogisticRegression,5-Fold OOF CV,0.8564,0.8954,0.564,0.4194,0.8609,0.709,0.785,0.2023,0.3581,718,994,2422,116,0.8593,0.0193,0.5643,0.09
+RandomForest (Calibrated),Held-Out Internal Test,0.9182,0.9323,0.8857,0.9323,0.8435,0.9851,0.9143,0.0341,0.0095,124,9,594,23,,,,
+RandomForest (Calibrated),Generator B External Holdout,0.1871,0.4733,0.0,0.0,0.0,1.0,0.5,0.1857,0.0,0,0,1610,390,,,,

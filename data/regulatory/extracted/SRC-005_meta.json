@@ -1,0 +1,13 @@
+{
+  "source_id": "SRC-005",
+  "source_name": "CAG Audit Reports & Findings",
+  "organization": "Comptroller and Auditor General of India",
+  "url": "https://cag.gov.in/en/audit-report",
+  "authority_level": "LEVEL_4",
+  "classification": "AUDIT_EVIDENCE",
+  "document_title": "CAG Audit Observation Patterns & Financial Irregularity Classification",
+  "document_date": "2023-08-20",
+  "retrieval_date": "2026-08-28",
+  "document_hash": "6ca364e39753adb9252cc626cdb5d7605f5e773e61f6194be507b973fa3a1961",
+  "content_length_chars": 839
+}

@@ -1,0 +1,12 @@
+============================================================
+Sanchay AI Audit — Held-Out Test Classification Report
+============================================================
+
+                      precision    recall  f1-score   support
+
+          Legitimate       0.96      0.99      0.97       603
+Suspicious/Anomalous       0.93      0.84      0.89       147
+
+            accuracy                           0.96       750
+           macro avg       0.95      0.91      0.93       750
+        weighted avg       0.96      0.96      0.96       750

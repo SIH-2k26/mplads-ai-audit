@@ -1,0 +1,18 @@
+{
+  "total_projects": 25000,
+  "total_payments": 62136,
+  "total_contractors": 2500,
+  "total_agencies": 800,
+  "total_districts": 486,
+  "fraud_rate": 0.2158,
+  "risk_level_distribution": {
+    "LOW": 18003,
+    "HIGH": 3161,
+    "MEDIUM": 2382,
+    "CRITICAL": 1454
+  },
+  "checks_summary": {
+    "total": 9,
+    "passed": 9
+  }
+}

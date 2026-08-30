@@ -1,0 +1,234 @@
+{
+  "timestamp": "2026-08-29T23:37:36.384238",
+  "input_dir": "/var/folders/gb/j66zs_sx2b32t1v1612r74yh0000gn/T/mplads_val_valid_du06ow1f",
+  "overall_status": "PASSED_CLEAN",
+  "exit_code": 0,
+  "total_projects": 500,
+  "total_tables": 12,
+  "total_rows": 7959,
+  "critical_errors": 0,
+  "warnings": 0,
+  "anomaly_signals": 0,
+  "checks_total": 27,
+  "checks_passed": 27,
+  "fraud_rate": 0.198,
+  "hard_negative_rate": 0.12,
+  "checks": [
+    {
+      "check_id": "PK-01",
+      "category": "Integrity",
+      "description": "PK Uniqueness (01_projects.project_id)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Total: 500, Unique: 500, Nulls: 0"
+    },
+    {
+      "check_id": "PK-02",
+      "category": "Integrity",
+      "description": "PK Uniqueness (02_financials.project_id)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Total: 500, Unique: 500, Nulls: 0"
+    },
+    {
+      "check_id": "PK-03",
+      "category": "Integrity",
+      "description": "PK Uniqueness (03_payments.payment_id)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Total: 1,389, Unique: 1,389, Nulls: 0"
+    },
+    {
+      "check_id": "PK-04",
+      "category": "Integrity",
+      "description": "PK Uniqueness (04_progress.progress_id)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Total: 500, Unique: 500, Nulls: 0"
+    },
+    {
+      "check_id": "PK-05",
+      "category": "Integrity",
+      "description": "PK Uniqueness (05_procurement.tender_id)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Total: 500, Unique: 500, Nulls: 0"
+    },
+    {
+      "check_id": "PK-06",
+      "category": "Integrity",
+      "description": "PK Uniqueness (06_contracts.contract_id)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Total: 500, Unique: 500, Nulls: 0"
+    },
+    {
+      "check_id": "PK-07",
+      "category": "Integrity",
+      "description": "PK Uniqueness (07_contractors.contractor_id)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Total: 300, Unique: 300, Nulls: 0"
+    },
+    {
+      "check_id": "PK-08",
+      "category": "Integrity",
+      "description": "PK Uniqueness (08_agencies.agency_id)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Total: 1,238, Unique: 1,238, Nulls: 0"
+    },
+    {
+      "check_id": "PK-09",
+      "category": "Integrity",
+      "description": "PK Uniqueness (09_geography.district_id)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Total: 619, Unique: 619, Nulls: 0"
+    },
+    {
+      "check_id": "PK-10",
+      "category": "Integrity",
+      "description": "PK Uniqueness (10_constituencies.constituency_id)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Total: 913, Unique: 913, Nulls: 0"
+    },
+    {
+      "check_id": "PK-11",
+      "category": "Integrity",
+      "description": "PK Uniqueness (11_documents.document_id)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Total: 500, Unique: 500, Nulls: 0"
+    },
+    {
+      "check_id": "PK-12",
+      "category": "Integrity",
+      "description": "PK Uniqueness (12_labels.project_id)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Total: 500, Unique: 500, Nulls: 0"
+    },
+    {
+      "check_id": "FK-01",
+      "category": "Referential",
+      "description": "FK (Projects -> Contractors)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Orphaned contractor references: 0"
+    },
+    {
+      "check_id": "FK-02",
+      "category": "Referential",
+      "description": "FK (Projects -> Agencies)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Orphaned agency references: 0"
+    },
+    {
+      "check_id": "FK-03",
+      "category": "Referential",
+      "description": "FK (Projects -> Districts)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Orphaned district references: 0"
+    },
+    {
+      "check_id": "FK-04",
+      "category": "Referential",
+      "description": "FK (Payments -> Projects)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Orphaned payment records: 0"
+    },
+    {
+      "check_id": "FIN-01",
+      "category": "Financial",
+      "description": "Non-Negative Financial Bounds",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Negative cost instances: 0"
+    },
+    {
+      "check_id": "FIN-02",
+      "category": "Financial",
+      "description": "Cost Overrun Anomaly Scan",
+      "passed": true,
+      "severity": "INFORMATIONAL",
+      "details": "Projects with expenditure > 115% of sanction: 19 (Controlled anomaly mix)"
+    },
+    {
+      "check_id": "DATE-01",
+      "category": "Temporal",
+      "description": "Date Sequence (Rec <= Sanction <= Completion)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Chronology violations: 0"
+    },
+    {
+      "check_id": "PROG-01",
+      "category": "Progress",
+      "description": "Physical Progress Bounds (0-100%)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Out of bounds physical progress: 0"
+    },
+    {
+      "check_id": "PROG-02",
+      "category": "Progress",
+      "description": "Progress Desynchronization Signal",
+      "passed": true,
+      "severity": "INFORMATIONAL",
+      "details": "Projects where financial leads physical by >25%: 72"
+    },
+    {
+      "check_id": "GEO-01",
+      "category": "Geospatial",
+      "description": "Indian Coordinate Bounds",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Coordinates outside India bounding box: 0"
+    },
+    {
+      "check_id": "DOC-01",
+      "category": "Documentation",
+      "description": "Document Count & Ratio Consistency",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Inconsistent document records: 0"
+    },
+    {
+      "check_id": "PROC-01",
+      "category": "Procurement",
+      "description": "Tender Bid Count (>= 1)",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Tenders with <1 bid: 0"
+    },
+    {
+      "check_id": "LEAK-01",
+      "category": "Leakage",
+      "description": "Anti-Target Leakage Segregation",
+      "passed": true,
+      "severity": "CRITICAL",
+      "details": "Target variables leaking into feature tables: 0"
+    },
+    {
+      "check_id": "CLASS-01",
+      "category": "ClassBalance",
+      "description": "Target Fraud Ratio (10-35%)",
+      "passed": true,
+      "severity": "WARNING",
+      "details": "Actual fraud rate: 19.80% (99 projects)"
+    },
+    {
+      "check_id": "CLASS-02",
+      "category": "ClassBalance",
+      "description": "Hard Negative Controls (>=5%)",
+      "passed": true,
+      "severity": "WARNING",
+      "details": "Actual hard negative rate: 12.00% (60 projects)"
+    }
+  ]
+}

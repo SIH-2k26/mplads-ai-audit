@@ -1,0 +1,1239 @@
+agency_id,agency_name,district_id,state_id,agency_type,agency_workload_ratio,agency_geographic_concentration
+AGENCY-0001,MAH-District-35 - Water Supply & Sewerage Board,DIST-0110,ST-02,Municipal Corporation (MC),1.913,0.445
+AGENCY-0002,MAD-District-04 - Water Supply & Sewerage Board,DIST-0176,ST-05,Rural Development Department (RDD),2.038,0.966
+AGENCY-0003,UTT-District-24 - Public Works Department (PWD),DIST-0024,ST-01,Municipal Corporation (MC),2.175,0.877
+AGENCY-0004,MAH-District-16 - Public Works Department (PWD),DIST-0091,ST-02,Municipal Corporation (MC),0.633,0.662
+AGENCY-0005,UTT-District-03 - Municipal Corporation (MC),DIST-0003,ST-01,Municipal Corporation (MC),1.37,0.793
+AGENCY-0006,TEL-District-05 - Panchayati Raj Institution (PRI),DIST-0440,ST-12,Rural Development Department (RDD),0.962,0.976
+AGENCY-0007,UTT-District-27 - Municipal Corporation (MC),DIST-0027,ST-01,Rural Development Department (RDD),1.12,0.489
+AGENCY-0008,CHH-District-26 - Water Supply & Sewerage Board,DIST-0590,ST-17,Rural Development Department (RDD),1.635,0.424
+AGENCY-0009,BIH-District-32 - Municipal Corporation (MC),DIST-0143,ST-03,Public Works Department (PWD),1.747,0.768
+AGENCY-0010,MAH-District-24 - Municipal Corporation (MC),DIST-0099,ST-02,Public Works Department (PWD),2.176,0.724
+AGENCY-0011,BIH-District-32 - Municipal Corporation (MC),DIST-0143,ST-03,Water Supply & Sewerage Board,0.863,0.635
+AGENCY-0012,JHA-District-11 - Rural Development Department (RDD),DIST-0493,ST-14,Rural Development Department (RDD),1.796,0.682
+AGENCY-0013,TEL-District-33 - Public Works Department (PWD),DIST-0468,ST-12,Public Works Department (PWD),0.88,0.429
+AGENCY-0014,MAH-District-25 - Water Supply & Sewerage Board,DIST-0100,ST-02,Water Supply & Sewerage Board,0.789,0.605
+AGENCY-0015,MAD-District-08 - Rural Development Department (RDD),DIST-0180,ST-05,Public Works Department (PWD),2.166,0.583
+AGENCY-0016,TEL-District-10 - Water Supply & Sewerage Board,DIST-0445,ST-12,Rural Development Department (RDD),1.506,0.676
+AGENCY-0017,ODI-District-18 - Municipal Corporation (MC),DIST-0423,ST-11,Municipal Corporation (MC),1.698,0.406
+AGENCY-0018,PUN-District-07 - Water Supply & Sewerage Board,DIST-0548,ST-16,Water Supply & Sewerage Board,1.165,0.636
+AGENCY-0019,TAM-District-01 - Rural Development Department (RDD),DIST-0228,ST-06,Municipal Corporation (MC),1.202,0.617
+AGENCY-0020,RAJ-District-13 - Public Works Department (PWD),DIST-0278,ST-07,Water Supply & Sewerage Board,0.839,0.896
+AGENCY-0021,TAM-District-31 - Panchayati Raj Institution (PRI),DIST-0258,ST-06,Rural Development Department (RDD),2.137,0.797
+AGENCY-0022,PUN-District-19 - Municipal Corporation (MC),DIST-0560,ST-16,Water Supply & Sewerage Board,0.982,0.729
+AGENCY-0023,CHH-District-23 - Panchayati Raj Institution (PRI),DIST-0587,ST-17,Public Works Department (PWD),0.761,0.613
+AGENCY-0024,PUN-District-13 - Municipal Corporation (MC),DIST-0554,ST-16,Municipal Corporation (MC),1.01,0.834
+AGENCY-0025,ASS-District-09 - Public Works Department (PWD),DIST-0515,ST-15,Rural Development Department (RDD),0.61,0.432
+AGENCY-0026,ASS-District-15 - Panchayati Raj Institution (PRI),DIST-0521,ST-15,Municipal Corporation (MC),1.033,0.404
+AGENCY-0027,RAJ-District-43 - Water Supply & Sewerage Board,DIST-0308,ST-07,Panchayati Raj Institution (PRI),1.908,0.44
+AGENCY-0028,ASS-District-18 - Municipal Corporation (MC),DIST-0524,ST-15,Rural Development Department (RDD),1.367,0.428
+AGENCY-0029,AND-District-14 - Water Supply & Sewerage Board,DIST-0393,ST-10,Water Supply & Sewerage Board,1.364,0.632
+AGENCY-0030,WES-District-22 - Water Supply & Sewerage Board,DIST-0171,ST-04,Municipal Corporation (MC),1.764,0.881
+AGENCY-0031,ASS-District-18 - Municipal Corporation (MC),DIST-0524,ST-15,Public Works Department (PWD),1.817,0.59
+AGENCY-0032,TAM-District-19 - Water Supply & Sewerage Board,DIST-0246,ST-06,Rural Development Department (RDD),0.687,0.64
+AGENCY-0033,TAM-District-03 - Public Works Department (PWD),DIST-0230,ST-06,Municipal Corporation (MC),1.401,0.843
+AGENCY-0034,TAM-District-38 - Public Works Department (PWD),DIST-0265,ST-06,Panchayati Raj Institution (PRI),1.502,0.623
+AGENCY-0035,MAH-District-35 - Panchayati Raj Institution (PRI),DIST-0110,ST-02,Municipal Corporation (MC),2.14,0.783
+AGENCY-0036,UTT-District-53 - Panchayati Raj Institution (PRI),DIST-0053,ST-01,Municipal Corporation (MC),2.061,0.79
+AGENCY-0037,KAR-District-21 - Municipal Corporation (MC),DIST-0336,ST-08,Water Supply & Sewerage Board,1.082,0.832
+AGENCY-0038,MAD-District-46 - Public Works Department (PWD),DIST-0218,ST-05,Municipal Corporation (MC),2.01,0.922
+AGENCY-0039,TEL-District-30 - Rural Development Department (RDD),DIST-0465,ST-12,Public Works Department (PWD),1.928,0.464
+AGENCY-0040,ASS-District-24 - Panchayati Raj Institution (PRI),DIST-0530,ST-15,Water Supply & Sewerage Board,1.375,0.597
+AGENCY-0041,ODI-District-18 - Municipal Corporation (MC),DIST-0423,ST-11,Municipal Corporation (MC),1.657,0.738
+AGENCY-0042,RAJ-District-36 - Panchayati Raj Institution (PRI),DIST-0301,ST-07,Rural Development Department (RDD),1.245,0.44
+AGENCY-0043,TEL-District-02 - Rural Development Department (RDD),DIST-0437,ST-12,Panchayati Raj Institution (PRI),1.758,0.574
+AGENCY-0044,MAH-District-30 - Public Works Department (PWD),DIST-0105,ST-02,Public Works Department (PWD),1.982,0.759
+AGENCY-0045,CHH-District-01 - Water Supply & Sewerage Board,DIST-0565,ST-17,Municipal Corporation (MC),2.15,0.73
+AGENCY-0046,AND-District-18 - Rural Development Department (RDD),DIST-0397,ST-10,Municipal Corporation (MC),2.063,0.8
+AGENCY-0047,AND-District-17 - Water Supply & Sewerage Board,DIST-0396,ST-10,Public Works Department (PWD),2.067,0.837
+AGENCY-0048,UTT-District-38 - Panchayati Raj Institution (PRI),DIST-0038,ST-01,Water Supply & Sewerage Board,1.755,0.879
+AGENCY-0049,HAR-District-15 - Municipal Corporation (MC),DIST-0612,ST-18,Water Supply & Sewerage Board,0.663,0.849
+AGENCY-0050,JHA-District-06 - Rural Development Department (RDD),DIST-0488,ST-14,Public Works Department (PWD),2.006,0.881
+AGENCY-0051,ASS-District-32 - Panchayati Raj Institution (PRI),DIST-0538,ST-15,Municipal Corporation (MC),1.871,0.572
+AGENCY-0052,BIH-District-22 - Panchayati Raj Institution (PRI),DIST-0133,ST-03,Water Supply & Sewerage Board,1.929,0.775
+AGENCY-0053,UTT-District-72 - Public Works Department (PWD),DIST-0072,ST-01,Municipal Corporation (MC),0.994,0.757
+AGENCY-0054,HAR-District-18 - Panchayati Raj Institution (PRI),DIST-0615,ST-18,Rural Development Department (RDD),1.981,0.705
+AGENCY-0055,HAR-District-20 - Water Supply & Sewerage Board,DIST-0617,ST-18,Water Supply & Sewerage Board,0.863,0.459
+AGENCY-0056,JHA-District-15 - Municipal Corporation (MC),DIST-0497,ST-14,Public Works Department (PWD),0.685,0.517
+AGENCY-0057,TEL-District-15 - Public Works Department (PWD),DIST-0450,ST-12,Panchayati Raj Institution (PRI),0.701,0.646
+AGENCY-0058,ASS-District-12 - Panchayati Raj Institution (PRI),DIST-0518,ST-15,Municipal Corporation (MC),1.105,0.498
+AGENCY-0059,CHH-District-07 - Municipal Corporation (MC),DIST-0571,ST-17,Public Works Department (PWD),0.795,0.836
+AGENCY-0060,RAJ-District-24 - Panchayati Raj Institution (PRI),DIST-0289,ST-07,Panchayati Raj Institution (PRI),2.093,0.857
+AGENCY-0061,BIH-District-13 - Public Works Department (PWD),DIST-0124,ST-03,Public Works Department (PWD),1.03,0.893
+AGENCY-0062,PUN-District-19 - Municipal Corporation (MC),DIST-0560,ST-16,Public Works Department (PWD),0.722,0.85
+AGENCY-0063,CHH-District-22 - Public Works Department (PWD),DIST-0586,ST-17,Public Works Department (PWD),1.139,0.835
+AGENCY-0064,KAR-District-23 - Municipal Corporation (MC),DIST-0338,ST-08,Public Works Department (PWD),0.923,0.852
+AGENCY-0065,UTT-District-02 - Public Works Department (PWD),DIST-0002,ST-01,Public Works Department (PWD),1.122,0.507
+AGENCY-0066,GUJ-District-13 - Public Works Department (PWD),DIST-0359,ST-09,Public Works Department (PWD),0.698,0.711
+AGENCY-0067,ASS-District-12 - Municipal Corporation (MC),DIST-0518,ST-15,Municipal Corporation (MC),0.692,0.767
+AGENCY-0068,ODI-District-18 - Rural Development Department (RDD),DIST-0423,ST-11,Water Supply & Sewerage Board,1.876,0.86
+AGENCY-0069,ASS-District-10 - Panchayati Raj Institution (PRI),DIST-0516,ST-15,Rural Development Department (RDD),1.916,0.765
+AGENCY-0070,RAJ-District-47 - Rural Development Department (RDD),DIST-0312,ST-07,Panchayati Raj Institution (PRI),0.707,0.546
+AGENCY-0071,UTT-District-50 - Panchayati Raj Institution (PRI),DIST-0050,ST-01,Rural Development Department (RDD),2.084,0.98
+AGENCY-0072,UTT-District-56 - Public Works Department (PWD),DIST-0056,ST-01,Rural Development Department (RDD),1.73,0.689
+AGENCY-0073,CHH-District-20 - Water Supply & Sewerage Board,DIST-0584,ST-17,Water Supply & Sewerage Board,1.742,0.744
+AGENCY-0074,UTT-District-63 - Rural Development Department (RDD),DIST-0063,ST-01,Water Supply & Sewerage Board,2.058,0.525
+AGENCY-0075,WES-District-03 - Water Supply & Sewerage Board,DIST-0152,ST-04,Public Works Department (PWD),1.026,0.679
+AGENCY-0076,GUJ-District-07 - Rural Development Department (RDD),DIST-0353,ST-09,Panchayati Raj Institution (PRI),1.27,0.916
+AGENCY-0077,CHH-District-16 - Municipal Corporation (MC),DIST-0580,ST-17,Panchayati Raj Institution (PRI),1.439,0.493
+AGENCY-0078,ASS-District-26 - Rural Development Department (RDD),DIST-0532,ST-15,Municipal Corporation (MC),1.848,0.66
+AGENCY-0079,ASS-District-31 - Water Supply & Sewerage Board,DIST-0537,ST-15,Water Supply & Sewerage Board,1.911,0.465
+AGENCY-0080,KAR-District-14 - Municipal Corporation (MC),DIST-0329,ST-08,Panchayati Raj Institution (PRI),1.893,0.453
+AGENCY-0081,JHA-District-13 - Panchayati Raj Institution (PRI),DIST-0495,ST-14,Rural Development Department (RDD),1.261,0.546
+AGENCY-0082,MAD-District-48 - Public Works Department (PWD),DIST-0220,ST-05,Public Works Department (PWD),1.412,0.49
+AGENCY-0083,AND-District-11 - Water Supply & Sewerage Board,DIST-0390,ST-10,Panchayati Raj Institution (PRI),0.699,0.622
+AGENCY-0084,PUN-District-16 - Municipal Corporation (MC),DIST-0557,ST-16,Water Supply & Sewerage Board,0.992,0.899
+AGENCY-0085,PUN-District-10 - Municipal Corporation (MC),DIST-0551,ST-16,Water Supply & Sewerage Board,1.571,0.97
+AGENCY-0086,WES-District-02 - Rural Development Department (RDD),DIST-0151,ST-04,Public Works Department (PWD),1.95,0.685
+AGENCY-0087,UTT-District-43 - Rural Development Department (RDD),DIST-0043,ST-01,Rural Development Department (RDD),0.688,0.437
+AGENCY-0088,PUN-District-09 - Public Works Department (PWD),DIST-0550,ST-16,Water Supply & Sewerage Board,2.153,0.563
+AGENCY-0089,BIH-District-03 - Municipal Corporation (MC),DIST-0114,ST-03,Water Supply & Sewerage Board,0.631,0.587
+AGENCY-0090,KAR-District-31 - Water Supply & Sewerage Board,DIST-0346,ST-08,Water Supply & Sewerage Board,1.054,0.879
+AGENCY-0091,BIH-District-04 - Rural Development Department (RDD),DIST-0115,ST-03,Public Works Department (PWD),0.685,0.96
+AGENCY-0092,WES-District-07 - Panchayati Raj Institution (PRI),DIST-0156,ST-04,Municipal Corporation (MC),0.803,0.528
+AGENCY-0093,ODI-District-03 - Public Works Department (PWD),DIST-0408,ST-11,Panchayati Raj Institution (PRI),1.68,0.57
+AGENCY-0094,ODI-District-01 - Water Supply & Sewerage Board,DIST-0406,ST-11,Public Works Department (PWD),1.482,0.666
+AGENCY-0095,JHA-District-02 - Panchayati Raj Institution (PRI),DIST-0484,ST-14,Municipal Corporation (MC),1.771,0.478
+AGENCY-0096,TAM-District-31 - Water Supply & Sewerage Board,DIST-0258,ST-06,Rural Development Department (RDD),2.097,0.954
+AGENCY-0097,RAJ-District-38 - Municipal Corporation (MC),DIST-0303,ST-07,Public Works Department (PWD),1.215,0.705
+AGENCY-0098,GUJ-District-11 - Panchayati Raj Institution (PRI),DIST-0357,ST-09,Public Works Department (PWD),0.826,0.761
+AGENCY-0099,ASS-District-04 - Public Works Department (PWD),DIST-0510,ST-15,Water Supply & Sewerage Board,2.195,0.406
+AGENCY-0100,BIH-District-18 - Water Supply & Sewerage Board,DIST-0129,ST-03,Panchayati Raj Institution (PRI),1.459,0.543
+AGENCY-0101,MAH-District-01 - Public Works Department (PWD),DIST-0076,ST-02,Municipal Corporation (MC),0.659,0.538
+AGENCY-0102,GUJ-District-04 - Rural Development Department (RDD),DIST-0350,ST-09,Public Works Department (PWD),1.534,0.811
+AGENCY-0103,CHH-District-03 - Water Supply & Sewerage Board,DIST-0567,ST-17,Municipal Corporation (MC),1.228,0.408
+AGENCY-0104,BIH-District-26 - Public Works Department (PWD),DIST-0137,ST-03,Municipal Corporation (MC),2.106,0.544
+AGENCY-0105,RAJ-District-20 - Water Supply & Sewerage Board,DIST-0285,ST-07,Municipal Corporation (MC),1.923,0.926
+AGENCY-0106,TAM-District-17 - Rural Development Department (RDD),DIST-0244,ST-06,Public Works Department (PWD),1.573,0.695
+AGENCY-0107,CHH-District-13 - Rural Development Department (RDD),DIST-0577,ST-17,Municipal Corporation (MC),0.982,0.871
+AGENCY-0108,WES-District-05 - Municipal Corporation (MC),DIST-0154,ST-04,Water Supply & Sewerage Board,1.969,0.758
+AGENCY-0109,JHA-District-13 - Panchayati Raj Institution (PRI),DIST-0495,ST-14,Public Works Department (PWD),1.076,0.909
+AGENCY-0110,GUJ-District-20 - Municipal Corporation (MC),DIST-0366,ST-09,Public Works Department (PWD),1.215,0.693
+AGENCY-0111,PUN-District-10 - Water Supply & Sewerage Board,DIST-0551,ST-16,Water Supply & Sewerage Board,1.819,0.619
+AGENCY-0112,RAJ-District-12 - Public Works Department (PWD),DIST-0277,ST-07,Public Works Department (PWD),1.858,0.661
+AGENCY-0113,PUN-District-04 - Public Works Department (PWD),DIST-0545,ST-16,Panchayati Raj Institution (PRI),0.927,0.639
+AGENCY-0114,ASS-District-34 - Public Works Department (PWD),DIST-0540,ST-15,Public Works Department (PWD),1.954,0.61
+AGENCY-0115,BIH-District-20 - Rural Development Department (RDD),DIST-0131,ST-03,Water Supply & Sewerage Board,1.358,0.441
+AGENCY-0116,ODI-District-15 - Rural Development Department (RDD),DIST-0420,ST-11,Rural Development Department (RDD),1.71,0.929
+AGENCY-0117,MAH-District-23 - Rural Development Department (RDD),DIST-0098,ST-02,Municipal Corporation (MC),1.846,0.9
+AGENCY-0118,UTT-District-42 - Municipal Corporation (MC),DIST-0042,ST-01,Panchayati Raj Institution (PRI),1.743,0.641
+AGENCY-0119,GUJ-District-06 - Panchayati Raj Institution (PRI),DIST-0352,ST-09,Public Works Department (PWD),1.729,0.819
+AGENCY-0120,WES-District-18 - Rural Development Department (RDD),DIST-0167,ST-04,Water Supply & Sewerage Board,0.684,0.827
+AGENCY-0121,CHH-District-27 - Public Works Department (PWD),DIST-0591,ST-17,Water Supply & Sewerage Board,1.095,0.929
+AGENCY-0122,ASS-District-23 - Water Supply & Sewerage Board,DIST-0529,ST-15,Water Supply & Sewerage Board,2.126,0.779
+AGENCY-0123,TEL-District-26 - Rural Development Department (RDD),DIST-0461,ST-12,Panchayati Raj Institution (PRI),1.681,0.639
+AGENCY-0124,ODI-District-28 - Rural Development Department (RDD),DIST-0433,ST-11,Municipal Corporation (MC),1.205,0.866
+AGENCY-0125,UTT-District-51 - Public Works Department (PWD),DIST-0051,ST-01,Water Supply & Sewerage Board,2.16,0.52
+AGENCY-0126,GUJ-District-15 - Panchayati Raj Institution (PRI),DIST-0361,ST-09,Water Supply & Sewerage Board,0.882,0.737
+AGENCY-0127,GUJ-District-11 - Rural Development Department (RDD),DIST-0357,ST-09,Rural Development Department (RDD),2.108,0.548
+AGENCY-0128,MAH-District-11 - Water Supply & Sewerage Board,DIST-0086,ST-02,Water Supply & Sewerage Board,1.777,0.525
+AGENCY-0129,PUN-District-15 - Panchayati Raj Institution (PRI),DIST-0556,ST-16,Rural Development Department (RDD),2.154,0.444
+AGENCY-0130,WES-District-15 - Public Works Department (PWD),DIST-0164,ST-04,Public Works Department (PWD),1.843,0.833
+AGENCY-0131,HAR-District-09 - Municipal Corporation (MC),DIST-0606,ST-18,Public Works Department (PWD),1.382,0.888
+AGENCY-0132,MAD-District-18 - Rural Development Department (RDD),DIST-0190,ST-05,Panchayati Raj Institution (PRI),0.618,0.761
+AGENCY-0133,BIH-District-09 - Water Supply & Sewerage Board,DIST-0120,ST-03,Rural Development Department (RDD),1.982,0.564
+AGENCY-0134,BIH-District-11 - Public Works Department (PWD),DIST-0122,ST-03,Panchayati Raj Institution (PRI),2.144,0.797
+AGENCY-0135,CHH-District-31 - Municipal Corporation (MC),DIST-0595,ST-17,Water Supply & Sewerage Board,0.859,0.667
+AGENCY-0136,PUN-District-04 - Rural Development Department (RDD),DIST-0545,ST-16,Water Supply & Sewerage Board,1.866,0.89
+AGENCY-0137,RAJ-District-32 - Public Works Department (PWD),DIST-0297,ST-07,Public Works Department (PWD),1.223,0.977
+AGENCY-0138,UTT-District-25 - Panchayati Raj Institution (PRI),DIST-0025,ST-01,Rural Development Department (RDD),1.222,0.587
+AGENCY-0139,MAD-District-12 - Municipal Corporation (MC),DIST-0184,ST-05,Panchayati Raj Institution (PRI),1.311,0.694
+AGENCY-0140,ODI-District-20 - Panchayati Raj Institution (PRI),DIST-0425,ST-11,Water Supply & Sewerage Board,0.645,0.432
+AGENCY-0141,KAR-District-05 - Public Works Department (PWD),DIST-0320,ST-08,Rural Development Department (RDD),2.016,0.859
+AGENCY-0142,KAR-District-23 - Public Works Department (PWD),DIST-0338,ST-08,Water Supply & Sewerage Board,1.567,0.679
+AGENCY-0143,RAJ-District-42 - Municipal Corporation (MC),DIST-0307,ST-07,Municipal Corporation (MC),2.196,0.456
+AGENCY-0144,UTT-District-52 - Panchayati Raj Institution (PRI),DIST-0052,ST-01,Water Supply & Sewerage Board,1.5,0.497
+AGENCY-0145,KAR-District-03 - Panchayati Raj Institution (PRI),DIST-0318,ST-08,Municipal Corporation (MC),0.671,0.83
+AGENCY-0146,ODI-District-01 - Municipal Corporation (MC),DIST-0406,ST-11,Municipal Corporation (MC),2.182,0.881
+AGENCY-0147,MAD-District-33 - Panchayati Raj Institution (PRI),DIST-0205,ST-05,Panchayati Raj Institution (PRI),2.185,0.881
+AGENCY-0148,KER-District-14 - Public Works Department (PWD),DIST-0482,ST-13,Water Supply & Sewerage Board,1.529,0.779
+AGENCY-0149,GUJ-District-20 - Rural Development Department (RDD),DIST-0366,ST-09,Water Supply & Sewerage Board,1.387,0.445
+AGENCY-0150,TAM-District-23 - Panchayati Raj Institution (PRI),DIST-0250,ST-06,Municipal Corporation (MC),1.174,0.416
+AGENCY-0151,JHA-District-06 - Water Supply & Sewerage Board,DIST-0488,ST-14,Rural Development Department (RDD),1.691,0.45
+AGENCY-0152,KER-District-07 - Rural Development Department (RDD),DIST-0475,ST-13,Panchayati Raj Institution (PRI),1.361,0.482
+AGENCY-0153,MAH-District-08 - Municipal Corporation (MC),DIST-0083,ST-02,Public Works Department (PWD),1.716,0.492
+AGENCY-0154,MAD-District-12 - Public Works Department (PWD),DIST-0184,ST-05,Water Supply & Sewerage Board,0.67,0.419
+AGENCY-0155,GUJ-District-21 - Public Works Department (PWD),DIST-0367,ST-09,Panchayati Raj Institution (PRI),1.184,0.716
+AGENCY-0156,MAD-District-39 - Water Supply & Sewerage Board,DIST-0211,ST-05,Municipal Corporation (MC),1.522,0.933
+AGENCY-0157,RAJ-District-05 - Panchayati Raj Institution (PRI),DIST-0270,ST-07,Panchayati Raj Institution (PRI),1.85,0.718
+AGENCY-0158,MAH-District-35 - Municipal Corporation (MC),DIST-0110,ST-02,Panchayati Raj Institution (PRI),0.601,0.923
+AGENCY-0159,CHH-District-14 - Water Supply & Sewerage Board,DIST-0578,ST-17,Panchayati Raj Institution (PRI),1.571,0.661
+AGENCY-0160,HAR-District-13 - Rural Development Department (RDD),DIST-0610,ST-18,Water Supply & Sewerage Board,2.112,0.762
+AGENCY-0161,UTT-District-41 - Panchayati Raj Institution (PRI),DIST-0041,ST-01,Water Supply & Sewerage Board,1.065,0.561
+AGENCY-0162,KAR-District-09 - Rural Development Department (RDD),DIST-0324,ST-08,Panchayati Raj Institution (PRI),1.397,0.943
+AGENCY-0163,BIH-District-33 - Water Supply & Sewerage Board,DIST-0144,ST-03,Water Supply & Sewerage Board,1.392,0.602
+AGENCY-0164,BIH-District-33 - Municipal Corporation (MC),DIST-0144,ST-03,Public Works Department (PWD),1.694,0.711
+AGENCY-0165,GUJ-District-33 - Panchayati Raj Institution (PRI),DIST-0379,ST-09,Public Works Department (PWD),0.722,0.965
+AGENCY-0166,TEL-District-10 - Municipal Corporation (MC),DIST-0445,ST-12,Public Works Department (PWD),1.143,0.71
+AGENCY-0167,CHH-District-23 - Rural Development Department (RDD),DIST-0587,ST-17,Rural Development Department (RDD),2.054,0.567
+AGENCY-0168,TEL-District-13 - Municipal Corporation (MC),DIST-0448,ST-12,Public Works Department (PWD),0.768,0.49
+AGENCY-0169,MAH-District-34 - Water Supply & Sewerage Board,DIST-0109,ST-02,Panchayati Raj Institution (PRI),1.951,0.98
+AGENCY-0170,UTT-District-09 - Municipal Corporation (MC),DIST-0009,ST-01,Rural Development Department (RDD),1.859,0.437
+AGENCY-0171,KAR-District-16 - Rural Development Department (RDD),DIST-0331,ST-08,Water Supply & Sewerage Board,1.813,0.707
+AGENCY-0172,UTT-District-41 - Public Works Department (PWD),DIST-0041,ST-01,Municipal Corporation (MC),1.192,0.946
+AGENCY-0173,BIH-District-15 - Municipal Corporation (MC),DIST-0126,ST-03,Municipal Corporation (MC),1.416,0.683
+AGENCY-0174,HAR-District-09 - Municipal Corporation (MC),DIST-0606,ST-18,Rural Development Department (RDD),0.751,0.793
+AGENCY-0175,MAD-District-29 - Water Supply & Sewerage Board,DIST-0201,ST-05,Rural Development Department (RDD),1.121,0.664
+AGENCY-0176,HAR-District-10 - Rural Development Department (RDD),DIST-0607,ST-18,Public Works Department (PWD),1.955,0.975
+AGENCY-0177,CHH-District-07 - Water Supply & Sewerage Board,DIST-0571,ST-17,Water Supply & Sewerage Board,1.103,0.621
+AGENCY-0178,KAR-District-01 - Municipal Corporation (MC),DIST-0316,ST-08,Rural Development Department (RDD),2.19,0.406
+AGENCY-0179,UTT-District-10 - Panchayati Raj Institution (PRI),DIST-0010,ST-01,Panchayati Raj Institution (PRI),1.67,0.93
+AGENCY-0180,PUN-District-21 - Municipal Corporation (MC),DIST-0562,ST-16,Panchayati Raj Institution (PRI),1.081,0.743
+AGENCY-0181,GUJ-District-24 - Public Works Department (PWD),DIST-0370,ST-09,Municipal Corporation (MC),1.425,0.852
+AGENCY-0182,ODI-District-29 - Public Works Department (PWD),DIST-0434,ST-11,Water Supply & Sewerage Board,2.136,0.588
+AGENCY-0183,MAD-District-36 - Public Works Department (PWD),DIST-0208,ST-05,Municipal Corporation (MC),1.432,0.943
+AGENCY-0184,ASS-District-35 - Public Works Department (PWD),DIST-0541,ST-15,Rural Development Department (RDD),1.98,0.786
+AGENCY-0185,MAD-District-14 - Public Works Department (PWD),DIST-0186,ST-05,Panchayati Raj Institution (PRI),1.232,0.639
+AGENCY-0186,KER-District-04 - Water Supply & Sewerage Board,DIST-0472,ST-13,Municipal Corporation (MC),2.087,0.964
+AGENCY-0187,ODI-District-11 - Water Supply & Sewerage Board,DIST-0416,ST-11,Panchayati Raj Institution (PRI),1.576,0.781
+AGENCY-0188,BIH-District-05 - Water Supply & Sewerage Board,DIST-0116,ST-03,Rural Development Department (RDD),0.783,0.947
+AGENCY-0189,ODI-District-03 - Rural Development Department (RDD),DIST-0408,ST-11,Municipal Corporation (MC),1.992,0.646
+AGENCY-0190,UTT-District-11 - Panchayati Raj Institution (PRI),DIST-0011,ST-01,Panchayati Raj Institution (PRI),1.842,0.446
+AGENCY-0191,ODI-District-22 - Rural Development Department (RDD),DIST-0427,ST-11,Panchayati Raj Institution (PRI),1.832,0.975
+AGENCY-0192,MAH-District-08 - Public Works Department (PWD),DIST-0083,ST-02,Panchayati Raj Institution (PRI),1.344,0.529
+AGENCY-0193,WES-District-15 - Rural Development Department (RDD),DIST-0164,ST-04,Public Works Department (PWD),1.463,0.777
+AGENCY-0194,UTT-District-58 - Panchayati Raj Institution (PRI),DIST-0058,ST-01,Municipal Corporation (MC),2.177,0.677
+AGENCY-0195,TAM-District-02 - Municipal Corporation (MC),DIST-0229,ST-06,Municipal Corporation (MC),1.059,0.882
+AGENCY-0196,ASS-District-14 - Water Supply & Sewerage Board,DIST-0520,ST-15,Municipal Corporation (MC),1.649,0.796
+AGENCY-0197,WES-District-17 - Panchayati Raj Institution (PRI),DIST-0166,ST-04,Panchayati Raj Institution (PRI),1.838,0.578
+AGENCY-0198,TAM-District-11 - Panchayati Raj Institution (PRI),DIST-0238,ST-06,Municipal Corporation (MC),0.886,0.486
+AGENCY-0199,HAR-District-16 - Water Supply & Sewerage Board,DIST-0613,ST-18,Public Works Department (PWD),2.197,0.493
+AGENCY-0200,GUJ-District-32 - Public Works Department (PWD),DIST-0378,ST-09,Public Works Department (PWD),1.815,0.706
+AGENCY-0201,ODI-District-26 - Municipal Corporation (MC),DIST-0431,ST-11,Water Supply & Sewerage Board,0.662,0.76
+AGENCY-0202,ASS-District-25 - Municipal Corporation (MC),DIST-0531,ST-15,Panchayati Raj Institution (PRI),2.039,0.721
+AGENCY-0203,MAD-District-27 - Panchayati Raj Institution (PRI),DIST-0199,ST-05,Rural Development Department (RDD),0.741,0.462
+AGENCY-0204,RAJ-District-29 - Water Supply & Sewerage Board,DIST-0294,ST-07,Public Works Department (PWD),2.051,0.47
+AGENCY-0205,WES-District-06 - Rural Development Department (RDD),DIST-0155,ST-04,Water Supply & Sewerage Board,1.933,0.467
+AGENCY-0206,BIH-District-16 - Public Works Department (PWD),DIST-0127,ST-03,Water Supply & Sewerage Board,0.725,0.552
+AGENCY-0207,JHA-District-16 - Municipal Corporation (MC),DIST-0498,ST-14,Water Supply & Sewerage Board,2.052,0.845
+AGENCY-0208,UTT-District-49 - Water Supply & Sewerage Board,DIST-0049,ST-01,Water Supply & Sewerage Board,1.847,0.6
+AGENCY-0209,GUJ-District-01 - Municipal Corporation (MC),DIST-0347,ST-09,Municipal Corporation (MC),1.688,0.733
+AGENCY-0210,UTT-District-67 - Water Supply & Sewerage Board,DIST-0067,ST-01,Municipal Corporation (MC),1.591,0.696
+AGENCY-0211,RAJ-District-26 - Municipal Corporation (MC),DIST-0291,ST-07,Rural Development Department (RDD),1.129,0.968
+AGENCY-0212,GUJ-District-21 - Rural Development Department (RDD),DIST-0367,ST-09,Rural Development Department (RDD),1.507,0.916
+AGENCY-0213,ODI-District-16 - Municipal Corporation (MC),DIST-0421,ST-11,Municipal Corporation (MC),0.729,0.606
+AGENCY-0214,TEL-District-14 - Municipal Corporation (MC),DIST-0449,ST-12,Rural Development Department (RDD),1.406,0.584
+AGENCY-0215,MAH-District-25 - Rural Development Department (RDD),DIST-0100,ST-02,Public Works Department (PWD),2.195,0.939
+AGENCY-0216,ODI-District-03 - Municipal Corporation (MC),DIST-0408,ST-11,Public Works Department (PWD),2.182,0.766
+AGENCY-0217,BIH-District-14 - Public Works Department (PWD),DIST-0125,ST-03,Water Supply & Sewerage Board,0.668,0.501
+AGENCY-0218,MAD-District-15 - Municipal Corporation (MC),DIST-0187,ST-05,Water Supply & Sewerage Board,0.881,0.584
+AGENCY-0219,PUN-District-21 - Public Works Department (PWD),DIST-0562,ST-16,Panchayati Raj Institution (PRI),2.199,0.864
+AGENCY-0220,KAR-District-16 - Water Supply & Sewerage Board,DIST-0331,ST-08,Panchayati Raj Institution (PRI),2.004,0.694
+AGENCY-0221,ODI-District-13 - Panchayati Raj Institution (PRI),DIST-0418,ST-11,Public Works Department (PWD),1.735,0.749
+AGENCY-0222,RAJ-District-36 - Panchayati Raj Institution (PRI),DIST-0301,ST-07,Water Supply & Sewerage Board,1.855,0.876
+AGENCY-0223,WES-District-22 - Panchayati Raj Institution (PRI),DIST-0171,ST-04,Rural Development Department (RDD),2.084,0.614
+AGENCY-0224,RAJ-District-43 - Public Works Department (PWD),DIST-0308,ST-07,Rural Development Department (RDD),1.391,0.446
+AGENCY-0225,MAH-District-29 - Panchayati Raj Institution (PRI),DIST-0104,ST-02,Municipal Corporation (MC),1.872,0.719
+AGENCY-0226,RAJ-District-34 - Water Supply & Sewerage Board,DIST-0299,ST-07,Municipal Corporation (MC),1.316,0.452
+AGENCY-0227,CHH-District-27 - Municipal Corporation (MC),DIST-0591,ST-17,Rural Development Department (RDD),1.652,0.635
+AGENCY-0228,MAD-District-30 - Municipal Corporation (MC),DIST-0202,ST-05,Municipal Corporation (MC),1.569,0.492
+AGENCY-0229,ODI-District-08 - Water Supply & Sewerage Board,DIST-0413,ST-11,Rural Development Department (RDD),1.205,0.878
+AGENCY-0230,RAJ-District-35 - Municipal Corporation (MC),DIST-0300,ST-07,Panchayati Raj Institution (PRI),1.675,0.692
+AGENCY-0231,AND-District-21 - Water Supply & Sewerage Board,DIST-0400,ST-10,Public Works Department (PWD),0.922,0.481
+AGENCY-0232,AND-District-08 - Public Works Department (PWD),DIST-0387,ST-10,Water Supply & Sewerage Board,1.86,0.467
+AGENCY-0233,MAD-District-26 - Water Supply & Sewerage Board,DIST-0198,ST-05,Public Works Department (PWD),0.799,0.556
+AGENCY-0234,CHH-District-14 - Rural Development Department (RDD),DIST-0578,ST-17,Municipal Corporation (MC),1.042,0.978
+AGENCY-0235,UTT-District-09 - Municipal Corporation (MC),DIST-0009,ST-01,Rural Development Department (RDD),0.938,0.688
+AGENCY-0236,ODI-District-20 - Rural Development Department (RDD),DIST-0425,ST-11,Public Works Department (PWD),1.241,0.92
+AGENCY-0237,GUJ-District-01 - Panchayati Raj Institution (PRI),DIST-0347,ST-09,Water Supply & Sewerage Board,1.741,0.525
+AGENCY-0238,TEL-District-23 - Panchayati Raj Institution (PRI),DIST-0458,ST-12,Water Supply & Sewerage Board,1.877,0.417
+AGENCY-0239,MAD-District-18 - Public Works Department (PWD),DIST-0190,ST-05,Municipal Corporation (MC),1.117,0.679
+AGENCY-0240,RAJ-District-20 - Rural Development Department (RDD),DIST-0285,ST-07,Water Supply & Sewerage Board,1.679,0.745
+AGENCY-0241,MAD-District-54 - Panchayati Raj Institution (PRI),DIST-0226,ST-05,Rural Development Department (RDD),0.67,0.896
+AGENCY-0242,MAH-District-34 - Panchayati Raj Institution (PRI),DIST-0109,ST-02,Public Works Department (PWD),1.382,0.759
+AGENCY-0243,AND-District-04 - Water Supply & Sewerage Board,DIST-0383,ST-10,Municipal Corporation (MC),0.624,0.709
+AGENCY-0244,RAJ-District-47 - Panchayati Raj Institution (PRI),DIST-0312,ST-07,Water Supply & Sewerage Board,1.793,0.537
+AGENCY-0245,UTT-District-60 - Panchayati Raj Institution (PRI),DIST-0060,ST-01,Public Works Department (PWD),1.885,0.902
+AGENCY-0246,ODI-District-24 - Rural Development Department (RDD),DIST-0429,ST-11,Water Supply & Sewerage Board,0.608,0.818
+AGENCY-0247,ODI-District-21 - Public Works Department (PWD),DIST-0426,ST-11,Panchayati Raj Institution (PRI),1.868,0.628
+AGENCY-0248,MAH-District-01 - Rural Development Department (RDD),DIST-0076,ST-02,Municipal Corporation (MC),0.662,0.509
+AGENCY-0249,ASS-District-15 - Municipal Corporation (MC),DIST-0521,ST-15,Panchayati Raj Institution (PRI),1.554,0.403
+AGENCY-0250,HAR-District-02 - Panchayati Raj Institution (PRI),DIST-0599,ST-18,Panchayati Raj Institution (PRI),1.608,0.926
+AGENCY-0251,TAM-District-08 - Municipal Corporation (MC),DIST-0235,ST-06,Panchayati Raj Institution (PRI),1.487,0.668
+AGENCY-0252,AND-District-24 - Public Works Department (PWD),DIST-0403,ST-10,Panchayati Raj Institution (PRI),2.016,0.871
+AGENCY-0253,JHA-District-09 - Municipal Corporation (MC),DIST-0491,ST-14,Water Supply & Sewerage Board,1.349,0.778
+AGENCY-0254,HAR-District-10 - Public Works Department (PWD),DIST-0607,ST-18,Water Supply & Sewerage Board,1.529,0.552
+AGENCY-0255,HAR-District-08 - Municipal Corporation (MC),DIST-0605,ST-18,Water Supply & Sewerage Board,1.538,0.951
+AGENCY-0256,ODI-District-13 - Municipal Corporation (MC),DIST-0418,ST-11,Municipal Corporation (MC),1.475,0.7
+AGENCY-0257,PUN-District-03 - Rural Development Department (RDD),DIST-0544,ST-16,Municipal Corporation (MC),0.768,0.431
+AGENCY-0258,PUN-District-03 - Water Supply & Sewerage Board,DIST-0544,ST-16,Rural Development Department (RDD),2.129,0.436
+AGENCY-0259,CHH-District-04 - Water Supply & Sewerage Board,DIST-0568,ST-17,Rural Development Department (RDD),2.042,0.452
+AGENCY-0260,JHA-District-08 - Panchayati Raj Institution (PRI),DIST-0490,ST-14,Public Works Department (PWD),2.008,0.7
+AGENCY-0261,MAD-District-40 - Public Works Department (PWD),DIST-0212,ST-05,Rural Development Department (RDD),1.439,0.465
+AGENCY-0262,UTT-District-47 - Municipal Corporation (MC),DIST-0047,ST-01,Rural Development Department (RDD),1.561,0.654
+AGENCY-0263,AND-District-04 - Panchayati Raj Institution (PRI),DIST-0383,ST-10,Rural Development Department (RDD),0.705,0.949
+AGENCY-0264,UTT-District-72 - Panchayati Raj Institution (PRI),DIST-0072,ST-01,Water Supply & Sewerage Board,1.201,0.973
+AGENCY-0265,RAJ-District-42 - Panchayati Raj Institution (PRI),DIST-0307,ST-07,Municipal Corporation (MC),0.753,0.753
+AGENCY-0266,MAD-District-44 - Panchayati Raj Institution (PRI),DIST-0216,ST-05,Panchayati Raj Institution (PRI),2.196,0.832
+AGENCY-0267,JHA-District-10 - Municipal Corporation (MC),DIST-0492,ST-14,Water Supply & Sewerage Board,1.404,0.617
+AGENCY-0268,WES-District-04 - Municipal Corporation (MC),DIST-0153,ST-04,Public Works Department (PWD),0.964,0.692
+AGENCY-0269,TEL-District-29 - Water Supply & Sewerage Board,DIST-0464,ST-12,Public Works Department (PWD),0.946,0.911
+AGENCY-0270,UTT-District-53 - Public Works Department (PWD),DIST-0053,ST-01,Public Works Department (PWD),1.196,0.785
+AGENCY-0271,JHA-District-21 - Water Supply & Sewerage Board,DIST-0503,ST-14,Water Supply & Sewerage Board,1.849,0.879
+AGENCY-0272,RAJ-District-29 - Rural Development Department (RDD),DIST-0294,ST-07,Rural Development Department (RDD),1.772,0.851
+AGENCY-0273,MAD-District-52 - Panchayati Raj Institution (PRI),DIST-0224,ST-05,Municipal Corporation (MC),1.784,0.534
+AGENCY-0274,BIH-District-01 - Rural Development Department (RDD),DIST-0112,ST-03,Water Supply & Sewerage Board,1.486,0.838
+AGENCY-0275,CHH-District-20 - Municipal Corporation (MC),DIST-0584,ST-17,Panchayati Raj Institution (PRI),2.079,0.904
+AGENCY-0276,ASS-District-34 - Rural Development Department (RDD),DIST-0540,ST-15,Panchayati Raj Institution (PRI),1.08,0.656
+AGENCY-0277,PUN-District-07 - Rural Development Department (RDD),DIST-0548,ST-16,Water Supply & Sewerage Board,1.118,0.569
+AGENCY-0278,TAM-District-22 - Municipal Corporation (MC),DIST-0249,ST-06,Public Works Department (PWD),0.81,0.807
+AGENCY-0279,HAR-District-22 - Panchayati Raj Institution (PRI),DIST-0619,ST-18,Panchayati Raj Institution (PRI),1.257,0.835
+AGENCY-0280,RAJ-District-12 - Panchayati Raj Institution (PRI),DIST-0277,ST-07,Rural Development Department (RDD),1.79,0.971
+AGENCY-0281,JHA-District-12 - Water Supply & Sewerage Board,DIST-0494,ST-14,Water Supply & Sewerage Board,0.707,0.852
+AGENCY-0282,PUN-District-16 - Municipal Corporation (MC),DIST-0557,ST-16,Municipal Corporation (MC),1.569,0.835
+AGENCY-0283,UTT-District-56 - Rural Development Department (RDD),DIST-0056,ST-01,Public Works Department (PWD),1.296,0.715
+AGENCY-0284,AND-District-07 - Panchayati Raj Institution (PRI),DIST-0386,ST-10,Water Supply & Sewerage Board,0.87,0.848
+AGENCY-0285,PUN-District-02 - Rural Development Department (RDD),DIST-0543,ST-16,Municipal Corporation (MC),1.317,0.713
+AGENCY-0286,ODI-District-24 - Public Works Department (PWD),DIST-0429,ST-11,Water Supply & Sewerage Board,1.451,0.53
+AGENCY-0287,BIH-District-10 - Rural Development Department (RDD),DIST-0121,ST-03,Water Supply & Sewerage Board,1.586,0.433
+AGENCY-0288,KAR-District-04 - Rural Development Department (RDD),DIST-0319,ST-08,Rural Development Department (RDD),1.044,0.817
+AGENCY-0289,ASS-District-26 - Public Works Department (PWD),DIST-0532,ST-15,Public Works Department (PWD),2.089,0.661
+AGENCY-0290,TEL-District-01 - Panchayati Raj Institution (PRI),DIST-0436,ST-12,Water Supply & Sewerage Board,1.181,0.821
+AGENCY-0291,GUJ-District-07 - Municipal Corporation (MC),DIST-0353,ST-09,Public Works Department (PWD),0.86,0.51
+AGENCY-0292,ASS-District-06 - Municipal Corporation (MC),DIST-0512,ST-15,Rural Development Department (RDD),0.702,0.894
+AGENCY-0293,PUN-District-11 - Rural Development Department (RDD),DIST-0552,ST-16,Water Supply & Sewerage Board,0.723,0.483
+AGENCY-0294,ODI-District-21 - Rural Development Department (RDD),DIST-0426,ST-11,Panchayati Raj Institution (PRI),1.813,0.692
+AGENCY-0295,UTT-District-71 - Water Supply & Sewerage Board,DIST-0071,ST-01,Panchayati Raj Institution (PRI),1.76,0.57
+AGENCY-0296,MAD-District-48 - Water Supply & Sewerage Board,DIST-0220,ST-05,Rural Development Department (RDD),1.154,0.713
+AGENCY-0297,AND-District-26 - Water Supply & Sewerage Board,DIST-0405,ST-10,Rural Development Department (RDD),2.176,0.653
+AGENCY-0298,ODI-District-18 - Water Supply & Sewerage Board,DIST-0423,ST-11,Water Supply & Sewerage Board,1.457,0.823
+AGENCY-0299,HAR-District-09 - Public Works Department (PWD),DIST-0606,ST-18,Panchayati Raj Institution (PRI),0.747,0.952
+AGENCY-0300,WES-District-20 - Panchayati Raj Institution (PRI),DIST-0169,ST-04,Rural Development Department (RDD),1.649,0.461
+AGENCY-0301,PUN-District-13 - Water Supply & Sewerage Board,DIST-0554,ST-16,Panchayati Raj Institution (PRI),0.913,0.499
+AGENCY-0302,ASS-District-26 - Municipal Corporation (MC),DIST-0532,ST-15,Municipal Corporation (MC),2.146,0.661
+AGENCY-0303,UTT-District-19 - Public Works Department (PWD),DIST-0019,ST-01,Panchayati Raj Institution (PRI),1.079,0.45
+AGENCY-0304,ODI-District-13 - Panchayati Raj Institution (PRI),DIST-0418,ST-11,Rural Development Department (RDD),1.599,0.722
+AGENCY-0305,MAD-District-42 - Public Works Department (PWD),DIST-0214,ST-05,Rural Development Department (RDD),1.339,0.579
+AGENCY-0306,CHH-District-12 - Rural Development Department (RDD),DIST-0576,ST-17,Municipal Corporation (MC),0.619,0.556
+AGENCY-0307,KER-District-09 - Municipal Corporation (MC),DIST-0477,ST-13,Panchayati Raj Institution (PRI),1.362,0.945
+AGENCY-0308,UTT-District-16 - Water Supply & Sewerage Board,DIST-0016,ST-01,Rural Development Department (RDD),1.423,0.649
+AGENCY-0309,TEL-District-31 - Public Works Department (PWD),DIST-0466,ST-12,Public Works Department (PWD),1.915,0.65
+AGENCY-0310,KAR-District-14 - Rural Development Department (RDD),DIST-0329,ST-08,Panchayati Raj Institution (PRI),1.807,0.703
+AGENCY-0311,GUJ-District-30 - Municipal Corporation (MC),DIST-0376,ST-09,Public Works Department (PWD),2.075,0.465
+AGENCY-0312,TAM-District-26 - Water Supply & Sewerage Board,DIST-0253,ST-06,Public Works Department (PWD),2.115,0.93
+AGENCY-0313,RAJ-District-09 - Municipal Corporation (MC),DIST-0274,ST-07,Panchayati Raj Institution (PRI),1.88,0.452
+AGENCY-0314,JHA-District-02 - Public Works Department (PWD),DIST-0484,ST-14,Municipal Corporation (MC),1.576,0.405
+AGENCY-0315,MAD-District-49 - Municipal Corporation (MC),DIST-0221,ST-05,Panchayati Raj Institution (PRI),2.161,0.898
+AGENCY-0316,UTT-District-73 - Rural Development Department (RDD),DIST-0073,ST-01,Panchayati Raj Institution (PRI),0.874,0.553
+AGENCY-0317,KAR-District-12 - Panchayati Raj Institution (PRI),DIST-0327,ST-08,Water Supply & Sewerage Board,2.196,0.541
+AGENCY-0318,UTT-District-63 - Rural Development Department (RDD),DIST-0063,ST-01,Rural Development Department (RDD),1.313,0.452
+AGENCY-0319,TAM-District-11 - Water Supply & Sewerage Board,DIST-0238,ST-06,Public Works Department (PWD),1.28,0.537
+AGENCY-0320,MAH-District-26 - Water Supply & Sewerage Board,DIST-0101,ST-02,Water Supply & Sewerage Board,1.458,0.651
+AGENCY-0321,TEL-District-31 - Public Works Department (PWD),DIST-0466,ST-12,Water Supply & Sewerage Board,0.866,0.915
+AGENCY-0322,KAR-District-21 - Public Works Department (PWD),DIST-0336,ST-08,Municipal Corporation (MC),0.822,0.871
+AGENCY-0323,CHH-District-08 - Panchayati Raj Institution (PRI),DIST-0572,ST-17,Public Works Department (PWD),1.904,0.739
+AGENCY-0324,BIH-District-31 - Public Works Department (PWD),DIST-0142,ST-03,Panchayati Raj Institution (PRI),0.762,0.713
+AGENCY-0325,KER-District-12 - Rural Development Department (RDD),DIST-0480,ST-13,Rural Development Department (RDD),1.815,0.895
+AGENCY-0326,UTT-District-64 - Panchayati Raj Institution (PRI),DIST-0064,ST-01,Panchayati Raj Institution (PRI),2.067,0.8
+AGENCY-0327,KER-District-02 - Rural Development Department (RDD),DIST-0470,ST-13,Rural Development Department (RDD),1.341,0.533
+AGENCY-0328,ASS-District-11 - Panchayati Raj Institution (PRI),DIST-0517,ST-15,Water Supply & Sewerage Board,1.892,0.754
+AGENCY-0329,WES-District-04 - Water Supply & Sewerage Board,DIST-0153,ST-04,Municipal Corporation (MC),0.776,0.401
+AGENCY-0330,MAD-District-30 - Municipal Corporation (MC),DIST-0202,ST-05,Water Supply & Sewerage Board,2.09,0.712
+AGENCY-0331,KAR-District-21 - Public Works Department (PWD),DIST-0336,ST-08,Rural Development Department (RDD),1.718,0.807
+AGENCY-0332,ODI-District-23 - Public Works Department (PWD),DIST-0428,ST-11,Water Supply & Sewerage Board,0.94,0.548
+AGENCY-0333,ODI-District-25 - Public Works Department (PWD),DIST-0430,ST-11,Public Works Department (PWD),1.604,0.824
+AGENCY-0334,BIH-District-33 - Rural Development Department (RDD),DIST-0144,ST-03,Panchayati Raj Institution (PRI),1.819,0.638
+AGENCY-0335,JHA-District-09 - Panchayati Raj Institution (PRI),DIST-0491,ST-14,Public Works Department (PWD),1.048,0.496
+AGENCY-0336,WES-District-18 - Water Supply & Sewerage Board,DIST-0167,ST-04,Public Works Department (PWD),0.725,0.698
+AGENCY-0337,ASS-District-01 - Rural Development Department (RDD),DIST-0507,ST-15,Rural Development Department (RDD),0.651,0.587
+AGENCY-0338,TAM-District-10 - Public Works Department (PWD),DIST-0237,ST-06,Water Supply & Sewerage Board,1.122,0.637
+AGENCY-0339,BIH-District-27 - Panchayati Raj Institution (PRI),DIST-0138,ST-03,Panchayati Raj Institution (PRI),1.432,0.615
+AGENCY-0340,MAH-District-15 - Panchayati Raj Institution (PRI),DIST-0090,ST-02,Panchayati Raj Institution (PRI),2.143,0.439
+AGENCY-0341,TAM-District-32 - Rural Development Department (RDD),DIST-0259,ST-06,Panchayati Raj Institution (PRI),0.91,0.618
+AGENCY-0342,ASS-District-18 - Panchayati Raj Institution (PRI),DIST-0524,ST-15,Water Supply & Sewerage Board,2.164,0.686
+AGENCY-0343,KER-District-03 - Water Supply & Sewerage Board,DIST-0471,ST-13,Rural Development Department (RDD),1.867,0.529
+AGENCY-0344,TEL-District-32 - Panchayati Raj Institution (PRI),DIST-0467,ST-12,Panchayati Raj Institution (PRI),1.246,0.723
+AGENCY-0345,ASS-District-19 - Public Works Department (PWD),DIST-0525,ST-15,Public Works Department (PWD),0.69,0.972
+AGENCY-0346,HAR-District-22 - Public Works Department (PWD),DIST-0619,ST-18,Water Supply & Sewerage Board,1.407,0.617
+AGENCY-0347,MAD-District-36 - Panchayati Raj Institution (PRI),DIST-0208,ST-05,Public Works Department (PWD),0.915,0.686
+AGENCY-0348,KAR-District-24 - Panchayati Raj Institution (PRI),DIST-0339,ST-08,Water Supply & Sewerage Board,1.099,0.945
+AGENCY-0349,JHA-District-13 - Water Supply & Sewerage Board,DIST-0495,ST-14,Rural Development Department (RDD),1.13,0.951
+AGENCY-0350,PUN-District-09 - Water Supply & Sewerage Board,DIST-0550,ST-16,Rural Development Department (RDD),1.232,0.889
+AGENCY-0351,MAD-District-25 - Panchayati Raj Institution (PRI),DIST-0197,ST-05,Public Works Department (PWD),1.071,0.708
+AGENCY-0352,WES-District-19 - Water Supply & Sewerage Board,DIST-0168,ST-04,Municipal Corporation (MC),1.384,0.958
+AGENCY-0353,GUJ-District-04 - Municipal Corporation (MC),DIST-0350,ST-09,Public Works Department (PWD),1.848,0.474
+AGENCY-0354,MAH-District-12 - Municipal Corporation (MC),DIST-0087,ST-02,Panchayati Raj Institution (PRI),1.023,0.715
+AGENCY-0355,KAR-District-22 - Panchayati Raj Institution (PRI),DIST-0337,ST-08,Water Supply & Sewerage Board,1.355,0.404
+AGENCY-0356,TAM-District-30 - Public Works Department (PWD),DIST-0257,ST-06,Rural Development Department (RDD),1.685,0.633
+AGENCY-0357,AND-District-13 - Water Supply & Sewerage Board,DIST-0392,ST-10,Rural Development Department (RDD),1.746,0.576
+AGENCY-0358,ODI-District-27 - Public Works Department (PWD),DIST-0432,ST-11,Rural Development Department (RDD),1.463,0.96
+AGENCY-0359,TAM-District-27 - Municipal Corporation (MC),DIST-0254,ST-06,Panchayati Raj Institution (PRI),0.933,0.883
+AGENCY-0360,MAH-District-34 - Rural Development Department (RDD),DIST-0109,ST-02,Rural Development Department (RDD),1.12,0.928
+AGENCY-0361,CHH-District-30 - Public Works Department (PWD),DIST-0594,ST-17,Water Supply & Sewerage Board,1.982,0.423
+AGENCY-0362,MAD-District-36 - Water Supply & Sewerage Board,DIST-0208,ST-05,Panchayati Raj Institution (PRI),1.135,0.684
+AGENCY-0363,TEL-District-12 - Municipal Corporation (MC),DIST-0447,ST-12,Municipal Corporation (MC),2.11,0.852
+AGENCY-0364,RAJ-District-26 - Panchayati Raj Institution (PRI),DIST-0291,ST-07,Rural Development Department (RDD),0.897,0.646
+AGENCY-0365,AND-District-21 - Water Supply & Sewerage Board,DIST-0400,ST-10,Municipal Corporation (MC),1.571,0.854
+AGENCY-0366,JHA-District-18 - Panchayati Raj Institution (PRI),DIST-0500,ST-14,Public Works Department (PWD),1.788,0.454
+AGENCY-0367,TAM-District-09 - Municipal Corporation (MC),DIST-0236,ST-06,Water Supply & Sewerage Board,2.117,0.911
+AGENCY-0368,MAH-District-05 - Water Supply & Sewerage Board,DIST-0080,ST-02,Water Supply & Sewerage Board,1.397,0.876
+AGENCY-0369,KAR-District-02 - Rural Development Department (RDD),DIST-0317,ST-08,Rural Development Department (RDD),1.96,0.517
+AGENCY-0370,CHH-District-28 - Water Supply & Sewerage Board,DIST-0592,ST-17,Rural Development Department (RDD),1.949,0.686
+AGENCY-0371,KAR-District-20 - Water Supply & Sewerage Board,DIST-0335,ST-08,Municipal Corporation (MC),2.083,0.643
+AGENCY-0372,TAM-District-14 - Rural Development Department (RDD),DIST-0241,ST-06,Rural Development Department (RDD),1.544,0.754
+AGENCY-0373,UTT-District-57 - Public Works Department (PWD),DIST-0057,ST-01,Municipal Corporation (MC),0.659,0.416
+AGENCY-0374,TAM-District-27 - Water Supply & Sewerage Board,DIST-0254,ST-06,Rural Development Department (RDD),0.781,0.443
+AGENCY-0375,ODI-District-26 - Public Works Department (PWD),DIST-0431,ST-11,Public Works Department (PWD),1.891,0.819
+AGENCY-0376,BIH-District-16 - Municipal Corporation (MC),DIST-0127,ST-03,Rural Development Department (RDD),1.974,0.593
+AGENCY-0377,AND-District-18 - Public Works Department (PWD),DIST-0397,ST-10,Rural Development Department (RDD),1.281,0.974
+AGENCY-0378,UTT-District-39 - Panchayati Raj Institution (PRI),DIST-0039,ST-01,Public Works Department (PWD),1.895,0.503
+AGENCY-0379,KAR-District-24 - Water Supply & Sewerage Board,DIST-0339,ST-08,Panchayati Raj Institution (PRI),1.626,0.973
+AGENCY-0380,UTT-District-28 - Public Works Department (PWD),DIST-0028,ST-01,Water Supply & Sewerage Board,2.049,0.821
+AGENCY-0381,RAJ-District-15 - Municipal Corporation (MC),DIST-0280,ST-07,Municipal Corporation (MC),1.011,0.509
+AGENCY-0382,RAJ-District-32 - Rural Development Department (RDD),DIST-0297,ST-07,Municipal Corporation (MC),1.894,0.818
+AGENCY-0383,WES-District-09 - Water Supply & Sewerage Board,DIST-0158,ST-04,Water Supply & Sewerage Board,0.874,0.58
+AGENCY-0384,KER-District-09 - Municipal Corporation (MC),DIST-0477,ST-13,Panchayati Raj Institution (PRI),0.833,0.622
+AGENCY-0385,MAH-District-27 - Panchayati Raj Institution (PRI),DIST-0102,ST-02,Public Works Department (PWD),0.726,0.581
+AGENCY-0386,RAJ-District-39 - Water Supply & Sewerage Board,DIST-0304,ST-07,Municipal Corporation (MC),1.506,0.727
+AGENCY-0387,UTT-District-35 - Water Supply & Sewerage Board,DIST-0035,ST-01,Panchayati Raj Institution (PRI),1.409,0.41
+AGENCY-0388,TAM-District-20 - Public Works Department (PWD),DIST-0247,ST-06,Water Supply & Sewerage Board,2.149,0.637
+AGENCY-0389,KAR-District-02 - Water Supply & Sewerage Board,DIST-0317,ST-08,Panchayati Raj Institution (PRI),2.171,0.852
+AGENCY-0390,ODI-District-27 - Municipal Corporation (MC),DIST-0432,ST-11,Public Works Department (PWD),2.037,0.737
+AGENCY-0391,RAJ-District-48 - Public Works Department (PWD),DIST-0313,ST-07,Municipal Corporation (MC),1.86,0.636
+AGENCY-0392,MAD-District-52 - Water Supply & Sewerage Board,DIST-0224,ST-05,Rural Development Department (RDD),1.539,0.529
+AGENCY-0393,HAR-District-15 - Public Works Department (PWD),DIST-0612,ST-18,Municipal Corporation (MC),1.115,0.735
+AGENCY-0394,JHA-District-24 - Public Works Department (PWD),DIST-0506,ST-14,Public Works Department (PWD),2.135,0.455
+AGENCY-0395,JHA-District-18 - Panchayati Raj Institution (PRI),DIST-0500,ST-14,Municipal Corporation (MC),1.977,0.464
+AGENCY-0396,KAR-District-22 - Rural Development Department (RDD),DIST-0337,ST-08,Municipal Corporation (MC),1.939,0.686
+AGENCY-0397,TAM-District-16 - Public Works Department (PWD),DIST-0243,ST-06,Public Works Department (PWD),1.01,0.671
+AGENCY-0398,MAH-District-11 - Public Works Department (PWD),DIST-0086,ST-02,Public Works Department (PWD),0.641,0.853
+AGENCY-0399,AND-District-12 - Municipal Corporation (MC),DIST-0391,ST-10,Municipal Corporation (MC),1.985,0.491
+AGENCY-0400,UTT-District-72 - Municipal Corporation (MC),DIST-0072,ST-01,Municipal Corporation (MC),1.425,0.476
+AGENCY-0401,JHA-District-02 - Rural Development Department (RDD),DIST-0484,ST-14,Public Works Department (PWD),1.569,0.689
+AGENCY-0402,CHH-District-12 - Water Supply & Sewerage Board,DIST-0576,ST-17,Municipal Corporation (MC),1.758,0.97
+AGENCY-0403,ASS-District-11 - Public Works Department (PWD),DIST-0517,ST-15,Municipal Corporation (MC),0.748,0.445
+AGENCY-0404,KAR-District-01 - Water Supply & Sewerage Board,DIST-0316,ST-08,Public Works Department (PWD),2.079,0.469
+AGENCY-0405,MAD-District-52 - Public Works Department (PWD),DIST-0224,ST-05,Public Works Department (PWD),1.837,0.892
+AGENCY-0406,CHH-District-05 - Water Supply & Sewerage Board,DIST-0569,ST-17,Public Works Department (PWD),1.211,0.775
+AGENCY-0407,UTT-District-62 - Rural Development Department (RDD),DIST-0062,ST-01,Water Supply & Sewerage Board,0.982,0.748
+AGENCY-0408,MAD-District-12 - Public Works Department (PWD),DIST-0184,ST-05,Panchayati Raj Institution (PRI),0.804,0.98
+AGENCY-0409,TEL-District-28 - Municipal Corporation (MC),DIST-0463,ST-12,Public Works Department (PWD),1.697,0.851
+AGENCY-0410,AND-District-23 - Rural Development Department (RDD),DIST-0402,ST-10,Municipal Corporation (MC),1.554,0.766
+AGENCY-0411,WES-District-09 - Panchayati Raj Institution (PRI),DIST-0158,ST-04,Municipal Corporation (MC),1.528,0.501
+AGENCY-0412,RAJ-District-15 - Water Supply & Sewerage Board,DIST-0280,ST-07,Water Supply & Sewerage Board,1.504,0.934
+AGENCY-0413,MAH-District-29 - Panchayati Raj Institution (PRI),DIST-0104,ST-02,Water Supply & Sewerage Board,0.869,0.538
+AGENCY-0414,KAR-District-26 - Municipal Corporation (MC),DIST-0341,ST-08,Water Supply & Sewerage Board,1.769,0.703
+AGENCY-0415,MAD-District-37 - Public Works Department (PWD),DIST-0209,ST-05,Rural Development Department (RDD),1.258,0.801
+AGENCY-0416,RAJ-District-21 - Municipal Corporation (MC),DIST-0286,ST-07,Panchayati Raj Institution (PRI),0.768,0.605
+AGENCY-0417,TAM-District-02 - Municipal Corporation (MC),DIST-0229,ST-06,Municipal Corporation (MC),1.816,0.91
+AGENCY-0418,CHH-District-26 - Water Supply & Sewerage Board,DIST-0590,ST-17,Public Works Department (PWD),2.008,0.552
+AGENCY-0419,KAR-District-13 - Municipal Corporation (MC),DIST-0328,ST-08,Panchayati Raj Institution (PRI),1.463,0.846
+AGENCY-0420,TAM-District-23 - Municipal Corporation (MC),DIST-0250,ST-06,Public Works Department (PWD),2.017,0.917
+AGENCY-0421,MAD-District-05 - Water Supply & Sewerage Board,DIST-0177,ST-05,Water Supply & Sewerage Board,1.332,0.973
+AGENCY-0422,PUN-District-12 - Municipal Corporation (MC),DIST-0553,ST-16,Municipal Corporation (MC),1.292,0.889
+AGENCY-0423,AND-District-26 - Rural Development Department (RDD),DIST-0405,ST-10,Municipal Corporation (MC),1.537,0.978
+AGENCY-0424,ASS-District-16 - Rural Development Department (RDD),DIST-0522,ST-15,Public Works Department (PWD),1.114,0.666
+AGENCY-0425,AND-District-19 - Panchayati Raj Institution (PRI),DIST-0398,ST-10,Rural Development Department (RDD),1.135,0.619
+AGENCY-0426,MAD-District-08 - Public Works Department (PWD),DIST-0180,ST-05,Rural Development Department (RDD),1.76,0.58
+AGENCY-0427,UTT-District-25 - Municipal Corporation (MC),DIST-0025,ST-01,Public Works Department (PWD),0.73,0.514
+AGENCY-0428,ASS-District-27 - Public Works Department (PWD),DIST-0533,ST-15,Public Works Department (PWD),1.509,0.629
+AGENCY-0429,CHH-District-22 - Panchayati Raj Institution (PRI),DIST-0586,ST-17,Panchayati Raj Institution (PRI),0.781,0.807
+AGENCY-0430,WES-District-01 - Water Supply & Sewerage Board,DIST-0150,ST-04,Rural Development Department (RDD),0.844,0.765
+AGENCY-0431,MAH-District-06 - Rural Development Department (RDD),DIST-0081,ST-02,Public Works Department (PWD),0.802,0.789
+AGENCY-0432,ASS-District-16 - Municipal Corporation (MC),DIST-0522,ST-15,Panchayati Raj Institution (PRI),1.917,0.461
+AGENCY-0433,BIH-District-24 - Municipal Corporation (MC),DIST-0135,ST-03,Rural Development Department (RDD),1.782,0.756
+AGENCY-0434,UTT-District-46 - Municipal Corporation (MC),DIST-0046,ST-01,Water Supply & Sewerage Board,1.634,0.907
+AGENCY-0435,ODI-District-20 - Water Supply & Sewerage Board,DIST-0425,ST-11,Panchayati Raj Institution (PRI),1.242,0.844
+AGENCY-0436,ODI-District-17 - Rural Development Department (RDD),DIST-0422,ST-11,Water Supply & Sewerage Board,1.048,0.679
+AGENCY-0437,KER-District-03 - Rural Development Department (RDD),DIST-0471,ST-13,Municipal Corporation (MC),1.604,0.45
+AGENCY-0438,CHH-District-17 - Panchayati Raj Institution (PRI),DIST-0581,ST-17,Public Works Department (PWD),2.195,0.671
+AGENCY-0439,JHA-District-21 - Rural Development Department (RDD),DIST-0503,ST-14,Public Works Department (PWD),1.186,0.684
+AGENCY-0440,AND-District-12 - Public Works Department (PWD),DIST-0391,ST-10,Rural Development Department (RDD),1.462,0.641
+AGENCY-0441,ASS-District-29 - Municipal Corporation (MC),DIST-0535,ST-15,Rural Development Department (RDD),0.645,0.701
+AGENCY-0442,RAJ-District-15 - Panchayati Raj Institution (PRI),DIST-0280,ST-07,Public Works Department (PWD),1.654,0.638
+AGENCY-0443,MAD-District-43 - Panchayati Raj Institution (PRI),DIST-0215,ST-05,Panchayati Raj Institution (PRI),2.016,0.611
+AGENCY-0444,KER-District-04 - Rural Development Department (RDD),DIST-0472,ST-13,Public Works Department (PWD),1.173,0.655
+AGENCY-0445,ASS-District-30 - Rural Development Department (RDD),DIST-0536,ST-15,Water Supply & Sewerage Board,1.547,0.942
+AGENCY-0446,RAJ-District-32 - Panchayati Raj Institution (PRI),DIST-0297,ST-07,Water Supply & Sewerage Board,0.669,0.514
+AGENCY-0447,RAJ-District-32 - Rural Development Department (RDD),DIST-0297,ST-07,Panchayati Raj Institution (PRI),0.899,0.663
+AGENCY-0448,UTT-District-27 - Rural Development Department (RDD),DIST-0027,ST-01,Municipal Corporation (MC),1.36,0.775
+AGENCY-0449,UTT-District-13 - Municipal Corporation (MC),DIST-0013,ST-01,Rural Development Department (RDD),1.842,0.485
+AGENCY-0450,UTT-District-21 - Public Works Department (PWD),DIST-0021,ST-01,Water Supply & Sewerage Board,2.075,0.636
+AGENCY-0451,CHH-District-15 - Municipal Corporation (MC),DIST-0579,ST-17,Panchayati Raj Institution (PRI),1.962,0.708
+AGENCY-0452,KAR-District-06 - Public Works Department (PWD),DIST-0321,ST-08,Municipal Corporation (MC),0.81,0.853
+AGENCY-0453,UTT-District-72 - Rural Development Department (RDD),DIST-0072,ST-01,Municipal Corporation (MC),1.08,0.494
+AGENCY-0454,TAM-District-04 - Public Works Department (PWD),DIST-0231,ST-06,Water Supply & Sewerage Board,2.017,0.708
+AGENCY-0455,TEL-District-24 - Municipal Corporation (MC),DIST-0459,ST-12,Municipal Corporation (MC),1.053,0.74
+AGENCY-0456,ASS-District-35 - Panchayati Raj Institution (PRI),DIST-0541,ST-15,Panchayati Raj Institution (PRI),1.38,0.891
+AGENCY-0457,UTT-District-55 - Panchayati Raj Institution (PRI),DIST-0055,ST-01,Public Works Department (PWD),1.363,0.906
+AGENCY-0458,GUJ-District-20 - Municipal Corporation (MC),DIST-0366,ST-09,Water Supply & Sewerage Board,0.874,0.892
+AGENCY-0459,RAJ-District-41 - Public Works Department (PWD),DIST-0306,ST-07,Public Works Department (PWD),1.043,0.472
+AGENCY-0460,UTT-District-21 - Panchayati Raj Institution (PRI),DIST-0021,ST-01,Rural Development Department (RDD),1.923,0.668
+AGENCY-0461,AND-District-11 - Public Works Department (PWD),DIST-0390,ST-10,Water Supply & Sewerage Board,1.553,0.751
+AGENCY-0462,AND-District-09 - Public Works Department (PWD),DIST-0388,ST-10,Municipal Corporation (MC),1.523,0.818
+AGENCY-0463,BIH-District-07 - Municipal Corporation (MC),DIST-0118,ST-03,Rural Development Department (RDD),1.374,0.607
+AGENCY-0464,UTT-District-26 - Panchayati Raj Institution (PRI),DIST-0026,ST-01,Rural Development Department (RDD),0.825,0.586
+AGENCY-0465,BIH-District-27 - Public Works Department (PWD),DIST-0138,ST-03,Water Supply & Sewerage Board,1.888,0.459
+AGENCY-0466,KAR-District-29 - Public Works Department (PWD),DIST-0344,ST-08,Rural Development Department (RDD),1.044,0.878
+AGENCY-0467,RAJ-District-41 - Rural Development Department (RDD),DIST-0306,ST-07,Panchayati Raj Institution (PRI),1.964,0.463
+AGENCY-0468,MAH-District-17 - Water Supply & Sewerage Board,DIST-0092,ST-02,Water Supply & Sewerage Board,1.771,0.945
+AGENCY-0469,KER-District-07 - Panchayati Raj Institution (PRI),DIST-0475,ST-13,Panchayati Raj Institution (PRI),0.838,0.688
+AGENCY-0470,BIH-District-06 - Water Supply & Sewerage Board,DIST-0117,ST-03,Rural Development Department (RDD),1.382,0.825
+AGENCY-0471,ASS-District-27 - Public Works Department (PWD),DIST-0533,ST-15,Rural Development Department (RDD),0.969,0.74
+AGENCY-0472,ASS-District-29 - Panchayati Raj Institution (PRI),DIST-0535,ST-15,Panchayati Raj Institution (PRI),1.818,0.709
+AGENCY-0473,MAH-District-25 - Panchayati Raj Institution (PRI),DIST-0100,ST-02,Panchayati Raj Institution (PRI),0.903,0.54
+AGENCY-0474,UTT-District-65 - Municipal Corporation (MC),DIST-0065,ST-01,Municipal Corporation (MC),0.884,0.871
+AGENCY-0475,ASS-District-22 - Water Supply & Sewerage Board,DIST-0528,ST-15,Municipal Corporation (MC),1.904,0.737
+AGENCY-0476,AND-District-15 - Rural Development Department (RDD),DIST-0394,ST-10,Water Supply & Sewerage Board,1.368,0.529
+AGENCY-0477,KER-District-10 - Rural Development Department (RDD),DIST-0478,ST-13,Panchayati Raj Institution (PRI),1.332,0.693
+AGENCY-0478,RAJ-District-21 - Water Supply & Sewerage Board,DIST-0286,ST-07,Rural Development Department (RDD),1.056,0.958
+AGENCY-0479,TAM-District-28 - Rural Development Department (RDD),DIST-0255,ST-06,Rural Development Department (RDD),0.618,0.893
+AGENCY-0480,WES-District-09 - Water Supply & Sewerage Board,DIST-0158,ST-04,Water Supply & Sewerage Board,1.252,0.715
+AGENCY-0481,ODI-District-18 - Public Works Department (PWD),DIST-0423,ST-11,Water Supply & Sewerage Board,2.017,0.459
+AGENCY-0482,GUJ-District-17 - Water Supply & Sewerage Board,DIST-0363,ST-09,Water Supply & Sewerage Board,0.652,0.463
+AGENCY-0483,AND-District-04 - Municipal Corporation (MC),DIST-0383,ST-10,Public Works Department (PWD),2.118,0.647
+AGENCY-0484,UTT-District-26 - Municipal Corporation (MC),DIST-0026,ST-01,Water Supply & Sewerage Board,1.869,0.68
+AGENCY-0485,UTT-District-02 - Public Works Department (PWD),DIST-0002,ST-01,Water Supply & Sewerage Board,1.433,0.858
+AGENCY-0486,MAD-District-23 - Municipal Corporation (MC),DIST-0195,ST-05,Rural Development Department (RDD),2.117,0.687
+AGENCY-0487,KAR-District-08 - Water Supply & Sewerage Board,DIST-0323,ST-08,Water Supply & Sewerage Board,0.658,0.781
+AGENCY-0488,ASS-District-08 - Water Supply & Sewerage Board,DIST-0514,ST-15,Rural Development Department (RDD),1.376,0.674
+AGENCY-0489,PUN-District-16 - Municipal Corporation (MC),DIST-0557,ST-16,Water Supply & Sewerage Board,1.136,0.944
+AGENCY-0490,TAM-District-25 - Rural Development Department (RDD),DIST-0252,ST-06,Rural Development Department (RDD),1.835,0.635
+AGENCY-0491,UTT-District-47 - Municipal Corporation (MC),DIST-0047,ST-01,Rural Development Department (RDD),1.113,0.969
+AGENCY-0492,ASS-District-12 - Panchayati Raj Institution (PRI),DIST-0518,ST-15,Rural Development Department (RDD),1.15,0.64
+AGENCY-0493,HAR-District-17 - Water Supply & Sewerage Board,DIST-0614,ST-18,Rural Development Department (RDD),1.289,0.436
+AGENCY-0494,JHA-District-19 - Public Works Department (PWD),DIST-0501,ST-14,Panchayati Raj Institution (PRI),1.794,0.653
+AGENCY-0495,RAJ-District-16 - Panchayati Raj Institution (PRI),DIST-0281,ST-07,Panchayati Raj Institution (PRI),1.313,0.706
+AGENCY-0496,TEL-District-17 - Municipal Corporation (MC),DIST-0452,ST-12,Public Works Department (PWD),1.941,0.523
+AGENCY-0497,JHA-District-16 - Municipal Corporation (MC),DIST-0498,ST-14,Panchayati Raj Institution (PRI),1.93,0.946
+AGENCY-0498,ODI-District-27 - Panchayati Raj Institution (PRI),DIST-0432,ST-11,Panchayati Raj Institution (PRI),1.823,0.975
+AGENCY-0499,RAJ-District-41 - Rural Development Department (RDD),DIST-0306,ST-07,Panchayati Raj Institution (PRI),0.864,0.884
+AGENCY-0500,ODI-District-14 - Municipal Corporation (MC),DIST-0419,ST-11,Public Works Department (PWD),1.118,0.721
+AGENCY-0501,MAH-District-15 - Municipal Corporation (MC),DIST-0090,ST-02,Municipal Corporation (MC),1.849,0.49
+AGENCY-0502,RAJ-District-28 - Rural Development Department (RDD),DIST-0293,ST-07,Municipal Corporation (MC),0.786,0.689
+AGENCY-0503,TEL-District-26 - Water Supply & Sewerage Board,DIST-0461,ST-12,Panchayati Raj Institution (PRI),1.143,0.862
+AGENCY-0504,ASS-District-11 - Public Works Department (PWD),DIST-0517,ST-15,Panchayati Raj Institution (PRI),1.634,0.694
+AGENCY-0505,KER-District-14 - Panchayati Raj Institution (PRI),DIST-0482,ST-13,Water Supply & Sewerage Board,0.924,0.864
+AGENCY-0506,GUJ-District-21 - Public Works Department (PWD),DIST-0367,ST-09,Public Works Department (PWD),0.652,0.721
+AGENCY-0507,HAR-District-17 - Rural Development Department (RDD),DIST-0614,ST-18,Public Works Department (PWD),1.253,0.486
+AGENCY-0508,GUJ-District-09 - Public Works Department (PWD),DIST-0355,ST-09,Municipal Corporation (MC),0.613,0.817
+AGENCY-0509,UTT-District-38 - Public Works Department (PWD),DIST-0038,ST-01,Panchayati Raj Institution (PRI),0.673,0.945
+AGENCY-0510,AND-District-22 - Municipal Corporation (MC),DIST-0401,ST-10,Rural Development Department (RDD),1.302,0.684
+AGENCY-0511,WES-District-15 - Panchayati Raj Institution (PRI),DIST-0164,ST-04,Panchayati Raj Institution (PRI),1.972,0.742
+AGENCY-0512,PUN-District-09 - Water Supply & Sewerage Board,DIST-0550,ST-16,Water Supply & Sewerage Board,2.182,0.719
+AGENCY-0513,TEL-District-15 - Panchayati Raj Institution (PRI),DIST-0450,ST-12,Municipal Corporation (MC),1.781,0.838
+AGENCY-0514,KER-District-02 - Public Works Department (PWD),DIST-0470,ST-13,Municipal Corporation (MC),0.964,0.557
+AGENCY-0515,MAH-District-04 - Water Supply & Sewerage Board,DIST-0079,ST-02,Water Supply & Sewerage Board,1.756,0.483
+AGENCY-0516,GUJ-District-06 - Panchayati Raj Institution (PRI),DIST-0352,ST-09,Rural Development Department (RDD),1.928,0.932
+AGENCY-0517,WES-District-02 - Municipal Corporation (MC),DIST-0151,ST-04,Public Works Department (PWD),1.267,0.953
+AGENCY-0518,PUN-District-21 - Municipal Corporation (MC),DIST-0562,ST-16,Rural Development Department (RDD),1.172,0.522
+AGENCY-0519,ASS-District-32 - Panchayati Raj Institution (PRI),DIST-0538,ST-15,Municipal Corporation (MC),0.82,0.887
+AGENCY-0520,RAJ-District-45 - Municipal Corporation (MC),DIST-0310,ST-07,Municipal Corporation (MC),1.398,0.864
+AGENCY-0521,MAD-District-17 - Public Works Department (PWD),DIST-0189,ST-05,Water Supply & Sewerage Board,1.163,0.858
+AGENCY-0522,RAJ-District-13 - Public Works Department (PWD),DIST-0278,ST-07,Panchayati Raj Institution (PRI),1.698,0.489
+AGENCY-0523,PUN-District-19 - Water Supply & Sewerage Board,DIST-0560,ST-16,Municipal Corporation (MC),1.758,0.831
+AGENCY-0524,HAR-District-03 - Rural Development Department (RDD),DIST-0600,ST-18,Public Works Department (PWD),1.923,0.601
+AGENCY-0525,TEL-District-23 - Water Supply & Sewerage Board,DIST-0458,ST-12,Rural Development Department (RDD),2.021,0.76
+AGENCY-0526,KAR-District-24 - Panchayati Raj Institution (PRI),DIST-0339,ST-08,Water Supply & Sewerage Board,0.818,0.87
+AGENCY-0527,PUN-District-04 - Public Works Department (PWD),DIST-0545,ST-16,Panchayati Raj Institution (PRI),0.668,0.964
+AGENCY-0528,BIH-District-20 - Municipal Corporation (MC),DIST-0131,ST-03,Public Works Department (PWD),2.078,0.943
+AGENCY-0529,BIH-District-22 - Water Supply & Sewerage Board,DIST-0133,ST-03,Water Supply & Sewerage Board,0.803,0.508
+AGENCY-0530,KAR-District-08 - Municipal Corporation (MC),DIST-0323,ST-08,Public Works Department (PWD),0.944,0.667
+AGENCY-0531,CHH-District-02 - Panchayati Raj Institution (PRI),DIST-0566,ST-17,Public Works Department (PWD),1.365,0.773
+AGENCY-0532,PUN-District-16 - Public Works Department (PWD),DIST-0557,ST-16,Public Works Department (PWD),1.624,0.664
+AGENCY-0533,AND-District-19 - Municipal Corporation (MC),DIST-0398,ST-10,Water Supply & Sewerage Board,0.816,0.43
+AGENCY-0534,RAJ-District-01 - Panchayati Raj Institution (PRI),DIST-0266,ST-07,Rural Development Department (RDD),1.027,0.958
+AGENCY-0535,KAR-District-15 - Water Supply & Sewerage Board,DIST-0330,ST-08,Rural Development Department (RDD),1.032,0.87
+AGENCY-0536,ODI-District-03 - Water Supply & Sewerage Board,DIST-0408,ST-11,Public Works Department (PWD),0.63,0.606
+AGENCY-0537,KAR-District-17 - Public Works Department (PWD),DIST-0332,ST-08,Rural Development Department (RDD),1.418,0.796
+AGENCY-0538,GUJ-District-20 - Rural Development Department (RDD),DIST-0366,ST-09,Rural Development Department (RDD),1.816,0.543
+AGENCY-0539,KAR-District-18 - Public Works Department (PWD),DIST-0333,ST-08,Public Works Department (PWD),1.889,0.421
+AGENCY-0540,CHH-District-10 - Public Works Department (PWD),DIST-0574,ST-17,Municipal Corporation (MC),1.489,0.748
+AGENCY-0541,UTT-District-08 - Panchayati Raj Institution (PRI),DIST-0008,ST-01,Panchayati Raj Institution (PRI),1.263,0.707
+AGENCY-0542,HAR-District-03 - Public Works Department (PWD),DIST-0600,ST-18,Municipal Corporation (MC),2.169,0.714
+AGENCY-0543,ASS-District-06 - Public Works Department (PWD),DIST-0512,ST-15,Rural Development Department (RDD),1.867,0.512
+AGENCY-0544,JHA-District-15 - Rural Development Department (RDD),DIST-0497,ST-14,Municipal Corporation (MC),0.898,0.465
+AGENCY-0545,CHH-District-18 - Water Supply & Sewerage Board,DIST-0582,ST-17,Panchayati Raj Institution (PRI),1.54,0.746
+AGENCY-0546,AND-District-14 - Public Works Department (PWD),DIST-0393,ST-10,Rural Development Department (RDD),0.988,0.95
+AGENCY-0547,TEL-District-12 - Municipal Corporation (MC),DIST-0447,ST-12,Rural Development Department (RDD),0.628,0.729
+AGENCY-0548,UTT-District-35 - Rural Development Department (RDD),DIST-0035,ST-01,Water Supply & Sewerage Board,0.967,0.648
+AGENCY-0549,AND-District-11 - Panchayati Raj Institution (PRI),DIST-0390,ST-10,Public Works Department (PWD),1.286,0.479
+AGENCY-0550,ASS-District-28 - Rural Development Department (RDD),DIST-0534,ST-15,Rural Development Department (RDD),1.906,0.823
+AGENCY-0551,BIH-District-13 - Panchayati Raj Institution (PRI),DIST-0124,ST-03,Public Works Department (PWD),0.733,0.415
+AGENCY-0552,MAD-District-28 - Rural Development Department (RDD),DIST-0200,ST-05,Rural Development Department (RDD),1.24,0.963
+AGENCY-0553,RAJ-District-33 - Panchayati Raj Institution (PRI),DIST-0298,ST-07,Municipal Corporation (MC),0.725,0.492
+AGENCY-0554,PUN-District-21 - Public Works Department (PWD),DIST-0562,ST-16,Water Supply & Sewerage Board,1.447,0.445
+AGENCY-0555,MAH-District-11 - Municipal Corporation (MC),DIST-0086,ST-02,Public Works Department (PWD),0.789,0.788
+AGENCY-0556,TAM-District-16 - Public Works Department (PWD),DIST-0243,ST-06,Municipal Corporation (MC),1.209,0.595
+AGENCY-0557,HAR-District-04 - Municipal Corporation (MC),DIST-0601,ST-18,Panchayati Raj Institution (PRI),1.429,0.644
+AGENCY-0558,MAD-District-12 - Panchayati Raj Institution (PRI),DIST-0184,ST-05,Public Works Department (PWD),1.115,0.416
+AGENCY-0559,MAD-District-39 - Rural Development Department (RDD),DIST-0211,ST-05,Municipal Corporation (MC),1.588,0.788
+AGENCY-0560,CHH-District-21 - Water Supply & Sewerage Board,DIST-0585,ST-17,Public Works Department (PWD),2.011,0.657
+AGENCY-0561,RAJ-District-28 - Public Works Department (PWD),DIST-0293,ST-07,Panchayati Raj Institution (PRI),1.613,0.525
+AGENCY-0562,HAR-District-03 - Rural Development Department (RDD),DIST-0600,ST-18,Rural Development Department (RDD),0.71,0.537
+AGENCY-0563,KAR-District-01 - Water Supply & Sewerage Board,DIST-0316,ST-08,Municipal Corporation (MC),1.342,0.415
+AGENCY-0564,TAM-District-08 - Public Works Department (PWD),DIST-0235,ST-06,Public Works Department (PWD),2.131,0.772
+AGENCY-0565,CHH-District-06 - Municipal Corporation (MC),DIST-0570,ST-17,Public Works Department (PWD),1.189,0.577
+AGENCY-0566,MAH-District-34 - Municipal Corporation (MC),DIST-0109,ST-02,Municipal Corporation (MC),1.847,0.609
+AGENCY-0567,KAR-District-18 - Public Works Department (PWD),DIST-0333,ST-08,Water Supply & Sewerage Board,1.287,0.642
+AGENCY-0568,ASS-District-09 - Panchayati Raj Institution (PRI),DIST-0515,ST-15,Municipal Corporation (MC),2.031,0.665
+AGENCY-0569,GUJ-District-21 - Municipal Corporation (MC),DIST-0367,ST-09,Water Supply & Sewerage Board,1.23,0.588
+AGENCY-0570,WES-District-14 - Rural Development Department (RDD),DIST-0163,ST-04,Panchayati Raj Institution (PRI),1.959,0.446
+AGENCY-0571,UTT-District-14 - Rural Development Department (RDD),DIST-0014,ST-01,Rural Development Department (RDD),1.001,0.832
+AGENCY-0572,MAH-District-34 - Water Supply & Sewerage Board,DIST-0109,ST-02,Rural Development Department (RDD),1.112,0.664
+AGENCY-0573,JHA-District-24 - Public Works Department (PWD),DIST-0506,ST-14,Rural Development Department (RDD),2.078,0.469
+AGENCY-0574,WES-District-22 - Water Supply & Sewerage Board,DIST-0171,ST-04,Water Supply & Sewerage Board,1.739,0.849
+AGENCY-0575,JHA-District-22 - Municipal Corporation (MC),DIST-0504,ST-14,Rural Development Department (RDD),1.073,0.621
+AGENCY-0576,RAJ-District-37 - Public Works Department (PWD),DIST-0302,ST-07,Water Supply & Sewerage Board,1.36,0.914
+AGENCY-0577,TEL-District-27 - Municipal Corporation (MC),DIST-0462,ST-12,Water Supply & Sewerage Board,0.849,0.527
+AGENCY-0578,AND-District-16 - Panchayati Raj Institution (PRI),DIST-0395,ST-10,Rural Development Department (RDD),1.703,0.828
+AGENCY-0579,UTT-District-74 - Water Supply & Sewerage Board,DIST-0074,ST-01,Municipal Corporation (MC),1.352,0.889
+AGENCY-0580,ODI-District-06 - Municipal Corporation (MC),DIST-0411,ST-11,Municipal Corporation (MC),1.905,0.819
+AGENCY-0581,HAR-District-19 - Rural Development Department (RDD),DIST-0616,ST-18,Public Works Department (PWD),1.932,0.577
+AGENCY-0582,BIH-District-08 - Panchayati Raj Institution (PRI),DIST-0119,ST-03,Rural Development Department (RDD),1.13,0.463
+AGENCY-0583,RAJ-District-22 - Municipal Corporation (MC),DIST-0287,ST-07,Public Works Department (PWD),1.886,0.778
+AGENCY-0584,UTT-District-07 - Water Supply & Sewerage Board,DIST-0007,ST-01,Municipal Corporation (MC),1.244,0.856
+AGENCY-0585,ASS-District-03 - Public Works Department (PWD),DIST-0509,ST-15,Panchayati Raj Institution (PRI),1.058,0.966
+AGENCY-0586,UTT-District-54 - Water Supply & Sewerage Board,DIST-0054,ST-01,Municipal Corporation (MC),1.943,0.445
+AGENCY-0587,UTT-District-70 - Public Works Department (PWD),DIST-0070,ST-01,Water Supply & Sewerage Board,1.599,0.497
+AGENCY-0588,UTT-District-28 - Water Supply & Sewerage Board,DIST-0028,ST-01,Water Supply & Sewerage Board,0.695,0.863
+AGENCY-0589,KAR-District-05 - Water Supply & Sewerage Board,DIST-0320,ST-08,Municipal Corporation (MC),1.371,0.824
+AGENCY-0590,UTT-District-63 - Public Works Department (PWD),DIST-0063,ST-01,Water Supply & Sewerage Board,1.677,0.534
+AGENCY-0591,MAD-District-25 - Panchayati Raj Institution (PRI),DIST-0197,ST-05,Panchayati Raj Institution (PRI),2.091,0.88
+AGENCY-0592,RAJ-District-40 - Panchayati Raj Institution (PRI),DIST-0305,ST-07,Public Works Department (PWD),2.019,0.901
+AGENCY-0593,GUJ-District-11 - Panchayati Raj Institution (PRI),DIST-0357,ST-09,Public Works Department (PWD),1.345,0.511
+AGENCY-0594,UTT-District-46 - Public Works Department (PWD),DIST-0046,ST-01,Rural Development Department (RDD),1.577,0.861
+AGENCY-0595,MAD-District-09 - Panchayati Raj Institution (PRI),DIST-0181,ST-05,Water Supply & Sewerage Board,1.277,0.645
+AGENCY-0596,UTT-District-26 - Public Works Department (PWD),DIST-0026,ST-01,Water Supply & Sewerage Board,0.764,0.966
+AGENCY-0597,BIH-District-10 - Panchayati Raj Institution (PRI),DIST-0121,ST-03,Public Works Department (PWD),1.811,0.584
+AGENCY-0598,ASS-District-17 - Panchayati Raj Institution (PRI),DIST-0523,ST-15,Water Supply & Sewerage Board,2.098,0.539
+AGENCY-0599,ASS-District-35 - Rural Development Department (RDD),DIST-0541,ST-15,Water Supply & Sewerage Board,1.003,0.867
+AGENCY-0600,ASS-District-26 - Public Works Department (PWD),DIST-0532,ST-15,Rural Development Department (RDD),1.761,0.887
+AGENCY-0601,KAR-District-17 - Municipal Corporation (MC),DIST-0332,ST-08,Water Supply & Sewerage Board,1.078,0.895
+AGENCY-0602,AND-District-23 - Rural Development Department (RDD),DIST-0402,ST-10,Municipal Corporation (MC),0.602,0.537
+AGENCY-0603,BIH-District-34 - Municipal Corporation (MC),DIST-0145,ST-03,Public Works Department (PWD),1.68,0.484
+AGENCY-0604,MAD-District-33 - Panchayati Raj Institution (PRI),DIST-0205,ST-05,Public Works Department (PWD),1.727,0.566
+AGENCY-0605,MAH-District-04 - Public Works Department (PWD),DIST-0079,ST-02,Rural Development Department (RDD),1.625,0.945
+AGENCY-0606,WES-District-03 - Water Supply & Sewerage Board,DIST-0152,ST-04,Municipal Corporation (MC),2.114,0.755
+AGENCY-0607,MAD-District-50 - Public Works Department (PWD),DIST-0222,ST-05,Water Supply & Sewerage Board,0.645,0.419
+AGENCY-0608,TAM-District-04 - Public Works Department (PWD),DIST-0231,ST-06,Panchayati Raj Institution (PRI),0.821,0.502
+AGENCY-0609,JHA-District-16 - Public Works Department (PWD),DIST-0498,ST-14,Panchayati Raj Institution (PRI),2.132,0.729
+AGENCY-0610,CHH-District-07 - Municipal Corporation (MC),DIST-0571,ST-17,Public Works Department (PWD),2.063,0.432
+AGENCY-0611,BIH-District-06 - Rural Development Department (RDD),DIST-0117,ST-03,Rural Development Department (RDD),1.326,0.531
+AGENCY-0612,HAR-District-11 - Municipal Corporation (MC),DIST-0608,ST-18,Rural Development Department (RDD),0.939,0.405
+AGENCY-0613,ODI-District-16 - Municipal Corporation (MC),DIST-0421,ST-11,Public Works Department (PWD),0.601,0.925
+AGENCY-0614,UTT-District-15 - Municipal Corporation (MC),DIST-0015,ST-01,Rural Development Department (RDD),0.748,0.874
+AGENCY-0615,MAH-District-11 - Municipal Corporation (MC),DIST-0086,ST-02,Water Supply & Sewerage Board,2.084,0.492
+AGENCY-0616,TAM-District-28 - Panchayati Raj Institution (PRI),DIST-0255,ST-06,Municipal Corporation (MC),1.873,0.639
+AGENCY-0617,MAH-District-01 - Rural Development Department (RDD),DIST-0076,ST-02,Municipal Corporation (MC),0.649,0.851
+AGENCY-0618,PUN-District-07 - Rural Development Department (RDD),DIST-0548,ST-16,Municipal Corporation (MC),0.897,0.858
+AGENCY-0619,ASS-District-16 - Municipal Corporation (MC),DIST-0522,ST-15,Public Works Department (PWD),1.661,0.852
+AGENCY-0620,MAH-District-29 - Rural Development Department (RDD),DIST-0104,ST-02,Public Works Department (PWD),1.151,0.572
+AGENCY-0621,WES-District-03 - Panchayati Raj Institution (PRI),DIST-0152,ST-04,Municipal Corporation (MC),0.671,0.424
+AGENCY-0622,MAH-District-24 - Rural Development Department (RDD),DIST-0099,ST-02,Rural Development Department (RDD),0.883,0.816
+AGENCY-0623,WES-District-23 - Panchayati Raj Institution (PRI),DIST-0172,ST-04,Public Works Department (PWD),2.079,0.839
+AGENCY-0624,WES-District-05 - Panchayati Raj Institution (PRI),DIST-0154,ST-04,Public Works Department (PWD),1.589,0.731
+AGENCY-0625,ASS-District-26 - Water Supply & Sewerage Board,DIST-0532,ST-15,Rural Development Department (RDD),1.661,0.481
+AGENCY-0626,UTT-District-30 - Panchayati Raj Institution (PRI),DIST-0030,ST-01,Municipal Corporation (MC),1.312,0.757
+AGENCY-0627,UTT-District-72 - Municipal Corporation (MC),DIST-0072,ST-01,Public Works Department (PWD),0.955,0.872
+AGENCY-0628,CHH-District-17 - Rural Development Department (RDD),DIST-0581,ST-17,Rural Development Department (RDD),1.129,0.942
+AGENCY-0629,UTT-District-60 - Panchayati Raj Institution (PRI),DIST-0060,ST-01,Municipal Corporation (MC),1.521,0.887
+AGENCY-0630,MAH-District-02 - Municipal Corporation (MC),DIST-0077,ST-02,Water Supply & Sewerage Board,1.651,0.901
+AGENCY-0631,JHA-District-21 - Rural Development Department (RDD),DIST-0503,ST-14,Municipal Corporation (MC),1.024,0.424
+AGENCY-0632,MAH-District-05 - Public Works Department (PWD),DIST-0080,ST-02,Rural Development Department (RDD),2.155,0.84
+AGENCY-0633,KAR-District-03 - Panchayati Raj Institution (PRI),DIST-0318,ST-08,Municipal Corporation (MC),1.662,0.924
+AGENCY-0634,HAR-District-05 - Municipal Corporation (MC),DIST-0602,ST-18,Public Works Department (PWD),1.399,0.635
+AGENCY-0635,WES-District-11 - Water Supply & Sewerage Board,DIST-0160,ST-04,Public Works Department (PWD),0.956,0.565
+AGENCY-0636,MAD-District-14 - Public Works Department (PWD),DIST-0186,ST-05,Water Supply & Sewerage Board,2.066,0.599
+AGENCY-0637,BIH-District-24 - Municipal Corporation (MC),DIST-0135,ST-03,Water Supply & Sewerage Board,0.703,0.969
+AGENCY-0638,UTT-District-56 - Municipal Corporation (MC),DIST-0056,ST-01,Water Supply & Sewerage Board,1.441,0.768
+AGENCY-0639,PUN-District-21 - Municipal Corporation (MC),DIST-0562,ST-16,Rural Development Department (RDD),1.291,0.835
+AGENCY-0640,AND-District-06 - Public Works Department (PWD),DIST-0385,ST-10,Public Works Department (PWD),2.0,0.464
+AGENCY-0641,UTT-District-23 - Water Supply & Sewerage Board,DIST-0023,ST-01,Municipal Corporation (MC),0.919,0.612
+AGENCY-0642,WES-District-03 - Rural Development Department (RDD),DIST-0152,ST-04,Public Works Department (PWD),1.923,0.908
+AGENCY-0643,RAJ-District-39 - Water Supply & Sewerage Board,DIST-0304,ST-07,Rural Development Department (RDD),1.14,0.885
+AGENCY-0644,PUN-District-10 - Public Works Department (PWD),DIST-0551,ST-16,Panchayati Raj Institution (PRI),1.367,0.858
+AGENCY-0645,UTT-District-73 - Water Supply & Sewerage Board,DIST-0073,ST-01,Rural Development Department (RDD),0.711,0.961
+AGENCY-0646,CHH-District-17 - Water Supply & Sewerage Board,DIST-0581,ST-17,Rural Development Department (RDD),1.691,0.942
+AGENCY-0647,AND-District-25 - Rural Development Department (RDD),DIST-0404,ST-10,Municipal Corporation (MC),1.861,0.669
+AGENCY-0648,RAJ-District-15 - Rural Development Department (RDD),DIST-0280,ST-07,Water Supply & Sewerage Board,1.695,0.568
+AGENCY-0649,ASS-District-10 - Municipal Corporation (MC),DIST-0516,ST-15,Municipal Corporation (MC),1.906,0.557
+AGENCY-0650,MAD-District-23 - Municipal Corporation (MC),DIST-0195,ST-05,Water Supply & Sewerage Board,1.6,0.979
+AGENCY-0651,UTT-District-45 - Rural Development Department (RDD),DIST-0045,ST-01,Water Supply & Sewerage Board,2.001,0.795
+AGENCY-0652,MAD-District-52 - Panchayati Raj Institution (PRI),DIST-0224,ST-05,Public Works Department (PWD),1.114,0.721
+AGENCY-0653,ODI-District-15 - Municipal Corporation (MC),DIST-0420,ST-11,Panchayati Raj Institution (PRI),1.47,0.639
+AGENCY-0654,TAM-District-03 - Rural Development Department (RDD),DIST-0230,ST-06,Rural Development Department (RDD),0.96,0.654
+AGENCY-0655,MAD-District-33 - Municipal Corporation (MC),DIST-0205,ST-05,Public Works Department (PWD),2.043,0.44
+AGENCY-0656,PUN-District-19 - Water Supply & Sewerage Board,DIST-0560,ST-16,Public Works Department (PWD),1.965,0.818
+AGENCY-0657,WES-District-01 - Rural Development Department (RDD),DIST-0150,ST-04,Water Supply & Sewerage Board,1.992,0.807
+AGENCY-0658,ODI-District-14 - Public Works Department (PWD),DIST-0419,ST-11,Panchayati Raj Institution (PRI),1.144,0.914
+AGENCY-0659,KAR-District-25 - Municipal Corporation (MC),DIST-0340,ST-08,Water Supply & Sewerage Board,1.102,0.79
+AGENCY-0660,CHH-District-21 - Rural Development Department (RDD),DIST-0585,ST-17,Public Works Department (PWD),1.582,0.696
+AGENCY-0661,ODI-District-15 - Public Works Department (PWD),DIST-0420,ST-11,Water Supply & Sewerage Board,0.994,0.863
+AGENCY-0662,RAJ-District-48 - Municipal Corporation (MC),DIST-0313,ST-07,Public Works Department (PWD),1.275,0.44
+AGENCY-0663,MAD-District-03 - Municipal Corporation (MC),DIST-0175,ST-05,Panchayati Raj Institution (PRI),2.021,0.468
+AGENCY-0664,ASS-District-19 - Public Works Department (PWD),DIST-0525,ST-15,Public Works Department (PWD),1.05,0.561
+AGENCY-0665,RAJ-District-29 - Water Supply & Sewerage Board,DIST-0294,ST-07,Municipal Corporation (MC),1.256,0.89
+AGENCY-0666,AND-District-23 - Panchayati Raj Institution (PRI),DIST-0402,ST-10,Municipal Corporation (MC),1.237,0.548
+AGENCY-0667,AND-District-02 - Municipal Corporation (MC),DIST-0381,ST-10,Panchayati Raj Institution (PRI),1.753,0.953
+AGENCY-0668,BIH-District-38 - Public Works Department (PWD),DIST-0149,ST-03,Panchayati Raj Institution (PRI),1.618,0.45
+AGENCY-0669,KAR-District-15 - Panchayati Raj Institution (PRI),DIST-0330,ST-08,Water Supply & Sewerage Board,1.042,0.907
+AGENCY-0670,WES-District-12 - Panchayati Raj Institution (PRI),DIST-0161,ST-04,Water Supply & Sewerage Board,1.783,0.491
+AGENCY-0671,MAH-District-20 - Panchayati Raj Institution (PRI),DIST-0095,ST-02,Municipal Corporation (MC),1.893,0.734
+AGENCY-0672,TEL-District-19 - Rural Development Department (RDD),DIST-0454,ST-12,Public Works Department (PWD),1.445,0.786
+AGENCY-0673,RAJ-District-06 - Water Supply & Sewerage Board,DIST-0271,ST-07,Municipal Corporation (MC),1.241,0.84
+AGENCY-0674,HAR-District-21 - Municipal Corporation (MC),DIST-0618,ST-18,Rural Development Department (RDD),1.035,0.672
+AGENCY-0675,ODI-District-27 - Rural Development Department (RDD),DIST-0432,ST-11,Panchayati Raj Institution (PRI),1.907,0.869
+AGENCY-0676,UTT-District-36 - Water Supply & Sewerage Board,DIST-0036,ST-01,Municipal Corporation (MC),1.798,0.905
+AGENCY-0677,BIH-District-33 - Water Supply & Sewerage Board,DIST-0144,ST-03,Public Works Department (PWD),0.664,0.461
+AGENCY-0678,ODI-District-24 - Municipal Corporation (MC),DIST-0429,ST-11,Public Works Department (PWD),0.912,0.706
+AGENCY-0679,TAM-District-35 - Public Works Department (PWD),DIST-0262,ST-06,Municipal Corporation (MC),1.969,0.836
+AGENCY-0680,PUN-District-23 - Water Supply & Sewerage Board,DIST-0564,ST-16,Rural Development Department (RDD),1.939,0.642
+AGENCY-0681,GUJ-District-28 - Rural Development Department (RDD),DIST-0374,ST-09,Water Supply & Sewerage Board,2.033,0.798
+AGENCY-0682,KAR-District-14 - Panchayati Raj Institution (PRI),DIST-0329,ST-08,Rural Development Department (RDD),1.12,0.477
+AGENCY-0683,MAD-District-03 - Rural Development Department (RDD),DIST-0175,ST-05,Public Works Department (PWD),1.263,0.425
+AGENCY-0684,CHH-District-05 - Water Supply & Sewerage Board,DIST-0569,ST-17,Rural Development Department (RDD),1.95,0.658
+AGENCY-0685,AND-District-24 - Water Supply & Sewerage Board,DIST-0403,ST-10,Rural Development Department (RDD),1.064,0.896
+AGENCY-0686,GUJ-District-03 - Public Works Department (PWD),DIST-0349,ST-09,Municipal Corporation (MC),0.961,0.605
+AGENCY-0687,ODI-District-28 - Rural Development Department (RDD),DIST-0433,ST-11,Public Works Department (PWD),1.367,0.474
+AGENCY-0688,WES-District-01 - Water Supply & Sewerage Board,DIST-0150,ST-04,Public Works Department (PWD),1.001,0.409
+AGENCY-0689,UTT-District-61 - Panchayati Raj Institution (PRI),DIST-0061,ST-01,Water Supply & Sewerage Board,1.626,0.773
+AGENCY-0690,ODI-District-26 - Panchayati Raj Institution (PRI),DIST-0431,ST-11,Rural Development Department (RDD),0.831,0.86
+AGENCY-0691,ASS-District-32 - Public Works Department (PWD),DIST-0538,ST-15,Water Supply & Sewerage Board,0.658,0.477
+AGENCY-0692,MAD-District-08 - Panchayati Raj Institution (PRI),DIST-0180,ST-05,Municipal Corporation (MC),1.052,0.634
+AGENCY-0693,UTT-District-56 - Rural Development Department (RDD),DIST-0056,ST-01,Public Works Department (PWD),1.727,0.687
+AGENCY-0694,ASS-District-01 - Municipal Corporation (MC),DIST-0507,ST-15,Panchayati Raj Institution (PRI),1.26,0.686
+AGENCY-0695,RAJ-District-29 - Water Supply & Sewerage Board,DIST-0294,ST-07,Water Supply & Sewerage Board,1.234,0.773
+AGENCY-0696,BIH-District-33 - Water Supply & Sewerage Board,DIST-0144,ST-03,Municipal Corporation (MC),0.962,0.471
+AGENCY-0697,AND-District-06 - Municipal Corporation (MC),DIST-0385,ST-10,Panchayati Raj Institution (PRI),1.764,0.846
+AGENCY-0698,UTT-District-16 - Municipal Corporation (MC),DIST-0016,ST-01,Municipal Corporation (MC),1.838,0.751
+AGENCY-0699,UTT-District-03 - Public Works Department (PWD),DIST-0003,ST-01,Water Supply & Sewerage Board,1.823,0.65
+AGENCY-0700,ASS-District-01 - Municipal Corporation (MC),DIST-0507,ST-15,Water Supply & Sewerage Board,1.14,0.709
+AGENCY-0701,AND-District-03 - Water Supply & Sewerage Board,DIST-0382,ST-10,Rural Development Department (RDD),0.741,0.825
+AGENCY-0702,MAD-District-04 - Rural Development Department (RDD),DIST-0176,ST-05,Panchayati Raj Institution (PRI),1.381,0.87
+AGENCY-0703,TEL-District-33 - Water Supply & Sewerage Board,DIST-0468,ST-12,Municipal Corporation (MC),1.823,0.649
+AGENCY-0704,BIH-District-17 - Water Supply & Sewerage Board,DIST-0128,ST-03,Public Works Department (PWD),1.869,0.684
+AGENCY-0705,TAM-District-24 - Water Supply & Sewerage Board,DIST-0251,ST-06,Rural Development Department (RDD),1.606,0.672
+AGENCY-0706,RAJ-District-18 - Rural Development Department (RDD),DIST-0283,ST-07,Water Supply & Sewerage Board,0.856,0.972
+AGENCY-0707,TAM-District-10 - Public Works Department (PWD),DIST-0237,ST-06,Municipal Corporation (MC),0.878,0.843
+AGENCY-0708,ASS-District-17 - Municipal Corporation (MC),DIST-0523,ST-15,Municipal Corporation (MC),1.535,0.435
+AGENCY-0709,TEL-District-13 - Municipal Corporation (MC),DIST-0448,ST-12,Rural Development Department (RDD),1.83,0.838
+AGENCY-0710,WES-District-12 - Municipal Corporation (MC),DIST-0161,ST-04,Municipal Corporation (MC),1.888,0.655
+AGENCY-0711,UTT-District-10 - Public Works Department (PWD),DIST-0010,ST-01,Municipal Corporation (MC),1.035,0.846
+AGENCY-0712,RAJ-District-44 - Water Supply & Sewerage Board,DIST-0309,ST-07,Panchayati Raj Institution (PRI),1.855,0.751
+AGENCY-0713,WES-District-08 - Rural Development Department (RDD),DIST-0157,ST-04,Rural Development Department (RDD),1.071,0.824
+AGENCY-0714,ASS-District-02 - Rural Development Department (RDD),DIST-0508,ST-15,Public Works Department (PWD),1.998,0.742
+AGENCY-0715,UTT-District-30 - Rural Development Department (RDD),DIST-0030,ST-01,Municipal Corporation (MC),1.565,0.7
+AGENCY-0716,ODI-District-25 - Municipal Corporation (MC),DIST-0430,ST-11,Public Works Department (PWD),1.099,0.764
+AGENCY-0717,UTT-District-20 - Panchayati Raj Institution (PRI),DIST-0020,ST-01,Water Supply & Sewerage Board,1.23,0.966
+AGENCY-0718,TEL-District-04 - Municipal Corporation (MC),DIST-0439,ST-12,Panchayati Raj Institution (PRI),1.287,0.475
+AGENCY-0719,RAJ-District-36 - Municipal Corporation (MC),DIST-0301,ST-07,Municipal Corporation (MC),0.684,0.649
+AGENCY-0720,PUN-District-04 - Rural Development Department (RDD),DIST-0545,ST-16,Water Supply & Sewerage Board,1.181,0.684
+AGENCY-0721,CHH-District-28 - Water Supply & Sewerage Board,DIST-0592,ST-17,Rural Development Department (RDD),0.82,0.604
+AGENCY-0722,CHH-District-05 - Municipal Corporation (MC),DIST-0569,ST-17,Rural Development Department (RDD),1.3,0.876
+AGENCY-0723,AND-District-06 - Rural Development Department (RDD),DIST-0385,ST-10,Public Works Department (PWD),1.923,0.435
+AGENCY-0724,TAM-District-21 - Water Supply & Sewerage Board,DIST-0248,ST-06,Water Supply & Sewerage Board,1.911,0.411
+AGENCY-0725,CHH-District-23 - Panchayati Raj Institution (PRI),DIST-0587,ST-17,Panchayati Raj Institution (PRI),1.926,0.716
+AGENCY-0726,UTT-District-60 - Rural Development Department (RDD),DIST-0060,ST-01,Public Works Department (PWD),0.729,0.688
+AGENCY-0727,RAJ-District-27 - Public Works Department (PWD),DIST-0292,ST-07,Public Works Department (PWD),1.631,0.626
+AGENCY-0728,ODI-District-06 - Public Works Department (PWD),DIST-0411,ST-11,Municipal Corporation (MC),2.075,0.723
+AGENCY-0729,UTT-District-11 - Rural Development Department (RDD),DIST-0011,ST-01,Municipal Corporation (MC),1.847,0.763
+AGENCY-0730,JHA-District-04 - Panchayati Raj Institution (PRI),DIST-0486,ST-14,Rural Development Department (RDD),1.004,0.726
+AGENCY-0731,AND-District-10 - Panchayati Raj Institution (PRI),DIST-0389,ST-10,Rural Development Department (RDD),2.068,0.696
+AGENCY-0732,AND-District-16 - Rural Development Department (RDD),DIST-0395,ST-10,Public Works Department (PWD),0.745,0.652
+AGENCY-0733,AND-District-17 - Water Supply & Sewerage Board,DIST-0396,ST-10,Water Supply & Sewerage Board,1.829,0.808
+AGENCY-0734,UTT-District-28 - Panchayati Raj Institution (PRI),DIST-0028,ST-01,Municipal Corporation (MC),0.618,0.748
+AGENCY-0735,RAJ-District-12 - Panchayati Raj Institution (PRI),DIST-0277,ST-07,Panchayati Raj Institution (PRI),0.608,0.479
+AGENCY-0736,JHA-District-04 - Public Works Department (PWD),DIST-0486,ST-14,Water Supply & Sewerage Board,0.606,0.642
+AGENCY-0737,WES-District-08 - Public Works Department (PWD),DIST-0157,ST-04,Panchayati Raj Institution (PRI),1.299,0.516
+AGENCY-0738,JHA-District-07 - Panchayati Raj Institution (PRI),DIST-0489,ST-14,Water Supply & Sewerage Board,1.066,0.581
+AGENCY-0739,JHA-District-22 - Public Works Department (PWD),DIST-0504,ST-14,Panchayati Raj Institution (PRI),0.974,0.596
+AGENCY-0740,TAM-District-12 - Panchayati Raj Institution (PRI),DIST-0239,ST-06,Public Works Department (PWD),1.909,0.892
+AGENCY-0741,TAM-District-13 - Public Works Department (PWD),DIST-0240,ST-06,Panchayati Raj Institution (PRI),1.316,0.955
+AGENCY-0742,TEL-District-16 - Panchayati Raj Institution (PRI),DIST-0451,ST-12,Panchayati Raj Institution (PRI),1.82,0.553
+AGENCY-0743,HAR-District-18 - Rural Development Department (RDD),DIST-0615,ST-18,Rural Development Department (RDD),0.855,0.868
+AGENCY-0744,KAR-District-13 - Rural Development Department (RDD),DIST-0328,ST-08,Rural Development Department (RDD),1.464,0.879
+AGENCY-0745,ODI-District-14 - Municipal Corporation (MC),DIST-0419,ST-11,Municipal Corporation (MC),0.702,0.596
+AGENCY-0746,MAD-District-36 - Panchayati Raj Institution (PRI),DIST-0208,ST-05,Water Supply & Sewerage Board,1.742,0.719
+AGENCY-0747,JHA-District-16 - Panchayati Raj Institution (PRI),DIST-0498,ST-14,Water Supply & Sewerage Board,1.296,0.432
+AGENCY-0748,TAM-District-22 - Water Supply & Sewerage Board,DIST-0249,ST-06,Municipal Corporation (MC),1.893,0.627
+AGENCY-0749,KAR-District-11 - Water Supply & Sewerage Board,DIST-0326,ST-08,Panchayati Raj Institution (PRI),1.13,0.638
+AGENCY-0750,AND-District-03 - Public Works Department (PWD),DIST-0382,ST-10,Panchayati Raj Institution (PRI),1.048,0.575
+AGENCY-0751,TEL-District-25 - Municipal Corporation (MC),DIST-0460,ST-12,Rural Development Department (RDD),1.291,0.734
+AGENCY-0752,AND-District-08 - Municipal Corporation (MC),DIST-0387,ST-10,Municipal Corporation (MC),1.278,0.679
+AGENCY-0753,ODI-District-14 - Panchayati Raj Institution (PRI),DIST-0419,ST-11,Public Works Department (PWD),1.434,0.909
+AGENCY-0754,RAJ-District-23 - Panchayati Raj Institution (PRI),DIST-0288,ST-07,Panchayati Raj Institution (PRI),0.849,0.827
+AGENCY-0755,CHH-District-17 - Public Works Department (PWD),DIST-0581,ST-17,Municipal Corporation (MC),1.69,0.784
+AGENCY-0756,RAJ-District-10 - Public Works Department (PWD),DIST-0275,ST-07,Public Works Department (PWD),1.399,0.704
+AGENCY-0757,TEL-District-25 - Water Supply & Sewerage Board,DIST-0460,ST-12,Public Works Department (PWD),0.901,0.928
+AGENCY-0758,TAM-District-27 - Rural Development Department (RDD),DIST-0254,ST-06,Public Works Department (PWD),0.903,0.767
+AGENCY-0759,TAM-District-17 - Municipal Corporation (MC),DIST-0244,ST-06,Municipal Corporation (MC),2.074,0.726
+AGENCY-0760,PUN-District-03 - Rural Development Department (RDD),DIST-0544,ST-16,Panchayati Raj Institution (PRI),1.026,0.759
+AGENCY-0761,UTT-District-44 - Public Works Department (PWD),DIST-0044,ST-01,Water Supply & Sewerage Board,0.727,0.625
+AGENCY-0762,ODI-District-03 - Municipal Corporation (MC),DIST-0408,ST-11,Panchayati Raj Institution (PRI),1.643,0.669
+AGENCY-0763,GUJ-District-10 - Municipal Corporation (MC),DIST-0356,ST-09,Rural Development Department (RDD),1.372,0.621
+AGENCY-0764,AND-District-05 - Municipal Corporation (MC),DIST-0384,ST-10,Rural Development Department (RDD),1.394,0.956
+AGENCY-0765,MAH-District-32 - Panchayati Raj Institution (PRI),DIST-0107,ST-02,Panchayati Raj Institution (PRI),0.98,0.943
+AGENCY-0766,AND-District-03 - Rural Development Department (RDD),DIST-0382,ST-10,Public Works Department (PWD),0.775,0.894
+AGENCY-0767,TEL-District-30 - Rural Development Department (RDD),DIST-0465,ST-12,Public Works Department (PWD),1.231,0.96
+AGENCY-0768,HAR-District-05 - Panchayati Raj Institution (PRI),DIST-0602,ST-18,Public Works Department (PWD),0.601,0.404
+AGENCY-0769,WES-District-15 - Panchayati Raj Institution (PRI),DIST-0164,ST-04,Rural Development Department (RDD),1.443,0.681
+AGENCY-0770,MAH-District-22 - Water Supply & Sewerage Board,DIST-0097,ST-02,Rural Development Department (RDD),2.08,0.697
+AGENCY-0771,KER-District-05 - Rural Development Department (RDD),DIST-0473,ST-13,Panchayati Raj Institution (PRI),1.506,0.616
+AGENCY-0772,CHH-District-02 - Rural Development Department (RDD),DIST-0566,ST-17,Panchayati Raj Institution (PRI),1.689,0.589
+AGENCY-0773,ASS-District-12 - Water Supply & Sewerage Board,DIST-0518,ST-15,Panchayati Raj Institution (PRI),0.961,0.726
+AGENCY-0774,BIH-District-29 - Rural Development Department (RDD),DIST-0140,ST-03,Municipal Corporation (MC),1.445,0.639
+AGENCY-0775,PUN-District-01 - Rural Development Department (RDD),DIST-0542,ST-16,Municipal Corporation (MC),2.048,0.874
+AGENCY-0776,UTT-District-62 - Panchayati Raj Institution (PRI),DIST-0062,ST-01,Panchayati Raj Institution (PRI),1.659,0.874
+AGENCY-0777,MAD-District-49 - Rural Development Department (RDD),DIST-0221,ST-05,Water Supply & Sewerage Board,1.332,0.788
+AGENCY-0778,PUN-District-08 - Rural Development Department (RDD),DIST-0549,ST-16,Water Supply & Sewerage Board,1.005,0.408
+AGENCY-0779,UTT-District-55 - Water Supply & Sewerage Board,DIST-0055,ST-01,Panchayati Raj Institution (PRI),1.197,0.793
+AGENCY-0780,MAH-District-26 - Municipal Corporation (MC),DIST-0101,ST-02,Public Works Department (PWD),1.678,0.509
+AGENCY-0781,MAH-District-29 - Water Supply & Sewerage Board,DIST-0104,ST-02,Public Works Department (PWD),2.152,0.416
+AGENCY-0782,PUN-District-12 - Rural Development Department (RDD),DIST-0553,ST-16,Municipal Corporation (MC),1.193,0.621
+AGENCY-0783,AND-District-16 - Public Works Department (PWD),DIST-0395,ST-10,Municipal Corporation (MC),1.563,0.701
+AGENCY-0784,CHH-District-11 - Water Supply & Sewerage Board,DIST-0575,ST-17,Water Supply & Sewerage Board,1.352,0.539
+AGENCY-0785,UTT-District-67 - Public Works Department (PWD),DIST-0067,ST-01,Public Works Department (PWD),2.166,0.826
+AGENCY-0786,UTT-District-33 - Rural Development Department (RDD),DIST-0033,ST-01,Municipal Corporation (MC),0.962,0.797
+AGENCY-0787,TAM-District-23 - Water Supply & Sewerage Board,DIST-0250,ST-06,Rural Development Department (RDD),2.072,0.52
+AGENCY-0788,CHH-District-32 - Rural Development Department (RDD),DIST-0596,ST-17,Panchayati Raj Institution (PRI),2.015,0.57
+AGENCY-0789,CHH-District-13 - Rural Development Department (RDD),DIST-0577,ST-17,Panchayati Raj Institution (PRI),2.014,0.789
+AGENCY-0790,TEL-District-18 - Municipal Corporation (MC),DIST-0453,ST-12,Municipal Corporation (MC),2.074,0.7
+AGENCY-0791,ODI-District-04 - Public Works Department (PWD),DIST-0409,ST-11,Public Works Department (PWD),1.356,0.823
+AGENCY-0792,UTT-District-20 - Panchayati Raj Institution (PRI),DIST-0020,ST-01,Public Works Department (PWD),1.666,0.661
+AGENCY-0793,MAD-District-22 - Rural Development Department (RDD),DIST-0194,ST-05,Water Supply & Sewerage Board,1.163,0.816
+AGENCY-0794,AND-District-12 - Panchayati Raj Institution (PRI),DIST-0391,ST-10,Public Works Department (PWD),1.352,0.417
+AGENCY-0795,UTT-District-49 - Public Works Department (PWD),DIST-0049,ST-01,Municipal Corporation (MC),1.775,0.429
+AGENCY-0796,PUN-District-03 - Panchayati Raj Institution (PRI),DIST-0544,ST-16,Panchayati Raj Institution (PRI),1.055,0.924
+AGENCY-0797,CHH-District-32 - Rural Development Department (RDD),DIST-0596,ST-17,Public Works Department (PWD),0.611,0.708
+AGENCY-0798,RAJ-District-38 - Rural Development Department (RDD),DIST-0303,ST-07,Municipal Corporation (MC),1.678,0.798
+AGENCY-0799,PUN-District-04 - Public Works Department (PWD),DIST-0545,ST-16,Municipal Corporation (MC),1.686,0.833
+AGENCY-0800,HAR-District-13 - Municipal Corporation (MC),DIST-0610,ST-18,Panchayati Raj Institution (PRI),1.493,0.603
+AGENCY-0801,ASS-District-11 - Municipal Corporation (MC),DIST-0517,ST-15,Panchayati Raj Institution (PRI),1.304,0.593
+AGENCY-0802,ODI-District-15 - Panchayati Raj Institution (PRI),DIST-0420,ST-11,Rural Development Department (RDD),0.778,0.882
+AGENCY-0803,TAM-District-12 - Public Works Department (PWD),DIST-0239,ST-06,Municipal Corporation (MC),1.14,0.948
+AGENCY-0804,BIH-District-11 - Water Supply & Sewerage Board,DIST-0122,ST-03,Municipal Corporation (MC),0.647,0.615
+AGENCY-0805,ASS-District-25 - Panchayati Raj Institution (PRI),DIST-0531,ST-15,Panchayati Raj Institution (PRI),1.75,0.768
+AGENCY-0806,ODI-District-12 - Municipal Corporation (MC),DIST-0417,ST-11,Rural Development Department (RDD),2.117,0.72
+AGENCY-0807,KER-District-07 - Public Works Department (PWD),DIST-0475,ST-13,Water Supply & Sewerage Board,1.904,0.596
+AGENCY-0808,MAD-District-14 - Water Supply & Sewerage Board,DIST-0186,ST-05,Panchayati Raj Institution (PRI),0.854,0.976
+AGENCY-0809,UTT-District-73 - Panchayati Raj Institution (PRI),DIST-0073,ST-01,Panchayati Raj Institution (PRI),1.337,0.952
+AGENCY-0810,CHH-District-33 - Rural Development Department (RDD),DIST-0597,ST-17,Public Works Department (PWD),0.725,0.703
+AGENCY-0811,BIH-District-36 - Municipal Corporation (MC),DIST-0147,ST-03,Public Works Department (PWD),0.704,0.872
+AGENCY-0812,WES-District-08 - Rural Development Department (RDD),DIST-0157,ST-04,Panchayati Raj Institution (PRI),0.767,0.693
+AGENCY-0813,GUJ-District-13 - Municipal Corporation (MC),DIST-0359,ST-09,Municipal Corporation (MC),1.32,0.596
+AGENCY-0814,WES-District-20 - Rural Development Department (RDD),DIST-0169,ST-04,Panchayati Raj Institution (PRI),0.785,0.688
+AGENCY-0815,UTT-District-68 - Public Works Department (PWD),DIST-0068,ST-01,Public Works Department (PWD),0.958,0.496
+AGENCY-0816,RAJ-District-34 - Water Supply & Sewerage Board,DIST-0299,ST-07,Public Works Department (PWD),1.484,0.738
+AGENCY-0817,RAJ-District-14 - Rural Development Department (RDD),DIST-0279,ST-07,Rural Development Department (RDD),1.077,0.622
+AGENCY-0818,UTT-District-38 - Panchayati Raj Institution (PRI),DIST-0038,ST-01,Rural Development Department (RDD),0.819,0.93
+AGENCY-0819,MAD-District-50 - Rural Development Department (RDD),DIST-0222,ST-05,Municipal Corporation (MC),0.706,0.925
+AGENCY-0820,BIH-District-35 - Public Works Department (PWD),DIST-0146,ST-03,Water Supply & Sewerage Board,0.877,0.941
+AGENCY-0821,UTT-District-61 - Rural Development Department (RDD),DIST-0061,ST-01,Rural Development Department (RDD),1.859,0.773
+AGENCY-0822,AND-District-02 - Panchayati Raj Institution (PRI),DIST-0381,ST-10,Rural Development Department (RDD),0.749,0.812
+AGENCY-0823,MAD-District-55 - Panchayati Raj Institution (PRI),DIST-0227,ST-05,Rural Development Department (RDD),1.456,0.43
+AGENCY-0824,CHH-District-11 - Municipal Corporation (MC),DIST-0575,ST-17,Water Supply & Sewerage Board,1.447,0.688
+AGENCY-0825,ODI-District-24 - Municipal Corporation (MC),DIST-0429,ST-11,Rural Development Department (RDD),1.148,0.44
+AGENCY-0826,PUN-District-17 - Municipal Corporation (MC),DIST-0558,ST-16,Rural Development Department (RDD),0.602,0.418
+AGENCY-0827,UTT-District-28 - Municipal Corporation (MC),DIST-0028,ST-01,Rural Development Department (RDD),1.512,0.795
+AGENCY-0828,RAJ-District-50 - Panchayati Raj Institution (PRI),DIST-0315,ST-07,Rural Development Department (RDD),1.523,0.746
+AGENCY-0829,TAM-District-26 - Public Works Department (PWD),DIST-0253,ST-06,Water Supply & Sewerage Board,1.911,0.878
+AGENCY-0830,RAJ-District-25 - Water Supply & Sewerage Board,DIST-0290,ST-07,Municipal Corporation (MC),1.489,0.745
+AGENCY-0831,PUN-District-04 - Water Supply & Sewerage Board,DIST-0545,ST-16,Municipal Corporation (MC),0.918,0.609
+AGENCY-0832,MAD-District-49 - Water Supply & Sewerage Board,DIST-0221,ST-05,Public Works Department (PWD),0.683,0.635
+AGENCY-0833,KAR-District-09 - Panchayati Raj Institution (PRI),DIST-0324,ST-08,Public Works Department (PWD),1.17,0.716
+AGENCY-0834,GUJ-District-04 - Panchayati Raj Institution (PRI),DIST-0350,ST-09,Rural Development Department (RDD),0.629,0.658
+AGENCY-0835,RAJ-District-39 - Rural Development Department (RDD),DIST-0304,ST-07,Public Works Department (PWD),1.248,0.775
+AGENCY-0836,TAM-District-32 - Public Works Department (PWD),DIST-0259,ST-06,Rural Development Department (RDD),1.609,0.526
+AGENCY-0837,CHH-District-04 - Water Supply & Sewerage Board,DIST-0568,ST-17,Rural Development Department (RDD),0.755,0.413
+AGENCY-0838,MAD-District-21 - Water Supply & Sewerage Board,DIST-0193,ST-05,Municipal Corporation (MC),1.847,0.761
+AGENCY-0839,ODI-District-13 - Rural Development Department (RDD),DIST-0418,ST-11,Water Supply & Sewerage Board,2.033,0.434
+AGENCY-0840,UTT-District-27 - Public Works Department (PWD),DIST-0027,ST-01,Municipal Corporation (MC),1.146,0.705
+AGENCY-0841,TAM-District-18 - Municipal Corporation (MC),DIST-0245,ST-06,Rural Development Department (RDD),1.876,0.404
+AGENCY-0842,GUJ-District-30 - Municipal Corporation (MC),DIST-0376,ST-09,Public Works Department (PWD),0.608,0.891
+AGENCY-0843,TAM-District-17 - Panchayati Raj Institution (PRI),DIST-0244,ST-06,Panchayati Raj Institution (PRI),1.76,0.91
+AGENCY-0844,KAR-District-26 - Public Works Department (PWD),DIST-0341,ST-08,Rural Development Department (RDD),0.79,0.457
+AGENCY-0845,WES-District-14 - Public Works Department (PWD),DIST-0163,ST-04,Water Supply & Sewerage Board,1.889,0.612
+AGENCY-0846,GUJ-District-32 - Municipal Corporation (MC),DIST-0378,ST-09,Rural Development Department (RDD),0.953,0.408
+AGENCY-0847,CHH-District-06 - Water Supply & Sewerage Board,DIST-0570,ST-17,Water Supply & Sewerage Board,1.756,0.493
+AGENCY-0848,HAR-District-11 - Panchayati Raj Institution (PRI),DIST-0608,ST-18,Panchayati Raj Institution (PRI),1.564,0.776
+AGENCY-0849,MAH-District-25 - Public Works Department (PWD),DIST-0100,ST-02,Rural Development Department (RDD),1.849,0.675
+AGENCY-0850,MAD-District-05 - Municipal Corporation (MC),DIST-0177,ST-05,Water Supply & Sewerage Board,1.321,0.57
+AGENCY-0851,AND-District-18 - Water Supply & Sewerage Board,DIST-0397,ST-10,Rural Development Department (RDD),1.794,0.772
+AGENCY-0852,MAD-District-46 - Rural Development Department (RDD),DIST-0218,ST-05,Public Works Department (PWD),1.897,0.474
+AGENCY-0853,HAR-District-02 - Water Supply & Sewerage Board,DIST-0599,ST-18,Public Works Department (PWD),1.47,0.459
+AGENCY-0854,AND-District-08 - Water Supply & Sewerage Board,DIST-0387,ST-10,Public Works Department (PWD),0.706,0.657
+AGENCY-0855,AND-District-16 - Municipal Corporation (MC),DIST-0395,ST-10,Rural Development Department (RDD),1.385,0.543
+AGENCY-0856,ODI-District-22 - Water Supply & Sewerage Board,DIST-0427,ST-11,Panchayati Raj Institution (PRI),2.051,0.515
+AGENCY-0857,TEL-District-12 - Panchayati Raj Institution (PRI),DIST-0447,ST-12,Rural Development Department (RDD),1.889,0.617
+AGENCY-0858,JHA-District-14 - Rural Development Department (RDD),DIST-0496,ST-14,Water Supply & Sewerage Board,1.833,0.899
+AGENCY-0859,HAR-District-14 - Panchayati Raj Institution (PRI),DIST-0611,ST-18,Panchayati Raj Institution (PRI),1.537,0.661
+AGENCY-0860,MAD-District-21 - Panchayati Raj Institution (PRI),DIST-0193,ST-05,Panchayati Raj Institution (PRI),1.947,0.627
+AGENCY-0861,MAH-District-05 - Public Works Department (PWD),DIST-0080,ST-02,Panchayati Raj Institution (PRI),1.971,0.849
+AGENCY-0862,BIH-District-20 - Public Works Department (PWD),DIST-0131,ST-03,Panchayati Raj Institution (PRI),1.393,0.551
+AGENCY-0863,AND-District-04 - Rural Development Department (RDD),DIST-0383,ST-10,Public Works Department (PWD),1.608,0.852
+AGENCY-0864,MAD-District-18 - Water Supply & Sewerage Board,DIST-0190,ST-05,Panchayati Raj Institution (PRI),1.239,0.495
+AGENCY-0865,MAD-District-48 - Rural Development Department (RDD),DIST-0220,ST-05,Water Supply & Sewerage Board,1.959,0.955
+AGENCY-0866,TAM-District-31 - Panchayati Raj Institution (PRI),DIST-0258,ST-06,Rural Development Department (RDD),1.517,0.616
+AGENCY-0867,BIH-District-19 - Municipal Corporation (MC),DIST-0130,ST-03,Rural Development Department (RDD),0.732,0.442
+AGENCY-0868,ASS-District-17 - Rural Development Department (RDD),DIST-0523,ST-15,Public Works Department (PWD),1.757,0.841
+AGENCY-0869,CHH-District-10 - Public Works Department (PWD),DIST-0574,ST-17,Rural Development Department (RDD),1.775,0.636
+AGENCY-0870,ODI-District-11 - Public Works Department (PWD),DIST-0416,ST-11,Panchayati Raj Institution (PRI),0.81,0.895
+AGENCY-0871,TAM-District-18 - Water Supply & Sewerage Board,DIST-0245,ST-06,Water Supply & Sewerage Board,1.06,0.755
+AGENCY-0872,CHH-District-22 - Rural Development Department (RDD),DIST-0586,ST-17,Water Supply & Sewerage Board,1.639,0.841
+AGENCY-0873,MAH-District-21 - Rural Development Department (RDD),DIST-0096,ST-02,Municipal Corporation (MC),0.839,0.697
+AGENCY-0874,GUJ-District-06 - Public Works Department (PWD),DIST-0352,ST-09,Panchayati Raj Institution (PRI),0.73,0.433
+AGENCY-0875,UTT-District-56 - Municipal Corporation (MC),DIST-0056,ST-01,Rural Development Department (RDD),1.172,0.805
+AGENCY-0876,ASS-District-34 - Rural Development Department (RDD),DIST-0540,ST-15,Panchayati Raj Institution (PRI),2.115,0.908
+AGENCY-0877,MAH-District-12 - Municipal Corporation (MC),DIST-0087,ST-02,Public Works Department (PWD),1.18,0.497
+AGENCY-0878,UTT-District-28 - Water Supply & Sewerage Board,DIST-0028,ST-01,Public Works Department (PWD),0.757,0.822
+AGENCY-0879,MAD-District-49 - Public Works Department (PWD),DIST-0221,ST-05,Municipal Corporation (MC),0.986,0.586
+AGENCY-0880,CHH-District-24 - Panchayati Raj Institution (PRI),DIST-0588,ST-17,Municipal Corporation (MC),1.062,0.865
+AGENCY-0881,WES-District-17 - Water Supply & Sewerage Board,DIST-0166,ST-04,Municipal Corporation (MC),1.708,0.798
+AGENCY-0882,GUJ-District-10 - Panchayati Raj Institution (PRI),DIST-0356,ST-09,Rural Development Department (RDD),1.753,0.467
+AGENCY-0883,MAD-District-46 - Rural Development Department (RDD),DIST-0218,ST-05,Public Works Department (PWD),0.802,0.825
+AGENCY-0884,GUJ-District-19 - Panchayati Raj Institution (PRI),DIST-0365,ST-09,Rural Development Department (RDD),1.362,0.88
+AGENCY-0885,RAJ-District-14 - Rural Development Department (RDD),DIST-0279,ST-07,Public Works Department (PWD),1.213,0.841
+AGENCY-0886,AND-District-08 - Municipal Corporation (MC),DIST-0387,ST-10,Municipal Corporation (MC),0.959,0.949
+AGENCY-0887,RAJ-District-05 - Water Supply & Sewerage Board,DIST-0270,ST-07,Panchayati Raj Institution (PRI),2.005,0.851
+AGENCY-0888,MAD-District-15 - Water Supply & Sewerage Board,DIST-0187,ST-05,Water Supply & Sewerage Board,1.364,0.55
+AGENCY-0889,UTT-District-11 - Public Works Department (PWD),DIST-0011,ST-01,Rural Development Department (RDD),1.032,0.626
+AGENCY-0890,ODI-District-25 - Panchayati Raj Institution (PRI),DIST-0430,ST-11,Public Works Department (PWD),1.081,0.558
+AGENCY-0891,AND-District-14 - Public Works Department (PWD),DIST-0393,ST-10,Rural Development Department (RDD),1.698,0.4
+AGENCY-0892,KER-District-01 - Municipal Corporation (MC),DIST-0469,ST-13,Public Works Department (PWD),1.522,0.842
+AGENCY-0893,MAD-District-38 - Municipal Corporation (MC),DIST-0210,ST-05,Panchayati Raj Institution (PRI),1.635,0.934
+AGENCY-0894,BIH-District-06 - Public Works Department (PWD),DIST-0117,ST-03,Rural Development Department (RDD),2.083,0.886
+AGENCY-0895,MAD-District-45 - Public Works Department (PWD),DIST-0217,ST-05,Municipal Corporation (MC),0.967,0.592
+AGENCY-0896,RAJ-District-20 - Water Supply & Sewerage Board,DIST-0285,ST-07,Municipal Corporation (MC),1.057,0.477
+AGENCY-0897,ODI-District-28 - Municipal Corporation (MC),DIST-0433,ST-11,Municipal Corporation (MC),1.522,0.959
+AGENCY-0898,PUN-District-09 - Panchayati Raj Institution (PRI),DIST-0550,ST-16,Municipal Corporation (MC),1.065,0.679
+AGENCY-0899,MAD-District-45 - Water Supply & Sewerage Board,DIST-0217,ST-05,Rural Development Department (RDD),0.717,0.581
+AGENCY-0900,UTT-District-57 - Rural Development Department (RDD),DIST-0057,ST-01,Municipal Corporation (MC),0.977,0.666
+AGENCY-0901,JHA-District-23 - Municipal Corporation (MC),DIST-0505,ST-14,Municipal Corporation (MC),0.839,0.708
+AGENCY-0902,PUN-District-08 - Water Supply & Sewerage Board,DIST-0549,ST-16,Public Works Department (PWD),1.372,0.887
+AGENCY-0903,GUJ-District-16 - Public Works Department (PWD),DIST-0362,ST-09,Water Supply & Sewerage Board,1.914,0.637
+AGENCY-0904,UTT-District-15 - Municipal Corporation (MC),DIST-0015,ST-01,Water Supply & Sewerage Board,1.085,0.652
+AGENCY-0905,KAR-District-11 - Rural Development Department (RDD),DIST-0326,ST-08,Water Supply & Sewerage Board,1.081,0.916
+AGENCY-0906,MAD-District-11 - Water Supply & Sewerage Board,DIST-0183,ST-05,Municipal Corporation (MC),0.796,0.955
+AGENCY-0907,MAD-District-18 - Rural Development Department (RDD),DIST-0190,ST-05,Public Works Department (PWD),1.834,0.423
+AGENCY-0908,UTT-District-06 - Rural Development Department (RDD),DIST-0006,ST-01,Municipal Corporation (MC),1.076,0.933
+AGENCY-0909,WES-District-13 - Municipal Corporation (MC),DIST-0162,ST-04,Public Works Department (PWD),0.878,0.801
+AGENCY-0910,HAR-District-14 - Water Supply & Sewerage Board,DIST-0611,ST-18,Rural Development Department (RDD),1.837,0.418
+AGENCY-0911,TAM-District-14 - Public Works Department (PWD),DIST-0241,ST-06,Water Supply & Sewerage Board,1.757,0.92
+AGENCY-0912,RAJ-District-40 - Municipal Corporation (MC),DIST-0305,ST-07,Public Works Department (PWD),1.224,0.825
+AGENCY-0913,CHH-District-19 - Panchayati Raj Institution (PRI),DIST-0583,ST-17,Municipal Corporation (MC),1.03,0.934
+AGENCY-0914,UTT-District-17 - Municipal Corporation (MC),DIST-0017,ST-01,Public Works Department (PWD),1.18,0.888
+AGENCY-0915,ASS-District-31 - Panchayati Raj Institution (PRI),DIST-0537,ST-15,Rural Development Department (RDD),2.143,0.414
+AGENCY-0916,HAR-District-03 - Municipal Corporation (MC),DIST-0600,ST-18,Panchayati Raj Institution (PRI),1.75,0.611
+AGENCY-0917,UTT-District-70 - Rural Development Department (RDD),DIST-0070,ST-01,Water Supply & Sewerage Board,1.996,0.613
+AGENCY-0918,TAM-District-25 - Water Supply & Sewerage Board,DIST-0252,ST-06,Panchayati Raj Institution (PRI),1.283,0.599
+AGENCY-0919,ODI-District-17 - Water Supply & Sewerage Board,DIST-0422,ST-11,Rural Development Department (RDD),0.701,0.7
+AGENCY-0920,WES-District-08 - Panchayati Raj Institution (PRI),DIST-0157,ST-04,Water Supply & Sewerage Board,2.121,0.408
+AGENCY-0921,RAJ-District-10 - Municipal Corporation (MC),DIST-0275,ST-07,Water Supply & Sewerage Board,1.881,0.84
+AGENCY-0922,ASS-District-17 - Panchayati Raj Institution (PRI),DIST-0523,ST-15,Public Works Department (PWD),1.981,0.832
+AGENCY-0923,BIH-District-07 - Public Works Department (PWD),DIST-0118,ST-03,Water Supply & Sewerage Board,0.977,0.722
+AGENCY-0924,JHA-District-02 - Panchayati Raj Institution (PRI),DIST-0484,ST-14,Panchayati Raj Institution (PRI),1.804,0.501
+AGENCY-0925,AND-District-17 - Public Works Department (PWD),DIST-0396,ST-10,Public Works Department (PWD),0.67,0.491
+AGENCY-0926,AND-District-14 - Rural Development Department (RDD),DIST-0393,ST-10,Panchayati Raj Institution (PRI),1.169,0.792
+AGENCY-0927,UTT-District-45 - Water Supply & Sewerage Board,DIST-0045,ST-01,Municipal Corporation (MC),1.153,0.449
+AGENCY-0928,MAD-District-38 - Municipal Corporation (MC),DIST-0210,ST-05,Rural Development Department (RDD),1.002,0.673
+AGENCY-0929,TAM-District-16 - Rural Development Department (RDD),DIST-0243,ST-06,Water Supply & Sewerage Board,1.196,0.956
+AGENCY-0930,BIH-District-01 - Rural Development Department (RDD),DIST-0112,ST-03,Panchayati Raj Institution (PRI),0.851,0.849
+AGENCY-0931,UTT-District-66 - Public Works Department (PWD),DIST-0066,ST-01,Panchayati Raj Institution (PRI),1.531,0.961
+AGENCY-0932,MAH-District-35 - Panchayati Raj Institution (PRI),DIST-0110,ST-02,Water Supply & Sewerage Board,1.75,0.521
+AGENCY-0933,UTT-District-73 - Water Supply & Sewerage Board,DIST-0073,ST-01,Panchayati Raj Institution (PRI),1.967,0.677
+AGENCY-0934,HAR-District-18 - Rural Development Department (RDD),DIST-0615,ST-18,Rural Development Department (RDD),0.803,0.578
+AGENCY-0935,GUJ-District-11 - Public Works Department (PWD),DIST-0357,ST-09,Panchayati Raj Institution (PRI),1.007,0.423
+AGENCY-0936,MAH-District-28 - Panchayati Raj Institution (PRI),DIST-0103,ST-02,Panchayati Raj Institution (PRI),1.225,0.978
+AGENCY-0937,TAM-District-22 - Public Works Department (PWD),DIST-0249,ST-06,Public Works Department (PWD),0.847,0.908
+AGENCY-0938,GUJ-District-01 - Public Works Department (PWD),DIST-0347,ST-09,Water Supply & Sewerage Board,1.675,0.706
+AGENCY-0939,CHH-District-05 - Rural Development Department (RDD),DIST-0569,ST-17,Rural Development Department (RDD),1.175,0.879
+AGENCY-0940,UTT-District-71 - Public Works Department (PWD),DIST-0071,ST-01,Panchayati Raj Institution (PRI),1.925,0.809
+AGENCY-0941,KER-District-08 - Panchayati Raj Institution (PRI),DIST-0476,ST-13,Public Works Department (PWD),1.788,0.819
+AGENCY-0942,MAD-District-39 - Public Works Department (PWD),DIST-0211,ST-05,Municipal Corporation (MC),0.812,0.957
+AGENCY-0943,PUN-District-12 - Rural Development Department (RDD),DIST-0553,ST-16,Public Works Department (PWD),0.981,0.8
+AGENCY-0944,MAD-District-38 - Public Works Department (PWD),DIST-0210,ST-05,Public Works Department (PWD),0.618,0.879
+AGENCY-0945,BIH-District-04 - Rural Development Department (RDD),DIST-0115,ST-03,Public Works Department (PWD),1.612,0.738
+AGENCY-0946,RAJ-District-31 - Panchayati Raj Institution (PRI),DIST-0296,ST-07,Public Works Department (PWD),1.079,0.955
+AGENCY-0947,TAM-District-06 - Panchayati Raj Institution (PRI),DIST-0233,ST-06,Municipal Corporation (MC),2.076,0.826
+AGENCY-0948,GUJ-District-23 - Water Supply & Sewerage Board,DIST-0369,ST-09,Panchayati Raj Institution (PRI),1.326,0.926
+AGENCY-0949,CHH-District-33 - Public Works Department (PWD),DIST-0597,ST-17,Public Works Department (PWD),0.773,0.684
+AGENCY-0950,WES-District-23 - Panchayati Raj Institution (PRI),DIST-0172,ST-04,Panchayati Raj Institution (PRI),1.46,0.712
+AGENCY-0951,RAJ-District-07 - Public Works Department (PWD),DIST-0272,ST-07,Water Supply & Sewerage Board,1.153,0.583
+AGENCY-0952,HAR-District-17 - Municipal Corporation (MC),DIST-0614,ST-18,Panchayati Raj Institution (PRI),1.928,0.579
+AGENCY-0953,AND-District-23 - Municipal Corporation (MC),DIST-0402,ST-10,Public Works Department (PWD),2.111,0.426
+AGENCY-0954,GUJ-District-20 - Municipal Corporation (MC),DIST-0366,ST-09,Panchayati Raj Institution (PRI),1.278,0.886
+AGENCY-0955,MAD-District-28 - Water Supply & Sewerage Board,DIST-0200,ST-05,Panchayati Raj Institution (PRI),0.831,0.838
+AGENCY-0956,KER-District-12 - Public Works Department (PWD),DIST-0480,ST-13,Panchayati Raj Institution (PRI),1.461,0.654
+AGENCY-0957,WES-District-22 - Public Works Department (PWD),DIST-0171,ST-04,Municipal Corporation (MC),1.21,0.627
+AGENCY-0958,ODI-District-04 - Rural Development Department (RDD),DIST-0409,ST-11,Municipal Corporation (MC),0.628,0.945
+AGENCY-0959,PUN-District-09 - Municipal Corporation (MC),DIST-0550,ST-16,Rural Development Department (RDD),1.184,0.821
+AGENCY-0960,AND-District-08 - Rural Development Department (RDD),DIST-0387,ST-10,Public Works Department (PWD),2.046,0.891
+AGENCY-0961,AND-District-03 - Municipal Corporation (MC),DIST-0382,ST-10,Panchayati Raj Institution (PRI),1.747,0.628
+AGENCY-0962,ASS-District-15 - Municipal Corporation (MC),DIST-0521,ST-15,Public Works Department (PWD),0.673,0.714
+AGENCY-0963,MAH-District-31 - Water Supply & Sewerage Board,DIST-0106,ST-02,Rural Development Department (RDD),1.766,0.459
+AGENCY-0964,GUJ-District-32 - Public Works Department (PWD),DIST-0378,ST-09,Water Supply & Sewerage Board,1.401,0.952
+AGENCY-0965,ODI-District-14 - Public Works Department (PWD),DIST-0419,ST-11,Rural Development Department (RDD),0.797,0.413
+AGENCY-0966,UTT-District-35 - Panchayati Raj Institution (PRI),DIST-0035,ST-01,Municipal Corporation (MC),1.841,0.442
+AGENCY-0967,UTT-District-63 - Panchayati Raj Institution (PRI),DIST-0063,ST-01,Water Supply & Sewerage Board,1.465,0.804
+AGENCY-0968,CHH-District-05 - Public Works Department (PWD),DIST-0569,ST-17,Public Works Department (PWD),1.166,0.702
+AGENCY-0969,UTT-District-56 - Municipal Corporation (MC),DIST-0056,ST-01,Panchayati Raj Institution (PRI),1.128,0.558
+AGENCY-0970,BIH-District-34 - Water Supply & Sewerage Board,DIST-0145,ST-03,Public Works Department (PWD),0.821,0.608
+AGENCY-0971,WES-District-20 - Panchayati Raj Institution (PRI),DIST-0169,ST-04,Rural Development Department (RDD),1.275,0.762
+AGENCY-0972,CHH-District-28 - Municipal Corporation (MC),DIST-0592,ST-17,Water Supply & Sewerage Board,0.851,0.427
+AGENCY-0973,ODI-District-28 - Public Works Department (PWD),DIST-0433,ST-11,Municipal Corporation (MC),0.947,0.583
+AGENCY-0974,ASS-District-13 - Panchayati Raj Institution (PRI),DIST-0519,ST-15,Water Supply & Sewerage Board,0.862,0.923
+AGENCY-0975,TEL-District-09 - Public Works Department (PWD),DIST-0444,ST-12,Rural Development Department (RDD),2.172,0.566
+AGENCY-0976,PUN-District-15 - Municipal Corporation (MC),DIST-0556,ST-16,Panchayati Raj Institution (PRI),1.939,0.668
+AGENCY-0977,TAM-District-07 - Rural Development Department (RDD),DIST-0234,ST-06,Water Supply & Sewerage Board,1.806,0.74
+AGENCY-0978,BIH-District-19 - Rural Development Department (RDD),DIST-0130,ST-03,Municipal Corporation (MC),2.186,0.937
+AGENCY-0979,WES-District-12 - Public Works Department (PWD),DIST-0161,ST-04,Public Works Department (PWD),0.927,0.462
+AGENCY-0980,UTT-District-54 - Rural Development Department (RDD),DIST-0054,ST-01,Panchayati Raj Institution (PRI),1.94,0.455
+AGENCY-0981,MAD-District-08 - Public Works Department (PWD),DIST-0180,ST-05,Water Supply & Sewerage Board,2.155,0.563
+AGENCY-0982,JHA-District-08 - Panchayati Raj Institution (PRI),DIST-0490,ST-14,Panchayati Raj Institution (PRI),0.929,0.824
+AGENCY-0983,KAR-District-13 - Water Supply & Sewerage Board,DIST-0328,ST-08,Panchayati Raj Institution (PRI),0.779,0.92
+AGENCY-0984,AND-District-01 - Rural Development Department (RDD),DIST-0380,ST-10,Municipal Corporation (MC),2.171,0.46
+AGENCY-0985,MAH-District-22 - Rural Development Department (RDD),DIST-0097,ST-02,Public Works Department (PWD),0.98,0.585
+AGENCY-0986,UTT-District-22 - Panchayati Raj Institution (PRI),DIST-0022,ST-01,Municipal Corporation (MC),1.185,0.724
+AGENCY-0987,ODI-District-20 - Public Works Department (PWD),DIST-0425,ST-11,Public Works Department (PWD),1.216,0.948
+AGENCY-0988,WES-District-03 - Municipal Corporation (MC),DIST-0152,ST-04,Rural Development Department (RDD),1.087,0.683
+AGENCY-0989,TEL-District-24 - Public Works Department (PWD),DIST-0459,ST-12,Water Supply & Sewerage Board,2.008,0.812
+AGENCY-0990,TEL-District-06 - Panchayati Raj Institution (PRI),DIST-0441,ST-12,Panchayati Raj Institution (PRI),0.791,0.4
+AGENCY-0991,UTT-District-46 - Municipal Corporation (MC),DIST-0046,ST-01,Rural Development Department (RDD),0.637,0.652
+AGENCY-0992,TEL-District-10 - Panchayati Raj Institution (PRI),DIST-0445,ST-12,Rural Development Department (RDD),1.488,0.531
+AGENCY-0993,GUJ-District-23 - Rural Development Department (RDD),DIST-0369,ST-09,Panchayati Raj Institution (PRI),2.168,0.658
+AGENCY-0994,RAJ-District-30 - Water Supply & Sewerage Board,DIST-0295,ST-07,Rural Development Department (RDD),1.597,0.679
+AGENCY-0995,TAM-District-10 - Rural Development Department (RDD),DIST-0237,ST-06,Municipal Corporation (MC),2.036,0.656
+AGENCY-0996,BIH-District-34 - Municipal Corporation (MC),DIST-0145,ST-03,Municipal Corporation (MC),1.863,0.414
+AGENCY-0997,PUN-District-06 - Municipal Corporation (MC),DIST-0547,ST-16,Public Works Department (PWD),2.013,0.823
+AGENCY-0998,TAM-District-35 - Water Supply & Sewerage Board,DIST-0262,ST-06,Public Works Department (PWD),1.861,0.865
+AGENCY-0999,MAD-District-10 - Panchayati Raj Institution (PRI),DIST-0182,ST-05,Water Supply & Sewerage Board,1.707,0.48
+AGENCY-1000,TEL-District-02 - Municipal Corporation (MC),DIST-0437,ST-12,Rural Development Department (RDD),1.134,0.521
+AGENCY-1001,GUJ-District-29 - Panchayati Raj Institution (PRI),DIST-0375,ST-09,Water Supply & Sewerage Board,0.827,0.645
+AGENCY-1002,UTT-District-12 - Municipal Corporation (MC),DIST-0012,ST-01,Rural Development Department (RDD),1.674,0.577
+AGENCY-1003,HAR-District-05 - Public Works Department (PWD),DIST-0602,ST-18,Public Works Department (PWD),1.108,0.57
+AGENCY-1004,BIH-District-22 - Water Supply & Sewerage Board,DIST-0133,ST-03,Water Supply & Sewerage Board,0.758,0.905
+AGENCY-1005,TAM-District-07 - Rural Development Department (RDD),DIST-0234,ST-06,Public Works Department (PWD),0.605,0.675
+AGENCY-1006,TEL-District-18 - Public Works Department (PWD),DIST-0453,ST-12,Panchayati Raj Institution (PRI),2.176,0.89
+AGENCY-1007,MAH-District-35 - Public Works Department (PWD),DIST-0110,ST-02,Municipal Corporation (MC),1.673,0.428
+AGENCY-1008,TEL-District-23 - Water Supply & Sewerage Board,DIST-0458,ST-12,Rural Development Department (RDD),0.757,0.574
+AGENCY-1009,RAJ-District-27 - Public Works Department (PWD),DIST-0292,ST-07,Panchayati Raj Institution (PRI),0.622,0.546
+AGENCY-1010,TAM-District-08 - Rural Development Department (RDD),DIST-0235,ST-06,Panchayati Raj Institution (PRI),0.603,0.728
+AGENCY-1011,RAJ-District-23 - Municipal Corporation (MC),DIST-0288,ST-07,Public Works Department (PWD),1.556,0.539
+AGENCY-1012,UTT-District-54 - Panchayati Raj Institution (PRI),DIST-0054,ST-01,Panchayati Raj Institution (PRI),1.651,0.418
+AGENCY-1013,AND-District-08 - Water Supply & Sewerage Board,DIST-0387,ST-10,Panchayati Raj Institution (PRI),1.907,0.52
+AGENCY-1014,CHH-District-31 - Panchayati Raj Institution (PRI),DIST-0595,ST-17,Rural Development Department (RDD),1.96,0.654
+AGENCY-1015,RAJ-District-13 - Public Works Department (PWD),DIST-0278,ST-07,Water Supply & Sewerage Board,1.644,0.726
+AGENCY-1016,GUJ-District-01 - Rural Development Department (RDD),DIST-0347,ST-09,Panchayati Raj Institution (PRI),0.81,0.641
+AGENCY-1017,GUJ-District-24 - Rural Development Department (RDD),DIST-0370,ST-09,Rural Development Department (RDD),1.672,0.843
+AGENCY-1018,TAM-District-36 - Water Supply & Sewerage Board,DIST-0263,ST-06,Water Supply & Sewerage Board,2.016,0.891
+AGENCY-1019,BIH-District-27 - Panchayati Raj Institution (PRI),DIST-0138,ST-03,Water Supply & Sewerage Board,1.785,0.555
+AGENCY-1020,TEL-District-28 - Water Supply & Sewerage Board,DIST-0463,ST-12,Water Supply & Sewerage Board,1.785,0.519
+AGENCY-1021,GUJ-District-26 - Public Works Department (PWD),DIST-0372,ST-09,Public Works Department (PWD),1.043,0.697
+AGENCY-1022,KAR-District-12 - Panchayati Raj Institution (PRI),DIST-0327,ST-08,Panchayati Raj Institution (PRI),0.621,0.446
+AGENCY-1023,PUN-District-09 - Municipal Corporation (MC),DIST-0550,ST-16,Rural Development Department (RDD),0.868,0.636
+AGENCY-1024,TAM-District-33 - Municipal Corporation (MC),DIST-0260,ST-06,Municipal Corporation (MC),0.923,0.554
+AGENCY-1025,HAR-District-18 - Water Supply & Sewerage Board,DIST-0615,ST-18,Municipal Corporation (MC),1.035,0.808
+AGENCY-1026,CHH-District-23 - Panchayati Raj Institution (PRI),DIST-0587,ST-17,Public Works Department (PWD),0.653,0.968
+AGENCY-1027,ASS-District-24 - Water Supply & Sewerage Board,DIST-0530,ST-15,Water Supply & Sewerage Board,0.636,0.69
+AGENCY-1028,GUJ-District-28 - Panchayati Raj Institution (PRI),DIST-0374,ST-09,Rural Development Department (RDD),2.165,0.501
+AGENCY-1029,WES-District-09 - Public Works Department (PWD),DIST-0158,ST-04,Rural Development Department (RDD),0.613,0.737
+AGENCY-1030,ODI-District-04 - Water Supply & Sewerage Board,DIST-0409,ST-11,Panchayati Raj Institution (PRI),1.643,0.438
+AGENCY-1031,AND-District-06 - Public Works Department (PWD),DIST-0385,ST-10,Municipal Corporation (MC),1.254,0.675
+AGENCY-1032,WES-District-09 - Panchayati Raj Institution (PRI),DIST-0158,ST-04,Rural Development Department (RDD),1.797,0.797
+AGENCY-1033,HAR-District-07 - Municipal Corporation (MC),DIST-0604,ST-18,Panchayati Raj Institution (PRI),0.655,0.712
+AGENCY-1034,UTT-District-06 - Municipal Corporation (MC),DIST-0006,ST-01,Public Works Department (PWD),1.573,0.574
+AGENCY-1035,TEL-District-01 - Municipal Corporation (MC),DIST-0436,ST-12,Rural Development Department (RDD),0.744,0.808
+AGENCY-1036,UTT-District-36 - Water Supply & Sewerage Board,DIST-0036,ST-01,Public Works Department (PWD),1.677,0.802
+AGENCY-1037,KAR-District-10 - Municipal Corporation (MC),DIST-0325,ST-08,Public Works Department (PWD),0.907,0.521
+AGENCY-1038,AND-District-16 - Water Supply & Sewerage Board,DIST-0395,ST-10,Panchayati Raj Institution (PRI),1.466,0.619
+AGENCY-1039,UTT-District-10 - Panchayati Raj Institution (PRI),DIST-0010,ST-01,Municipal Corporation (MC),0.953,0.957
+AGENCY-1040,UTT-District-40 - Rural Development Department (RDD),DIST-0040,ST-01,Panchayati Raj Institution (PRI),1.543,0.64
+AGENCY-1041,CHH-District-10 - Panchayati Raj Institution (PRI),DIST-0574,ST-17,Municipal Corporation (MC),1.485,0.48
+AGENCY-1042,CHH-District-29 - Municipal Corporation (MC),DIST-0593,ST-17,Panchayati Raj Institution (PRI),1.505,0.828
+AGENCY-1043,GUJ-District-13 - Rural Development Department (RDD),DIST-0359,ST-09,Municipal Corporation (MC),1.186,0.585
+AGENCY-1044,ODI-District-04 - Rural Development Department (RDD),DIST-0409,ST-11,Rural Development Department (RDD),1.08,0.47
+AGENCY-1045,GUJ-District-11 - Panchayati Raj Institution (PRI),DIST-0357,ST-09,Municipal Corporation (MC),0.935,0.496
+AGENCY-1046,GUJ-District-01 - Water Supply & Sewerage Board,DIST-0347,ST-09,Water Supply & Sewerage Board,1.826,0.603
+AGENCY-1047,ODI-District-30 - Panchayati Raj Institution (PRI),DIST-0435,ST-11,Municipal Corporation (MC),2.092,0.564
+AGENCY-1048,WES-District-01 - Public Works Department (PWD),DIST-0150,ST-04,Panchayati Raj Institution (PRI),2.036,0.563
+AGENCY-1049,MAH-District-31 - Municipal Corporation (MC),DIST-0106,ST-02,Panchayati Raj Institution (PRI),1.455,0.957
+AGENCY-1050,MAH-District-27 - Rural Development Department (RDD),DIST-0102,ST-02,Rural Development Department (RDD),2.133,0.517
+AGENCY-1051,KAR-District-08 - Public Works Department (PWD),DIST-0323,ST-08,Panchayati Raj Institution (PRI),0.702,0.553
+AGENCY-1052,PUN-District-22 - Public Works Department (PWD),DIST-0563,ST-16,Water Supply & Sewerage Board,0.93,0.863
+AGENCY-1053,MAD-District-33 - Public Works Department (PWD),DIST-0205,ST-05,Panchayati Raj Institution (PRI),1.248,0.802
+AGENCY-1054,JHA-District-11 - Water Supply & Sewerage Board,DIST-0493,ST-14,Public Works Department (PWD),0.707,0.464
+AGENCY-1055,MAD-District-15 - Water Supply & Sewerage Board,DIST-0187,ST-05,Water Supply & Sewerage Board,1.953,0.676
+AGENCY-1056,PUN-District-06 - Public Works Department (PWD),DIST-0547,ST-16,Public Works Department (PWD),1.669,0.593
+AGENCY-1057,KAR-District-11 - Public Works Department (PWD),DIST-0326,ST-08,Public Works Department (PWD),1.115,0.801
+AGENCY-1058,CHH-District-29 - Water Supply & Sewerage Board,DIST-0593,ST-17,Public Works Department (PWD),2.063,0.665
+AGENCY-1059,BIH-District-07 - Water Supply & Sewerage Board,DIST-0118,ST-03,Municipal Corporation (MC),1.982,0.723
+AGENCY-1060,TAM-District-05 - Public Works Department (PWD),DIST-0232,ST-06,Municipal Corporation (MC),1.885,0.721
+AGENCY-1061,WES-District-16 - Municipal Corporation (MC),DIST-0165,ST-04,Rural Development Department (RDD),1.533,0.556
+AGENCY-1062,JHA-District-07 - Rural Development Department (RDD),DIST-0489,ST-14,Municipal Corporation (MC),1.24,0.559
+AGENCY-1063,ASS-District-07 - Public Works Department (PWD),DIST-0513,ST-15,Panchayati Raj Institution (PRI),2.073,0.505
+AGENCY-1064,WES-District-23 - Public Works Department (PWD),DIST-0172,ST-04,Water Supply & Sewerage Board,0.697,0.443
+AGENCY-1065,MAD-District-47 - Panchayati Raj Institution (PRI),DIST-0219,ST-05,Public Works Department (PWD),0.834,0.771
+AGENCY-1066,KAR-District-31 - Public Works Department (PWD),DIST-0346,ST-08,Rural Development Department (RDD),1.729,0.418
+AGENCY-1067,TAM-District-07 - Rural Development Department (RDD),DIST-0234,ST-06,Rural Development Department (RDD),2.193,0.746
+AGENCY-1068,RAJ-District-34 - Municipal Corporation (MC),DIST-0299,ST-07,Panchayati Raj Institution (PRI),2.145,0.484
+AGENCY-1069,KAR-District-05 - Public Works Department (PWD),DIST-0320,ST-08,Public Works Department (PWD),1.906,0.402
+AGENCY-1070,KAR-District-14 - Panchayati Raj Institution (PRI),DIST-0329,ST-08,Panchayati Raj Institution (PRI),1.157,0.778
+AGENCY-1071,UTT-District-01 - Water Supply & Sewerage Board,DIST-0001,ST-01,Panchayati Raj Institution (PRI),1.496,0.491
+AGENCY-1072,GUJ-District-11 - Rural Development Department (RDD),DIST-0357,ST-09,Rural Development Department (RDD),0.637,0.745
+AGENCY-1073,TEL-District-05 - Water Supply & Sewerage Board,DIST-0440,ST-12,Panchayati Raj Institution (PRI),1.15,0.594
+AGENCY-1074,ODI-District-09 - Municipal Corporation (MC),DIST-0414,ST-11,Municipal Corporation (MC),0.728,0.958
+AGENCY-1075,TAM-District-10 - Public Works Department (PWD),DIST-0237,ST-06,Public Works Department (PWD),1.876,0.408
+AGENCY-1076,MAD-District-36 - Rural Development Department (RDD),DIST-0208,ST-05,Rural Development Department (RDD),0.648,0.826
+AGENCY-1077,KAR-District-04 - Municipal Corporation (MC),DIST-0319,ST-08,Rural Development Department (RDD),1.466,0.86
+AGENCY-1078,MAD-District-14 - Panchayati Raj Institution (PRI),DIST-0186,ST-05,Panchayati Raj Institution (PRI),1.138,0.426
+AGENCY-1079,RAJ-District-18 - Panchayati Raj Institution (PRI),DIST-0283,ST-07,Water Supply & Sewerage Board,1.547,0.766
+AGENCY-1080,BIH-District-03 - Panchayati Raj Institution (PRI),DIST-0114,ST-03,Water Supply & Sewerage Board,0.675,0.498
+AGENCY-1081,TAM-District-04 - Rural Development Department (RDD),DIST-0231,ST-06,Panchayati Raj Institution (PRI),0.987,0.426
+AGENCY-1082,TEL-District-08 - Panchayati Raj Institution (PRI),DIST-0443,ST-12,Public Works Department (PWD),1.274,0.855
+AGENCY-1083,RAJ-District-23 - Public Works Department (PWD),DIST-0288,ST-07,Panchayati Raj Institution (PRI),0.602,0.842
+AGENCY-1084,MAD-District-01 - Panchayati Raj Institution (PRI),DIST-0173,ST-05,Municipal Corporation (MC),2.023,0.463
+AGENCY-1085,KAR-District-05 - Panchayati Raj Institution (PRI),DIST-0320,ST-08,Panchayati Raj Institution (PRI),1.051,0.421
+AGENCY-1086,GUJ-District-14 - Panchayati Raj Institution (PRI),DIST-0360,ST-09,Municipal Corporation (MC),0.602,0.686
+AGENCY-1087,MAD-District-04 - Panchayati Raj Institution (PRI),DIST-0176,ST-05,Rural Development Department (RDD),1.295,0.407
+AGENCY-1088,TAM-District-21 - Panchayati Raj Institution (PRI),DIST-0248,ST-06,Municipal Corporation (MC),1.346,0.816
+AGENCY-1089,RAJ-District-27 - Municipal Corporation (MC),DIST-0292,ST-07,Water Supply & Sewerage Board,0.645,0.63
+AGENCY-1090,UTT-District-60 - Water Supply & Sewerage Board,DIST-0060,ST-01,Municipal Corporation (MC),2.174,0.814
+AGENCY-1091,AND-District-09 - Municipal Corporation (MC),DIST-0388,ST-10,Municipal Corporation (MC),0.722,0.56
+AGENCY-1092,PUN-District-11 - Panchayati Raj Institution (PRI),DIST-0552,ST-16,Panchayati Raj Institution (PRI),1.82,0.976
+AGENCY-1093,KAR-District-09 - Municipal Corporation (MC),DIST-0324,ST-08,Rural Development Department (RDD),1.285,0.903
+AGENCY-1094,MAD-District-05 - Water Supply & Sewerage Board,DIST-0177,ST-05,Municipal Corporation (MC),1.593,0.976
+AGENCY-1095,JHA-District-24 - Municipal Corporation (MC),DIST-0506,ST-14,Rural Development Department (RDD),0.786,0.477
+AGENCY-1096,PUN-District-09 - Panchayati Raj Institution (PRI),DIST-0550,ST-16,Municipal Corporation (MC),1.325,0.755
+AGENCY-1097,JHA-District-17 - Water Supply & Sewerage Board,DIST-0499,ST-14,Rural Development Department (RDD),1.744,0.489
+AGENCY-1098,UTT-District-03 - Panchayati Raj Institution (PRI),DIST-0003,ST-01,Public Works Department (PWD),1.35,0.65
+AGENCY-1099,BIH-District-04 - Water Supply & Sewerage Board,DIST-0115,ST-03,Municipal Corporation (MC),1.415,0.966
+AGENCY-1100,MAD-District-15 - Water Supply & Sewerage Board,DIST-0187,ST-05,Municipal Corporation (MC),0.794,0.438
+AGENCY-1101,MAD-District-11 - Municipal Corporation (MC),DIST-0183,ST-05,Public Works Department (PWD),0.955,0.915
+AGENCY-1102,CHH-District-16 - Water Supply & Sewerage Board,DIST-0580,ST-17,Municipal Corporation (MC),1.814,0.885
+AGENCY-1103,BIH-District-32 - Water Supply & Sewerage Board,DIST-0143,ST-03,Rural Development Department (RDD),1.995,0.973
+AGENCY-1104,MAD-District-16 - Water Supply & Sewerage Board,DIST-0188,ST-05,Rural Development Department (RDD),1.195,0.532
+AGENCY-1105,TEL-District-25 - Municipal Corporation (MC),DIST-0460,ST-12,Water Supply & Sewerage Board,1.042,0.654
+AGENCY-1106,CHH-District-07 - Rural Development Department (RDD),DIST-0571,ST-17,Panchayati Raj Institution (PRI),0.777,0.869
+AGENCY-1107,RAJ-District-43 - Rural Development Department (RDD),DIST-0308,ST-07,Panchayati Raj Institution (PRI),1.271,0.611
+AGENCY-1108,BIH-District-14 - Panchayati Raj Institution (PRI),DIST-0125,ST-03,Panchayati Raj Institution (PRI),2.044,0.888
+AGENCY-1109,JHA-District-01 - Panchayati Raj Institution (PRI),DIST-0483,ST-14,Panchayati Raj Institution (PRI),1.934,0.707
+AGENCY-1110,WES-District-12 - Municipal Corporation (MC),DIST-0161,ST-04,Water Supply & Sewerage Board,1.239,0.682
+AGENCY-1111,ODI-District-13 - Public Works Department (PWD),DIST-0418,ST-11,Municipal Corporation (MC),1.093,0.833
+AGENCY-1112,AND-District-10 - Rural Development Department (RDD),DIST-0389,ST-10,Rural Development Department (RDD),1.94,0.413
+AGENCY-1113,GUJ-District-17 - Water Supply & Sewerage Board,DIST-0363,ST-09,Rural Development Department (RDD),1.498,0.462
+AGENCY-1114,BIH-District-22 - Rural Development Department (RDD),DIST-0133,ST-03,Panchayati Raj Institution (PRI),0.641,0.754
+AGENCY-1115,TEL-District-29 - Water Supply & Sewerage Board,DIST-0464,ST-12,Public Works Department (PWD),0.785,0.626
+AGENCY-1116,MAH-District-33 - Water Supply & Sewerage Board,DIST-0108,ST-02,Municipal Corporation (MC),1.1,0.639
+AGENCY-1117,KAR-District-23 - Rural Development Department (RDD),DIST-0338,ST-08,Panchayati Raj Institution (PRI),1.591,0.555
+AGENCY-1118,TEL-District-03 - Public Works Department (PWD),DIST-0438,ST-12,Rural Development Department (RDD),1.632,0.874
+AGENCY-1119,RAJ-District-42 - Panchayati Raj Institution (PRI),DIST-0307,ST-07,Panchayati Raj Institution (PRI),1.708,0.681
+AGENCY-1120,BIH-District-34 - Panchayati Raj Institution (PRI),DIST-0145,ST-03,Rural Development Department (RDD),0.978,0.942
+AGENCY-1121,AND-District-15 - Panchayati Raj Institution (PRI),DIST-0394,ST-10,Rural Development Department (RDD),1.568,0.725
+AGENCY-1122,UTT-District-21 - Water Supply & Sewerage Board,DIST-0021,ST-01,Municipal Corporation (MC),2.015,0.479
+AGENCY-1123,UTT-District-71 - Rural Development Department (RDD),DIST-0071,ST-01,Public Works Department (PWD),1.98,0.549
+AGENCY-1124,MAD-District-30 - Municipal Corporation (MC),DIST-0202,ST-05,Panchayati Raj Institution (PRI),2.095,0.854
+AGENCY-1125,RAJ-District-22 - Water Supply & Sewerage Board,DIST-0287,ST-07,Rural Development Department (RDD),1.902,0.531
+AGENCY-1126,MAH-District-26 - Municipal Corporation (MC),DIST-0101,ST-02,Municipal Corporation (MC),1.725,0.781
+AGENCY-1127,TEL-District-31 - Panchayati Raj Institution (PRI),DIST-0466,ST-12,Water Supply & Sewerage Board,1.49,0.938
+AGENCY-1128,MAD-District-41 - Public Works Department (PWD),DIST-0213,ST-05,Panchayati Raj Institution (PRI),1.853,0.579
+AGENCY-1129,MAD-District-49 - Panchayati Raj Institution (PRI),DIST-0221,ST-05,Panchayati Raj Institution (PRI),1.837,0.712
+AGENCY-1130,PUN-District-22 - Public Works Department (PWD),DIST-0563,ST-16,Panchayati Raj Institution (PRI),1.082,0.576
+AGENCY-1131,MAH-District-34 - Municipal Corporation (MC),DIST-0109,ST-02,Public Works Department (PWD),1.935,0.564
+AGENCY-1132,HAR-District-05 - Water Supply & Sewerage Board,DIST-0602,ST-18,Panchayati Raj Institution (PRI),1.131,0.963
+AGENCY-1133,HAR-District-06 - Water Supply & Sewerage Board,DIST-0603,ST-18,Public Works Department (PWD),1.636,0.975
+AGENCY-1134,CHH-District-19 - Water Supply & Sewerage Board,DIST-0583,ST-17,Water Supply & Sewerage Board,1.012,0.552
+AGENCY-1135,BIH-District-32 - Municipal Corporation (MC),DIST-0143,ST-03,Water Supply & Sewerage Board,0.993,0.696
+AGENCY-1136,KAR-District-06 - Rural Development Department (RDD),DIST-0321,ST-08,Public Works Department (PWD),1.253,0.6
+AGENCY-1137,MAD-District-52 - Panchayati Raj Institution (PRI),DIST-0224,ST-05,Panchayati Raj Institution (PRI),1.281,0.656
+AGENCY-1138,UTT-District-03 - Panchayati Raj Institution (PRI),DIST-0003,ST-01,Panchayati Raj Institution (PRI),1.807,0.692
+AGENCY-1139,MAD-District-49 - Panchayati Raj Institution (PRI),DIST-0221,ST-05,Panchayati Raj Institution (PRI),0.936,0.418
+AGENCY-1140,UTT-District-33 - Water Supply & Sewerage Board,DIST-0033,ST-01,Public Works Department (PWD),0.986,0.609
+AGENCY-1141,ASS-District-24 - Rural Development Department (RDD),DIST-0530,ST-15,Rural Development Department (RDD),1.695,0.509
+AGENCY-1142,TAM-District-08 - Water Supply & Sewerage Board,DIST-0235,ST-06,Water Supply & Sewerage Board,2.158,0.44
+AGENCY-1143,UTT-District-39 - Rural Development Department (RDD),DIST-0039,ST-01,Rural Development Department (RDD),1.001,0.551
+AGENCY-1144,TAM-District-16 - Water Supply & Sewerage Board,DIST-0243,ST-06,Public Works Department (PWD),0.791,0.97
+AGENCY-1145,RAJ-District-19 - Rural Development Department (RDD),DIST-0284,ST-07,Rural Development Department (RDD),0.716,0.414
+AGENCY-1146,KAR-District-17 - Panchayati Raj Institution (PRI),DIST-0332,ST-08,Rural Development Department (RDD),0.627,0.821
+AGENCY-1147,CHH-District-05 - Panchayati Raj Institution (PRI),DIST-0569,ST-17,Rural Development Department (RDD),0.95,0.808
+AGENCY-1148,AND-District-16 - Municipal Corporation (MC),DIST-0395,ST-10,Public Works Department (PWD),0.924,0.404
+AGENCY-1149,GUJ-District-01 - Water Supply & Sewerage Board,DIST-0347,ST-09,Municipal Corporation (MC),1.559,0.645
+AGENCY-1150,HAR-District-02 - Rural Development Department (RDD),DIST-0599,ST-18,Water Supply & Sewerage Board,0.713,0.773
+AGENCY-1151,KER-District-04 - Municipal Corporation (MC),DIST-0472,ST-13,Municipal Corporation (MC),0.957,0.68
+AGENCY-1152,HAR-District-04 - Panchayati Raj Institution (PRI),DIST-0601,ST-18,Panchayati Raj Institution (PRI),2.042,0.717
+AGENCY-1153,GUJ-District-21 - Public Works Department (PWD),DIST-0367,ST-09,Public Works Department (PWD),1.152,0.764
+AGENCY-1154,BIH-District-27 - Rural Development Department (RDD),DIST-0138,ST-03,Public Works Department (PWD),0.904,0.483
+AGENCY-1155,KER-District-08 - Municipal Corporation (MC),DIST-0476,ST-13,Rural Development Department (RDD),2.002,0.795
+AGENCY-1156,GUJ-District-27 - Panchayati Raj Institution (PRI),DIST-0373,ST-09,Public Works Department (PWD),2.07,0.915
+AGENCY-1157,MAD-District-14 - Water Supply & Sewerage Board,DIST-0186,ST-05,Rural Development Department (RDD),1.804,0.93
+AGENCY-1158,RAJ-District-41 - Rural Development Department (RDD),DIST-0306,ST-07,Panchayati Raj Institution (PRI),1.473,0.637
+AGENCY-1159,MAD-District-32 - Rural Development Department (RDD),DIST-0204,ST-05,Municipal Corporation (MC),1.459,0.523
+AGENCY-1160,WES-District-07 - Rural Development Department (RDD),DIST-0156,ST-04,Water Supply & Sewerage Board,0.685,0.598
+AGENCY-1161,ODI-District-11 - Water Supply & Sewerage Board,DIST-0416,ST-11,Public Works Department (PWD),1.913,0.468
+AGENCY-1162,MAH-District-20 - Public Works Department (PWD),DIST-0095,ST-02,Water Supply & Sewerage Board,0.743,0.797
+AGENCY-1163,JHA-District-05 - Water Supply & Sewerage Board,DIST-0487,ST-14,Rural Development Department (RDD),1.915,0.506
+AGENCY-1164,MAH-District-21 - Public Works Department (PWD),DIST-0096,ST-02,Panchayati Raj Institution (PRI),2.091,0.881
+AGENCY-1165,BIH-District-31 - Public Works Department (PWD),DIST-0142,ST-03,Rural Development Department (RDD),0.93,0.491
+AGENCY-1166,ODI-District-03 - Rural Development Department (RDD),DIST-0408,ST-11,Rural Development Department (RDD),2.021,0.412
+AGENCY-1167,BIH-District-16 - Rural Development Department (RDD),DIST-0127,ST-03,Water Supply & Sewerage Board,0.666,0.88
+AGENCY-1168,PUN-District-04 - Panchayati Raj Institution (PRI),DIST-0545,ST-16,Public Works Department (PWD),1.878,0.549
+AGENCY-1169,UTT-District-48 - Water Supply & Sewerage Board,DIST-0048,ST-01,Water Supply & Sewerage Board,1.804,0.969
+AGENCY-1170,ODI-District-22 - Water Supply & Sewerage Board,DIST-0427,ST-11,Panchayati Raj Institution (PRI),1.255,0.804
+AGENCY-1171,WES-District-01 - Municipal Corporation (MC),DIST-0150,ST-04,Rural Development Department (RDD),1.474,0.538
+AGENCY-1172,BIH-District-27 - Municipal Corporation (MC),DIST-0138,ST-03,Panchayati Raj Institution (PRI),0.688,0.961
+AGENCY-1173,MAD-District-40 - Rural Development Department (RDD),DIST-0212,ST-05,Water Supply & Sewerage Board,1.086,0.475
+AGENCY-1174,MAD-District-38 - Municipal Corporation (MC),DIST-0210,ST-05,Water Supply & Sewerage Board,1.569,0.852
+AGENCY-1175,BIH-District-26 - Water Supply & Sewerage Board,DIST-0137,ST-03,Rural Development Department (RDD),1.055,0.436
+AGENCY-1176,MAD-District-08 - Rural Development Department (RDD),DIST-0180,ST-05,Public Works Department (PWD),0.849,0.953
+AGENCY-1177,GUJ-District-24 - Water Supply & Sewerage Board,DIST-0370,ST-09,Municipal Corporation (MC),0.926,0.708
+AGENCY-1178,RAJ-District-15 - Rural Development Department (RDD),DIST-0280,ST-07,Rural Development Department (RDD),1.496,0.463
+AGENCY-1179,TAM-District-10 - Panchayati Raj Institution (PRI),DIST-0237,ST-06,Rural Development Department (RDD),0.839,0.501
+AGENCY-1180,MAH-District-02 - Municipal Corporation (MC),DIST-0077,ST-02,Rural Development Department (RDD),1.642,0.971
+AGENCY-1181,HAR-District-20 - Water Supply & Sewerage Board,DIST-0617,ST-18,Panchayati Raj Institution (PRI),1.053,0.906
+AGENCY-1182,TAM-District-11 - Public Works Department (PWD),DIST-0238,ST-06,Municipal Corporation (MC),2.116,0.777
+AGENCY-1183,UTT-District-64 - Water Supply & Sewerage Board,DIST-0064,ST-01,Water Supply & Sewerage Board,0.813,0.846
+AGENCY-1184,UTT-District-18 - Rural Development Department (RDD),DIST-0018,ST-01,Panchayati Raj Institution (PRI),2.038,0.639
+AGENCY-1185,MAD-District-41 - Municipal Corporation (MC),DIST-0213,ST-05,Municipal Corporation (MC),2.02,0.905
+AGENCY-1186,ASS-District-32 - Public Works Department (PWD),DIST-0538,ST-15,Municipal Corporation (MC),2.07,0.726
+AGENCY-1187,MAH-District-23 - Municipal Corporation (MC),DIST-0098,ST-02,Panchayati Raj Institution (PRI),0.704,0.415
+AGENCY-1188,UTT-District-10 - Water Supply & Sewerage Board,DIST-0010,ST-01,Panchayati Raj Institution (PRI),1.858,0.528
+AGENCY-1189,RAJ-District-29 - Municipal Corporation (MC),DIST-0294,ST-07,Rural Development Department (RDD),1.496,0.908
+AGENCY-1190,TEL-District-01 - Rural Development Department (RDD),DIST-0436,ST-12,Public Works Department (PWD),1.481,0.423
+AGENCY-1191,MAD-District-32 - Municipal Corporation (MC),DIST-0204,ST-05,Rural Development Department (RDD),1.49,0.403
+AGENCY-1192,CHH-District-31 - Municipal Corporation (MC),DIST-0595,ST-17,Panchayati Raj Institution (PRI),1.752,0.865
+AGENCY-1193,UTT-District-32 - Water Supply & Sewerage Board,DIST-0032,ST-01,Water Supply & Sewerage Board,1.677,0.726
+AGENCY-1194,MAH-District-16 - Rural Development Department (RDD),DIST-0091,ST-02,Municipal Corporation (MC),0.739,0.81
+AGENCY-1195,TAM-District-36 - Panchayati Raj Institution (PRI),DIST-0263,ST-06,Public Works Department (PWD),1.261,0.694
+AGENCY-1196,MAD-District-13 - Municipal Corporation (MC),DIST-0185,ST-05,Municipal Corporation (MC),1.308,0.741
+AGENCY-1197,MAD-District-41 - Public Works Department (PWD),DIST-0213,ST-05,Water Supply & Sewerage Board,1.675,0.548
+AGENCY-1198,GUJ-District-04 - Water Supply & Sewerage Board,DIST-0350,ST-09,Panchayati Raj Institution (PRI),1.036,0.463
+AGENCY-1199,UTT-District-35 - Municipal Corporation (MC),DIST-0035,ST-01,Panchayati Raj Institution (PRI),1.619,0.708
+AGENCY-1200,ODI-District-06 - Water Supply & Sewerage Board,DIST-0411,ST-11,Municipal Corporation (MC),0.972,0.711
+AGENCY-1201,GUJ-District-06 - Panchayati Raj Institution (PRI),DIST-0352,ST-09,Municipal Corporation (MC),1.405,0.656
+AGENCY-1202,WES-District-08 - Panchayati Raj Institution (PRI),DIST-0157,ST-04,Panchayati Raj Institution (PRI),1.097,0.895
+AGENCY-1203,KAR-District-25 - Panchayati Raj Institution (PRI),DIST-0340,ST-08,Rural Development Department (RDD),0.653,0.83
+AGENCY-1204,TAM-District-28 - Water Supply & Sewerage Board,DIST-0255,ST-06,Rural Development Department (RDD),1.35,0.966
+AGENCY-1205,AND-District-19 - Municipal Corporation (MC),DIST-0398,ST-10,Rural Development Department (RDD),1.249,0.743
+AGENCY-1206,KAR-District-16 - Panchayati Raj Institution (PRI),DIST-0331,ST-08,Rural Development Department (RDD),2.147,0.538
+AGENCY-1207,KAR-District-29 - Municipal Corporation (MC),DIST-0344,ST-08,Public Works Department (PWD),1.278,0.692
+AGENCY-1208,KAR-District-01 - Municipal Corporation (MC),DIST-0316,ST-08,Water Supply & Sewerage Board,1.702,0.973
+AGENCY-1209,CHH-District-28 - Municipal Corporation (MC),DIST-0592,ST-17,Rural Development Department (RDD),0.934,0.578
+AGENCY-1210,RAJ-District-44 - Municipal Corporation (MC),DIST-0309,ST-07,Rural Development Department (RDD),0.914,0.639
+AGENCY-1211,BIH-District-05 - Rural Development Department (RDD),DIST-0116,ST-03,Rural Development Department (RDD),1.634,0.916
+AGENCY-1212,MAD-District-18 - Public Works Department (PWD),DIST-0190,ST-05,Public Works Department (PWD),0.741,0.528
+AGENCY-1213,KAR-District-24 - Water Supply & Sewerage Board,DIST-0339,ST-08,Rural Development Department (RDD),1.527,0.722
+AGENCY-1214,MAH-District-03 - Municipal Corporation (MC),DIST-0078,ST-02,Panchayati Raj Institution (PRI),0.9,0.831
+AGENCY-1215,ASS-District-01 - Rural Development Department (RDD),DIST-0507,ST-15,Municipal Corporation (MC),0.728,0.6
+AGENCY-1216,GUJ-District-06 - Public Works Department (PWD),DIST-0352,ST-09,Public Works Department (PWD),1.054,0.541
+AGENCY-1217,UTT-District-56 - Panchayati Raj Institution (PRI),DIST-0056,ST-01,Water Supply & Sewerage Board,2.03,0.735
+AGENCY-1218,ODI-District-11 - Municipal Corporation (MC),DIST-0416,ST-11,Water Supply & Sewerage Board,1.256,0.703
+AGENCY-1219,HAR-District-22 - Water Supply & Sewerage Board,DIST-0619,ST-18,Municipal Corporation (MC),2.073,0.862
+AGENCY-1220,AND-District-10 - Public Works Department (PWD),DIST-0389,ST-10,Water Supply & Sewerage Board,1.003,0.548
+AGENCY-1221,TEL-District-07 - Municipal Corporation (MC),DIST-0442,ST-12,Panchayati Raj Institution (PRI),1.714,0.492
+AGENCY-1222,CHH-District-29 - Rural Development Department (RDD),DIST-0593,ST-17,Rural Development Department (RDD),0.843,0.893
+AGENCY-1223,TEL-District-09 - Panchayati Raj Institution (PRI),DIST-0444,ST-12,Panchayati Raj Institution (PRI),1.538,0.447
+AGENCY-1224,WES-District-16 - Water Supply & Sewerage Board,DIST-0165,ST-04,Public Works Department (PWD),0.904,0.785
+AGENCY-1225,PUN-District-21 - Rural Development Department (RDD),DIST-0562,ST-16,Municipal Corporation (MC),0.795,0.735
+AGENCY-1226,ODI-District-28 - Water Supply & Sewerage Board,DIST-0433,ST-11,Water Supply & Sewerage Board,2.078,0.428
+AGENCY-1227,RAJ-District-49 - Panchayati Raj Institution (PRI),DIST-0314,ST-07,Water Supply & Sewerage Board,2.164,0.49
+AGENCY-1228,AND-District-18 - Panchayati Raj Institution (PRI),DIST-0397,ST-10,Rural Development Department (RDD),2.029,0.493
+AGENCY-1229,AND-District-06 - Water Supply & Sewerage Board,DIST-0385,ST-10,Rural Development Department (RDD),1.877,0.638
+AGENCY-1230,UTT-District-53 - Municipal Corporation (MC),DIST-0053,ST-01,Municipal Corporation (MC),2.157,0.482
+AGENCY-1231,GUJ-District-01 - Rural Development Department (RDD),DIST-0347,ST-09,Water Supply & Sewerage Board,1.503,0.924
+AGENCY-1232,GUJ-District-18 - Public Works Department (PWD),DIST-0364,ST-09,Water Supply & Sewerage Board,1.944,0.856
+AGENCY-1233,AND-District-19 - Rural Development Department (RDD),DIST-0398,ST-10,Public Works Department (PWD),1.324,0.467
+AGENCY-1234,CHH-District-02 - Public Works Department (PWD),DIST-0566,ST-17,Water Supply & Sewerage Board,2.131,0.768
+AGENCY-1235,TEL-District-03 - Public Works Department (PWD),DIST-0438,ST-12,Public Works Department (PWD),0.99,0.62
+AGENCY-1236,GUJ-District-31 - Public Works Department (PWD),DIST-0377,ST-09,Municipal Corporation (MC),0.911,0.475
+AGENCY-1237,ASS-District-19 - Public Works Department (PWD),DIST-0525,ST-15,Municipal Corporation (MC),0.803,0.638
+AGENCY-1238,TEL-District-13 - Panchayati Raj Institution (PRI),DIST-0448,ST-12,Municipal Corporation (MC),1.489,0.678

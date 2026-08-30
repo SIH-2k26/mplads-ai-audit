@@ -1,0 +1,31 @@
+# configs/data_generation.yaml
+# Scalable Relational Synthetic Generation Configuration for MPLADS AI Audit
+
+data_generation:
+  project_count: 25000
+  contractor_count: 3500
+  agency_count: 850
+  district_count: 619
+  state_count: 28
+  constituency_count: 543
+  random_seed: 42
+
+scenario_distribution:
+  NORMAL_LEGITIMATE: 0.65
+  LEGITIMATE_HARD_NEGATIVE: 0.10
+  SINGLE_ANOMALY_COST: 0.04
+  SINGLE_ANOMALY_PROCUREMENT: 0.04
+  SINGLE_ANOMALY_PROGRESS: 0.04
+  MULTI_PARAMETER_ANOMALY: 0.08
+  STRONG_SUSPICION_GHOST_WORK: 0.04
+  CRITICAL_FRAUD_LIKE: 0.01
+
+split_ratios:
+  train_ratio: 0.70
+  validation_ratio: 0.15
+  test_ratio: 0.15
+
+output_paths:
+  relational_dir: "data/synthetic/relational"
+  features_dir: "data/synthetic/features"
+  processed_dir: "data/processed"

@@ -1,0 +1,37 @@
+# configs/regulatory.yaml
+# Regulatory Knowledge Base & Compliance Engine Configuration
+
+hierarchy_levels:
+  LEVEL_1: "MPLADS eSAKSHI Guidelines & Operational Circulars"
+  LEVEL_2: "Department of Expenditure / GFR 2017 Procurement Rules"
+  LEVEL_3: "GeM General Terms & Conditions (GTC)"
+  LEVEL_4: "CAG Audit Observation Patterns"
+  LEVEL_5: "Parliamentary / PAC Review Recommendations"
+  LEVEL_6: "DARPG Administrative & Governance Guidance"
+  LEVEL_7: "Open Government Data (OGD) Reference Masters"
+  LEVEL_8: "Constitutional / Legal Framework (Articles 148-151, 266)"
+
+temporal_models:
+  esakshi_launch_date: "2023-04-01"
+  pre_esakshi_rules: "Physical submission of recommendation, district file sanctions, physical MB"
+  esakshi_era_rules: "Mandatory digital work recommendation, digital sanction order, geotagged photos at milestone payments, digital UC"
+
+procurement_channels:
+  - "GEM"
+  - "STATE_TENDER"
+  - "CENTRAL_TENDER"
+  - "DIRECT_NOMINATION"
+
+directories:
+  raw_dir: "data/regulatory/raw"
+  extracted_dir: "data/regulatory/extracted"
+  normalized_dir: "data/regulatory/normalized"
+  rules_dir: "data/regulatory/rules"
+  audit_patterns_dir: "data/regulatory/audit_patterns"
+  compliance_output_dir: "data/compliance"
+
+severity_weights:
+  CRITICAL: 40.0
+  HIGH: 25.0
+  MEDIUM: 15.0
+  LOW: 5.0

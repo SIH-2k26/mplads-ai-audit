@@ -1,0 +1,24 @@
+# configs/risk_thresholds.yaml
+# Calibrated probability and score boundaries
+
+risk_level_thresholds:
+  low:
+    min_score: 0.0
+    max_score: 34.99
+    label: "LOW"
+    action: "Standard periodic monitoring; no immediate investigation required."
+  medium:
+    min_score: 35.0
+    max_score: 64.99
+    label: "MEDIUM"
+    action: "Desk review suggested; check milestone updates and documentation completeness."
+  high:
+    min_score: 65.0
+    max_score: 84.99
+    label: "HIGH"
+    action: "Physical site inspection and detailed financial voucher verification recommended."
+  critical:
+    min_score: 85.0
+    max_score: 100.0
+    label: "CRITICAL"
+    action: "Immediate audit intervention, fund disbursement hold, and formal docket escalation."

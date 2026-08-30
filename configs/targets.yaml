@@ -1,0 +1,38 @@
+# configs/targets.yaml
+# Target definitions for multi-task risk models
+
+primary_target:
+  name: "is_anomalous"
+  type: "binary"
+  positive_class: 1
+  negative_class: 0
+  description: "Whether the project exhibits controlled anomaly signals requiring audit investigation."
+
+multiclass_target:
+  name: "risk_level"
+  type: "multiclass"
+  classes:
+    - "LOW"
+    - "MEDIUM"
+    - "HIGH"
+    - "CRITICAL"
+
+domain_targets:
+  cost_risk:
+    name: "is_cost_anomaly"
+    type: "binary"
+  financial_risk:
+    name: "is_financial_anomaly"
+    type: "binary"
+  procurement_risk:
+    name: "is_procurement_anomaly"
+    type: "binary"
+  progress_risk:
+    name: "is_progress_anomaly"
+    type: "binary"
+  contractor_risk:
+    name: "is_contractor_anomaly"
+    type: "binary"
+  ghost_work_risk:
+    name: "is_ghost_work"
+    type: "binary"

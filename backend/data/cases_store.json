@@ -1,0 +1,63 @@
+{
+  "CASE-2025-UP-001": {
+    "case_id": "CASE-2025-UP-001",
+    "project_id": "MPLADS-UP-24-8841",
+    "priority": "CRITICAL",
+    "status": "VERDICT_RECORDED",
+    "risk_score_at_creation": 96.1,
+    "risk_level_at_creation": "CRITICAL",
+    "trigger_signals": [
+      "Synthetic Aperture Radar verified 0% physical progress vs 87.5% financial claim",
+      "Single bidder tender award without competitive re-tender"
+    ],
+    "created_at": "2026-08-29T06:13:09.044792+00:00",
+    "updated_at": "2026-08-29T06:13:19.947209+00:00",
+    "verdicts": [
+      {
+        "verdict": "CONFIRMED_ISSUE",
+        "reason": "Site audit confirms 0% physical erection.",
+        "investigator_id": "INV_001",
+        "investigator_name": "Audit Inspector Patil",
+        "is_feedback_consented": false,
+        "submitted_at": "2026-08-29T06:13:19.947197+00:00"
+      }
+    ]
+  },
+  "CASE-2025-MH-002": {
+    "case_id": "CASE-2025-MH-002",
+    "project_id": "MPLADS-MH-24-3192",
+    "priority": "CRITICAL",
+    "status": "OPEN",
+    "risk_score_at_creation": 89.2,
+    "risk_level_at_creation": "CRITICAL",
+    "trigger_signals": [
+      "Common director PAN across L1 and L2 tenderers",
+      "14 out of 42 RO units missing from GPS coordinates"
+    ],
+    "created_at": "2026-08-29T06:13:09.044803+00:00",
+    "updated_at": "2026-08-29T06:13:09.044804+00:00",
+    "verdicts": []
+  },
+  "CASE-2025-KA-003": {
+    "case_id": "CASE-2025-KA-003",
+    "project_id": "MPLADS-KA-24-1049",
+    "priority": "HIGH",
+    "status": "VERDICT_RECORDED",
+    "risk_score_at_creation": 78.4,
+    "risk_level_at_creation": "HIGH",
+    "trigger_signals": [
+      "240% cost inflation over GeM benchmark rates"
+    ],
+    "created_at": "2026-08-29T06:13:09.044806+00:00",
+    "updated_at": "2026-08-29T06:13:09.044807+00:00",
+    "verdicts": [
+      {
+        "verdict": "CONFIRMED_ISSUE",
+        "reason": "Overpricing confirmed by state rate audit squad.",
+        "investigator_id": "INV_004",
+        "investigator_name": "Audit Officer Sharma",
+        "submitted_at": "2026-08-29T06:13:09.044808+00:00"
+      }
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+policy_id: "MPLADS_GUIDELINES"
+version: "2023"
+effective_from: "2023-01-01"
+effective_to: null
+title: "Revised Guidelines on Members of Parliament Local Area Development Scheme (MPLADS) - 2023 Edition"
+source_document: "MoSPI_MPLADS_Revised_Guidelines_2023.pdf"
+rules:
+  - rule_id: "RULE-2023-FIN-01"
+    name: "Strict Sanction Ceiling"
+    description: "Total expenditure must not exceed sanctioned amount. Revised guidelines mandate strict compliance."
+    category: "FINANCIAL"
+    severity: "CRITICAL"
+    condition_expression: "expenditure <= sanctioned_amount"
+    remediation_guidance: "Zero budget overrun permissible under 2023 framework without prior MoSPI sanction."
+    applicable_categories: ["ALL"]
+    citation_section: "Section 2.3 (Fund Allocation and Utilization)"
+    parameters:
+      tolerance_factor: 1.00
+
+  - rule_id: "RULE-2023-FIN-02"
+    name: "Tightened Payment-Progress Mismatch"
+    description: "Financial progress must not exceed physical progress by more than 20 percentage points under web portal rules."
+    category: "FINANCIAL"
+    severity: "CRITICAL"
+    condition_expression: "financial_progress - physical_progress <= 20.0"
+    remediation_guidance: "Disallow further e-disbursements on the portal until physical progress measurement book entry is uploaded."
+    applicable_categories: ["ALL"]
+    citation_section: "Section 4.4 (Staged Milestone Payments)"
+    parameters:
+      max_gap: 20.0
+
+  - rule_id: "RULE-2023-DOC-01"
+    name: "Digital Asset Documentation & Geo-tagging"
+    description: "Projects require Sanction Order, Work Order, and Geo-tagged Photo Evidence before 50% fund release."
+    category: "DOCUMENTATION"
+    severity: "HIGH"
+    condition_expression: "('SANCTION_ORDER' in document_types and 'WORK_ORDER' in document_types) and (financial_progress < 50.0 or 'PHOTO_EVIDENCE' in document_types or 'INSPECTION_REPORT' in document_types)"
+    remediation_guidance: "Upload geo-tagged photographs and site inspection logs via the mobile inspection app."
+    applicable_categories: ["ALL"]
+    citation_section: "Section 6.1 (Digital Monitoring and Geo-tagging)"
+
+  - rule_id: "RULE-2023-TIME-01"
+    name: "Mandatory Deadline Monitoring"
+    description: "Projects overdue by more than 90 days trigger automatic review by the State Nodal Department."
+    category: "TIMELINE"
+    severity: "HIGH"
+    condition_expression: "not (is_overdue and delay_days > 90 and physical_progress < 100.0)"
+    remediation_guidance: "District Authority must submit explanation note to State Nodal Department."
+    applicable_categories: ["ALL"]
+    citation_section: "Section 3.12 (Review of Delayed Works)"
+    parameters:
+      max_delay_days: 90
+
+  - rule_id: "RULE-2023-ELIG-01"
+    name: "Commercial & Private Benefit Exclusion"
+    description: "Works providing exclusive benefit to private individuals or commercial organizations are prohibited."
+    category: "ELIGIBILITY"
+    severity: "CRITICAL"
+    condition_expression: "category not in ['COMMERCIAL', 'PRIVATE_CLUB', 'RELIGIOUS_PRIVATE']"
+    remediation_guidance: "Cancel sanction and recover distributed funds."
+    applicable_categories: ["ALL"]
+    citation_section: "Section 1.5 (Prohibited Works list - Annexure II)"

@@ -1,0 +1,6 @@
+model,accuracy,precision,recall,f1,roc_auc,pr_auc,mcc,train_time_sec,inference_time_sec
+LightGBM,98.29,93.48,98.42,95.89,0.9992,0.997,0.9486,0.72,0.029
+Random Forest,98.36,96.23,95.66,95.95,0.9992,0.9969,0.9492,1.41,0.052
+HistGradientBoosting,98.31,93.3,98.78,95.96,0.9992,0.9969,0.9496,3.02,0.022
+XGBoost,98.35,95.07,96.91,95.98,0.9992,0.9968,0.9495,0.51,0.007
+Logistic Regression,87.48,66.92,75.71,71.05,0.8906,0.8309,0.6329,1.69,0.001
