@@ -27,7 +27,8 @@ function FormattedMessage({ text }: { text: string }) {
           ? line.replace(/^[•\-*]\s*/, "• ")
           : line;
 
-        const parts = cleanLine.split(/(\*[^*]+\*)/g);
+        // Parse **bold** and *italic* tokens accurately without leaving stray asterisks
+        const parts = cleanLine.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
 
         return (
           <p
@@ -37,14 +38,14 @@ function FormattedMessage({ text }: { text: string }) {
             }`}
           >
             {parts.map((part, pIdx) => {
-              if (part.startsWith("**") && part.endsWith("**")) {
+              if (part.startsWith("**") && part.endsWith("**") && part.length >= 4) {
                 return (
                   <strong key={pIdx} className="font-bold text-[#0E0E0E]">
                     {part.slice(2, -2)}
                   </strong>
                 );
               }
-              if (part.startsWith("*") && part.endsWith("*") && !part.startsWith("**")) {
+              if (part.startsWith("*") && part.endsWith("*") && !part.startsWith("**") && part.length >= 2) {
                 return (
                   <em key={pIdx} className="italic text-[#0E0E0E]">
                     {part.slice(1, -1)}
