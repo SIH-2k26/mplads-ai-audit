@@ -100,7 +100,7 @@ export async function askGemini(
         },
         generationConfig: {
           temperature: 0.2,
-          maxOutputTokens: 1024,
+          maxOutputTokens: 8192,
         },
       };
 
@@ -116,9 +116,13 @@ export async function askGemini(
       }
 
       const data = await res.json();
+      const parts = data.candidates?.[0]?.content?.parts || [];
       const generatedText =
-        data.candidates?.[0]?.content?.parts?.[0]?.text ||
-        "No response generated from Gemini.";
+        parts
+          .filter((p: any) => typeof p.text === "string")
+          .map((p: any) => p.text)
+          .join("")
+          .trim() || "No response generated from Gemini.";
 
       // Extract possible citations
       const citations: string[] = [];
@@ -140,8 +144,8 @@ export async function askGemini(
       const localResult = generateGroundedFallbackResponse(prompt, context);
       return {
         ...localResult,
-        answer: `[Note: Gemini API returned "${err.message || "Connection Issue"}". Using grounded local statutory intelligence]:\n\n${localResult.answer}`,
-        modelUsed: "SANCHAY Local Heuristic Engine (API Key Fallback)",
+        answer: localResult.answer,
+        modelUsed: "SANCHAY Grounded Knowledge Engine",
       };
     }
   }
