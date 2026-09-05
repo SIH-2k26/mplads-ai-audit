@@ -3,6 +3,7 @@ import { PageHeader } from '../components/layout/PageHeader';
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '../components/ui/table';
 import { Button } from '../components/ui/button';
+import { ChevronRight, ArrowUpRight } from 'lucide-react';
 import { projectService } from '../services/projectService';
 import { getDashboardSummary } from '../services/api';
 import { useRoleStore } from '../stores/useRoleStore';
@@ -128,13 +129,19 @@ export function DistrictDashboardPage() {
 
       {/* District Collector Metric cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card>
-          <CardHeader><CardTitle>{t.district.cards.works}</CardTitle></CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold font-mono">{summary.totalCount || 48}</div>
-            <p className="text-xs text-[#6B6B6B]">{t.district.cards.worksDesc}</p>
-          </CardContent>
-        </Card>
+        <Link to={`/projects?district=${selectedDistrict}`} className="block group">
+          <Card className="hover:border-[#0E0E0E] transition-all hover:shadow-xs cursor-pointer h-full">
+            <CardHeader className="flex flex-row items-center justify-between pb-1">
+              <CardTitle>{t.district.cards.works}</CardTitle>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#8C8C8C] opacity-0 group-hover:opacity-100 transition-opacity" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold font-mono">{summary.totalCount || 48}</div>
+              <p className="text-xs text-[#6B6B6B]">{t.district.cards.worksDesc} →</p>
+            </CardContent>
+          </Card>
+        </Link>
+
         <Card>
           <CardHeader><CardTitle>{t.district.cards.sanctioned}</CardTitle></CardHeader>
           <CardContent>
@@ -142,6 +149,7 @@ export function DistrictDashboardPage() {
             <p className="text-xs text-[#6B6B6B]">{t.district.cards.sanctionedDesc}</p>
           </CardContent>
         </Card>
+
         <Card>
           <CardHeader><CardTitle>{t.district.cards.expenditure}</CardTitle></CardHeader>
           <CardContent>
@@ -149,13 +157,19 @@ export function DistrictDashboardPage() {
             <p className="text-xs text-[#6B6B6B]">{t.district.cards.expenditureDesc} ({(summary.totalUtilisation || 67.6).toFixed(1)}%)</p>
           </CardContent>
         </Card>
-        <Card>
-          <CardHeader><CardTitle>{t.district.cards.criticalOverlaps}</CardTitle></CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold font-mono text-red-600">{summary.criticalCount || 3}</div>
-            <p className="text-xs text-[#6B6B6B]">{t.district.cards.criticalOverlapsDesc}</p>
-          </CardContent>
-        </Card>
+
+        <Link to={`/projects?risk=CRITICAL&district=${selectedDistrict}`} className="block group">
+          <Card className="border-red-200 hover:border-red-500 bg-red-50/20 hover:bg-red-50/40 transition-all hover:shadow-xs cursor-pointer h-full">
+            <CardHeader className="flex flex-row items-center justify-between pb-1">
+              <CardTitle className="text-red-900">{t.district.cards.criticalOverlaps}</CardTitle>
+              <ArrowUpRight className="w-3.5 h-3.5 text-red-600 opacity-60 group-hover:opacity-100 transition-opacity" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold font-mono text-red-600">{summary.criticalCount || 3}</div>
+              <p className="text-xs text-[#6B6B6B]">{t.district.cards.criticalOverlapsDesc} →</p>
+            </CardContent>
+          </Card>
+        </Link>
       </div>
 
       {/* Charts Section: Status Distribution Donut & Risk Matrix */}
@@ -208,16 +222,20 @@ export function DistrictDashboardPage() {
               {statusChartData.map((item) => {
                 const percentage = Math.round((item.value / totalStatusValue) * 100);
                 return (
-                  <div key={item.name} className="flex items-center justify-between text-xs">
+                  <Link
+                    key={item.name}
+                    to={`/projects?status=${item.name}&district=${selectedDistrict}`}
+                    className="flex items-center justify-between text-xs p-1 rounded-lg hover:bg-[#FAF9F5] transition-colors group cursor-pointer"
+                  >
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
-                      <span className="font-medium text-[#0E0E0E] capitalize text-xs">{item.name}</span>
+                      <span className="font-medium text-[#0E0E0E] group-hover:text-[#002449] capitalize text-xs">{item.name.replace(/_/g, ' ')}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="font-mono text-[11px] text-[#6B6B6B]">{item.value} works</span>
                       <span className="font-mono text-xs font-bold text-[#0E0E0E] w-10 text-right">{percentage}%</span>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -235,37 +253,61 @@ export function DistrictDashboardPage() {
             </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-              <div className="p-3.5 bg-emerald-50/60 rounded-2xl border border-emerald-200">
-                <span className="text-[10px] text-emerald-800 block uppercase tracking-wider font-bold">Low Risk</span>
+              <Link
+                to={`/projects?risk=LOW&district=${selectedDistrict}`}
+                className="p-3.5 bg-emerald-50/60 hover:bg-emerald-100/90 rounded-2xl border border-emerald-200 transition-all hover:scale-[1.02] hover:shadow-xs group cursor-pointer block"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] text-emerald-800 block uppercase tracking-wider font-bold">Low Risk</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-emerald-700 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </div>
                 <span className="text-xl font-bold text-emerald-800 block mt-1 font-mono">
                   {projects.filter((p) => p.currentRiskScore <= 29).length}
                 </span>
-                <span className="text-[10px] text-emerald-700">Score ≤ 29</span>
-              </div>
+                <span className="text-[10px] text-emerald-700 font-medium">Score ≤ 29 → View</span>
+              </Link>
 
-              <div className="p-3.5 bg-amber-50/60 rounded-2xl border border-amber-200">
-                <span className="text-[10px] text-amber-800 block uppercase tracking-wider font-bold">Medium Risk</span>
+              <Link
+                to={`/projects?risk=MEDIUM&district=${selectedDistrict}`}
+                className="p-3.5 bg-amber-50/60 hover:bg-amber-100/90 rounded-2xl border border-amber-200 transition-all hover:scale-[1.02] hover:shadow-xs group cursor-pointer block"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] text-amber-800 block uppercase tracking-wider font-bold">Medium Risk</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-amber-700 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </div>
                 <span className="text-xl font-bold text-amber-800 block mt-1 font-mono">
                   {projects.filter((p) => p.currentRiskScore >= 30 && p.currentRiskScore <= 59).length}
                 </span>
-                <span className="text-[10px] text-amber-700">Score 30-59</span>
-              </div>
+                <span className="text-[10px] text-amber-700 font-medium">Score 30-59 → View</span>
+              </Link>
 
-              <div className="p-3.5 bg-orange-50/60 rounded-2xl border border-orange-200">
-                <span className="text-[10px] text-orange-800 block uppercase tracking-wider font-bold">High Risk</span>
+              <Link
+                to={`/projects?risk=HIGH&district=${selectedDistrict}`}
+                className="p-3.5 bg-orange-50/60 hover:bg-orange-100/90 rounded-2xl border border-orange-200 transition-all hover:scale-[1.02] hover:shadow-xs group cursor-pointer block"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] text-orange-800 block uppercase tracking-wider font-bold">High Risk</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-orange-700 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </div>
                 <span className="text-xl font-bold text-orange-800 block mt-1 font-mono">
                   {projects.filter((p) => p.currentRiskScore >= 60 && p.currentRiskScore <= 79).length}
                 </span>
-                <span className="text-[10px] text-orange-700">Score 60-79</span>
-              </div>
+                <span className="text-[10px] text-orange-700 font-medium">Score 60-79 → View</span>
+              </Link>
 
-              <div className="p-3.5 bg-red-50/60 rounded-2xl border border-red-200">
-                <span className="text-[10px] text-red-800 block uppercase tracking-wider font-bold">Critical Risk</span>
+              <Link
+                to={`/projects?risk=CRITICAL&district=${selectedDistrict}`}
+                className="p-3.5 bg-red-50/60 hover:bg-red-100/90 rounded-2xl border border-red-200 transition-all hover:scale-[1.02] hover:shadow-xs group cursor-pointer block"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] text-red-800 block uppercase tracking-wider font-bold">Critical Risk</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-red-700 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </div>
                 <span className="text-xl font-bold text-red-700 block mt-1 font-mono">
                   {projects.filter((p) => p.currentRiskScore >= 80).length}
                 </span>
-                <span className="text-[10px] text-red-600">Score ≥ 80</span>
-              </div>
+                <span className="text-[10px] text-red-600 font-medium">Score ≥ 80 → View</span>
+              </Link>
             </div>
 
             <div className="p-4 rounded-2xl bg-[#FAF9F5] border border-[#E5E3DC] flex items-center justify-between text-xs">

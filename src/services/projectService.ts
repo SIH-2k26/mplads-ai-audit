@@ -48,12 +48,12 @@ export const projectService = {
 
         if (filters.riskLevel === 'MEDIUM')
           return (
-            p.currentRiskScore >= 35 &&
+            p.currentRiskScore >= 30 &&
             p.currentRiskScore < 60
           );
 
         if (filters.riskLevel === 'LOW')
-          return p.currentRiskScore < 35;
+          return p.currentRiskScore < 30;
 
         return true;
       });
