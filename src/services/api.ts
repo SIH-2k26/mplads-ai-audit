@@ -272,37 +272,5 @@ export async function getPolicies(): Promise<ApiResult<any[]>> {
   return apiFetch('/policies');
 }
 
-export async function downloadReport(reportType: string = 'summary', format: string = 'csv', role: string = 'AUDITOR'): Promise<void> {
-  const fmt = format.toLowerCase();
-  const endpoint = `/reports/download?format=${fmt}&report_type=${encodeURIComponent(reportType)}&role=${encodeURIComponent(role)}`;
-  const url = `${BASE_URL}${endpoint}`;
+export { downloadReport, generateCsvReport, generateHtmlDossier } from './reportGenerator';
 
-  try {
-    const res = await fetch(url);
-    if (!res.ok) {
-      toast.error('Download Failed', { description: `Server returned HTTP ${res.status}` });
-      return;
-    }
-
-    const blob = await res.blob();
-    const isCsv = fmt === 'csv' || fmt === 'xlsx';
-    const blobUrl = window.URL.createObjectURL(blob);
-
-    const safeName = reportType.toLowerCase().replace(/[^a-z0-9]+/g, '_');
-    const filename = `mplads_${role.toLowerCase()}_audit_${safeName}.${isCsv ? 'csv' : 'html'}`;
-
-    const a = document.createElement('a');
-    a.href = blobUrl;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(() => window.URL.revokeObjectURL(blobUrl), 1000);
-
-    toast.success('Report Downloaded Successfully', {
-      description: `Saved ${filename} to your downloads.`,
-    });
-  } catch (err: any) {
-    toast.error('Download Error', { description: err?.message || String(err) });
-  }
-}

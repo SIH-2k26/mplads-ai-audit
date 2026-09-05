@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
-import { Download, FileSpreadsheet, BarChart2, ShieldCheck, FileText, UserCheck } from 'lucide-react';
+import { Download, FileSpreadsheet, BarChart2, ShieldCheck, FileText, UserCheck, Loader2 } from 'lucide-react';
 import { useRoleStore } from '../stores/useRoleStore';
 import { downloadReport } from '../services/api';
 import { UserRole } from '../types';
@@ -122,9 +122,16 @@ const ROLE_REPORTS_MAP: Record<UserRole, ReportTemplate[]> = {
 
 export function ReportsPage() {
   const { currentRole, userTitle, userJurisdiction } = useRoleStore();
+  const [downloadingTitle, setDownloadingTitle] = React.useState<string | null>(null);
 
-  const handleExport = (format: string, title?: string) => {
-    downloadReport(title || 'summary', format, currentRole);
+  const handleExport = async (format: string, title?: string) => {
+    const reportKey = title || 'summary';
+    setDownloadingTitle(reportKey);
+    try {
+      await downloadReport(reportKey, format, currentRole);
+    } finally {
+      setDownloadingTitle(null);
+    }
   };
 
   const roleReports = ROLE_REPORTS_MAP[currentRole] || ROLE_REPORTS_MAP.AUDITOR;
@@ -177,31 +184,39 @@ export function ReportsPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              {roleReports.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="p-4 bg-white rounded-2xl border border-[#E5E3DC] hover:border-[#15324A]/40 transition-all flex items-center justify-between gap-4 shadow-2xs"
-                >
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-[#0E0E0E]">{item.title}</span>
-                      {item.badge && (
-                        <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-xs bg-[#F1F0EC] text-[#15324A] border border-[#E5E3DC]">
-                          {item.badge}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-[11px] text-[#6B6B6B] leading-relaxed">{item.detail}</p>
-                  </div>
-                  <button
-                    onClick={() => handleExport(item.type, item.title)}
-                    className="bg-[#15324A] hover:bg-[#0F2638] text-white text-[10px] font-bold px-3.5 py-2 rounded-full cursor-pointer flex items-center gap-1.5 transition-colors shrink-0 shadow-2xs"
+              {roleReports.map((item, idx) => {
+                const isDownloading = downloadingTitle === item.title;
+                return (
+                  <div
+                    key={idx}
+                    className="p-4 bg-white rounded-2xl border border-[#E5E3DC] hover:border-[#15324A]/40 transition-all flex items-center justify-between gap-4 shadow-2xs"
                   >
-                    <Download className="w-3.5 h-3.5 text-[#E5B45A]" />
-                    <span>Download {item.type}</span>
-                  </button>
-                </div>
-              ))}
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-[#0E0E0E]">{item.title}</span>
+                        {item.badge && (
+                          <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-xs bg-[#F1F0EC] text-[#15324A] border border-[#E5E3DC]">
+                            {item.badge}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-[11px] text-[#6B6B6B] leading-relaxed">{item.detail}</p>
+                    </div>
+                    <button
+                      onClick={() => handleExport(item.type, item.title)}
+                      disabled={isDownloading}
+                      className="bg-[#15324A] hover:bg-[#0F2638] disabled:opacity-60 text-white text-[10px] font-bold px-3.5 py-2 rounded-full cursor-pointer flex items-center gap-1.5 transition-colors shrink-0 shadow-2xs"
+                    >
+                      {isDownloading ? (
+                        <Loader2 className="w-3.5 h-3.5 text-[#E5B45A] animate-spin" />
+                      ) : (
+                        <Download className="w-3.5 h-3.5 text-[#E5B45A]" />
+                      )}
+                      <span>{isDownloading ? 'Generating...' : `Download ${item.type}`}</span>
+                    </button>
+                  </div>
+                );
+              })}
             </CardContent>
           </Card>
         </div>
