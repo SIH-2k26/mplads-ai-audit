@@ -43,20 +43,15 @@ export interface GeminiResponse {
 
 const SYSTEM_GROUNDING_PROMPT = `You are SANCHAY AI (Statutory Audit Neural Cartography & Holistic Analytics for Yield Oversight), the official AI Forensic Intelligence Copilot for the Ministry of Statistics & Programme Implementation (MoSPI), Government of India.
 
-YOUR MANDATE:
-- Analyze Member of Parliament Local Area Development Scheme (MPLADS) infrastructure projects across all 543 Lok Sabha and 245 Rajya Sabha constituencies.
-- Ground all findings strictly on statutory provisions: MPLADS Guidelines 2023, General Financial Rules 2017 (GFR-12C Utilization Certificates), CVC Anti-Collusion Circulars, and PWD/CPWD Schedule of Rates (SoR).
-- Detect multi-source forensic discrepancies:
-  1. PFMS Treasury vs Physical Mismatch: Disbursements exceeding physical completion milestones (e.g. 92.5% spent vs 31% physical work on P-1023).
-  2. ISRO Cartosat-3 / Sentinel SAR Remote Sensing: Radar elevation model anomalies where claimed milestones have zero physical optical/earthwork evidence.
-  3. Contractor & Syndicate Linkages: MCA-21 director PAN networks, common registered shell addresses, and L1/L2 cover bidding cartels (e.g. Vindhya Infracon Ltd & Apex Infraworks Pvt sharing Director R. K. Agarwal).
-  4. Schedule of Rates Inflation: Technical sanction estimates exceeding 10% of prevailing PWD SoR without committee sanction.
-
-IMPORTANT RULES:
-- You are a read-only statutory audit and intelligence assistant. You answer questions and synthesize forensic briefs accurately.
-- DO NOT make code changes or pretend to execute shell commands; answer in crisp, professional, authoritative government audit tone.
-- When referencing regulations, cite specific clauses (e.g., "MPLADS Guidelines 2023 §4.2", "GFR-12C §238", "CVC Circular 09/2021").
-- Provide structured answers with bullet points, evidence breakdown, and suggested statutory actions when appropriate.`;
+CRITICAL INSTRUCTIONS FOR FAST, EXECUTIVE-GRADE AUDIT RESPONSES:
+1. STRUCTURE & READABILITY:
+   - Provide crisp, highly structured answers with bold headings (### Heading), clear bullet points (•), and formatted metrics.
+   - Do NOT produce long unstructured walls of text. Be direct, authoritative, and concise.
+   - Highlight key figures (e.g. **₹48.50 Lakhs**, **92.5% spent**, **P-1023**) in bold.
+2. STATUTORY CITATIONS:
+   - Ground every observation in official rules: MPLADS Guidelines 2023, General Financial Rules (GFR-12C), CVC Anti-Collusion Directives, or PWD Schedule of Rates (SoR).
+3. ACTIONABLE AUDIT PLAN:
+   - Conclude with 2-3 concrete actionable statutory steps for the officer (e.g., Freeze PFMS Escrow, Issue Show-Cause Notice, Dispatch On-Site Verification Team).`;
 
 export async function askGemini(
   prompt: string,
@@ -83,70 +78,71 @@ export async function askGemini(
     : prompt;
 
   if (apiKey) {
-    try {
-      // Direct call to Gemini 2.5 Flash / Gemini 1.5 Flash via REST endpoint
-      const model = "gemini-3.6-flash";
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+    // Fast model cascade: gemini-flash-lite-latest (fastest 1-2s) -> gemini-3.1-flash-lite -> gemini-3.6-flash
+    const candidateModels = [
+      "gemini-flash-lite-latest",
+      "gemini-3.1-flash-lite",
+      "gemini-3.6-flash",
+    ];
 
-      const payload = {
-        contents: [
-          {
-            role: "user",
-            parts: [{ text: fullPrompt }],
+    for (const model of candidateModels) {
+      try {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+        const payload = {
+          contents: [
+            {
+              role: "user",
+              parts: [{ text: fullPrompt }],
+            },
+          ],
+          systemInstruction: {
+            parts: [{ text: SYSTEM_GROUNDING_PROMPT }],
           },
-        ],
-        systemInstruction: {
-          parts: [{ text: SYSTEM_GROUNDING_PROMPT }],
-        },
-        generationConfig: {
-          temperature: 0.2,
-          maxOutputTokens: 8192,
-        },
-      };
+          generationConfig: {
+            temperature: 0.15,
+            maxOutputTokens: 2048,
+          },
+        };
 
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+        const res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
 
-      if (!res.ok) {
-        const errJson = await res.json().catch(() => ({}));
-        throw new Error(errJson.error?.message || `Gemini API returned status ${res.status}`);
+        if (!res.ok) {
+          continue; // Try next model in cascade
+        }
+
+        const data = await res.json();
+        const parts = data.candidates?.[0]?.content?.parts || [];
+        const generatedText =
+          parts
+            .filter((p: any) => typeof p.text === "string")
+            .map((p: any) => p.text)
+            .join("")
+            .trim();
+
+        if (!generatedText) continue;
+
+        // Extract possible citations
+        const citations: string[] = [];
+        if (generatedText.includes("MPLADS Guidelines")) citations.push("MPLADS Guidelines 2023 §4.2");
+        if (generatedText.includes("GFR") || generatedText.includes("12C")) citations.push("GFR-12C Utilization Standard");
+        if (generatedText.includes("PFMS")) citations.push("PFMS DBT Escrow Ledger v4.2");
+        if (generatedText.includes("Cartosat") || generatedText.includes("ISRO") || generatedText.includes("SAR")) citations.push("ISRO Cartosat-3 SAR Geo-dossier");
+        if (generatedText.includes("MCA") || generatedText.includes("PAN") || generatedText.includes("CVC")) citations.push("MCA-21 / CVC Circular 09/2021");
+        if (citations.length === 0) citations.push("MoSPI National Audit Portal", "District Planning Directorate");
+
+        return {
+          answer: generatedText,
+          citations,
+          modelUsed: `SANCHAY Gemini (${model})`,
+        };
+      } catch (err: any) {
+        console.warn(`Attempt with ${model} failed, trying next fallback:`, err);
       }
-
-      const data = await res.json();
-      const parts = data.candidates?.[0]?.content?.parts || [];
-      const generatedText =
-        parts
-          .filter((p: any) => typeof p.text === "string")
-          .map((p: any) => p.text)
-          .join("")
-          .trim() || "No response generated from Gemini.";
-
-      // Extract possible citations
-      const citations: string[] = [];
-      if (generatedText.includes("MPLADS Guidelines")) citations.push("MPLADS Guidelines 2023 §4.2");
-      if (generatedText.includes("GFR") || generatedText.includes("12C")) citations.push("GFR-12C Utilization Standard");
-      if (generatedText.includes("PFMS")) citations.push("PFMS DBT Escrow Ledger v4.2");
-      if (generatedText.includes("Cartosat") || generatedText.includes("ISRO") || generatedText.includes("SAR")) citations.push("ISRO Cartosat-3 SAR Geo-dossier");
-      if (generatedText.includes("MCA") || generatedText.includes("PAN") || generatedText.includes("CVC")) citations.push("MCA-21 / CVC Circular 09/2021");
-      if (citations.length === 0) citations.push("MoSPI National Audit Portal", "District Planning Directorate");
-
-      return {
-        answer: generatedText,
-        citations,
-        modelUsed: "Gemini 3.6 Flash (Live)",
-      };
-    } catch (err: any) {
-      console.warn("Live Gemini API call error, using grounded fallback:", err);
-      // Fallback with notification
-      const localResult = generateGroundedFallbackResponse(prompt, context);
-      return {
-        ...localResult,
-        answer: localResult.answer,
-        modelUsed: "SANCHAY Grounded Knowledge Engine",
-      };
     }
   }
 

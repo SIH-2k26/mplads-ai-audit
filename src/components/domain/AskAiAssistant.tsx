@@ -12,48 +12,86 @@ interface ChatMessage {
   citations?: string[];
 }
 
+function parseInlineTokens(rawText: string) {
+  const parts = rawText.split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g);
+  return parts.map((part, pIdx) => {
+    if (part.startsWith("**") && part.endsWith("**") && part.length >= 4) {
+      return (
+        <strong key={pIdx} className="font-bold text-[#0E0E0E]">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (part.startsWith("*") && part.endsWith("*") && !part.startsWith("**") && part.length >= 2) {
+      return (
+        <em key={pIdx} className="italic text-[#344054]">
+          {part.slice(1, -1)}
+        </em>
+      );
+    }
+    if (part.startsWith("`") && part.endsWith("`") && part.length >= 2) {
+      return (
+        <code key={pIdx} className="px-1.5 py-0.5 rounded bg-[#FAF9F5] text-[#002449] font-mono text-[10px] border border-[#E5E3DC]">
+          {part.slice(1, -1)}
+        </code>
+      );
+    }
+    return part;
+  });
+}
+
 function FormattedMessage({ text }: { text: string }) {
   const lines = text.split("\n");
   return (
-    <div className="space-y-1.5 font-sans leading-relaxed text-xs">
-      {lines.map((line, idx) => {
-        if (!line.trim()) return <div key={idx} className="h-1" />;
+    <div className="space-y-1 font-sans leading-relaxed text-xs">
+      {lines.map((rawLine, idx) => {
+        const trimmed = rawLine.trim();
+        if (!trimmed) return <div key={idx} className="h-1.5" />;
 
-        const isHeader = line.startsWith("#");
-        const isBullet = line.trim().startsWith("•") || line.trim().startsWith("-") || line.trim().startsWith("* ");
-        const cleanLine = isHeader
-          ? line.replace(/^#+\s*/, "")
-          : isBullet
-          ? line.replace(/^[•\-*]\s*/, "• ")
-          : line;
+        // Horizontal divider
+        if (trimmed === "---" || trimmed === "___" || trimmed === "***") {
+          return <hr key={idx} className="border-t border-[#E5E3DC] my-2" />;
+        }
 
-        // Parse **bold** and *italic* tokens accurately without leaving stray asterisks
-        const parts = cleanLine.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
+        // Headers
+        const headerMatch = trimmed.match(/^(#{1,4})\s+(.*)$/);
+        if (headerMatch) {
+          const level = headerMatch[1].length;
+          return (
+            <div
+              key={idx}
+              className={`font-bold text-[#002449] tracking-tight ${
+                level <= 2
+                  ? "text-[13px] pt-2 pb-1 border-b border-[#E5E3DC] mb-1 font-sans"
+                  : "text-xs pt-1.5 font-semibold"
+              }`}
+            >
+              {parseInlineTokens(headerMatch[2])}
+            </div>
+          );
+        }
 
+        // List items (bullet or numbered)
+        const listMatch = trimmed.match(/^([•\-\*]|\d+[\.\)])\s+(.*)$/);
+        if (listMatch) {
+          const marker = listMatch[1];
+          const isNum = /\d/.test(marker);
+          return (
+            <div key={idx} className="flex items-start gap-2 pl-1 py-0.5">
+              <span className={`select-none shrink-0 text-[#002449] font-bold ${isNum ? "text-[11px] font-mono min-w-[14px]" : "text-sm leading-none pt-0.5"}`}>
+                {isNum ? marker : "•"}
+              </span>
+              <div className="text-xs text-[#0E0E0E] leading-relaxed flex-1">
+                {parseInlineTokens(listMatch[2])}
+              </div>
+            </div>
+          );
+        }
+
+        // Standard paragraph
         return (
-          <p
-            key={idx}
-            className={`${isHeader ? "font-bold text-[#002449] text-xs pt-1" : ""} ${
-              isBullet ? "pl-2 text-[#0E0E0E]" : ""
-            }`}
-          >
-            {parts.map((part, pIdx) => {
-              if (part.startsWith("**") && part.endsWith("**") && part.length >= 4) {
-                return (
-                  <strong key={pIdx} className="font-bold text-[#0E0E0E]">
-                    {part.slice(2, -2)}
-                  </strong>
-                );
-              }
-              if (part.startsWith("*") && part.endsWith("*") && !part.startsWith("**") && part.length >= 2) {
-                return (
-                  <em key={pIdx} className="italic text-[#0E0E0E]">
-                    {part.slice(1, -1)}
-                  </em>
-                );
-              }
-              return part;
-            })}
+          <p key={idx} className="text-xs text-[#1D2939] leading-relaxed py-0.5">
+            {parseInlineTokens(trimmed)}
           </p>
         );
       })}
